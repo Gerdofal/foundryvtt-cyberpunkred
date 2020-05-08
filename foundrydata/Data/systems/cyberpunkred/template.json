@@ -1,0 +1,309 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "common": {
+
+        "description": {
+          "name": "",
+          "biography": "",
+          "appearance": "",
+          "hair": "",
+          "height": "",
+          "weight": ""
+        },
+
+
+        "resources": {
+          "health": {
+            "value": 10,
+            "min": 0,
+            "max": 10
+          }
+        },
+
+
+        "attributes": {
+          "int": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "ref": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "dex": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "tech": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "cool": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "will": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "luck": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "move": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "body": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "emp": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          },
+          "init": {
+            "value": 0,
+            "min": 0,
+            "max": 10
+          }
+        },
+
+        "skills": {
+          "brawling": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "evasion": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "meleeweapon": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "marksmanship": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "ref"
+          },
+          "concentration": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "will"
+          },
+          "perception": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "int"
+          },
+          "tracking": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "int"
+          },
+          "driving": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "ref"
+          },
+          "athletics": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "stealth": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "bribery": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "cool"
+          },
+          "conversation": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "emp"
+          },
+          "humanperception": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "emp"
+          },
+          "interrogation": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "cool"
+          },
+          "persuasion": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "cool"
+          },
+          "basictech": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "tech"
+          },
+          "cybertech": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "tech"
+          },
+          "firstaid": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "tech"
+          },
+          "playinstrument": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "emp"
+          },
+          "education": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "int"
+          },
+          "localexpert": {
+            "value": 0,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "int"
+          }
+        }
+      },
+
+      "npc": {
+        "npc1": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc2": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc3": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc4": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc5": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc6": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc7": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc8": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc9": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc10": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        }
+
+      }
+
+    },
+    "character": {
+      "templates": ["common"]
+    },
+    "npc": {
+      "templates": ["npc"]
+    }
+  },
+  "Item": {
+    "types": ["cyberware", "weapon", "other"],
+    "templates": {
+      "general": {
+        "name": "",
+        "price": 0,
+        "rarity": 0,
+        "legality": 0,
+        "description": ""
+      },
+      "cyberware": {
+        "internal": false,
+        "hackable": false,
+        "psychosis": 0
+      },
+      "weapon": {
+        "damage": 0,
+        "ammo": 0,
+        "weapontype": "",
+        "burst": false,
+        "fullauto": false
+      }
+    },
+    "weapon": {
+      "templates": ["general", "weapon"]
+    },
+    "cyberware": {
+      "templates": ["general", "cyberware"]
+    },
+    "item": {
+      "templates": ["general"]
+    }
+  }
+}

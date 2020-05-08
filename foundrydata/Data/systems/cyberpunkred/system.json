@@ -1,0 +1,23 @@
+{
+  "name": "cyberpunkred",
+  "title": "Cyberpunk RED",
+  "description": "A very simple implementation of the Cyberpunk RED Game System. Originally based on the simple system by Atropos, now grown into a monster of it's own.",
+  "version": 0.02,
+  "minimumCoreVersion": "0.5.2",
+  "compatibleCoreVersion": "0.5.5",
+  "templateVersion": 1,
+  "author": "Gerdofal",
+  "esmodules": ["module/cyberpunkred.js"],
+  "styles": ["styles/cyberpunkred.css"],
+  "packs": [],
+  "languages": [],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "url": null,
+  "manifest": null,
+  "download": null,
+  "license": null,
+  "initiative": "1d10 + @attributes.init.value"
+}
