@@ -16,7 +16,12 @@
 
         "resources": {
           "health": {
-            "value": 10,
+            "value": 25,
+            "min": 0,
+            "max": 50
+          },
+          "luck": {
+            "value": 5,
             "min": 0,
             "max": 10
           }
@@ -25,57 +30,57 @@
 
         "attributes": {
           "int": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "ref": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "dex": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "tech": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "cool": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "will": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "luck": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "move": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "body": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "emp": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           },
           "init": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10
           }
@@ -83,127 +88,127 @@
 
         "skills": {
           "brawling": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "evasion": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "meleeweapon": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "marksmanship": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "ref"
           },
           "concentration": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "will"
           },
           "perception": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "int"
           },
           "tracking": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "int"
           },
           "driving": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "ref"
           },
           "athletics": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "stealth": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "bribery": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "cool"
           },
           "conversation": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "emp"
           },
           "humanperception": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "emp"
           },
           "interrogation": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "cool"
           },
           "persuasion": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "cool"
           },
           "basictech": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "tech"
           },
           "cybertech": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "tech"
           },
           "firstaid": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "tech"
           },
           "playinstrument": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "emp"
           },
           "education": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "int"
           },
           "localexpert": {
-            "value": 0,
+            "value": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "int"
