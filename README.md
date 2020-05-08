@@ -15,8 +15,13 @@ This system doesn't yet work, though it should in the next week or two.
 - NPCs
   1. Special system to help make using large number of NPCs easier
   2. Options at the game level to define how necessary the battle grid is to the play of the game (See below)
+- Optional Rules
+  1. Support for optional rules will be inclued wherever possible. For example:
+     - Base die roll will be tweaked to include common options for exploding dice (don't explode, explode once, explode with limt, explode infinitely )
+	 - A few different ways of handling criticals will be included
+	 - There will be options to use the CP 2020 health track system instead of the CP RED health track system
 - Other
-  - Other design decisions about the table, dice rolling, etc... are still beging made
+  1. Other design decisions about the table, dice rolling, etc... are still beging made
   
 # General Design Plans
 
