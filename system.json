@@ -15,9 +15,9 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "url": null,
-  "manifest": null,
+  "url": "https://github.com/Gerdofal/foundryvtt-cyberpunkred",
+  "manifest": "https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/master/system.json",
   "download": null,
   "license": null,
-  "initiative": "1d10 + @attributes.init.value"
+  "initiative": "1d10 + @actor.data.attributes.init.value"
 }
