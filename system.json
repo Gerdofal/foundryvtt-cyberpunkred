@@ -1,7 +1,7 @@
 {
   "name": "cyberpunkred",
   "title": "Cyberpunk RED",
-  "description": "A very simple implementation of the Cyberpunk RED Game System. Originally based on the simple system by Atropos, now grown into a monster of it's own.",
+  "description": "An in-progress game system for CyberpunkRED. Still very much in development as all we have are the jumpstart rules and the core rulebook isn't even out yet.",
   "version": 0.02,
   "minimumCoreVersion": "0.5.2",
   "compatibleCoreVersion": "0.5.5",
