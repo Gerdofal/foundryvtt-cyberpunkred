@@ -3,9 +3,7 @@
     "types": ["character", "npc"],
     "templates": {
       "common": {
-
         "description": {
-          "name": "Name",
           "biography": "A brief history...",
           "appearance": "",
           "hair": "",
