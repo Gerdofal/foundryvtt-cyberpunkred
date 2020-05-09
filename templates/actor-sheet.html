@@ -46,8 +46,8 @@
       <ol class="skills-list">
         {{#each data.skills as |skill key|}}
         <li class="skill-box" data-attribute="{{key}}">
-		  <label for="data.skills.{{key}}.value" class="skill-label">{{key}}</label>
-		  <label for="data.skills.{{key}}.value" class="skill-label-attrib">({{skill.linkedattribute}})</label>
+		  <label for="data.skills.{{key}}.value" data-roll="d10+@{{skill.linkedattribute}}+{{skill.value}}" class="skill-label rollable">{{key}}</label>
+		  <label for="data.skills.\{{key\}}.value" data-roll="d10+@{{skill.linkedattribute}}+{{skill.value}}" class="skill-label-attrib rollable">({{skill.linkedattribute}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}"/>
         </li>
         {{/each}}
