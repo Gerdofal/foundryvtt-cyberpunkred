@@ -25,6 +25,7 @@
 .worldbuilding .sheet-header .header-fields {
   flex: 1;
   height: 100px;
+  width:100%;
 }
 .worldbuilding .sheet-header h1.charname {
   height: 50px;
@@ -39,15 +40,12 @@
 }
 .worldbuilding .resource {
   width: 50%;
-  height: 40px;
-  margin-top: 10px;
+  height: 35px;
+  margin-top: 3px;
   float: left;
   text-align: center;
 }
-.worldbuilding .resource input {
-  width: 100px;
-  height: 28px;
-}
+
 .worldbuilding .tabs {
   height: 40px;
   border-top: 1px solid #AAA;
@@ -95,22 +93,55 @@
   flex: 0 0 36px;
 }
 
-/* Attributes Styles */
-.worldbuilding .attributes-header {
-  padding: 5px;
-  margin: 5px 0;
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid #AAA;
-  border-radius: 2px;
-  text-align: center;
-  font-weight: bold;
+/* Resources Styles */
+.worldbuilding .resources-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  color: black;
+  grid-template-columns: 1fr 1fr;
+	width: 100%;
 }
-.worldbuilding .attributes-header .attribute-label {
-  flex: 1.5;
+.worldbuilding .resources-list ol {
+  grid-column-start: 1;
+  rid-column-end: 2;
 }
-.worldbuilding .attributes-header .attribute-control {
+
+.worldbuilding .resources-box {
+  border-color: red;
+  background:#E18E8F;
+  border: 1px solid red;
+  box-sizing: border-box;
+  color: black;
+}
+
+.worldbuilding .resources-box label {
+	text-align: center;
+	width: 100%;
+}
+
+.worldbuilding .resources-list li > * {
+  margin: 0 3px;
+  height: 35px;
+  line-height: 24px;
+  background: transparent;
+  border-radius: 0;
+}
+
+.worldbuilding .resources-list input {
+	width: 10px;
+}
+
+.worldbuilding .resources-list a.attribute-control {
   flex: 0 0 20px;
+  text-align: center;
+  line-height: 28px;
+  border: none;
 }
+
+
+/* Attributes Styles */
 .worldbuilding .attributes-list {
   list-style: none;
   margin: 0;
@@ -127,7 +158,7 @@
 .worldbuilding .attribute-box {
   border-color: red;
   background:#E18E8F;
-  border: 5px solid red;
+  border: 1px solid red;
   box-sizing: border-box;
   color: black;
 }
@@ -143,10 +174,18 @@
   line-height: 24px;
   background: transparent;
   border-radius: 0;
+  width: 100%;
 }
+
+.worldbuilding .resources-list input {
+	width: 10px;
+}
+
 .worldbuilding .attribute-label {
   font-weight: 600;
   display: block;
+  margin-bottom: 0px;
+  width: 100%;
 }
 
 .worldbuilding .attributes-list a.attribute-control {

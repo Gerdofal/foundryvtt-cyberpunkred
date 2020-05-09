@@ -21,9 +21,9 @@
             "max": 50
           },
           "luck": {
-            "value": 5,
+            "value": 25,
             "min": 0,
-            "max": 10
+            "max": 50
           }
         },
 

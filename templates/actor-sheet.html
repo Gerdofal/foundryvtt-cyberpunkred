@@ -5,42 +5,55 @@
       <h1 class="charname">
         <input name="name" type="text" value="{{actor.description.name}}" placeholder="Name"/>
       </h1>
-      <div class="resource">
-        <input type="text" name="actor.resources.health.value" value="{{actor.resources.health.value}}" data-dtype="Number"/>
-        <span> / </span>
-        <input type="text" name="actor.resources.health.max" value="{{actor.resources.health.max}}" data-dtype="Number"/>
-      </div>
+		<div class="resources" data-group="primary" data-tab="attributes">
+      <ol class="resources-list">
+        {{#each actor.data.resources as |attr key|}}
+        <li class="resources-box resources" data-attribute="{{key}}">
+          <label for="actor.data.resources.{{key}}.value">{{key}}</label>
+          <input type="text" name="actor.data.resources.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>	/ <input type="text" name="actor.data.resources.{{key}}.max" value="{{attr.max}}" data-dtype="{{attr.dtype}}" readonly/>
+        </li>
+        {{/each}}
+      </ol>
     </div>
+    </div>
+    
   </header>
   {{!-- Sheet Resources --}}
-  <div class="resources grid grid-2col">
-    <div class="resource flex-group-center">
-      <label for="actor.data.resources.health.value" class="resource-label">Health</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="actor.data.resources.health.value" value="{{actor.data.resources.health.value}}" data-dtype="Number"/>
-        <span> / </span>
-        <input type="text" name="actor.data.resources.health.max" value="{{actor.data.resources.health.max}}" data-dtype="Number"/>
-      </div>
-    </div>
-    <div class="resource flex-group-center">
-      <label for="actor.data.resources.luck.value" class="resource-label">Power</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="actor.data.resources.luck.value" value="{{actor.data.resources.luck.value}}" data-dtype="Number"/>
-        <span> / </span>
-        <input type="text" name="actor.data.resources.luck.max" value="{{actor.data.resources.luck.max}}" data-dtype="Number"/>
-      </div>
-    </div>
-  </div>
-  {{!-- ...continued... --}}
-  
-  
+
   
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary"> <a class="item" data-tab="description">Description</a> <a class="item" data-tab="items">Items</a> <a class="item" data-tab="attributes">Attributes</a> <a class="item" data-tab="skills">Skills</a> </nav>
-  {{!-- Sheet Body --}}
-  <section class="sheet-body"> {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description"> {{editor content=actor.description.biography target="actor.description.biography" button=true owner=owner editable=editable}} </div>
-    {{!-- Owned Items Tab --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+	  <a class="item" data-tab="attributes">Stats &amp; Skills</a>
+	  <a class="item" data-tab="items">Items</a>
+	  <a class="item" data-tab="description">Description</a>
+  </nav>
+  
+	
+	{{!-- Sheet Body --}}
+  <section class="sheet-body">
+	     
+	  {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      <ol class="attributes-list">
+        {{#each actor.data.attributes as |attr key|}}
+        <li class="attribute-box attribute" data-attribute="{{key}}">
+          <label for="actor.data.attributes.{{key}}.value" class="attribute-label">{{key}}</label>
+          <input type="text" name="actor.data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
+        </li>
+        {{/each}}
+      </ol>
+      <ol class="skills-list">
+        {{#each actor.data.skills as |skill key|}}
+        <li class="skill flexrow" data-attribute="{{key}}">
+          <input class="skill-key" type="text" name="actor.data.skills.{{key}}.key" value="{{key}}" readonly/>
+          <input class="skill-value" type="text" name="actor.data.skills.{{key}}.value" value="{{skill.value}}"/>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+	  
+	  
+	  {{!-- Owned Items Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">
       <ol class="items-list">
         {{#each actor.items as |item id|}}
@@ -51,27 +64,16 @@
         {{/each}}
       </ol>
     </div>
-    {{!-- Attributes Tab --}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
-      <ol class="attributes-list">
-        {{#each actor.data.attributes as |attr key|}}
-        <li class="attribute-box attribute flexrow" data-attribute="{{key}}">
-          <label for="actor.data.attributes.{{key}}.value" class="attribute-label">{{key}}</label>
-          <input type="text" name="actor.data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
-        </li>
-        {{/each}}
-      </ol>
-    </div>
-    {{!-- Skills Tab --}}
-    <div class="tab skills" data-group="primary" data-tab="skills">
-      <ol class="skills-list">
-        {{#each actor.data.skills as |skill key|}}
-        <li class="skill flexrow" data-attribute="{{key}}">
-          <input class="skill-key" type="text" name="actor.data.skills.{{key}}.key" value="{{key}}" readonly/>
-          <input class="skill-value" type="text" name="actor.data.skills.{{key}}.value" value="{{skill.value}}"/>
-        </li>
-        {{/each}}
-      </ol>
-    </div>
+	
+	  
+	  	  
+	  {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+		{{editor content=actor.description.biography target="actor.description.biography" button=true owner=owner editable=editable}}
+	</div>
+
+	  
+	  
+	  
   </section>
 </form>
