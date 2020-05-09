@@ -21,7 +21,7 @@ Hooks.once("init", async function() {
 	 * @type {String}
 	 */
 	CONFIG.Combat.initiative = {
-	  formula: "1d20",
+	  formula: "1d10 + @ref",
     decimals: 2
   };
 
@@ -30,9 +30,9 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("dnd5e", SimpleActorSheet, { makeDefault: true });
+  Actors.registerSheet("cyberpunkred", SimpleActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("dnd5e", SimpleItemSheet, {makeDefault: true});
+  Items.registerSheet("cyberpunkred", SimpleItemSheet, {makeDefault: true});
 
   // Register system settings
   game.settings.register("worldbuilding", "macroShorthand", {

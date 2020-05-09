@@ -25,7 +25,7 @@
 .worldbuilding .sheet-header .header-fields {
   flex: 1;
   height: 100px;
-  width:100%;
+  width: 100%;
 }
 .worldbuilding .sheet-header h1.charname {
   height: 50px;
@@ -45,7 +45,6 @@
   float: left;
   text-align: center;
 }
-
 .worldbuilding .tabs {
   height: 40px;
   border-top: 1px solid #AAA;
@@ -64,10 +63,9 @@
 }
 .worldbuilding .sheet-body .tab {
   height: 100%;
-  overflow-y: auto;
+  overflow: hidden;
 }
-.worldbuilding .editor,
-.worldbuilding .editor-content {
+.worldbuilding .editor, .worldbuilding .editor-content {
   height: 100%;
 }
 .worldbuilding .items-list {
@@ -92,7 +90,6 @@
 .worldbuilding .items-list .item-controls {
   flex: 0 0 36px;
 }
-
 /* Resources Styles */
 .worldbuilding .resources-list {
   list-style: none;
@@ -100,47 +97,43 @@
   padding: 0;
   display: grid;
   color: black;
-  grid-template-columns: 1fr 1fr;
-	width: 100%;
+  grid-template-columns: repeat(2, 1fr); /* There are 2 resources now */
+  width: 100%;
 }
 .worldbuilding .resources-list ol {
   grid-column-start: 1;
   rid-column-end: 2;
+  text-align: center;
 }
-
 .worldbuilding .resources-box {
-  border-color: red;
-  background:#E18E8F;
+  background: transparent;
   border: 1px solid red;
   box-sizing: border-box;
   color: black;
 }
-
 .worldbuilding .resources-box label {
-	text-align: center;
-	width: 100%;
+  text-align: center;
+  width: 100%;
 }
-
 .worldbuilding .resources-list li > * {
   margin: 0 3px;
   height: 35px;
   line-height: 24px;
   background: transparent;
   border-radius: 0;
+  align: center;
+  text-align: center;
 }
-
 .worldbuilding .resources-list input {
-	width: 10px;
+  width: 30px;
+  text-align: center;
 }
-
 .worldbuilding .resources-list a.attribute-control {
   flex: 0 0 20px;
   text-align: center;
   line-height: 28px;
   border: none;
 }
-
-
 /* Attributes Styles */
 .worldbuilding .attributes-list {
   list-style: none;
@@ -148,26 +141,25 @@
   padding: 0;
   display: grid;
   color: black;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  text-align: center;
+  grid-template-columns: repeat(11, 1fr); /* There are 11 attributes now */
 }
 .worldbuilding .attributtes-list ol {
   grid-column-start: 1;
   rid-column-end: 11;
+  text-align: center;
 }
-
 .worldbuilding .attribute-box {
-  border-color: red;
-  background:#E18E8F;
+  background: transparent;
   border: 1px solid red;
   box-sizing: border-box;
   color: black;
+  text-align: center;
 }
-
 .worldbuilding .attribute-box label {
-	text-align: center;
-	width: 100%;
+  text-align: center;
+  width: 100%;
 }
-
 .worldbuilding .attributes-list li > * {
   margin: 0 3px;
   height: 28px;
@@ -175,26 +167,25 @@
   background: transparent;
   border-radius: 0;
   width: 100%;
+  text-align: center;
 }
-
-.worldbuilding .resources-list input {
-	width: 10px;
+.worldbuilding .attributes-list input {
+  width: 30px;
+  text-align: center;
+  align: center;
 }
-
 .worldbuilding .attribute-label {
   font-weight: 600;
   display: block;
   margin-bottom: 0px;
   width: 100%;
 }
-
 .worldbuilding .attributes-list a.attribute-control {
   flex: 0 0 20px;
   text-align: center;
   line-height: 28px;
   border: none;
 }
-
 /* Skills Styles */
 .worldbuilding .skills-header {
   padding: 5px;
@@ -204,50 +195,58 @@
   border-radius: 2px;
   text-align: center;
   font-weight: bold;
+  overflow: hidden;
 }
-.worldbuilding .skills-header .skill-label {
-  flex: 1.5;
+.worldbuilding .skill-label {
+  font-weight: 600;
+  display: inline;
+  width: 60%;
 }
-.worldbuilding .skills-header .skill-control {
-  flex: 0 0 20px;
+.worldbuilding .skill-value {
+  display: inline;
+  width: 28px;
+  text-align: center;
+}
+.worldbuilding .skill-box {
+  background: transparent;
+  border: 1px solid red;
+  box-sizing: border-box;
+  color: black;
+  text-align: left;
+  height: 28px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
 }
 .worldbuilding .skills-list {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr); /* There are two columns of skills */
+  grid-gap: 1px;
+  border: 1px solid #0000FF;
+  overflow: hidden;
 }
-
 .worldbuilding .skills-list ol {
-	grid-column-start: 1;
-	grid-column-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  border: 1px solid #00FF00;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
 }
 .worldbuilding .skills-list li > * {
-  margin: 0 3px;
+  margin: 0px;
+  padding: 0px;
   height: 28px;
-  line-height: 24px;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #AAA;
-}
-.worldbuilding .skill-key {
-  
-}
-.worldbuilding .skill-value {
-	
-}
-.worldbuilding .skills-list a.skill-control {
-  flex: 0 0 20px;
-  text-align: center;
   line-height: 28px;
-  border: none;
+  background: transparent;
+  border: 1px solid #FF0000;
+  border-radius: 0;
+  overflow: hidden;
 }
-
-
 /* Other */
-
 .worldbuilding.sheet.actor {
   min-width: 560px;
   min-height: 420px;

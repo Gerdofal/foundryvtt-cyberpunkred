@@ -5,8 +5,8 @@
       "common": {
 
         "description": {
-          "name": "",
-          "biography": "",
+          "name": "Name",
+          "biography": "A brief history...",
           "appearance": "",
           "hair": "",
           "height": "",
