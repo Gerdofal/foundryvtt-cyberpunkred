@@ -107,7 +107,7 @@
 }
 .worldbuilding .resources-box {
   background: transparent;
-  border: 1px solid red;
+  border: none;
   box-sizing: border-box;
   color: black;
 }
@@ -127,6 +127,7 @@
 .worldbuilding .resources-list input {
   width: 30px;
   text-align: center;
+	border: none;
 }
 .worldbuilding .resources-list a.attribute-control {
   flex: 0 0 20px;
@@ -151,7 +152,7 @@
 }
 .worldbuilding .attribute-box {
   background: transparent;
-  border: 1px solid red;
+  border: none;
   box-sizing: border-box;
   color: black;
   text-align: center;
@@ -173,6 +174,7 @@
   width: 30px;
   text-align: center;
   align: center;
+	border: none;
 }
 .worldbuilding .attribute-label {
   font-weight: 600;
@@ -200,7 +202,13 @@
 .worldbuilding .skill-label {
   font-weight: 600;
   display: inline;
-  width: 60%;
+  width: 40%;
+}
+.worldbuilding .skill-label-attrib {
+  font-weight: 600;
+  display: inline;
+  width: 35px;
+	color: #9D7D7D;
 }
 .worldbuilding .skill-value {
   display: inline;
@@ -209,7 +217,7 @@
 }
 .worldbuilding .skill-box {
   background: transparent;
-  border: 1px solid red;
+  border: none;
   box-sizing: border-box;
   color: black;
   text-align: left;
@@ -225,13 +233,13 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* There are two columns of skills */
   grid-gap: 1px;
-  border: 1px solid #0000FF;
+  border: none;;
   overflow: hidden;
 }
 .worldbuilding .skills-list ol {
   grid-column-start: 1;
   grid-column-end: 2;
-  border: 1px solid #00FF00;
+  border: none;;
   overflow: hidden;
   margin: 0px;
   padding: 0px;
@@ -242,7 +250,7 @@
   height: 28px;
   line-height: 28px;
   background: transparent;
-  border: 1px solid #FF0000;
+  border: none;
   border-radius: 0;
   overflow: hidden;
 }

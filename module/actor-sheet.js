@@ -20,6 +20,7 @@ export class SimpleActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
+	console.log("getData Processed")
 	console.log(data);
     data.dtypes = ["String", "Number", "Boolean"];
     return data;
