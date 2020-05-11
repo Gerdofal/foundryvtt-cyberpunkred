@@ -12,20 +12,33 @@
                 <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
             </div>
         </div>
-    </header>		
-	{{!-- Sheet Body --}}
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="attributes">Attributes</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
     <section class="sheet-body">
-	<h1>Description</h1>
-	{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-	<h2>Attributes</h2>
-      <ol class="skill-list">
-        {{#each data as |attr key|}}
-		{{log 'Looping at ' key}}
-        <li class="attribute-box attribute" data-attribute="{{key}}">
-          <label for="data.{{key}}.value" class="attribute-label">{{key}}</label>
-          <input type="text" name="data.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+
+       <ol class="skills-list">
+        {{#each data as |data key|}}
+        <li class="skill-box" data-attribute="{{key}}">
+		  <label for="data.{{key}}.value" class="skill-label">{{key}}</label>
+          <input class="skill-value" type="text" name="data.{{key}}.value" value="{{data.value}}"/>
         </li>
         {{/each}}
-		</ol>
-	</section>
+      </ol>
+        </div>
+    </section>
 </form>
