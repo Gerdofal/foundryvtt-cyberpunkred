@@ -1,14 +1,14 @@
 // Import Modules
-import { BoilerplateActor } from "./actor/actor.js";
-import { BoilerplateActorSheet } from "./actor/actor-sheet.js";
-import { BoilerplateItem } from "./item/item.js";
-import { BoilerplateItemSheet } from "./item/item-sheet.js";
+import { cyberpunkredActor } from "./actor/actor.js";
+import { cyberpunkredActorSheet } from "./actor/actor-sheet.js";
+import { cyberpunkredItem } from "./item/item.js";
+import { cyberpunkredItemSheet } from "./item/item-sheet.js";
 
 Hooks.once('init', async function() {
   console.log(`Initializing Simple cyberpunkred System`);
-  game.boilerplate = {
-    BoilerplateActor,
-    BoilerplateItem
+  game.cyberpunkred = {
+    cyberpunkredActor,
+    cyberpunkredItem
   };
 
   /**
@@ -21,14 +21,14 @@ Hooks.once('init', async function() {
   };
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = BoilerplateActor;
-  CONFIG.Item.entityClass = BoilerplateItem;
+  CONFIG.Actor.entityClass = cyberpunkredActor;
+  CONFIG.Item.entityClass = cyberpunkredItem;
 
   // Register sheet application classes 
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("boilerplate", BoilerplateActorSheet, { makeDefault: true });
+  Actors.registerSheet("cyberpunkred", cyberpunkredActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("boilerplate", BoilerplateItemSheet, { makeDefault: true });
+  Items.registerSheet("cyberpunkred", cyberpunkredItemSheet, { makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function() {
