@@ -12,19 +12,19 @@
         and it will add a small amount of padding, a border, and will
         center all of its child elements content and text. --}}
         <div class="resource flex-group-center">
-          <label for="data.health.value" class="resource-label">Health</label>
+          <label for="data.resources.health.value" class="resource-label">Health</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+            <input type="text" name="data.resources.health.value" value="{{data.resources.health.value}}" data-dtype="Number"/>
             <span> / </span>
-            <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+            <input type="text" name="data.resources.health.max" value="{{data.resources.health.max}}" data-dtype="Number"/>
           </div>
         </div>
         <div class="resource flex-group-center">
-          <label for="data.power.value" class="resource-label">Power</label>
+          <label for="data.resources.luck.value" class="resource-label">Luck</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="data.power.value" value="{{data.power.value}}" data-dtype="Number"/>
+            <input type="text" name="data.resources.luck.value" value="{{data.resources.luck.value}}" data-dtype="Number"/>
             <span> / </span>
-            <input type="text" name="data.power.max" value="{{data.power.max}}" data-dtype="Number"/>
+            <input type="text" name="data.resources.luck.max" value="{{data.resources.luck.max}}" data-dtype="Number"/>
           </div>
         </div>
       </div>
@@ -53,19 +53,19 @@
     <div class="tab biography" data-group="primary" data-tab="biography"> {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}} </div>
 	{{!-- Attributes n Skills Tab --}}
     <div class="tab attrnskills" data-group="primary" data-tab="attrnskills">
-      <ol class="items-list">
+      <ol class="grid grid-6col">
         {{#each data.attributes as |attr key|}}
 		{{log 'Attributes ' attr key }}
-        <li class="item flexrow" data-attribute="{{key}}">
+        <li class="flexrow" data-attribute="{{key}}">
           <label for="data.attributes.{{key}}.value">{{key}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
         </li>
         {{/each}}
       </ol>
-      <ol class="skills-list">
+      <ol class="grid grid-2col">
         {{#each data.skills as |skill key|}}
 		{{log 'Skills ' skill key }}
-        <li class="item flexrow" data-attribute="{{key}}">
+        <li class="flexrow" data-attribute="{{key}}">
           <label for="data.skills.{{key}}.value" data-roll="d10+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">{{key}}</label>
           <label for="data.skills.\{{key\}}.value" data-roll="d10+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">({{skill.linkedattribute}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}"/>

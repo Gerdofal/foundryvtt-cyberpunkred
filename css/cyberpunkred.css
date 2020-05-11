@@ -19,8 +19,8 @@
   display: grid;
   grid-column: span 2 / span 2;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin: 10px 0;
+  gap: 3px;
+  margin: 3px 0;
   padding: 0;
 }
 
@@ -125,8 +125,8 @@
 
 .cyberpunkred .sheet-header {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 210px;
-  flex: 0 0 210px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
