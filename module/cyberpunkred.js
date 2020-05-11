@@ -24,7 +24,7 @@ Hooks.once('init', async function() {
   CONFIG.Actor.entityClass = BoilerplateActor;
   CONFIG.Item.entityClass = BoilerplateItem;
 
-  // Register sheet application classes
+  // Register sheet application classes 
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("boilerplate", BoilerplateActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
