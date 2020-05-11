@@ -16,8 +16,8 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": null,
   "url": "https://github.com/Gerdofal/foundryvtt-cyberpunkred",
-  "manifest": "https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/master/system.json",
-  "download": null,
+  "manifest": "https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/master/system.json",
+  "download": "https://github.com/Gerdofal/foundryvtt-cyberpunkred/archive/master.zip",
   "license": null,
   "initiative": "1d10 + @actor.data.attributes.init.value"
 }
