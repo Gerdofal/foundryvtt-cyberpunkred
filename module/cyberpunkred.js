@@ -14,7 +14,7 @@ import { SimpleActorSheet } from "./actor-sheet.js";
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
-  console.log(`Initializing Simple Worldbuilding System`);
+  console.log(`Initializing Simple cyberpunkred System`);
 
 	/**
 	 * Set an initiative formula for the system
@@ -35,7 +35,7 @@ Hooks.once("init", async function() {
   Items.registerSheet("cyberpunkred", SimpleItemSheet, {makeDefault: true});
 
   // Register system settings
-  game.settings.register("worldbuilding", "macroShorthand", {
+  game.settings.register("cyberpunkred", "macroShorthand", {
     name: "Shortened Macro Syntax",
     hint: "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
     scope: "world",

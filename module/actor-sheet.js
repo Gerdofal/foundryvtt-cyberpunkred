@@ -9,7 +9,7 @@ export class SimpleActorSheet extends ActorSheet {
   /** @override */
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
-  	  classes: ["worldbuilding", "sheet", "actor"],
+  	  classes: ["cyberpunkred", "sheet", "actor"],
   	  template: "systems/cyberpunkred/templates/actor-sheet.html",
       width: 600,
       height: 600,

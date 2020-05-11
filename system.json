@@ -5,7 +5,7 @@
   "version": 0.02,
   "minimumCoreVersion": "0.5.2",
   "compatibleCoreVersion": "0.5.5",
-  "templateVersion": 1.1,
+  "templateVersion": 1.2,
   "author": "Gerdofal",
   "esmodules": ["module/cyberpunkred.js"],
   "styles": ["styles/cyberpunkred.css"],

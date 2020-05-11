@@ -277,10 +277,9 @@
     }
   },
   "Item": {
-    "types": ["cyberware", "weapon", "other"],
+    "types": ["cyberware", "weapon", "item"],
     "templates": {
       "general": {
-        "name": "",
         "price": 0,
         "rarity": 0,
         "legality": 0,
