@@ -39,7 +39,7 @@ Hooks.once('init', async function() {
       }
     }
     return outStr;
-  });
+  }); 
 	
   Handlebars.registerHelper('if_eq', function(a, b, opts) {
     if (a == b) {
