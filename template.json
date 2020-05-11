@@ -292,7 +292,7 @@
       },
       "weapon": {
         "damage": {"value": 0},
-        "ammo": {"value": 0},
+        "ammo": {"min": 0,"max","16","value": 0},
         "weapontype": {"value": "pistol"},
         "burst": {"value": true},
         "fullauto": {"value": false}
