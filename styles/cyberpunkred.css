@@ -263,3 +263,7 @@
   min-width: 460px;
   min-height: 400px;
 }
+/* Rolls */
+.dice-roll {
+	background: red;
+}
