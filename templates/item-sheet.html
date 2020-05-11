@@ -18,15 +18,13 @@
 	<h1>Description</h1>
 	{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 	<h2>Attributes</h2>
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
-      <ol class="attributes-list">
-        {{#each data.attributes as |attr key|}}
+      <ol class="skill-list">
+        {{#each data as |attr key|}}
         <li class="attribute-box attribute" data-attribute="{{key}}">
-          <label for="data.attributes.{{key}}.value" class="attribute-label">{{key}}</label>
-          <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
+          <label for="data.{{key}}.value" class="attribute-label">{{key}}</label>
+          <input type="text" name="data.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
         </li>
         {{/each}}
-      </ol>
-	</div>
+		</ol>
 	</section>
 </form>
