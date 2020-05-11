@@ -20,6 +20,8 @@ export class SimpleItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const data = super.getData();
+	console.log("getData Processed")
+	console.log(data);
     return data;
   }
 
