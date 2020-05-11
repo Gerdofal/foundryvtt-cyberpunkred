@@ -25,14 +25,12 @@
 
        <ol class="skills-list">
         {{#each data as |data key|}}
-		{{if key = 'description'}}
-		blah
-		{{else}}
+		{{#if_eq key 'description'}}{{log 'Skipping description'}}{{else}}
         <li class="skill-box" data-attribute="{{key}}">
 		  <label for="data.{{key}}.value" class="skill-label">{{key}}</label>
           <input class="skill-value" type="text" name="data.{{key}}.value" value="{{data.value}}"/>
         </li>
-		{{/if}}
+		{{/if_eq}}
         {{/each}}
       </ol>
         </div>

@@ -13,6 +13,14 @@ import { SimpleActorSheet } from "./actor-sheet.js";
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
+Handlebars.registerHelper('if_eq', function(a, b, opts) {
+    if (a == b) {
+        return opts.fn(this);
+    } else {
+        return opts.inverse(this);
+    }
+});
+
 Hooks.once("init", async function() {
   console.log(`Initializing Simple cyberpunkred System`);
 
