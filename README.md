@@ -1,27 +1,33 @@
-# Boilerplate System
+# Current Status
 
-This system is a boilerplate system that you can use as a starting point for building your own custom systems. It's similar to Simple World-building, but has examples of creating attributes in code rather than dynamically through the UI.
+After consideration, I've reset my system to use the boilerplate template instead of the simple worldbuilding template. Now is a good time to do it as I can re-create everything I've done so far in a few hours, but later it might be harder.
 
-## Usage
+# Cyberpunk RED
 
-Before installing this system, you should rename any files that have `boilerplate` in their filename to use whatever machine-safe name your system needs, such as `adnd2e` if you were building a system for 2nd edition Advanced Dungeons & Dragons. In addition, you should search through the files for `boilerplate` and `Boilerplate` and do the same for those, replacing them with appropriate names for your system.
+An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not intended for use yet.
 
-## Sheet Layout
+# Features Planned
 
-This system includes a handful of helper CSS classes to help you lay out your sheets if you're not comfortable diving into CSS fully. Those are:
+- Character Sheet
+  1. All attributes and skills easily visible
+  2. Special tab to make various combat actions easier to manage (or drag to action bar)
+  3. Additional tabs that show or hide based on your selection of available abilities (hacking, etc...)
+- NPCs
+  1. Special system to help make using large number of NPCs easier
+  2. Options at the game level to define how necessary the battle grid is to the play of the game (See below)
+- Optional Rules
+  1. Support for optional rules will be inclued wherever possible. For example:
+     - Base die roll will be tweaked to include common options for exploding dice (don't explode, explode once, explode with limt, explode infinitely )
+	 - A few different ways of handling criticals will be included
+	 - There will be options to use the CP 2020 health track system instead of the CP RED health track system
+- Other
+  1. Other design decisions about the table, dice rolling, etc... are still beging made
+  
+# General Design Plans
 
-* `flexcol`: Included by Foundry itself, this lays out the child elements of whatever element you place this on vertically.
-* `flexrow`: Included by Foundry itself, this lays out the child elements of whatever element you place this on horizontally.
-* `flex-center`: When used on something that's using flexrow or flexcol, this will center the items and text.
-* `flex-between`: When used on something that's using flexrow or flexcol, this will attempt to place space between the items. Similar to "justify" in word processors.
-* `flex-group-center`: Add a border, padding, and center all items.
-* `flex-group-left`: Add a border, padding, and left align all items.
-* `flex-group-right`: Add a border, padding, and right align all items.
-* `grid`: When combined with the `grid-Ncol` classes, this will lay out child elements in a grid.
-* `grid-Ncol`: Replace `N` with any number from 1-12, such as `grid-3col`. When combined with `grid`, this will layout child elements in a grid with a number of columns equal to the number specified.
+Since playstyles vary greatly, this sheet is designed with the following in mind:
 
-## Compiling the CSS
-
-This repo includes both CSS for the theme and SCSS source files. If you're new to CSS, it's probably easier to just work in those files directly and delete the SCSS directory. If you're interested in using a CSS preprocessor to add support for nesting, variables, and more, you can run `npm install` in this directory to install the dependencies for the scss compiler. After that, just run `npm run gulp` to compile the SCSS and start a process that watches for new changes.
-
-![image](http://mattsmith.in/images/boilerplate.png)
+1. Everything important about a character or NPC should work just fine without using tokens, maps, action bars, or anyting else.
+   - Some people just want to play the game using their mind and their own internal vision, we want to support that style of play. If all the players and GM want to use is the character sheet, this should not limit the usefullness of the system in any way.
+2. Everything should be efficient and quick during play. Nothing should require multiple clicks if we can find a way to do it with just one.
+3. Help text and tips should be available at the beginning, but hidable with a simple setting change.
