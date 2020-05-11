@@ -1,68 +1,335 @@
-{  
+{
   "Actor": {
-    "types": ["character"],
+    "types": ["character", "npc"],
     "templates": {
-      "base": {
-        "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
+      "common": {
+        "description": {
+          "biography": "A brief history...",
+          "appearance": "",
+          "hair": "",
+          "height": "",
+          "weight": ""
         },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        }
-      }
-    },
-    "character": {
-      "templates": ["base"],
-      "biography": "",
-      "attributes": {
-        "level": {
-          "value": 1
+
+
+        "resources": {
+          "health": {
+            "value": 25,
+            "min": 0,
+            "max": 50
+          },
+          "luck": {
+            "value": 25,
+            "min": 0,
+            "max": 50
+          }
+        },
+
+
+        "attributes": {
+          "int": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "ref": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "dex": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "tech": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "cool": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "will": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "luck": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "move": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "body": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "emp": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          },
+          "init": {
+            "value": 5,
+            "min": 0,
+            "max": 10
+          }
+        },
+
+        "skills": {
+          "brawling": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "evasion": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "meleeweapon": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "marksmanship": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "ref"
+          },
+          "concentration": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "will"
+          },
+          "perception": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "int"
+          },
+          "tracking": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "int"
+          },
+          "driving": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "ref"
+          },
+          "athletics": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "stealth": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "dex"
+          },
+          "bribery": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "cool"
+          },
+          "conversation": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "emp"
+          },
+          "humanperception": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "emp"
+          },
+          "interrogation": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "cool"
+          },
+          "persuasion": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "cool"
+          },
+          "basictech": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "tech"
+          },
+          "cybertech": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "tech"
+          },
+          "firstaid": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "tech"
+          },
+          "playinstrument": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "emp"
+          },
+          "education": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "int"
+          },
+          "localexpert": {
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "linkedattribute": "int"
+          }
         }
       },
-      "abilities": {
-        "str": {
-          "value": 10
+
+      "npc": {
+        "npc1": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
         },
-        "dex": {
-          "value": 10
+        "npc2": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
         },
-        "con": {
-          "value": 10
+        "npc3": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
         },
-        "int": {
-          "value": 10
+        "npc4": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
         },
-        "wis": {
-          "value": 10
+        "npc5": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
         },
-        "cha": {
-          "value": 10
+        "npc6": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc7": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc8": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc9": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
+        },
+        "npc10": {
+          "buttonlabel": "",
+          "bonus": 0,
+          "description": ""
         }
+
       }
+
+    },
+    "character": {
+      "templates": ["common"]
+    },
+    "npc": {
+      "templates": ["npc"]
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["cyberware", "weapon", "item"],
     "templates": {
-      "base": {
-        "description": ""
+      "general": {
+        "price": {
+          "value": 0
+        },
+        "rarity": {
+          "value": 0
+        },
+        "legality": {
+          "value": 0
+        },
+        "description": "A brief item description goes here..."
+      },
+      "cyberware": {
+        "internal": {
+          "value": false
+        },
+        "hackable": {
+          "value": false
+        },
+        "psychosis": {
+          "value": 0
+        }
+      },
+      "weapon": {
+        "damage": {
+          "value": 0
+        },
+        "ammo": {
+          "min": 0,
+          "max": "16",
+          "value": 0
+        },
+        "weapontype": {
+          "value": "pistol"
+        },
+        "burst": {
+          "value": true
+        },
+        "fullauto": {
+          "value": false
+        }
       }
     },
+    "weapon": {
+      "templates": ["general", "weapon"]
+    },
+    "cyberware": {
+      "templates": ["general", "cyberware"]
+    },
     "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0
-    },
-    "feature": {
-      "templates": ["base"]
-    },
-    "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
+      "templates": ["general"]
     }
   }
 }
