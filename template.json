@@ -289,9 +289,7 @@
         "legality": {
           "value": 0
         },
-        "description": {
-          "value": "A brief item description goes here..."
-        }
+        "description": "A brief item description goes here..."
       },
       "cyberware": {
         "internal": {
