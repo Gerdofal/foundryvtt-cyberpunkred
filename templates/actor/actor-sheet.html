@@ -47,6 +47,7 @@
     <div class="tab attrenskills" data-group="primary" data-tab="attributes">
       <ol class="attributes-list">
         {{#each data.attributes as |attr key|}}
+		{{log 'Attributes ' attr key }}
         <li class="item flexrow" data-attribute="{{key}}">
           <label for="data.attributes.{{key}}.value">{{key}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
@@ -55,7 +56,8 @@
       </ol>
       <ol class="skills-list">
         {{#each data.skills as |skill key|}}
-        <li class="item-flexrow" data-attribute="{{key}}">
+		{{log 'Skills ' skill key }}
+        <li class="item flexrow" data-attribute="{{key}}">
           <label for="data.skills.{{key}}.value" data-roll="d10+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">{{key}}</label>
           <label for="data.skills.\{{key\}}.value" data-roll="d10+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">({{skill.linkedattribute}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}"/>
