@@ -19,7 +19,6 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
   3. Additional tabs that show or hide based on your selection of available abilities (hacking, etc...)
 - NPCs
   1. Special system to help make using large number of NPCs easier
-  2. Options at the game level to define how necessary the battle grid is to the play of the game (See below)
 - Optional Rules
   1. Support for optional rules will be inclued wherever possible. For example:
      - Base die roll will be tweaked to include common options for exploding dice (don't explode, explode once, explode with limt, explode infinitely )
