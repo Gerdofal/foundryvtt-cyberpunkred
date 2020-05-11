@@ -280,22 +280,22 @@
     "types": ["cyberware", "weapon", "item"],
     "templates": {
       "general": {
-        "price": 0,
-        "rarity": 0,
-        "legality": 0,
-        "description": ""
+        "price": {"value": 0},
+        "rarity": {"value": 0},
+        "legality": {"value": 0},
+        "description": {"value": ""}
       },
       "cyberware": {
-        "internal": false,
-        "hackable": false,
-        "psychosis": 0
+        "internal": {"value": false},
+        "hackable": {"value": false},
+        "psychosis": {"value": 0}
       },
       "weapon": {
-        "damage": 0,
-        "ammo": 0,
-        "weapontype": "",
-        "burst": false,
-        "fullauto": false
+        "damage": {"value": 0},
+        "ammo": {"value": 0},
+        "weapontype": {"value": "pistol"},
+        "burst": {"value": true},
+        "fullauto": {"value": false}
       }
     },
     "weapon": {
