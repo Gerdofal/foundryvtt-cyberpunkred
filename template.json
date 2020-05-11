@@ -280,22 +280,48 @@
     "types": ["cyberware", "weapon", "item"],
     "templates": {
       "general": {
-        "price": {"value": 0},
-        "rarity": {"value": 0},
-        "legality": {"value": 0},
-        "description": {"value": ""}
+        "price": {
+          "value": 0
+        },
+        "rarity": {
+          "value": 0
+        },
+        "legality": {
+          "value": 0
+        },
+        "description": {
+          "value": "A brief item description goes here..."
+        }
       },
       "cyberware": {
-        "internal": {"value": false},
-        "hackable": {"value": false},
-        "psychosis": {"value": 0}
+        "internal": {
+          "value": false
+        },
+        "hackable": {
+          "value": false
+        },
+        "psychosis": {
+          "value": 0
+        }
       },
       "weapon": {
-        "damage": {"value": 0},
-        "ammo": {"min": 0,"max": "16","value": 0},
-        "weapontype": {"value": "pistol"},
-        "burst": {"value": true},
-        "fullauto": {"value": false}
+        "damage": {
+          "value": 0
+        },
+        "ammo": {
+          "min": 0,
+          "max": "16",
+          "value": 0
+        },
+        "weapontype": {
+          "value": "pistol"
+        },
+        "burst": {
+          "value": true
+        },
+        "fullauto": {
+          "value": false
+        }
       }
     },
     "weapon": {
