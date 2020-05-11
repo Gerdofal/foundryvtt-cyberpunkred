@@ -19,5 +19,5 @@
   "manifest": "https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/master/system.json",
   "download": "https://github.com/Gerdofal/foundryvtt-cyberpunkred/archive/master.zip",
   "license": null,
-  "initiative": "1d10 + @actor.data.attributes.init.value"
+  "initiative": "1d10 + @data.attributes.init.value"
 }
