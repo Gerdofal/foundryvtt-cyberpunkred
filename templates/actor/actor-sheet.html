@@ -40,12 +40,20 @@
     </div>
   </header>
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary"> <a class="item" data-tab="biography">Bio</a> <a class="item" data-tab="attrnskill">Attributes &amp; Skills</a> <a class="item" data-tab="cyberware">Cyberware</a> <a class="item" data-tab="weapons">Weapons</a> <a class="item" data-tab="items">Items</a> </nav>
+  <nav class="sheet-tabs tabs" data-group="primary">
+	  <a class="item" data-tab="biography">Bio</a>
+	  <a class="item" data-tab="attrnskills">Attributes &amp; Skills</a>
+	  <a class="item" data-tab="cyberware">Cyberware</a>
+	  <a class="item" data-tab="weapons">Weapons</a>
+	  <a class="item" data-tab="items">Items</a>
+  </nav>
   {{!-- Sheet Body --}}
   <section class="sheet-body">
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="biography"> {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}} </div>
 	{{!-- Attributes n Skills Tab --}}
-    <div class="tab attrenskills" data-group="primary" data-tab="attributes">
-      <ol class="attributes-list">
+    <div class="tab attrnskills" data-group="primary" data-tab="attrnskills">
+      <ol class="items-list">
         {{#each data.attributes as |attr key|}}
 		{{log 'Attributes ' attr key }}
         <li class="item flexrow" data-attribute="{{key}}">
@@ -65,10 +73,8 @@
         {{/each}}
       </ol>
     </div>
-    {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description"> {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}} </div>
     {{!-- Owned Cyberware Tab --}}
-    <div class="tab cyberware" data-group="primary" data-tab="items">
+    <div class="tab cyberware" data-group="primary" data-tab="cyberware">
       <ol class="items-list">
         <li class="item flexrow item-header">
           <div class="item-image"></div>
@@ -85,7 +91,7 @@
       </ol>
     </div>
     {{!-- Owned Weapons Tab --}}
-    <div class="tab weapons" data-group="primary" data-tab="items">
+    <div class="tab weapons" data-group="primary" data-tab="weapons">
       <ol class="items-list">
         <li class="item flexrow item-header">
           <div class="item-image"></div>
