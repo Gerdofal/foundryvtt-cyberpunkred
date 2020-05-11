@@ -20,6 +20,7 @@
 	<h2>Attributes</h2>
       <ol class="skill-list">
         {{#each data as |attr key|}}
+		{{log 'Looping at ' key}}
         <li class="attribute-box attribute" data-attribute="{{key}}">
           <label for="data.{{key}}.value" class="attribute-label">{{key}}</label>
           <input type="text" name="data.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
