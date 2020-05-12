@@ -5,7 +5,7 @@
       "common": {
         "description": {
           "biography": "A brief history...",
-          "appearance": "",
+          "appearance": "A brief physical description...",
           "hair": "",
           "height": "",
           "weight": ""
@@ -277,7 +277,7 @@
     }
   },
   "Item": {
-    "types": ["cyberware", "weapon", "item"],
+    "types": ["cyberware", "weapons", "gear"],
     "templates": {
       "general": {
         "price": {
@@ -322,13 +322,13 @@
         }
       }
     },
-    "weapon": {
+    "weapons": {
       "templates": ["general", "weapon"]
     },
     "cyberware": {
       "templates": ["general", "cyberware"]
     },
-    "item": {
+    "gear": {
       "templates": ["general"]
     }
   }

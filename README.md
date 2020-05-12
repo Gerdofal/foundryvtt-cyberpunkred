@@ -1,11 +1,10 @@
-# Current Status
+# Status Updates
 
-After consideration, I've reset my system to use the boilerplate template instead of the simple worldbuilding template. Now is a good time to do it as I can re-create everything I've done so far in a few hours, but later it might be harder.
+2020-05-11 - Skills are rollable and tested. New Cyberware, Weapons, and Gear can be added, but they can't be edited yet because I haven't made pages for them yet.
 
 # Coming Next
 
-- My current task is to re-create the skill rolling system I had prior to the move to the boilerplate template. This should be done by wednesday.
-- After that I will be working on the implementation of an item system so I can move into combat rolls based on items.
+- implementation of an item system so I can move into combat rolls based on items
 
 # Cyberpunk RED
 

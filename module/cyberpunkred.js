@@ -1,35 +1,52 @@
+//Make the log entries for CyberpunkRED easy to find in the console log, and easy to turn off if needed.
+function crlog(a) {
+	//return; //Uncomment this to disable all logging.
+	console.log('CyberpunkRED | ' + a);
+}
+
 // Import Modules
-import { BoilerplateActor } from "./actor/actor.js";
-import { BoilerplateActorSheet } from "./actor/actor-sheet.js";
-import { BoilerplateItem } from "./item/item.js";
-import { BoilerplateItemSheet } from "./item/item-sheet.js";
+import { cyberpunkredActor } from "./actor/actor.js";
+import { cyberpunkredActorSheet } from "./actor/actor-sheet.js";
+import { cyberpunkredItem } from "./item/item.js";
+import { cyberpunkredItemSheet } from "./item/item-sheet.js";
+import { registerSystemSettings } from "./settings.js";
 
 Hooks.once('init', async function() {
-  console.log(`Initializing Simple cyberpunkred System`);
-  game.boilerplate = {
-    BoilerplateActor,
-    BoilerplateItem
+	
+  crlog(`Initializing Simple cyberpunkred System`);
+  // Register System Settings
+  crlog(`Register System Settings`);
+  registerSystemSettings();
+
+  crlog(`Register System Settings`);
+  game.cyberpunkred = {
+    cyberpunkredActor,
+    cyberpunkredItem
   };
 
   /**
    * Set an initiative formula for the system
    * @type {String}
    */
+  crlog(`Register Initiative`);
   CONFIG.Combat.initiative = {
-    formula: "1d20",
+    formula: "1d10",
     decimals: 2
   };
 
+  crlog(`Define custom entity classes`);
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = BoilerplateActor;
-  CONFIG.Item.entityClass = BoilerplateItem;
+  CONFIG.Actor.entityClass = cyberpunkredActor;
+  CONFIG.Item.entityClass = cyberpunkredItem;
 
+  crlog(`Register sheet application classes`);
   // Register sheet application classes 
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("boilerplate", BoilerplateActorSheet, { makeDefault: true });
+  Actors.registerSheet("cyberpunkred", cyberpunkredActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("boilerplate", BoilerplateItemSheet, { makeDefault: true });
+  Items.registerSheet("cyberpunkred", cyberpunkredItemSheet, { makeDefault: true });
 
+  crlog(`Register Handlebars`);
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function() {
     var outStr = '';
@@ -53,3 +70,4 @@ Hooks.once('init', async function() {
     return str.toLowerCase();
   });
 });
+
