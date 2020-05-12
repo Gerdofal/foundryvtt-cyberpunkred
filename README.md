@@ -13,7 +13,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 # Installing
 
 - The files in the "Stable Release" branch (which are those linked in the system.json) are the best for you to install. Feel free.
-- Those in the Beta branch are under testing and may not always work. They can only be installed by manually downloading the zip and copying it to your system.
+- Those in the master branch are under testing and may not always work. They can only be installed by manually downloading the zip and copying it to your system.
 
 # Features Planned
 
