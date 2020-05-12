@@ -1,3 +1,9 @@
+//Make the log entries for CyberpunkRED easy to find in the console log, and easy to turn off if needed.
+function crlog(a) {
+	//return; //Uncomment this to disable all logging.
+	console.log('CyberpunkRED | ' + a);
+}
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet} 
@@ -20,7 +26,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-	console.log(data);
+	crlog(data);
     data.dtypes = ["String", "Number", "Boolean"];
     for (let attr of Object.values(data.data.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
@@ -45,40 +51,26 @@ export class cyberpunkredActorSheet extends ActorSheet {
     const actorData = sheetData.actor;
 
     // Initialize containers.
+    const cyberware = [];
+    const weapons = [];
     const gear = [];
-    const features = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
-    };
-
+	  
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
-      if (i.type === 'item') {
+      if (i.type === 'gear') {
         gear.push(i);
       }
       // Append to features.
-      else if (i.type === 'feature') {
-        features.push(i);
+      else if (i.type === 'weapons') {
+        weapons.push(i);
       }
       // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
-        }
-      }
+      else if (i.type === 'cyberware') {
+        cyberpare.push(i);
     }
 
     // Assign and return

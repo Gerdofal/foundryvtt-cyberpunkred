@@ -1,3 +1,9 @@
+//Make the log entries for CyberpunkRED easy to find in the console log, and easy to turn off if needed.
+function crlog(a) {
+	//return; //Uncomment this to disable all logging.
+	console.log('CyberpunkRED | ' + a);
+}
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}

@@ -1,11 +1,10 @@
 # Current Status
 
-After consideration, I've reset my system to use the boilerplate template instead of the simple worldbuilding template. Now is a good time to do it as I can re-create everything I've done so far in a few hours, but later it might be harder.
+Skills are rollable. Adding items is in progress.
 
 # Coming Next
 
-- My current task is to re-create the skill rolling system I had prior to the move to the boilerplate template. This should be done by wednesday.
-- After that I will be working on the implementation of an item system so I can move into combat rolls based on items.
+- implementation of an item system so I can move into combat rolls based on items
 
 # Cyberpunk RED
 

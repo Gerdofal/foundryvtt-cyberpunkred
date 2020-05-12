@@ -1,3 +1,9 @@
+//Make the log entries for CyberpunkRED easy to find in the console log, and easy to turn off if needed.
+function crlog(a) {
+	//return; //Uncomment this to disable all logging.
+	console.log('CyberpunkRED | ' + a);
+}
+
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -28,10 +34,7 @@ export class cyberpunkredActor extends Actor {
     // Make modifications to data here. For example:
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(data.abilities)) {
-      // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
-    }
+
   }
 
 }

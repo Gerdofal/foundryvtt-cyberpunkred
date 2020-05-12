@@ -9,7 +9,7 @@ const sass = require('gulp-sass');
 
 // Small error handler helper function.
 function handleError(err) {
-  console.log(err.toString());
+  crlog(err.toString());
   this.emit('end');
 }
 
