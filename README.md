@@ -1,6 +1,6 @@
 # Current Status
 
-Skills are rollable. Adding items is in progress.
+Skills are rollable and tested, however I'm working on a new item system which has temporarily broken the sheet js so nothing works right now.
 
 # Coming Next
 
