@@ -1,1 +1,13 @@
-{}
+{
+	"ATTR.int": "INT",
+	"ATTR.ref":"REF",
+	"ATTR.dex":"DEX",
+	"ATTR.tech":"TECH",
+	"ATTR.cool":"COOL",
+	"ATTR.will":"WILL",
+	"ATTR.luck":"LUCK",
+	"ATTR.move":"MOVE",
+	"ATTR.body":"BODY",
+	"ATTR.emp":"EMP",
+	"ATTR.init":"INIT"	
+}
