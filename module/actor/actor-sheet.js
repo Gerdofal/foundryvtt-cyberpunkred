@@ -26,7 +26,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-	crlog(data);
+	console.log(data);
     data.dtypes = ["String", "Number", "Boolean"];
     for (let attr of Object.values(data.data.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
@@ -50,6 +50,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
 
+	crlog("Parsing Item List");
     // Initialize containers.
     const cyberware = [];
     const weapons = [];
@@ -70,15 +71,18 @@ export class cyberpunkredActorSheet extends ActorSheet {
       }
       // Append to spells.
       else if (i.type === 'cyberware') {
-        cyberpare.push(i);
+        cyberware.push(i);
     }
 
     // Assign and return
     actorData.gear = gear;
-    actorData.features = features;
-    actorData.spells = spells;
+    actorData.weapons = weapons;
+    actorData.cyberware = cyberware;
+	console.log(cyberware);
+	console.log(weapons);
+	console.log(gear);
   }
-
+}
   /* -------------------------------------------- */
 
   /** @override */

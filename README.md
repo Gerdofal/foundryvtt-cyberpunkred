@@ -1,6 +1,6 @@
-# Current Status
+# Status Updates
 
-Skills are rollable and tested, however I'm working on a new item system which has temporarily broken the sheet js so nothing works right now.
+2020-05-11 - Skills are rollable and tested. New Cyberware, Weapons, and Gear can be added, but they can't be edited yet because I haven't made pages for them yet.
 
 # Coming Next
 

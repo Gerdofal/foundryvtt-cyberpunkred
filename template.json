@@ -5,7 +5,7 @@
       "common": {
         "description": {
           "biography": "A brief history...",
-          "appearance": "",
+          "appearance": "A brief physical description...",
           "hair": "",
           "height": "",
           "weight": ""
