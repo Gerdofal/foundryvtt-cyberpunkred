@@ -14,6 +14,32 @@
   cursor: pointer;
 }
 
+.nowrap {
+	white-space: nowrap;
+}
+
+/* Rolls */
+.dice-roll .dice-formula {
+	background: #AAAAFF;
+	display: inline-block;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.dice-roll .dice-total {
+	background: #FFAAAA;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: normal;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.dice-roll .dice-tooltip {
+	background: #FFFFAA;
+	padding-left: 10px;
+	padding-right: 10px;
+
+}
+
 .grid,
 .grid-2col {
   display: grid;
@@ -125,8 +151,8 @@
 
 .cyberpunkred .sheet-header {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
+  -ms-flex: 0 0 115px;
+  flex: 0 0 115px;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;

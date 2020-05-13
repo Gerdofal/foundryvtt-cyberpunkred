@@ -64,10 +64,15 @@ Hooks.once('init', async function() {
     } else {
         return opts.inverse(this);
     }
-});
+  });
 
   Handlebars.registerHelper('toLowerCase', function(str) {
     return str.toLowerCase();
   });
+
+  Handlebars.registerHelper('setting_die', function(str) {
+    return game.settings.get("cyberpunkred","dieRollCommand");
+  });
+	
 });
 

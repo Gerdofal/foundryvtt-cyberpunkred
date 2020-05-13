@@ -12,7 +12,7 @@
         and it will add a small amount of padding, a border, and will
         center all of its child elements content and text. --}}
         <div class="resource flex-group-center">
-          <label for="data.resources.health.value" class="resource-label">Health</label>
+          <label for="data.resources.health.value" class="resource-label">{{localize (concat "SHEET.health")}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="data.resources.health.value" value="{{data.resources.health.value}}" data-dtype="Number"/>
             <span> / </span>
@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="resource flex-group-center">
-          <label for="data.resources.luck.value" class="resource-label">Luck</label>
+          <label for="data.resources.luck.value" class="resource-label">{{localize (concat "SHEET.luck")}}</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="data.resources.luck.value" value="{{data.resources.luck.value}}" data-dtype="Number"/>
             <span> / </span>
@@ -33,7 +33,7 @@
       from 1 to 12 and will create that number of columns.  --}}
       <div class="abilities grid grid-3col"> {{#each data.abilities as |ability key|}}
         <div class="ability flexrow flex-group-center">
-          <label for="data.abilities.{{key}}.value" class="resource-label">{{localize "ATTR."key}}</label>
+          <label for="data.abilities.{{key}}.value" class="resource-label">{{key}}</label>
           <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
           <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{key}}">{{numberFormat ability.mod decimals=0 sign=true}}</span> </div>
         {{/each}} </div>
@@ -41,12 +41,12 @@
   </header>
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-	  <a class="item" data-tab="biography">Bio</a>
-	  <a class="item" data-tab="appearance">Appearance</a>
-	  <a class="item" data-tab="attrnskills">Attr &amp; Skills</a>
-	  <a class="item" data-tab="cyberware">Cyberware</a>
-	  <a class="item" data-tab="weapons">Weapons</a>
-	  <a class="item" data-tab="gear">Gear</a>
+	  <a class="item" data-tab="biography">{{localize (concat "SHEET.bio")}}</a>
+	  <a class="item" data-tab="appearance">{{localize (concat "SHEET.appearance")}}</a>
+	  <a class="item" data-tab="attrnskills">{{localize (concat "SHEET.attrnskills")}}</a>
+	  <a class="item" data-tab="cyberware">{{localize (concat "SHEET.cyberware")}}</a>
+	  <a class="item" data-tab="weapons">{{localize (concat "SHEET.weapons")}}</a>
+	  <a class="item" data-tab="gear">{{localize (concat "SHEET.gear")}}</a>
   </nav>
   {{!-- Sheet Body --}}
   <section class="sheet-body">
@@ -59,16 +59,15 @@
       <ol class="grid grid-6col">
         {{#each data.attributes as |attr key|}}
         <li class="flexrow" data-attribute="{{key}}">
-          <label for="data.attributes.{{key}}.value">{{key}}</label>
+          <label for="data.attributes.{{key}}.value">{{localize (concat "SHEET." key)}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
         </li>
         {{/each}}
       </ol>
       <ol class="grid grid-2col">
         {{#each data.skills as |skill key|}}
-        <li class="flexrow" data-attribute="{{key}}">
-          <label for="data.skills.{{key}}.value" data-roll="d10+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">{{key}}</label>
-          <label for="data.skills.\{{key\}}.value" data-roll="d10+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">({{skill.linkedattribute}})</label>
+        <li class="flexrow nowrap" data-attribute="{{key}}">
+          <label for="data.skills.{{key}}.value" data-roll="{{setting_die}}+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}"/>
         </li>
         {{/each}}
