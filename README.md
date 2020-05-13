@@ -1,6 +1,7 @@
 # Status Updates
 
-2020-05-11 - Skills are rollable and tested. New Cyberware, Weapons, and Gear can be added, but they can't be edited yet because I haven't made pages for them yet.
+- 2020-05-12 - Took a day to add localization support. Currently only in master.
+- 2020-05-11 - Skills are rollable and tested. New Cyberware, Weapons, and Gear can be added, but they can't be edited yet because I haven't made pages for them yet.
 
 # Coming Next
 
