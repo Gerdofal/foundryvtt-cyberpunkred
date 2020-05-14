@@ -74,5 +74,23 @@ Hooks.once('init', async function() {
     return game.settings.get("cyberpunkred","dieRollCommand");
   });
 	
+	
+	/**
+   * Re-define the dice roll click event to also unhide the formula
+   */
+  _onDiceRollClick(event) {
+    event.preventDefault();
+    let roll = $(event.currentTarget),
+        tip = roll.find(".dice-tooltip");
+    if ( !tip.is(":visible") ) tip.slideDown(200);
+    else tip.slideUp(200);
+	  	formula = roll.find(".dice-formula");
+    if ( !formula.is(":visible") ) formula.slideDown(200);
+    else formula.slideUp(200);
+  }
+	
+	
+	
+	
 });
 
