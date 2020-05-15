@@ -9,8 +9,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 # Installing
 
 - The files in the "Stable Release" branch are the best choice. Use this as the manifest URL:
-
-https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
+  - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
 
 # Features Planned
 
