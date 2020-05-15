@@ -1,11 +1,9 @@
-# Status Updates
+# Branch Information
 
-- 2020-05-12 - Took a day to add localization support. Currently only in master.
-- 2020-05-11 - Skills are rollable and tested. New Cyberware, Weapons, and Gear can be added, but they can't be edited yet because I haven't made pages for them yet.
+- This is the master development branch. You should generally not use this for games as it may have significant bugs. For the readme of the stable branch, please see here:
+  - https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/stable_release/README.md
 
-# Coming Next
-
-- implementation of an item system so I can move into combat rolls based on items
+(If you really want to use the master version, see below.)
 
 # Cyberpunk RED
 
@@ -13,8 +11,11 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 
 # Installing
 
-- The files in the "Stable Release" branch (which are those linked in the system.json) are the best for you to install. Feel free.
-- Those in the master branch are under testing and may not always work. They can only be installed by manually downloading the zip and copying it to your system.
+- The files in the "Stable Release" branch are the best choice. Use this as the manifest URL:
+  - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
+
+- If you really want to install the master branch, even if it may not work, use this URL:
+  - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/master/system.json
 
 # Features Planned
 
