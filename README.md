@@ -1,6 +1,10 @@
 # Branch Information
 
-- This is the master development branch. You should generally not use this for games as it may have significant bugs. If you really want to use this version, see below
+- This is the master development branch. You should generally not use this for games as it may have significant bugs. For the readme of the stable branch, please see here:
+
+https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/stable_release/README.md
+
+(If you really want to use the master version, see below.)
 
 # Cyberpunk RED
 
