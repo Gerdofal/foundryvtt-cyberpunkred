@@ -1,6 +1,6 @@
 {
   "name": "cyberpunkred",
-  "title": "Cyberpunk RED",
+  "title": "Cyberpunk RED (Dev Branch)",
   "description": "An in-progress game system for CyberpunkRED. Still very much in development as all we have are the jumpstart rules and the core rulebook isn't even out yet. (Based on the cyberpunkred system by asacolips)",
   "version": 0.06,
   "minimumCoreVersion": "0.5.5",
