@@ -36,34 +36,7 @@ Hooks.once('init', async function () {
   };
 
 	
-  /*
-  Redefine the event handler in chatlog  
-  /*
-  Called Via:
-  html.on("click", ".dice-roll", this._onDiceRollClick.bind(this));
-  
-  Defined as:
-  _onDiceRollClick =  {
-    event.preventDefault();
-	  let roll = $(event.currentTarget),
-        tip = roll.find(".dice-tooltip");
-    if ( !tip.is(":visible") ) tip.slideDown(200);
-    else tip.slideUp(200);
-  }
-  
-  */
-  
- crlog(`Update DiceRollClick Handler`);
- console.log(game);
-	
-  ui.prototype._onDiceRollClick = function(event){
-	event.preventDefault();
-	console.log("CyberpunkRED | New DieRollClick Handler Activated");
-	let roll = $(event.currentTarget),
-        tip = roll.find(".dice-tooltip");
-    if ( !tip.is(":visible") ) tip.slideDown(200);
-    else tip.slideUp(200);
-  }
+
  
   /**
    * Set an initiative formula for the system
