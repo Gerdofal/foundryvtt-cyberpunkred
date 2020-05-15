@@ -1,10 +1,6 @@
-# Status Updates
+# Branch Information
 
-2020-05-11 - Skills are rollable and tested. New Cyberware, Weapons, and Gear can be added, but they can't be edited yet because I haven't made pages for them yet.
-
-# Coming Next
-
-- implementation of an item system so I can move into combat rolls based on items
+- This is the stable release branch. You should use this for most games. If you really want to use the beta version, see the master branch.
 
 # Cyberpunk RED
 
@@ -12,8 +8,9 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 
 # Installing
 
-- The files in the "Stable Release" branch (which are those linked in the system.json) are the best for you to install. Feel free.
-- Those in the master branch are under testing and may not always work. They can only be installed by manually downloading the zip and copying it to your system.
+- The files in the "Stable Release" branch are the best choice. Use this as the manifest URL:
+
+https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
 
 # Features Planned
 
