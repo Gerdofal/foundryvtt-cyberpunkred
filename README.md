@@ -1,8 +1,7 @@
 # Branch Information
 
 - This is the master development branch. You should generally not use this for games as it may have significant bugs. For the readme of the stable branch, please see here:
-
-https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/stable_release/README.md
+  - https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/stable_release/README.md
 
 (If you really want to use the master version, see below.)
 
@@ -13,12 +12,10 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 # Installing
 
 - The files in the "Stable Release" branch are the best choice. Use this as the manifest URL:
-
-https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
+  - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
 
 - If you really want to install the master branch, even if it may not work, use this URL:
-
-https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/master/system.json
+  - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/master/system.json
 
 # Features Planned
 
