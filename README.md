@@ -1,15 +1,17 @@
 # Branch Information
 
-- This is the stable release branch. You should use this for most games. If you really want to use the beta version, see the master branch.
+- There are two branches for this project, development and stable_release. You should generally not use the development branch for games as it may have significant bugs. See below for download links.
 
 # Cyberpunk RED
 
-An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit.
+An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit and will also also options for house rules to extend the system.
 
 # Installing
 
-- The files in the "Stable Release" branch are the best choice. Use this as the manifest URL:
+- The files in the "Stable Release" branch are the suggestion for download. Use this as the manifest URL:
   - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
+
+- If you want to manually install the files from the dev branch, feel free. I don't recommend this.
 
 # Features Planned
 
