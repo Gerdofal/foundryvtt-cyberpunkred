@@ -29,7 +29,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
 
     // Alternatively, you could use the following return statement to do a
     // unique actpr sheet by type, like `character-sheet.html`.
-    return `${path}/item-${this.actor.data.type}-sheet.html`;
+    return `${path}/actor-${this.actor.data.type}-sheet.html`;
   }
   /* -------------------------------------------- */
 
