@@ -3,14 +3,20 @@
   "title": "Cyberpunk RED (Stable Release)",
   "description": "An in-progress game system for CyberpunkRED. Still very much in development as all we have are the jumpstart rules and the core rulebook isn't even out yet. (Based on the cyberpunkred system by asacolips)",
   "version": 0.06,
-  "templateVersion": 1.4,
   "minimumCoreVersion": "0.5.5",
   "compatibleCoreVersion": "0.5.5",
+  "templateVersion": 1.4,
   "author": "Gerdofal",
   "esmodules": ["module/cyberpunkred.js"],
   "styles": ["css/cyberpunkred.css"],
   "packs": [],
-  "languages": [],
+  "languages": [
+	  {
+		"lang": "en",
+		"name": "English",
+		"path": "lang/en.json"		  
+	  }
+  ],
   "gridDistance": 1,
   "gridUnits": "m",
   "primaryTokenAttribute": "health",
