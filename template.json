@@ -223,52 +223,52 @@
         "npc" {
           "npc1": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           },
           "npc2": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           },
           "npc3": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           },
           "npc4": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           },
           "npc5": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           },
           "npc6": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           },
           "npc7": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           },
           "npc8": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           },
           "npc9": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           },
           "npc10": {
             "buttonlabel": "",
-            "bonus": 0,
+            "value": 0,
             "description": ""
           }
         }
