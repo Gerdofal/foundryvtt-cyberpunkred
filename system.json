@@ -25,5 +25,5 @@
   "manifest": "https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json",
   "download": "https://github.com/Gerdofal/foundryvtt-cyberpunkred/archive/stable_release.zip",
   "license": null,
-  "initiative": "1d10 + @data.attributes.init.value"
+  "initiative": "1d10 + @attributes.init.value"
 }
