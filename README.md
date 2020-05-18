@@ -5,9 +5,10 @@
 
 (If you really want to use the master version, see below. This is not reccommended.)
 
+
 # Cyberpunk RED
 
-An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not intended for use yet.
+An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit.
 
 # Installing
 
