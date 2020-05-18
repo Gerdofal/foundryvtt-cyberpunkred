@@ -74,6 +74,19 @@
 	white-space: nowrap;
 }
 
+/* NPC Rolls Tab*/
+.cyberpunkred .npc-buttonlabel {
+	width: 30%;
+}
+
+.cyberpunkred .npc-value {
+	width: 10%;
+}
+
+.cyberpunkred .npc-description {
+	width: 50%;
+}
+
 /* Rolls */
 .dice-roll .dice-formula {
 	background: #AAAAFF;

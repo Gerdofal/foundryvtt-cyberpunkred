@@ -222,54 +222,54 @@
       "npc": {
         "npc": {
           "npc1": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           },
           "npc2": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           },
           "npc3": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           },
           "npc4": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           },
           "npc5": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           },
           "npc6": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           },
           "npc7": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           },
           "npc8": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           },
           "npc9": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           },
           "npc10": {
-            "buttonlabel": "",
+            "buttonlabel": "Label...",
             "value": 0,
-            "description": ""
+            "description": "Roll description..."
           }
         }
       }

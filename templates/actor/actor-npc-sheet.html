@@ -15,7 +15,7 @@
     <div class="cpr-nav sheet-tabs">
       <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize (concat "SHEET.bio")}}</a></div><br>
 	  <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize (concat "SHEET.appearance")}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="rolls">{{localize (concat "NPC.rolls")}}</a></div	
+	  <div class="cpr-nav-item"><a class="item" data-tab="rolls">{{localize (concat "NPC.rolls")}}</a></div>	
 	</div>
 		  
 		  
@@ -54,15 +54,20 @@
             </div>
           </div>
         </div>
-        <ol class="grid grid-6col">
+		<div>
+			<p class="npc-buttonlabel">Label</p>
+			<p class="npc-value">Value</p>
+			<p class="npc-description">Roll Description</p>
+		</div>
+        <div>
           {{#each data.npc as |attr key|}}
-          <li class="flexrow" data-attribute="{{key}}">
-            <input type=text name="data.npc.{{key}}.buttonlabel" value="{{attr.buttonlabel}}">
-            <input type="text" name="data.npc.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
-			<input type="text" name="data.npc.{{key}}.description" value="{{attr.description}}"/>
-          </li>
+          <div data-attribute="{{key}}">
+            <input class="npc-buttonlabel" type="text" name="data.npc.{{key}}.buttonlabel" value="{{attr.buttonlabel}}">
+            <input class="npc-value" type="text" name="data.npc.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
+			<input class="npc-description" type="text" name="data.npc.{{key}}.description" value="{{attr.description}}"/><br>
+          </div>
           {{/each}}
-        </ol>
+        </div>
       </div>
 		
 	
