@@ -1,0 +1,150 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <div class="cpr-grid">
+
+	  
+	{{!--Top Header --}}	    
+	<div class="cpr-header">
+      <div class="grid grid-2col">
+        <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+        <input name="role" type="text" value="{{data.description.role}}" placeholder="Role"/>
+      </div>
+    </div>
+	  
+	  
+	{{!-- Navigation Sidebar --}}	  
+    <div class="cpr-nav sheet-tabs">
+      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize (concat "SHEET.bio")}}</a></div><br>
+	  <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize (concat "SHEET.appearance")}}</a></div><br>
+	  <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize (concat "SHEET.attrnskills")}}</a></div><br>
+	  <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize (concat "SHEET.cyberware")}}</a></div><br>
+	  <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize (concat "SHEET.weapons")}}</a></div><br>
+	  <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize (concat "SHEET.gear")}}</a></div><br>
+	  <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize (concat "SHEET.combatsetup")}}</a></div><br>
+	  <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize (concat "SHEET.combat")}}</a></div><br>
+    </div>
+    <div class="cpr-content">
+
+		
+	  {{!-- Biography Tab --}}
+      <div class="tab biography" data-group="primary" data-tab="biography">
+		  {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}}
+	  </div>
+		
+		
+	  {{!-- Appearance Tab --}}
+      <div class="tab appearance" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+		  {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}}
+	  </div>
+		
+		
+	  {{!-- Attributes and Skills Tab --}}
+      <div class="tab attrnskills" data-group="primary" data-tab="attrnskills">
+        <div class="resources grid grid-2col">
+          <div class="resource flex-group-center">
+            <label for="data.resources.healthpool.value" class="resource-label">{{localize (concat "SHEET.healthpool")}}</label>
+            <div class="resource-content flexrow flex-center flex-between">
+              <input type="text" name="data.resources.healthpool.value" value="{{data.resources.healthpool.value}}" data-dtype="Number"/>
+              <span> / </span>
+              <input type="text" name="data.resources.healthpool.max" value="{{data.resources.healthpool.max}}" data-dtype="Number"/>
+            </div>
+          </div>
+          <div class="resource flex-group-center">
+            <label for="data.resources.luckpool.value" class="resource-label">{{localize (concat "SHEET.luckpool")}}</label>
+            <div class="resource-content flexrow flex-center flex-between">
+              <input type="text" name="data.resources.luckpool.value" value="{{data.resources.luckpool.value}}" data-dtype="Number"/>
+              <span> / </span>
+              <input type="text" name="data.resources.luckpool.max" value="{{data.resources.luckpool.max}}" data-dtype="Number"/>
+            </div>
+          </div>
+        </div>
+        <ol class="grid grid-6col">
+          {{#each data.attributes as |attr key|}}
+          <li class="flexrow" data-attribute="{{key}}">
+            <label for="data.attributes.{{key}}.value">{{localize (concat "SHEET." key)}}</label>
+            <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
+          </li>
+          {{/each}}
+        </ol>
+        <ol class="grid grid-2col">
+          {{#each data.skills as |skill key|}}
+          <li class="flexrow nowrap" data-attribute="{{key}}">
+            <label for="data.skills.{{key}}.value" data-roll="{{setting_die}}+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
+            <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}"/>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+		
+		
+      {{!-- Owned Cyberware Tab --}}
+      <div class="tab cyberware" data-group="primary" data-tab="cyberware">
+        <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-image"></div>
+            <div class="item-name">Name</div>
+            <div class="item-controls"> <a class="item-control item-create" title="Create item" data-type="cyberware"><i class="fas fa-plus"></i> Add item</a> </div>
+          </li>
+          {{#each actor.cyberware as |item id|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+            <h4 class="item-name">{{item.name}}</h4>
+            <div class="item-controls"> <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a> <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a> </div>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+		
+		
+      {{!-- Owned Weapons Tab --}}
+      <div class="tab weapons" data-group="primary" data-tab="weapons">
+        <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-image"></div>
+            <div class="item-name">Name</div>
+            <div class="item-controls"> <a class="item-control item-create" title="Create item" data-type="weapons"><i class="fas fa-plus"></i> Add item</a> </div>
+          </li>
+          {{#each actor.weapons as |item id|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+            <h4 class="item-name">{{item.name}}</h4>
+            <div class="item-controls"> <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a> <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a> </div>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+		
+		
+      {{!-- Owned Gear Tab --}}
+      <div class="tab gear" data-group="primary" data-tab="gear">
+        <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-image"></div>
+            <div class="item-name">Name</div>
+            <div class="item-controls"> <a class="item-control item-create" title="Create item" data-type="gear"><i class="fas fa-plus"></i> Add item</a> </div>
+          </li>
+          {{#each actor.gear as |item id|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+            <h4 class="item-name">{{item.name}}</h4>
+            <div class="item-controls"> <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a> <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a> </div>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+		
+		
+ 	  {{!-- Combat Setup Tab --}}
+      <div class="tab combatsetup" data-group="primary" data-tab="combatsetup">
+		  This tab to hold specialized fields related to combat setup for this actor.
+	  </div>
+
+		
+	  {{!-- Combat Tab --}}
+      <div class="tab combat" data-group="primary" data-tab="combat">
+		  This tab to hold specialized buttons for combat.
+	  </div>
+
+
+    </div>
+  </div>
+</form>

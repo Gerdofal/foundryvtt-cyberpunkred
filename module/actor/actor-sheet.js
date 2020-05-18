@@ -21,6 +21,16 @@ export class cyberpunkredActorSheet extends ActorSheet {
     });
   }
 
+  /** @override */
+  get template() {
+    const path = "systems/cyberpunkred/templates/actor";
+    // Return a single sheet for all actor types.
+     //return `${path}/actor-sheet.html`;
+
+    // Alternatively, you could use the following return statement to do a
+    // unique actpr sheet by type, like `character-sheet.html`.
+    return `${path}/item-${this.actor.data.type}-sheet.html`;
+  }
   /* -------------------------------------------- */
 
   /** @override */
