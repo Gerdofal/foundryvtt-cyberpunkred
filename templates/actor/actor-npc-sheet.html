@@ -58,7 +58,7 @@
           {{#each data.npc as |attr key|}}
           <li class="flexrow" data-attribute="{{key}}">
             <input type=text name="data.npc.{{key}}.buttonlabel" value="{{attr.buttonlabel}}">
-            <input type="text" name="data.npc.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
+            <input type="text" name="data.npc.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
 			<input type="text" name="data.npc.{{key}}.description" value="{{attr.description}}"/>
           </li>
           {{/each}}

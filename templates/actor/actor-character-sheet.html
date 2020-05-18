@@ -61,7 +61,7 @@
           {{#each data.attributes as |attr key|}}
           <li class="flexrow" data-attribute="{{key}}">
             <label for="data.attributes.{{key}}.value">{{localize (concat "SHEET." key)}}</label>
-            <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
+            <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
           </li>
           {{/each}}
         </ol>
