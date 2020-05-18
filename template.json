@@ -274,9 +274,6 @@
         }
       }
     },
-
-
-  },
   "character": {
     "templates": ["description", "resources", "attributes", "skills"]
   },
