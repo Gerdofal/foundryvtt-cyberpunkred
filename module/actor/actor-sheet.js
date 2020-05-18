@@ -17,7 +17,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       template: "systems/cyberpunkred/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".cpr-content", initial: "description" }]
     });
   }
 

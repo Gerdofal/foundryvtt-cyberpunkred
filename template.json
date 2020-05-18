@@ -3,7 +3,10 @@
     "types": ["character", "npc"],
     "templates": {
       "common": {
+		
+		  
         "description": {
+		  "role": "Character role",
           "biography": "A brief history...",
           "appearance": "A brief physical description...",
           "hair": "",
@@ -13,12 +16,12 @@
 
 
         "resources": {
-          "health": {
+          "healthpool": {
             "value": 25,
             "min": 0,
             "max": 50
           },
-          "luck": {
+          "luckpool": {
             "value": 25,
             "min": 0,
             "max": 50
