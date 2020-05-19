@@ -62,7 +62,7 @@
 .nowrap {
   white-space: nowrap;
 }
-/* NPC Rolls Tab*/
+/* NPC Sheet*/
 .cyberpunkred .npc-buttonlabel {
   width: 30%;
   display: inline-block;
@@ -77,19 +77,28 @@
 }
 .cyberpunkred .npc-button {
   box-sizing: border-box;
-  color: rgba(255, 255, 255, 0.8);
-  background: rgb(235, 32, 50);
+  color: crimson;
+  background: #7D7D7D;
   padding: 3px;
-  border-radius: 5px;
-  margin: 20px;
+  border-radius: 0px;
+  border-color: black;
+  border-width: 3px;
+  margin: 5px;
   transition: all 0.2s ease-in-out;
   display: inline-block;
 }
 .cyberpunkred .npc-button:hover {
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
-  background: rgb(145, 92, 182);  
+  color: #FFFFFF;
+  box-shadow: 0 5px 15px #2020f0;
+  background: #BD4C4E;  
+  padding: 3px;
+  border-radius: 0px;
+  border-color: red;
+  border-width: 3px;
 }
+
+
+
 /* Rolls */
 .dice-roll .dice-formula {
   background: #AAAAFF;
