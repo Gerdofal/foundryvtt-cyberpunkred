@@ -74,9 +74,7 @@
 	  {{!-- Rolls Buttons Tab --}}
       <div class="tab rolls" data-group="primary" data-tab="rollbuttons">
 		{{#each data.npc as |attr key|}}
-		  <div data-attributes="{{key}}">
-			  <label data-roll="{{setting_die}}+{{attr.value}}" class="rollable">{{attr.buttonlabel}}</label>
-		  </div>
+			  <div data-roll="{{setting_die}}+{{attr.value}}" class="rollable npc-button">{{attr.buttonlabel}}</div>
 		{{/each}}
 	  </div>
 		
