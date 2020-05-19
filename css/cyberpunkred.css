@@ -77,14 +77,17 @@
 /* NPC Rolls Tab*/
 .cyberpunkred .npc-buttonlabel {
 	width: 30%;
+	display: inline-block;
 }
 
 .cyberpunkred .npc-value {
 	width: 10%;
+	display: inline-block;
 }
 
 .cyberpunkred .npc-description {
 	width: 50%;
+	display: inline-block;
 }
 
 /* Rolls */
