@@ -15,7 +15,8 @@
     <div class="cpr-nav sheet-tabs">
       <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize (concat "SHEET.bio")}}</a></div><br>
 	  <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize (concat "SHEET.appearance")}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="rolls">{{localize (concat "NPC.rolls")}}</a></div>	
+	  <div class="cpr-nav-item"><a class="item" data-tab="rollsetup">{{localize (concat "NPC.rollsetup")}}</a></div><br>
+	  <div class="cpr-nav-item"><a class="item" data-tab="rollbuttons">{{localize (concat "NPC.rollbuttons")}}</a></div>
 	</div>
 		  
 		  
@@ -34,8 +35,8 @@
 	  </div>
 		
 		
-	  {{!-- Rolls Tab --}}
-      <div class="tab rolls" data-group="primary" data-tab="rolls">
+	  {{!-- Rolls Setup Tab --}}
+      <div class="tab rolls" data-group="primary" data-tab="rollsetup">
         <div class="resources grid grid-2col">
           <div class="resource flex-group-center">
             <label for="data.resources.healthpool.value" class="resource-label">{{localize (concat "SHEET.healthpool")}}</label>
@@ -69,6 +70,15 @@
           {{/each}}
         </div>
       </div>
+		
+	  {{!-- Rolls Buttons Tab --}}
+      <div class="tab rolls" data-group="primary" data-tab="rollbuttons">
+		{{#each data.npc as |attr key|}}
+		  <div data-attributes="{{key}}">
+			  <label data-roll="{{setting_die}}+{{attr.value}}" class="rollable">{{attr.buttonlabel}}</label>
+		  </div>
+		{{/each}}
+	  </div>
 		
 	
     </div>

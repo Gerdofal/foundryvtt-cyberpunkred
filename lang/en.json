@@ -43,5 +43,6 @@
 	"SHEET.tracking":"Tracking",
 	"SHEET.weapons":"Weapons",
 	"SHEET.will":"WILL",
-	"NPC.rolls":"Rolls"
+	"NPC.rollsetup":"Roll Setup",
+	"NPC.rollbuttons":"Buttons"
 }
