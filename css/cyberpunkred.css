@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
 /* Global styles */
+
+.roll-type-select {
+	display: none;
+}
 .window-app {
   font-family: "Roboto", sans-serif;
 }
@@ -75,29 +79,46 @@
   width: 50%;
   display: inline-block;
 }
-.cyberpunkred .npc-button {
-  box-sizing: border-box;
+
+.cyberpunkred .npc-button-array button {
+  border: 1px solid green; /* Green border */
   color: crimson;
-  background: #7D7D7D;
-  padding: 3px;
-  border-radius: 0px;
-  border-color: black;
-  border-width: 3px;
-  margin: 5px;
-  transition: all 0.2s ease-in-out;
-  display: inline-block;
+  background-color: #7D7D7D;
+  padding: 0px 0px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  box-sizing: border-box;
+  align-content: center;
 }
-.cyberpunkred .npc-button:hover {
-  color: #FFFFFF;
+
+.cyberpunkred .npc-basic-box {
+	display: inline-block;
+	width: 141px;
+}
+
+.cyberpunkred .npc-custom-box {
+	display: inline-block;
+	width: 270px;
+}
+.cyberpunkred .npc-small-button {
+	width: 25px;
+}
+
+.cyberpunkred .npc-button-array:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.cyberpunkred .npc-button-array button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.cyberpunkred .npc-button-array button:hover {
+  background-color: #3e8e41;
   box-shadow: 0 5px 15px #2020f0;
-  background: #BD4C4E;  
-  padding: 3px;
-  border-radius: 0px;
-  border-color: red;
-  border-width: 3px;
 }
-
-
 
 /* Rolls */
 .dice-roll .dice-formula {

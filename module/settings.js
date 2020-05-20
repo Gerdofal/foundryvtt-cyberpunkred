@@ -8,4 +8,16 @@ export const registerSystemSettings = function() {
     default: "d10x10",
     type: String
   });
+	
+	game.settings.register("cyberpunkred", "GMAlwaysWhisper", {
+    name: "SETTINGS.gmalwayswhispername",
+    hint: "SETTINGS.gmalwayswhisperhint",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean
+  });
+	
+	
+	
 }

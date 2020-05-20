@@ -1,41 +1,26 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-  <div class="cpr-grid">
-
-	  
-	{{!--Top Header --}}	    
-	<div class="cpr-header">
+  <div class="cpr-grid"> {{!--Top Header --}}
+    <div class="cpr-header">
       <div class="grid grid-2col">
         <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
         <input name="role" type="text" value="{{data.description.role}}" placeholder="Role"/>
       </div>
     </div>
-	  
-	  
-	{{!-- Navigation Sidebar --}}	  
+    {{!-- Navigation Sidebar --}}
     <div class="cpr-nav sheet-tabs">
-      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize (concat "SHEET.bio")}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize (concat "SHEET.appearance")}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="rollsetup">{{localize (concat "NPC.rollsetup")}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="rollbuttons">{{localize (concat "NPC.rollbuttons")}}</a></div>
-	</div>
-		  
-		  
-    <div class="cpr-content">
-
-		
-	  {{!-- Biography Tab --}}
-      <div class="tab biography" data-group="primary" data-tab="biography">
-		  {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}}
-	  </div>
-		
-		
-	  {{!-- Appearance Tab --}}
-      <div class="tab appearance" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-		  {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}}
-	  </div>
-		
-		
-	  {{!-- Rolls Setup Tab --}}
+      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize (concat "SHEET.bio")}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize (concat "SHEET.appearance")}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="rollsetup">{{localize (concat "NPC.rollsetup")}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="rollbuttons">{{localize (concat "NPC.rollbuttons")}}</a></div>
+    </div>
+    <div class="cpr-content"> {{!-- Biography Tab --}}
+      <div class="tab biography" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
+      {{!-- Appearance Tab --}}
+      <div class="tab appearance" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} </div>
+      {{!-- Rolls Setup Tab --}}
       <div class="tab rolls" data-group="primary" data-tab="rollsetup">
         <div class="resources grid grid-2col">
           <div class="resource flex-group-center">
@@ -55,74 +40,89 @@
             </div>
           </div>
         </div>
-		<div>
-			<div class="npc-buttonlabel">Label</div>
-			<div class="npc-value">Value</div>
-			<div class="npc-description">Roll Description</div>
-		</div>
         <div>
-          {{#each data.npc as |attr key|}}
+          <div class="npc-buttonlabel">Label</div>
+          <div class="npc-value">Value</div>
+          <div class="npc-description">Roll Description</div>
+        </div>
+        <div> {{#each data.npc as |attr key|}}
           <div data-attribute="{{key}}">
             <input class="npc-buttonlabel" type="text" name="data.npc.{{key}}.buttonlabel" value="{{attr.buttonlabel}}">
             <input class="npc-value" type="text" name="data.npc.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
-			<input class="npc-description" type="text" name="data.npc.{{key}}.description" value="{{attr.description}}"/><br>
+            <input class="npc-description" type="text" name="data.npc.{{key}}.description" value="{{attr.description}}"/>
+            <br>
           </div>
-          {{/each}}
+          {{/each}} </div>
+      </div>
+      {{!-- Rolls Buttons Tab --}}
+      <div class="tab rolls" data-group="primary" data-tab="rollbuttons"> {{!-- Basic Rolls --}}
+        <div class="npc-basic-box">
+          <div class="npc-button-array">
+            <button data-roll="{{setting_die}}+20" class="rollable npc-small-button">20</button>
+            <button data-roll="{{setting_die}}+19" class="rollable npc-small-button">19</button>
+            <button data-roll="{{setting_die}}+18" class="rollable npc-small-button">18</button>
+            <button data-roll="{{setting_die}}+17" class="rollable npc-small-button">17</button>
+            <button data-roll="{{setting_die}}+16" class="rollable npc-small-button">16</button>
+          </div>
+          <div class="npc-button-array">
+            <button data-roll="{{setting_die}}+15" class="rollable npc-small-button">15</button>
+            <button data-roll="{{setting_die}}+14" class="rollable npc-small-button">14</button>
+            <button data-roll="{{setting_die}}+13" class="rollable npc-small-button">13</button>
+            <button data-roll="{{setting_die}}+12" class="rollable npc-small-button">12</button>
+            <button data-roll="{{setting_die}}+11" class="rollable npc-small-button">11</button>
+          </div>
+          <div class="npc-button-array">
+            <button data-roll="{{setting_die}}+10" class="rollable npc-small-button">10</button>
+            <button data-roll="{{setting_die}}+9" class="rollable npc-small-button">9</button>
+            <button data-roll="{{setting_die}}+8" class="rollable npc-small-button">8</button>
+            <button data-roll="{{setting_die}}+7" class="rollable npc-small-button">7</button>
+            <button data-roll="{{setting_die}}+6" class="rollable npc-small-button">6</button>
+          </div>
+          <div class="npc-button-array">
+            <button data-roll="{{setting_die}}+5" class="rollable npc-small-button">5</button>
+            <button data-roll="{{setting_die}}+4" class="rollable npc-small-button">4</button>
+            <button data-roll="{{setting_die}}+3" class="rollable npc-small-button">3</button>
+            <button data-roll="{{setting_die}}+2" class="rollable npc-small-button">2</button>
+            <button data-roll="{{setting_die}}+1" class="rollable npc-small-button">1</button>
+          </div>
+          <div class="npc-button-array">
+            <button style="width:135px;" data-roll="{{setting_die}}" class="rollable">0</button>
+          </div>
+          <div class="npc-button-array">
+            <button data-roll="{{setting_die}}-1" class="rollable npc-small-button">-1</button>
+            <button data-roll="{{setting_die}}-2" class="rollable npc-small-button">-2</button>
+            <button data-roll="{{setting_die}}-3" class="rollable npc-small-button">-3</button>
+            <button data-roll="{{setting_die}}-4" class="rollable npc-small-button">-4</button>
+            <button data-roll="{{setting_die}}-5" class="rollable npc-small-button">-5</button>
+          </div>
+          <div class="npc-button-array">
+            <button data-roll="{{setting_die}}-6" class="rollable npc-small-button">-6</button>
+            <button data-roll="{{setting_die}}-7" class="rollable npc-small-button">-7</button>
+            <button data-roll="{{setting_die}}-8" class="rollable npc-small-button">-8</button>
+            <button data-roll="{{setting_die}}-9" class="rollable npc-small-button">-9</button>
+            <button data-roll="{{setting_die}}-10" class="rollable npc-small-button">-10</button>
+          </div>
+          <div class="npc-button-array">
+            <button data-roll="{{setting_die}}-11" class="rollable npc-small-button">-11</button>
+            <button data-roll="{{setting_die}}-12" class="rollable npc-small-button">-12</button>
+            <button data-roll="{{setting_die}}-13" class="rollable npc-small-button">-13</button>
+            <button data-roll="{{setting_die}}-14" class="rollable npc-small-button">-14</button>
+            <button data-roll="{{setting_die}}-15" class="rollable npc-small-button">-15</button>
+          </div>
+          <div class="npc-button-array">
+            <button data-roll="{{setting_die}}-16" class="rollable npc-small-button">-16</button>
+            <button data-roll="{{setting_die}}-17" class="rollable npc-small-button">-17</button>
+            <button data-roll="{{setting_die}}-18" class="rollable npc-small-button">-18</button>
+            <button data-roll="{{setting_die}}-19" class="rollable npc-small-button">-19</button>
+            <button data-roll="{{setting_die}}-20" class="rollable npc-small-button">-20</button>
+          </div>
+        </div>
+        <div class="npc-custom-box">
+          <div class="npc-button-array"> {{#each data.npc as |attr key|}}
+            <button data-roll="{{setting_die}}+{{attr.value}}" data-label="{{attr.description}}" class="rollable">{{attr.buttonlabel}}</button>
+            {{/each}} </div>
         </div>
       </div>
-		
-	  {{!-- Rolls Buttons Tab --}}
-      <div class="tab rolls" data-group="primary" data-tab="rollbuttons">
-		
-		  {{!-- Basic Rolls --}}
-		    <div data-roll="{{setting_die}}+20" class="rollable npc-button">20</div>
-			<div data-roll="{{setting_die}}+19" class="rollable npc-button">19</div>
-			<div data-roll="{{setting_die}}+18" class="rollable npc-button">18</div>
-			<div data-roll="{{setting_die}}+17" class="rollable npc-button">17</div>
-			<br><div data-roll="{{setting_die}}+16" class="rollable npc-button">16</div>
-			<div data-roll="{{setting_die}}+15" class="rollable npc-button">15</div>
-			<div data-roll="{{setting_die}}+14" class="rollable npc-button">14</div>
-			<div data-roll="{{setting_die}}+13" class="rollable npc-button">13</div>
-			<div data-roll="{{setting_die}}+12" class="rollable npc-button">12</div>
-			<br><div data-roll="{{setting_die}}+11" class="rollable npc-button">11</div>
-			<div data-roll="{{setting_die}}+10" class="rollable npc-button">10</div>
-			<div data-roll="{{setting_die}}+9" class="rollable npc-button">9</div>
-			<div data-roll="{{setting_die}}+8" class="rollable npc-button">8</div>
-			<div data-roll="{{setting_die}}+7" class="rollable npc-button">7</div>
-			<br><div data-roll="{{setting_die}}+6" class="rollable npc-button">6</div>
-			<div data-roll="{{setting_die}}+5" class="rollable npc-button">5</div>
-			<div data-roll="{{setting_die}}+4" class="rollable npc-button">4</div>
-			<div data-roll="{{setting_die}}+3" class="rollable npc-button">3</div>
-			<div data-roll="{{setting_die}}+2" class="rollable npc-button">2</div>
-			<div data-roll="{{setting_die}}+1" class="rollable npc-button">1</div>
-			<br><div data-roll="{{setting_die}}" class="rollable npc-button">0</div>
-			<br><div data-roll="{{setting_die}}-1" class="rollable npc-button">-1</div>
-			<div data-roll="{{setting_die}}-2" class="rollable npc-button">-2</div>
-			<div data-roll="{{setting_die}}-3" class="rollable npc-button">-3</div>
-			<div data-roll="{{setting_die}}-4" class="rollable npc-button">-4</div>
-			<div data-roll="{{setting_die}}-5" class="rollable npc-button">-5</div>
-			<br><div data-roll="{{setting_die}}-6" class="rollable npc-button">-6</div>
-			<div data-roll="{{setting_die}}-7" class="rollable npc-button">-7</div>
-			<div data-roll="{{setting_die}}-8" class="rollable npc-button">-8</div>
-			<div data-roll="{{setting_die}}-9" class="rollable npc-button">-9</div>
-			<div data-roll="{{setting_die}}-10" class="rollable npc-button">-10</div>
-			<br><div data-roll="{{setting_die}}-11" class="rollable npc-button">-11</div>
-			<div data-roll="{{setting_die}}-12" class="rollable npc-button">-12</div>
-			<div data-roll="{{setting_die}}-13" class="rollable npc-button">-13</div>
-			<div data-roll="{{setting_die}}-14" class="rollable npc-button">-14</div>
-			<div data-roll="{{setting_die}}-15" class="rollable npc-button">-15</div>
-			<br><div data-roll="{{setting_die}}-16" class="rollable npc-button">-16</div>
-			<div data-roll="{{setting_die}}-17" class="rollable npc-button">-17</div>
-			<div data-roll="{{setting_die}}-18" class="rollable npc-button">-18</div>
-			<div data-roll="{{setting_die}}-19" class="rollable npc-button">-19</div>
-			<div data-roll="{{setting_die}}-20" class="rollable npc-button">-20</div>
-		  
-		{{#each data.npc as |attr key|}}
-			  <div data-roll="{{setting_die}}+{{attr.value}}" class="rollable npc-button">{{attr.buttonlabel}}</div>
-		{{/each}}
-	  </div>
-		
-	
     </div>
   </div>
 </form>

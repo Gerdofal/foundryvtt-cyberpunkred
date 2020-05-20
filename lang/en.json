@@ -1,6 +1,8 @@
 {
 	"SETTINGS.dierollcommandname":"Die roll command for rolls.",
 	"SETTINGS.dierollcommandhint":"Defaults to d10x10. Adjust if you want to remove exploding (d10)",
+	"SETTINGS.gmalwayswhispername":"Always whisper GM rolls?",
+	"SETTINGS.gmalwayswhisperhint":"This setting determines if all GM rolls will always be whispered.",
 	"SHEET.appearance":"Appearance",
 	"SHEET.athletics":"Athletics",
 	"SHEET.attrnskills":"Attr & Skills",
