@@ -1,103 +1,146 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
 /* Global styles */
+
+.roll-type-select {
+	display: none;
+}
 .window-app {
   font-family: "Roboto", sans-serif;
 }
-
 .cyberpunkred div {
-	color: white;
+  color: white;
 }
-
 .cyberpunkred input {
-	color: white;
+  color: white;
 }
-
 .cyberpunkred .cpr-grid {
-	display: grid;
-	grid-template-columns: 90px auto;
-	grid-template-rows: 40px auto;
-	background: linear-gradient(#880000,#400000);
-	padding: 3px;
+  display: grid;
+  grid-template-columns: 90px auto;
+  grid-template-rows: 40px auto;
+  background: linear-gradient(#880000, #400000);
+  padding: 3px;
 }
-
 .cyberpunkred .cpr-header {
- 	grid-column: 1 / span 2;
-	grid-row: 1;
-	border: none;
-	border-bottom: 1px solid #AAA;
-	padding: 3px;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  padding: 3px;
 }
-
 .cyberpunkred .cpr-nav {
-	grid-column: 1 / span 1;
-	grid-row: 2;
-	border: none;
-	display: grid;
-	grid-template-columns: auto;
-	grid-template-rows: auto;
-	align-content: start;
-  	border-right: 1px solid #AAA;
-	padding: 3px;
+  grid-column: 1 / span 1;
+  grid-row: 2;
+  border: none;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  align-content: start;
+  border-right: 1px solid #AAA;
+  padding: 3px;
 }
-
 .cyberpunkred .cpr-content {
-	grid-column: 2;
-	grid-row: 2;
-	border: none;
-	padding: 3px;
+  grid-column: 2;
+  grid-row: 2;
+  border: none;
+  padding: 3px;
 }
-
 .cyberpunkred .cpr-nav .cpr-nav-item {
-	justify-self: start;
-	display: block;
+  justify-self: start;
+  display: block;
 }
-
 .cyberpunkred .cpr-nav .cpr-nav-item .item {
   font-weight: normal;
   display: block;
   width: 100%;
 }
-
 .cyberpunkred .cpr-nav .cpr-nav-item .item.active {
   text-decoration: underline;
   text-shadow: none;
   font-weight: bold;
 }
-
 .rollable:hover, .rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
-
 .nowrap {
-	white-space: nowrap;
+  white-space: nowrap;
+}
+/* NPC Sheet*/
+.cyberpunkred .npc-buttonlabel {
+  width: 30%;
+  display: inline-block;
+}
+.cyberpunkred .npc-value {
+  width: 10%;
+  display: inline-block;
+}
+.cyberpunkred .npc-description {
+  width: 50%;
+  display: inline-block;
+}
+
+.cyberpunkred .npc-button-array button {
+  border: 1px solid green; /* Green border */
+  color: crimson;
+  background-color: #7D7D7D;
+  padding: 0px 0px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  box-sizing: border-box;
+  align-content: center;
+}
+
+.cyberpunkred .npc-basic-box {
+	display: inline-block;
+	width: 141px;
+}
+
+.cyberpunkred .npc-custom-box {
+	display: inline-block;
+	width: 270px;
+}
+.cyberpunkred .npc-small-button {
+	width: 25px;
+}
+
+.cyberpunkred .npc-button-array:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.cyberpunkred .npc-button-array button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.cyberpunkred .npc-button-array button:hover {
+  background-color: #3e8e41;
+  box-shadow: 0 5px 15px #2020f0;
 }
 
 /* Rolls */
 .dice-roll .dice-formula {
-	background: #AAAAFF;
-	display: inline-block;
-	padding-left: 10px;
-	padding-right: 10px;
+  background: #AAAAFF;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .dice-roll .dice-total {
-	background: #FFAAAA;
-	display: inline-block;
-	font-size: 14px;
-	font-weight: normal;
-	padding-left: 10px;
-	padding-right: 10px;
+  background: #FFAAAA;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .dice-roll .dice-tooltip {
-	background: #FFFFAA;
-	padding-left: 10px;
-	padding-right: 10px;
-
+  background: #FFFFAA;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-
-.grid,
-.grid-2col {
+.grid, .grid-2col {
   display: grid;
   grid-column: span 2 / span 2;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -105,60 +148,47 @@
   margin: 3px 0;
   padding: 0;
 }
-
 .grid-3col {
   grid-column: span 3 / span 3;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-
 .grid-4col {
   grid-column: span 4 / span 4;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-
 .grid-5col {
   grid-column: span 5 / span 5;
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
-
 .grid-6col {
   grid-column: span 5 / span 5;
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
-
 .grid-7col {
   grid-column: span 7 / span 7;
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
-
 .grid-8col {
   grid-column: span 8 / span 8;
   grid-template-columns: repeat(8, minmax(0, 1fr));
 }
-
 .grid-9col {
   grid-column: span 9 / span 9;
   grid-template-columns: repeat(9, minmax(0, 1fr));
 }
-
 .grid-10col {
   grid-column: span 10 / span 10;
   grid-template-columns: repeat(10, minmax(0, 1fr));
 }
-
 .grid-11col {
   grid-column: span 11 / span 11;
   grid-template-columns: repeat(11, minmax(0, 1fr));
 }
-
 .grid-12col {
   grid-column: span 12 / span 12;
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
-
-.flex-group-center,
-.flex-group-left,
-.flex-group-right {
+.flex-group-center, .flex-group-left, .flex-group-right {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -168,21 +198,18 @@
   text-align: center;
   padding: 0px;
 }
-
 .flex-group-left {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
   text-align: left;
 }
-
 .flex-group-right {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
   text-align: right;
 }
-
 .flex-center {
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -192,18 +219,15 @@
   justify-content: center;
   text-align: center;
 }
-
 .flex-between {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-
 /* Styles limited to cyberpunkred sheets */
 .cyberpunkred .item-form {
   font-family: "Roboto", sans-serif;
 }
-
 .cyberpunkred .sheet-header {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 50px;
@@ -223,7 +247,6 @@
   justify-content: flex-start;
   margin-bottom: 10px;
 }
-
 .cyberpunkred .sheet-header .profile-img {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100px;
@@ -231,88 +254,68 @@
   height: 100px;
   margin-right: 10px;
 }
-
 .cyberpunkred .sheet-header .header-fields {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
-
 .cyberpunkred .sheet-header h1.charname {
   height: 50px;
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
 }
-
 .cyberpunkred .sheet-header h1.charname input {
   width: 100%;
   height: 100%;
   margin: 0;
 }
-
-.cyberpunkred .sheet-body,
-.cyberpunkred .sheet-body .tab,
-.cyberpunkred .sheet-body .tab .editor {
+.cyberpunkred .sheet-body, .cyberpunkred .sheet-body .tab, .cyberpunkred .sheet-body .tab .editor {
   height: 100%;
 }
-
 .cyberpunkred .sheet-body .sheet-main {
   -webkit-box-flex: 3;
   -ms-flex: 3;
   flex: 3;
   display: inline-flex;
 }
-
 .cyberpunkred .tox .tox-editor-container {
   background: #fff;
 }
-
 .cyberpunkred .tox .tox-edit-area {
   padding: 0 8px;
 }
-
 .cyberpunkred .resource-label {
   font-weight: bold;
   text-transform: uppercase;
 }
-
-
-
-
 .cyberpunkred .items-list {
   list-style: none;
   margin: 7px 0;
   padding: 0;
   overflow-y: auto;
 }
-
 .cyberpunkred .items-list .item-header {
   font-weight: bold;
 }
-
 .cyberpunkred .items-list .item {
   height: 30px;
   line-height: 24px;
   padding: 0px 0;
   border-bottom: 1px solid #BBB;
 }
-
 .cyberpunkred .items-list .item .item-image {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
   margin-right: 5px;
 }
-
 .cyberpunkred .items-list .item img {
   display: block;
 }
-
 .cyberpunkred .items-list .item-name {
   margin: 0;
 }
-
 .cyberpunkred .items-list .item-controls {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 86px;

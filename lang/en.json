@@ -1,6 +1,8 @@
 {
 	"SETTINGS.dierollcommandname":"Die roll command for rolls.",
 	"SETTINGS.dierollcommandhint":"Defaults to d10x10. Adjust if you want to remove exploding (d10)",
+	"SETTINGS.gmalwayswhispername":"Always whisper GM NPC Rolls?",
+	"SETTINGS.gmalwayswhisperhint":"If checked, any roll the GM makes on a NPC character sheet is always hidden.",
 	"SHEET.appearance":"Appearance",
 	"SHEET.athletics":"Athletics",
 	"SHEET.attrnskills":"Attr & Skills",
@@ -42,5 +44,7 @@
 	"SHEET.tech":"TECH",
 	"SHEET.tracking":"Tracking",
 	"SHEET.weapons":"Weapons",
-	"SHEET.will":"WILL"
+	"SHEET.will":"WILL",
+	"NPC.rollsetup":"Roll Setup",
+	"NPC.rollbuttons":"Buttons"
 }

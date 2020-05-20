@@ -1,13 +1,13 @@
 //Make the log entries for CyberpunkRED easy to find in the console log, and easy to turn off if needed.
 function crlog(a) {
-	//return; //Uncomment this to disable all logging.
-	console.log('CyberpunkRED | ' + a);
+  //return; //Uncomment this to disable all logging.
+  console.log('CyberpunkRED | ' + a);
 }
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet} 
- */ 
+ */
 export class cyberpunkredActorSheet extends ActorSheet {
 
   /** @override */
@@ -17,16 +17,31 @@ export class cyberpunkredActorSheet extends ActorSheet {
       template: "systems/cyberpunkred/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".cpr-content", initial: "description" }]
+      tabs: [{
+        navSelector: ".sheet-tabs",
+        contentSelector: ".cpr-content",
+        initial: "description"
+      }]
     });
   }
 
+  /** @override */
+  get template() {
+    const path = "systems/cyberpunkred/templates/actor";
+    // Return a single sheet for all actor types.
+    //return `${path}/actor-sheet.html`;
+
+    // Alternatively, you could use the following return statement to do a
+    // unique actpr sheet by type, like `character-sheet.html`.
+    return `${path}/actor-${this.actor.data.type}-sheet.html`;
+  }
   /* -------------------------------------------- */
 
   /** @override */
   getData() {
     const data = super.getData();
-	console.log(data);
+    console.log(data);
+    /*
     data.dtypes = ["String", "Number", "Boolean"];
     for (let attr of Object.values(data.data.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
@@ -36,7 +51,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
-
+    */
     return data;
   }
 
@@ -50,12 +65,12 @@ export class cyberpunkredActorSheet extends ActorSheet {
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
 
-	crlog("Parsing Item List");
+    crlog("Parsing Item List");
     // Initialize containers.
     const cyberware = [];
     const weapons = [];
     const gear = [];
-	  
+
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
@@ -72,17 +87,17 @@ export class cyberpunkredActorSheet extends ActorSheet {
       // Append to spells.
       else if (i.type === 'cyberware') {
         cyberware.push(i);
-    }
+      }
 
-    // Assign and return
-    actorData.gear = gear;
-    actorData.weapons = weapons;
-    actorData.cyberware = cyberware;
-	console.log(cyberware);
-	console.log(weapons);
-	console.log(gear);
+      // Assign and return
+      actorData.gear = gear;
+      actorData.weapons = weapons;
+      actorData.cyberware = cyberware;
+      console.log(cyberware);
+      console.log(weapons);
+      console.log(gear);
+    }
   }
-}
   /* -------------------------------------------- */
 
   /** @override */
@@ -150,14 +165,28 @@ export class cyberpunkredActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
 
-    if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.data.data);
-      let label = dataset.label ? `Rolling ${dataset.label}` : '';
-      roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label
-      });
+    if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && this.actor.data.type == "npc") {
+      var rollstring = "gmroll";
+    } else {
+      var rollstring = "roll";
     }
+
+    console.log("Roll String: " + rollstring);
+
+    if (dataset.roll) {
+
+      let roll = new Roll(dataset.roll, this.actor.data.data);
+      let label = dataset.label ? `${dataset.label}` : '';
+      roll.roll().toMessage({
+        speaker: ChatMessage.getSpeaker({
+          actor: this.actor
+        }),
+        flavor: label
+      }, {
+        rollMode: rollstring
+      });
+
+    } // End if Dataset.roll
   }
 
 }

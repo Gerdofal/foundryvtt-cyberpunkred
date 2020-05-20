@@ -2,19 +2,18 @@
   "Actor": {
     "types": ["character", "npc"],
     "templates": {
-      "common": {
-		
-		  
+      "description": {
         "description": {
-		  "role": "Character role",
+          "role": "Character role",
           "biography": "A brief history...",
           "appearance": "A brief physical description...",
           "hair": "",
           "height": "",
           "weight": ""
-        },
+        }
+      },
 
-
+      "resources": {
         "resources": {
           "healthpool": {
             "value": 25,
@@ -26,9 +25,10 @@
             "min": 0,
             "max": 50
           }
-        },
+        }
+      },
 
-
+      "attributes": {
         "attributes": {
           "int": {
             "value": 5,
@@ -85,8 +85,10 @@
             "min": 0,
             "max": 10
           }
-        },
+        }
+      },
 
+      "skills": {
         "skills": {
           "brawling": {
             "value": 5,
@@ -218,121 +220,121 @@
       },
 
       "npc": {
-        "npc1": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
-        },
-        "npc2": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
-        },
-        "npc3": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
-        },
-        "npc4": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
-        },
-        "npc5": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
-        },
-        "npc6": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
-        },
-        "npc7": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
-        },
-        "npc8": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
-        },
-        "npc9": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
-        },
-        "npc10": {
-          "buttonlabel": "",
-          "bonus": 0,
-          "description": ""
+        "npc": {
+          "npc1": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          },
+          "npc2": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          },
+          "npc3": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          },
+          "npc4": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          },
+          "npc5": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          },
+          "npc6": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          },
+          "npc7": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          },
+          "npc8": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          },
+          "npc9": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          },
+          "npc10": {
+            "buttonlabel": "Label...",
+            "value": 0,
+            "description": "Roll description..."
+          }
         }
-
       }
-
     },
-    "character": {
-      "templates": ["common"]
-    },
-    "npc": {
-      "templates": ["npc"]
-    }
+  "character": {
+    "templates": ["description", "resources", "attributes", "skills"]
   },
-  "Item": {
-    "types": ["cyberware", "weapons", "gear"],
-    "templates": {
-      "general": {
-        "price": {
-          "value": 0
-        },
-        "rarity": {
-          "value": 0
-        },
-        "legality": {
-          "value": 0
-        },
-        "description": "A brief item description goes here..."
+  "npc": {
+    "templates": ["description", "npc"]
+  }
+},
+"Item": {
+  "types": ["cyberware", "weapons", "gear"],
+  "templates": {
+    "general": {
+      "price": {
+        "value": 0
       },
-      "cyberware": {
-        "internal": {
-          "value": false
-        },
-        "hackable": {
-          "value": false
-        },
-        "psychosis": {
-          "value": 0
-        }
+      "rarity": {
+        "value": 0
       },
-      "weapon": {
-        "damage": {
-          "value": 0
-        },
-        "ammo": {
-          "min": 0,
-          "max": "16",
-          "value": 0
-        },
-        "weapontype": {
-          "value": "pistol"
-        },
-        "burst": {
-          "value": true
-        },
-        "fullauto": {
-          "value": false
-        }
-      }
-    },
-    "weapons": {
-      "templates": ["general", "weapon"]
+      "legality": {
+        "value": 0
+      },
+      "description": "A brief item description goes here..."
     },
     "cyberware": {
-      "templates": ["general", "cyberware"]
+      "internal": {
+        "value": false
+      },
+      "hackable": {
+        "value": false
+      },
+      "psychosis": {
+        "value": 0
+      }
     },
-    "gear": {
-      "templates": ["general"]
+    "weapon": {
+      "damage": {
+        "value": 0
+      },
+      "ammo": {
+        "min": 0,
+        "max": "16",
+        "value": 0
+      },
+      "weapontype": {
+        "value": "pistol"
+      },
+      "burst": {
+        "value": true
+      },
+      "fullauto": {
+        "value": false
+      }
     }
+  },
+  "weapons": {
+    "templates": ["general", "weapon"]
+  },
+  "cyberware": {
+    "templates": ["general", "cyberware"]
+  },
+  "gear": {
+    "templates": ["general"]
   }
+}
 }
