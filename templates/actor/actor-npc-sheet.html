@@ -75,49 +75,47 @@
       <div class="tab rolls" data-group="primary" data-tab="rollbuttons">
 		
 		  {{!-- Basic Rolls --}}
-		  
-		  <div data-roll="{{setting_die}}+20" class="rollable npc-button">20</div>
+		    <div data-roll="{{setting_die}}+20" class="rollable npc-button">20</div>
 			<div data-roll="{{setting_die}}+19" class="rollable npc-button">19</div>
 			<div data-roll="{{setting_die}}+18" class="rollable npc-button">18</div>
 			<div data-roll="{{setting_die}}+17" class="rollable npc-button">17</div>
-			<div data-roll="{{setting_die}}+16" class="rollable npc-button">16</div>
+			<br><div data-roll="{{setting_die}}+16" class="rollable npc-button">16</div>
 			<div data-roll="{{setting_die}}+15" class="rollable npc-button">15</div>
 			<div data-roll="{{setting_die}}+14" class="rollable npc-button">14</div>
 			<div data-roll="{{setting_die}}+13" class="rollable npc-button">13</div>
 			<div data-roll="{{setting_die}}+12" class="rollable npc-button">12</div>
-			<div data-roll="{{setting_die}}+11" class="rollable npc-button">11</div>
+			<br><div data-roll="{{setting_die}}+11" class="rollable npc-button">11</div>
 			<div data-roll="{{setting_die}}+10" class="rollable npc-button">10</div>
 			<div data-roll="{{setting_die}}+9" class="rollable npc-button">9</div>
 			<div data-roll="{{setting_die}}+8" class="rollable npc-button">8</div>
 			<div data-roll="{{setting_die}}+7" class="rollable npc-button">7</div>
-			<div data-roll="{{setting_die}}+6" class="rollable npc-button">6</div>
+			<br><div data-roll="{{setting_die}}+6" class="rollable npc-button">6</div>
 			<div data-roll="{{setting_die}}+5" class="rollable npc-button">5</div>
 			<div data-roll="{{setting_die}}+4" class="rollable npc-button">4</div>
 			<div data-roll="{{setting_die}}+3" class="rollable npc-button">3</div>
 			<div data-roll="{{setting_die}}+2" class="rollable npc-button">2</div>
 			<div data-roll="{{setting_die}}+1" class="rollable npc-button">1</div>
-			<div data-roll="{{setting_die}}" class="rollable npc-button">0</div>
-			<div data-roll="{{setting_die}}-1" class="rollable npc-button">-1</div>
+			<br><div data-roll="{{setting_die}}" class="rollable npc-button">0</div>
+			<br><div data-roll="{{setting_die}}-1" class="rollable npc-button">-1</div>
 			<div data-roll="{{setting_die}}-2" class="rollable npc-button">-2</div>
 			<div data-roll="{{setting_die}}-3" class="rollable npc-button">-3</div>
 			<div data-roll="{{setting_die}}-4" class="rollable npc-button">-4</div>
 			<div data-roll="{{setting_die}}-5" class="rollable npc-button">-5</div>
-			<div data-roll="{{setting_die}}-6" class="rollable npc-button">-6</div>
+			<br><div data-roll="{{setting_die}}-6" class="rollable npc-button">-6</div>
 			<div data-roll="{{setting_die}}-7" class="rollable npc-button">-7</div>
 			<div data-roll="{{setting_die}}-8" class="rollable npc-button">-8</div>
 			<div data-roll="{{setting_die}}-9" class="rollable npc-button">-9</div>
 			<div data-roll="{{setting_die}}-10" class="rollable npc-button">-10</div>
-			<div data-roll="{{setting_die}}-11" class="rollable npc-button">-11</div>
+			<br><div data-roll="{{setting_die}}-11" class="rollable npc-button">-11</div>
 			<div data-roll="{{setting_die}}-12" class="rollable npc-button">-12</div>
 			<div data-roll="{{setting_die}}-13" class="rollable npc-button">-13</div>
 			<div data-roll="{{setting_die}}-14" class="rollable npc-button">-14</div>
 			<div data-roll="{{setting_die}}-15" class="rollable npc-button">-15</div>
-			<div data-roll="{{setting_die}}-16" class="rollable npc-button">-16</div>
+			<br><div data-roll="{{setting_die}}-16" class="rollable npc-button">-16</div>
 			<div data-roll="{{setting_die}}-17" class="rollable npc-button">-17</div>
 			<div data-roll="{{setting_die}}-18" class="rollable npc-button">-18</div>
 			<div data-roll="{{setting_die}}-19" class="rollable npc-button">-19</div>
 			<div data-roll="{{setting_die}}-20" class="rollable npc-button">-20</div>
-
 		  
 		{{#each data.npc as |attr key|}}
 			  <div data-roll="{{setting_die}}+{{attr.value}}" class="rollable npc-button">{{attr.buttonlabel}}</div>
