@@ -57,6 +57,9 @@
       {{!-- Rolls Buttons Tab --}}
       <div class="tab rolls" data-group="primary" data-tab="rollbuttons"> {{!-- Basic Rolls --}}
         <div class="npc-basic-box">
+		  <div class="npc-button-array">
+            <button style="width:141px;" data-roll="{{setting_die}}+(prompt)" class="rollable">Prompt</button>
+          </div>
           <div class="npc-button-array">
             <button data-roll="{{setting_die}}+20" class="rollable npc-small-button">20</button>
             <button data-roll="{{setting_die}}+19" class="rollable npc-small-button">19</button>
