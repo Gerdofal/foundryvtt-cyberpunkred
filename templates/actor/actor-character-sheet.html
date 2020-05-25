@@ -135,7 +135,20 @@
 		
  	  {{!-- Combat Setup Tab --}}
       <div class="tab combatsetup" data-group="primary" data-tab="combatsetup">
-		  This tab to hold specialized fields related to combat setup for this actor.
+      <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-name">Name</div>
+            <div class="item-name">Damage</div>
+            <div class="item-name">Skill</div>
+          </li>
+          {{#each data.weaponsetup as |item id|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+            <div class="item-name">{{item.name}}</div>
+            <div class="item-name">{{item.damage}}</div>            
+            <div class="item-name">{{item.skill}}</div>
+          </li>
+          {{/each}}
+        </ol>
 	  </div>
 
 		

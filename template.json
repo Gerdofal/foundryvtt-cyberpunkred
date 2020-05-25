@@ -28,6 +28,41 @@
         }
       },
 
+      "combatsetup": {
+        "weaponsetup": {
+          "weapon1": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship"
+          },
+          "weapon2": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship"
+          },
+          "weapon3": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship"
+          },
+          "weapon4": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship"
+          },
+          "weapon5": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship"
+          },
+          "weapon6": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship"
+          }
+        }
+      },
+
       "attributes": {
         "attributes": {
           "int": {
@@ -274,67 +309,67 @@
         }
       }
     },
-  "character": {
-    "templates": ["description", "resources", "attributes", "skills"]
-  },
-  "npc": {
-    "templates": ["description", "npc"]
-  }
-},
-"Item": {
-  "types": ["cyberware", "weapons", "gear"],
-  "templates": {
-    "general": {
-      "price": {
-        "value": 0
-      },
-      "rarity": {
-        "value": 0
-      },
-      "legality": {
-        "value": 0
-      },
-      "description": "A brief item description goes here..."
+    "character": {
+      "templates": ["description", "resources", "attributes", "skills","combatsetup"]
     },
-    "cyberware": {
-      "internal": {
-        "value": false
-      },
-      "hackable": {
-        "value": false
-      },
-      "psychosis": {
-        "value": 0
-      }
-    },
-    "weapon": {
-      "damage": {
-        "value": 0
-      },
-      "ammo": {
-        "min": 0,
-        "max": "16",
-        "value": 0
-      },
-      "weapontype": {
-        "value": "pistol"
-      },
-      "burst": {
-        "value": true
-      },
-      "fullauto": {
-        "value": false
-      }
+    "npc": {
+      "templates": ["description", "npc"]
     }
   },
-  "weapons": {
-    "templates": ["general", "weapon"]
-  },
-  "cyberware": {
-    "templates": ["general", "cyberware"]
-  },
-  "gear": {
-    "templates": ["general"]
+  "Item": {
+    "types": ["cyberware", "weapons", "gear"],
+    "templates": {
+      "general": {
+        "price": {
+          "value": 0
+        },
+        "rarity": {
+          "value": 0
+        },
+        "legality": {
+          "value": 0
+        },
+        "description": "A brief item description goes here..."
+      },
+      "cyberware": {
+        "internal": {
+          "value": false
+        },
+        "hackable": {
+          "value": false
+        },
+        "psychosis": {
+          "value": 0
+        }
+      },
+      "weapon": {
+        "damage": {
+          "value": 0
+        },
+        "ammo": {
+          "min": 0,
+          "max": "16",
+          "value": 0
+        },
+        "weapontype": {
+          "value": "pistol"
+        },
+        "burst": {
+          "value": true
+        },
+        "fullauto": {
+          "value": false
+        }
+      }
+    },
+    "weapons": {
+      "templates": ["general", "weapon"]
+    },
+    "cyberware": {
+      "templates": ["general", "cyberware"]
+    },
+    "gear": {
+      "templates": ["general"]
+    }
   }
-}
 }

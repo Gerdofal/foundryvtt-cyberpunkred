@@ -60,7 +60,7 @@
 }
 .rollable:hover, .rollable:focus {
   color: #000;
-  text-shadow: 0 0 10px red;
+  text-shadow: 0 0 6px red;
   cursor: pointer;
 }
 .nowrap {
@@ -81,19 +81,21 @@
 }
 
 .cyberpunkred .npc-button-array button {
-  border: 1px solid green; /* Green border */
-  color: crimson;
-  background-color: #7D7D7D;
+  border: 0px solid green; /* Green border */
+  color: white;
+  background-color: #202020;
   padding: 0px 0px; /* Some padding */
   cursor: pointer; /* Pointer/hand icon */
   float: left; /* Float the buttons side by side */
   box-sizing: border-box;
   align-content: center;
+  z-index: 1;
+  margin: 2px;
 }
 
 .cyberpunkred .npc-basic-box {
 	display: inline-block;
-	width: 141px;
+	width: 152px;
 }
 
 .cyberpunkred .npc-custom-box {
@@ -114,10 +116,13 @@
   border-right: none; /* Prevent double borders */
 }
 
-/* Add a background color on hover */
 .cyberpunkred .npc-button-array button:hover {
-  background-color: #3e8e41;
-  box-shadow: 0 5px 15px #2020f0;
+  color: red;
+  z-index: 2;
+  color: #000;
+  text-shadow: 0 0 6px red;
+  cursor: pointer;
+  box-shadow: 0 0 5px 5px red;
 }
 
 /* Rolls */
