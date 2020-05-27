@@ -24,7 +24,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
   2. Special tab to make various combat actions easier to manage (or drag to action bar)
   3. Additional tabs that show or hide based on your selection of available abilities (hacking, etc...)
 - NPCs
-  1. Special system to help make using large number of NPCs easier
+  1. System to help make using large number of NPCs easier by automating actions from multiple NPCs when possible
 - Optional Rules
   1. Support for optional rules will be inclued wherever possible. For example:
      - Base die roll will be tweaked to include common options for exploding dice (don't explode, explode once, explode with limt, explode infinitely )
