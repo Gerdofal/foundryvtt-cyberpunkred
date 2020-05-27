@@ -18,6 +18,15 @@
   color: #600000;
 }
 
+.cyberpunkred .roomtoedit {
+  height: 400px;
+}
+
+.cyberpunkred .roomtoedit .editor {
+  margin-top: 10px;
+  height: 100%;
+}
+
 .cyberpunkred .cpr-grid {
   display: grid;
   grid-template-columns: 90px auto;
@@ -87,8 +96,7 @@
 .cyberpunkred .npc-button-array button {
   border: 0px solid green; /* Green border */
   color: white;
-  background-color: #202020;
-  padding: 0px 0px; /* Some padding */
+  background-color: #702020;
   cursor: pointer; /* Pointer/hand icon */
   float: left; /* Float the buttons side by side */
   box-sizing: border-box;
@@ -99,12 +107,16 @@
 
 .cyberpunkred .npc-basic-box {
 	display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
 	width: 152px;
 }
 
 .cyberpunkred .npc-custom-box {
 	display: inline-block;
 	width: 270px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .cyberpunkred .npc-small-button {
 	width: 25px;

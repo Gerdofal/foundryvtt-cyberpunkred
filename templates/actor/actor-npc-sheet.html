@@ -17,9 +17,9 @@
       <div class="cpr-nav-item"><a class="item" data-tab="rollbuttons">{{localize "SHEET.rollbuttons"}}</a></div>
     </div>
     <div class="cpr-content cprgraphics"> {{!-- Biography Tab --}}
-      <div class="tab biography cprgraphics" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
+      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
       {{!-- Appearance Tab --}}
-      <div class="tab appearance cprgraphics" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} </div>
+      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} </div>
       {{!-- Rolls Setup Tab --}}
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollsetup">
         <div class="combatstats grid grid-2col">
@@ -58,7 +58,7 @@
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollbuttons"> {{!-- Basic Rolls --}}
         <div class="npc-basic-box">
 		  <div class="npc-button-array">
-            <button style="width:141px;" data-roll="{{dieRollCommand}}+(prompt)" class="rollable">Prompt</button>
+            <button style="width:141px;" data-roll="{{dieRollCommand}}+(prompt)" class="rollable" disabled>TBD</button>
           </div>
           <div class="npc-button-array">
             <button data-roll="{{dieRollCommand}}+20" class="rollable npc-small-button">20</button>
