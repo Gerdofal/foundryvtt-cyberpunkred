@@ -29,9 +29,9 @@
       <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "SHEET.settings"}}</a></div>
       <br>
     </div>
-    <div class="cpr-content cprgraphics"> {{!-- Biography Tab --}}
+    {{!-- Biography Tab --}}
+    <div class="cpr-content cprgraphics">
       <div class="tab biography cprgraphics" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
-    </div>
       {{!-- Appearance Tab --}}
       <div class="tab appearance cprgraphics" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} </div>
       {{!-- Attributes and Skills Tab --}}
@@ -55,25 +55,24 @@
           </div>
         </div>
         <ol class="grid grid-4col">
-            <label>{{localize "SHEET.attribute"}}</label>
-            <label>{{localize "SHEET.base"}}</label>
-            <label>{{localize "SHEET.mod"}}</label>
-            <label>{{localize "SHEET.totalroll"}}</label>
+          <label>{{localize "SHEET.attribute"}}</label>
+          <label>{{localize "SHEET.base"}}</label>
+          <label>{{localize "SHEET.mod"}}</label>
+          <label>{{localize "SHEET.totalroll"}}</label>
           {{#each data.attributes as |attr key|}}
-            <label for="data.attributes.{{key}}.value">{{localize (concat "SHEET." key)}}</label>
-            <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
-            <input type="text" name="data.attributes.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
-            <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
+          <label for="data.attributes.{{key}}.value">{{localize (concat "SHEET." key)}}</label>
+          <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
+          <input type="text" name="data.attributes.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
+          <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
           {{#each data.skills as |skill key|}}
-            <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'SHEET.' key)}}" data-roll="{{../dieRollCommand}}+@attributes.{{skill.linkedattribute}}.roll+{{skill.roll}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
-            <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
-            <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
-            <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
-            {{/each}}
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'SHEET.' key)}}" data-roll="{{../dieRollCommand}}+@attributes.{{skill.linkedattribute}}.roll+{{skill.roll}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
+          <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
+          <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
+          <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
+          {{/each}}
         </ol>
       </div>
-      
       {{#if showInventory}}
       {{!-- Owned Cyberware Tab --}}
       <div class="tab cyberware cprgraphics" data-group="primary" data-tab="cyberware">
@@ -146,17 +145,12 @@
       </div>
       {{!-- Combat Tab --}}
       <div class="tab combat cprgraphics" data-group="primary" data-tab="combat"> This tab will hold specialized buttons for combat.<br>
-
-        
       </div>
-      
       {{!-- SETTINGS TAB --}}
-      <div class="tab settings cprgraphics" data-group="primary" data-tabs="settings">
-      This tab will hold settings information.<br><br>
-      
-        
-      The following settings have been set by the GM and are in effect for this game:<br><br>
-        
+      <div class="tab settings cprgraphics" data-group="primary" data-tabs="settings"> This tab will hold settings information.<br>
+        <br>
+        The following settings have been set by the GM and are in effect for this game:<br>
+        <br>
         The base die roll is: {{dieRollCommand}}<br>
         {{#if GMAlwaysWhisper}}
         GM rolls for NPCs are HIDDEN from players<br>
@@ -177,10 +171,7 @@
         Item-based combat setup is ENABLED<br>
         {{else}}
         Item-based combat setup is DISABLED<br>
-        {{/if}}
-      </div>
-      
-      
+        {{/if}} </div>
     </div>
   </div>
 </form>
