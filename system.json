@@ -1,5 +1,5 @@
 {
-  "version": 0.23,
+  "version": 0.24,
   "name": "cyberpunkred",
   "title": "Cyberpunk RED",
   "description": "An in-progress game system for CyberpunkRED. Still very much in development as all we have are the jumpstart rules and the core rulebook isn't even out yet. (Based on the boilerplate system by asacolips)",
@@ -24,5 +24,5 @@
   "url": "https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/stable_release/README.md",
   "manifest": "https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json",
   "download": "https://github.com/Gerdofal/foundryvtt-cyberpunkred/archive/stable_release.zip",
-  "license": null
+  "license": "Copyright 2020 @gerdofal#0763 - License Terms GNU GPL v3 see file license.md"
 }
