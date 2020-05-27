@@ -1,5 +1,5 @@
 {
-  "version": 0.22,
+  "version": 0.23,
   "name": "cyberpunkred",
   "title": "Cyberpunk RED",
   "description": "An in-progress game system for CyberpunkRED. Still very much in development as all we have are the jumpstart rules and the core rulebook isn't even out yet. (Based on the boilerplate system by asacolips)",
@@ -19,11 +19,10 @@
   ],
   "gridDistance": 1,
   "gridUnits": "m",
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": null,
+  "primaryTokenAttribute": "combatstats.healthpool",
+  "secondaryTokenAttribute": "combatstats.luckpool",
   "url": "https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/stable_release/README.md",
   "manifest": "https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json",
   "download": "https://github.com/Gerdofal/foundryvtt-cyberpunkred/archive/stable_release.zip",
-  "license": null,
-  "initiative": "1d10 + @attributes.init.value"
+  "license": null
 }

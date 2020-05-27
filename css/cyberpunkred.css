@@ -1,23 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
 /* Global styles */
-
 .roll-type-select {
 	display: none;
 }
 .window-app {
   font-family: "Roboto", sans-serif;
 }
-.cyberpunkred div {
-  color: white;
+
+.cyberpunkred .cprgraphics {
+  border: 10px ridge #FF1010;
+	border-image-source: url("crredborder.jpg?ver1"); /* source url */
+	border-image-slice: 17 0 17 9;
+	border-image-width: 17px 0px 17px 9px;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+  background: white;
+  color: #600000;
 }
-.cyberpunkred input {
-  color: white;
-}
+
 .cyberpunkred .cpr-grid {
   display: grid;
   grid-template-columns: 90px auto;
-  grid-template-rows: 40px auto;
-  background: linear-gradient(#880000, #400000);
+  grid-template-rows: 40px auto;;
   padding: 3px;
 }
 .cyberpunkred .cpr-header {
@@ -145,13 +149,19 @@
   padding-left: 10px;
   padding-right: 10px;
 }
-.grid, .grid-2col {
+.grid {
   display: grid;
-  grid-column: span 2 / span 2;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3px;
   margin: 3px 0;
   padding: 0;
+}
+.grid-1col {
+  grid-column: span 1 / span 1;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-2col {
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .grid-3col {
   grid-column: span 3 / span 3;

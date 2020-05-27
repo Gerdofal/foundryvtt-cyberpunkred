@@ -13,8 +13,8 @@
         }
       },
 
-      "resources": {
-        "resources": {
+      "combatstats": {
+        "combatstats": {
           "healthpool": {
             "value": 25,
             "min": 0,
@@ -24,6 +24,11 @@
             "value": 25,
             "min": 0,
             "max": 50
+          },
+          "init": {
+            "value": 5,
+            "mod": 0,
+            "roll": 5
           }
         }
       },
@@ -67,56 +72,71 @@
         "attributes": {
           "int": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           },
           "ref": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           },
           "dex": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           },
           "tech": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           },
           "cool": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           },
           "will": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           },
           "luck": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           },
           "move": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           },
           "body": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           },
           "emp": {
             "value": 5,
-            "min": 0,
-            "max": 10
-          },
-          "init": {
-            "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10
           }
@@ -127,126 +147,168 @@
         "skills": {
           "brawling": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "evasion": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "meleeweapon": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "marksmanship": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "ref"
           },
           "concentration": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "will"
           },
           "perception": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "int"
           },
           "tracking": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "int"
           },
           "driving": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "ref"
           },
           "athletics": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "stealth": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "dex"
           },
           "bribery": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "cool"
           },
           "conversation": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "emp"
           },
           "humanperception": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "emp"
           },
           "interrogation": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "cool"
           },
           "persuasion": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "cool"
           },
           "basictech": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "tech"
           },
           "cybertech": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "tech"
           },
           "firstaid": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "tech"
           },
           "playinstrument": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "emp"
           },
           "education": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "int"
           },
           "localexpert": {
             "value": 5,
+            "mod": 0,
+            "roll": 5,
             "min": 0,
             "max": 10,
             "linkedattribute": "int"
@@ -310,10 +372,10 @@
       }
     },
     "character": {
-      "templates": ["description", "resources", "attributes", "skills","combatsetup"]
+      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup"]
     },
     "npc": {
-      "templates": ["description", "npc"]
+      "templates": ["description", "combatstats", "npc"]
     }
   },
   "Item": {

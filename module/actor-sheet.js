@@ -1,9 +1,4 @@
-//Make the log entries for CyberpunkRED easy to find in the console log, and easy to turn off if needed.
-function crlog(a) {
-  //return; //Uncomment this to disable all logging.
-  console.log('CyberpunkRED | ' + a);
-}
-
+import {_cprLog} from "./tools.js";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet} 
@@ -40,7 +35,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-    console.log(data);
+
     /*
     data.dtypes = ["String", "Number", "Boolean"];
     for (let attr of Object.values(data.data.attributes)) {
@@ -52,6 +47,42 @@ export class cyberpunkredActorSheet extends ActorSheet {
       this._prepareCharacterItems(data);
     }
     */
+
+    if(data.data.attributes in Object.entries) {
+    for (let [key, attr] of Object.entries(data.data.attributes)) {
+      attr.roll = attr.value + attr.mod;
+      _cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
+    }      
+    }
+
+    if(data.data.skills in Object.entries) {
+    for (let [key, attr] of Object.entries(data.data.skills)) {
+      attr.roll = attr.value + attr.mod;
+      _cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
+    }
+      
+    }
+
+    // TODO - Need to tweak NPC page so this can work I think
+    if(data.data.attributes in Object.entries) {
+      data.data.combatstats["healthpool"].max = data.data.attributes["body"].roll * 5;
+      _cprLog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.combatstats["healthpool"].max);
+      if (data.data.combatstats["healthpool"].max < data.data.combatstats["healthpool"].value) {
+        data.data.combatstats["healthpool"].value = data.data.combatstats["healthpool"].max;
+      }
+
+      data.data.combatstats["luckpool"].max = data.data.attributes["luck"].roll;
+      _cprLog("Luck Pool Max = " + data.data.attributes["luck"].roll);
+      if (data.data.combatstats["luckpool"].max < data.data.combatstats["luckpool"].value) {
+        data.data.combatstats["luckpool"].value = data.data.combatstats["luckpool"].max;
+      }      
+    }
+
+    data.simpleCombatSetup = game.settings.get("cyberpunkred","simpleCombatSetup");
+    data.itemCombatSetup = game.settings.get("cyberpunkred","itemCombatSetup");
+    data.dieRollCommand = game.settings.get("cyberpunkred", "dieRollCommand");
+    _cprLog("Finished setting up data");
+    console.log(data);
     return data;
   }
 
@@ -65,7 +96,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
 
-    crlog("Parsing Item List");
+    _cprLog("Parsing Item List");
     // Initialize containers.
     const cyberware = [];
     const weapons = [];
@@ -93,9 +124,9 @@ export class cyberpunkredActorSheet extends ActorSheet {
       actorData.gear = gear;
       actorData.weapons = weapons;
       actorData.cyberware = cyberware;
-      console.log(cyberware);
-      console.log(weapons);
-      console.log(gear);
+      _cprLog(cyberware);
+      _cprLog(weapons);
+      _cprLog(gear);
     }
   }
   /* -------------------------------------------- */
@@ -171,10 +202,10 @@ export class cyberpunkredActorSheet extends ActorSheet {
       var rollstring = "roll";
     }
 
-    console.log("Roll String: " + rollstring);
+    _cprLog("Roll String: " + rollstring);
 
     if (dataset.roll) {
-
+      console.log(dataset);
       let roll = new Roll(dataset.roll, this.actor.data.data);
       let label = dataset.label ? `${dataset.label}` : '';
       roll.roll().toMessage({
