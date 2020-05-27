@@ -18,11 +18,16 @@
       <br>
       <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "SHEET.combat"}}</a></div>
       <br>
+      {{#if showInventory}}
       <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "SHEET.cyberware"}}</a></div>
       <br>
       <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "SHEET.weapons"}}</a></div>
       <br>
       <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "SHEET.gear"}}</a></div>
+      <br>
+      {{/if}}
+      <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "SHEET.settings"}}</a></div>
+      <br>
     </div>
     <div class="cpr-content cprgraphics"> {{!-- Biography Tab --}}
       <div class="tab biography cprgraphics" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
@@ -67,6 +72,8 @@
             {{/each}}
         </ol>
       </div>
+      
+      {{#if showInventory}}
       {{!-- Owned Cyberware Tab --}}
       <div class="tab cyberware cprgraphics" data-group="primary" data-tab="cyberware">
         <ol class="items-list">
@@ -118,6 +125,7 @@
           {{/each}}
         </ol>
       </div>
+      {{/if}}
       {{!-- Combat Setup Tab --}}
       <div class="tab combatsetup cprgraphics" data-group="primary" data-tab="combatsetup"> This tab will hold the simple method of defining character combat stats.
         <ol class="items-list">
@@ -136,14 +144,42 @@
         </ol>
       </div>
       {{!-- Combat Tab --}}
-      <div class="tab combat cprgraphics" data-group="primary" data-tab="combat"> This tab will hold specialized buttons for combat.
+      <div class="tab combat cprgraphics" data-group="primary" data-tab="combat"> This tab will hold specialized buttons for combat.<br>
+
         
+      </div>
+      
+      {{!-- SETTINGS TAB --}}
+      <div class="tab settings cprgraphics" data-group="primary" data-tabs="settings">
+      This tab will hold settings information.<br><br>
+      
+        
+      GM GAME SETTINGS:<br><br>
+        
+        BASE DIE ROLL: {{dieRollCommand}}<br>
+        {{#if GMAlwaysWhisper}}
+        GM ROLLS FOR NPCS ARE BEHIND THE SCREEN<br>
+        {{else}}
+        GM ROLLS FOR NPCS ARE VISIBLE<br>
+        {{/if}}
+        {{#if showInventory}}
+        INVENTORY MANAGEMENT IS ENABLED<br>
+        {{else}}
+        INVENTORY MANAGEMENT IS DIABLED<br>
+        {{/if}}
         {{#if simpleCombatSetup}}
-        SIMPLE COMBAT SETUP IS ENABLED
+        SIMPLE COMBAT SETUP IS ENABLED<br>
+        {{else}}
+        SIMPLE COMBAT SETUP IS DISABLED<br>
         {{/if}}
         {{#if itemCombatSetup}}
-        ITEM BASED COMBAT SETUP IS ENABLED
-        {{/if}} </div>
+        ITEM BASED COMBAT SETUP IS ENABLED<br>
+        {{else}}
+        ITEM BASED COMBAT SETUP IS DISABLED<br>
+        {{/if}}
+      </div>
+      
+      
     </div>
   </div>
 </form>

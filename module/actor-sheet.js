@@ -79,8 +79,14 @@ export class cyberpunkredActorSheet extends ActorSheet {
     }
 
     data.simpleCombatSetup = game.settings.get("cyberpunkred","simpleCombatSetup");
+    data.GMAlwaysWhisper = game.settings.get("cyberpunkred","GMAlwaysWhisper");
     data.itemCombatSetup = game.settings.get("cyberpunkred","itemCombatSetup");
     data.dieRollCommand = game.settings.get("cyberpunkred", "dieRollCommand");
+    data.showInventory = game.settings.get("cyberpunkred", "showInventory");
+    if(!data.showInventory) {
+      data.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
+    }
+    
     _cprLog("Finished setting up data");
     console.log(data);
     return data;

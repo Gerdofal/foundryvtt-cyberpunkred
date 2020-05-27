@@ -38,6 +38,14 @@ export const registerSystemSettings = function() {
     type: Boolean
   });
   
+  game.settings.register("cyberpunkred", "showInventory", {
+    name: "SETTINGS.showinventoryname",
+    hint: "SETTINGS.showinventoryhint",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean
+  });
 	
 	
 }
