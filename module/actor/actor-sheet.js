@@ -55,12 +55,12 @@ export class cyberpunkredActorSheet extends ActorSheet {
     
     for (let attr of Object.values(data.data.attributes)) {
       attr.roll = attr.value + attr.mod;
-      crlog("Calculating " + attr);
+      crlog("Calculating Attributes " + attr.value + "+" + attr.mod +  "=" + attr.roll);
     }
     
     for (let attr of Object.values(data.data.skills)) {
       attr.roll = attr.value + attr.mod;
-      crlog("Calculating " + attr);
+      crlog("Calculating Skills " + attr.value + "+" + attr.mod +  "=" + attr.roll);
     }
     
     return data;
