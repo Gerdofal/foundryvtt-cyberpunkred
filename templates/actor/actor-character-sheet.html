@@ -1,13 +1,19 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-  {{-- Main Grid --}}
+  
+  
+  {{!-- Main Grid --}}
   <div class="cpr-grid cprgraphics">
-    {{-- Header --}}
+    
+    
+    {{!-- Header --}}
     <div class="cpr-header cprgraphics">
       <div class="grid grid-2col">
         <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
         <input name="role" type="text" value="{{data.description.role}}" placeholder="Role"/>
       </div>
     </div>
+    
+    
     {{!-- Navigation Sidebar --}}
     <div class="cpr-nav sheet-tabs cprgraphics">
       <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "SHEET.bio"}}</a></div>
@@ -31,19 +37,27 @@
       <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "SHEET.settings"}}</a></div>
       <br>
     </div>
+    
+    
     {{!-- Start Content --}}
     <div class="cpr-content cprgraphics">
-          {{!-- Biography Tab --}}
-      <div class="tab biography cprgraphics" data-group="primary" data-tab="biography">
+      
+      
+      {{!-- Biography Tab --}}
+      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="biography">
         {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}}
       </div>
+      
+      
       {{!-- Appearance Tab --}}
-      <div class="tab appearance cprgraphics" data-group="primary" data-tab="appearance">
+      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="appearance">
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> 
         {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} 
       </div>
+      
+      
       {{!-- Attributes and Skills Tab --}}
-      <div class="tab attrnskills cprgraphics" data-group="primary" data-tab="attrnskills">
+      <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
         <div class="combatstats grid grid-2col">
           <div class="resource flex-group-center">
             <label for="data.combatstats.healthpool.value" class="resource-label">{{localize (concat "SHEET.healthpool")}}</label>
@@ -81,9 +95,13 @@
           {{/each}}
         </ol>
       </div>
+      
+      
       {{#if showInventory}}
+      
+      
       {{!-- Owned Cyberware Tab --}}
-      <div class="tab cyberware cprgraphics" data-group="primary" data-tab="cyberware">
+      <div class="tab cprgraphics" data-group="primary" data-tab="cyberware">
         <ol class="items-list">
           <li class="item flexrow item-header">
             <div class="item-image"></div>
@@ -99,8 +117,10 @@
           {{/each}}
         </ol>
       </div>
+      
+      
       {{!-- Owned Weapons Tab --}}
-      <div class="tab weapons cprgraphics" data-group="primary" data-tab="weapons">
+      <div class="tab cprgraphics" data-group="primary" data-tab="weapons">
         <ol class="items-list">
           <li class="item flexrow item-header">
             <div class="item-image"></div>
@@ -116,8 +136,10 @@
           {{/each}}
         </ol>
       </div>
+      
+      
       {{!-- Owned Gear Tab --}}
-      <div class="tab gear cprgraphics" data-group="primary" data-tab="gear">
+      <div class="tab cprgraphics" data-group="primary" data-tab="gear">
         <ol class="items-list">
           <li class="item flexrow item-header">
             <div class="item-image"></div>
@@ -134,8 +156,10 @@
         </ol>
       </div>
       {{/if}}
+      
+      
       {{!-- Combat Setup Tab --}}
-      <div class="tab combatsetup cprgraphics" data-group="primary" data-tab="combatsetup"> This tab will hold the simple method of defining character combat stats.
+      <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup"> This tab will hold the simple method of defining character combat stats.
         <ol class="items-list">
           <li class="item flexrow item-header">
             <div class="item-name">Name</div>
@@ -151,12 +175,16 @@
           {{/each}}
         </ol>
       </div>
+      
+      
       {{!-- Combat Tab --}}
-      <div class="tab combat cprgraphics" data-group="primary" data-tab="combat">
+      <div class="tab cprgraphics" data-group="primary" data-tab="combat">
         This tab will hold specialized buttons for combat.<br>
       </div>
+      
+      
       {{!-- SETTINGS TAB --}}
-      <div class="tab settings cprgraphics" data-group="primary" data-tabs="settings"> This tab will hold settings information.<br>
+      <div class="tab cprgraphics" data-group="primary" data-tab="settings"> This tab will hold settings information.<br>
         <br>
         The following settings have been set by the GM and are in effect for this game:<br>
         <br>
@@ -182,6 +210,8 @@
         Item-based combat setup is DISABLED<br>
         {{/if}}
       </div>
-    </div>
-  </div>
-</form>
+      
+      
+    </div> {{!-- Here ends main content --}}
+  </div> {{!-- Here ends grid definition --}}
+</form> {{!-- Here ends the main form --}}

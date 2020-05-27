@@ -18,6 +18,15 @@
   color: #600000;
 }
 
+.cyberpunkred .roomtoedit {
+  height: 400px;
+}
+
+.cyberpunkred .roomtoedit .editor {
+  margin-top: 10px;
+  height: 100%;
+}
+
 .cyberpunkred .cpr-grid {
   display: grid;
   grid-template-columns: 90px auto;
