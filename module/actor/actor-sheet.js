@@ -52,6 +52,15 @@ export class cyberpunkredActorSheet extends ActorSheet {
       this._prepareCharacterItems(data);
     }
     */
+    
+    for (let attr of Object.values(data.data.attributes)) {
+      attr.roll = attr.value + attr.mod;
+    }
+    
+    for (let attr of Object.values(data.data.skills)) {
+      attr.roll = attr.value + attr.mod;
+    }
+    
     return data;
   }
 

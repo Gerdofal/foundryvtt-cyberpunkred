@@ -62,6 +62,8 @@
           <li class="flexrow" data-attribute="{{key}}">
             <label for="data.attributes.{{key}}.value">{{localize (concat "SHEET." key)}}</label>
             <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
+            <input type="text" name="data.attributes.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
+            <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           </li>
           {{/each}}
         </ol>
@@ -70,6 +72,8 @@
           <li class="flexrow nowrap" data-attribute="{{key}}">
             <label for="data.skills.{{key}}.value" data-roll="{{setting_die}}+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
             <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}"/>
+            <input type="text" name="data.skills.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
+            <input type="text" name="data.skills.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           </li>
           {{/each}}
         </ol>
