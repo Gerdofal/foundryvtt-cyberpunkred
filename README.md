@@ -1,3 +1,4 @@
+![CyberpunkRED Sign](https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/css/crrednamed.jpg?raw=true "CyberpunkRED Sign")
 # Branch Information
 
 - Current Status: Alpha
