@@ -42,3 +42,8 @@ Since playstyles vary greatly, this sheet is designed with the following in mind
    - Some people just want to play the game using their mind and their own internal vision, we want to support that style of play. If all the players and GM want to use is the character sheet, this should not limit the usefullness of the system in any way.
 2. Everything should be efficient and quick during play. Nothing should require multiple clicks if we can find a way to do it with just one.
 3. Help text and tips should be available at the beginning, but hidable with a simple setting change.
+
+# License
+
+See the file license.md
+
