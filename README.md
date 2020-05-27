@@ -28,8 +28,8 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 - Optional Rules
   1. Support for optional rules will be inclued wherever possible. For example:
      - Base die roll will be tweaked to include common options for exploding dice (don't explode, explode once, explode with limt, explode infinitely )
-	   - A few different ways of handling criticals will be included
-	   - There will be options to use the CP 2020 health track system instead of the CP RED health track system
+     - A few different ways of handling criticals will be included
+     - There will be options to use the CP 2020 health track system instead of the CP RED health track system
      - Options to use inventory management or just a simple form field for tracking gear and such
 - Other
   1. Other design decisions about the table, dice rolling, etc... are still beging made
