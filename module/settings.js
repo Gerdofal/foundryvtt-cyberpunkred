@@ -1,3 +1,5 @@
+import {_cprLog} from "./tools.js";
+
 export const registerSystemSettings = function() {
 
 	game.settings.register("cyberpunkred", "dieRollCommand", {
@@ -18,6 +20,24 @@ export const registerSystemSettings = function() {
     type: Boolean
   });
 	
+	game.settings.register("cyberpunkred", "simpleCombatSetup", {
+    name: "SETTINGS.usesimplecombatname",
+    hint: "SETTINGS.usesimplecombathint",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean
+  });
+  
+	game.settings.register("cyberpunkred", "itemCombatSetup", {
+    name: "SETTINGS.useitembasedcombatname",
+    hint: "SETTINGS.useitembasedcombathint",
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean
+  });
+  
 	
 	
 }
