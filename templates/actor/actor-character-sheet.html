@@ -1,43 +1,34 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-  <div class="cpr-grid cprgraphics">
-
-	  
-	{{!--Top Header --}}	    
-	<div class="cpr-header cprgraphics">
+  <div class="cpr-grid cprgraphics"> {{!--Top Header --}}
+    <div class="cpr-header cprgraphics">
       <div class="grid grid-2col">
         <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
         <input name="role" type="text" value="{{data.description.role}}" placeholder="Role"/>
       </div>
     </div>
-	  
-	  
-	{{!-- Navigation Sidebar --}}	  
+    {{!-- Navigation Sidebar --}}
     <div class="cpr-nav sheet-tabs cprgraphics">
-      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "SHEET.bio"}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "SHEET.appearance"}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "SHEET.attrnskills"}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "SHEET.combatsetup"}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "SHEET.combat"}}</a></div><br>
-  	  <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "SHEET.cyberware"}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "SHEET.weapons"}}</a></div><br>
-	  <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "SHEET.gear"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "SHEET.bio"}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "SHEET.appearance"}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "SHEET.attrnskills"}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "SHEET.combatsetup"}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "SHEET.combat"}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "SHEET.cyberware"}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "SHEET.weapons"}}</a></div>
+      <br>
+      <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "SHEET.gear"}}</a></div>
     </div>
-    <div class="cpr-content cprgraphics">
-
-		
-	  {{!-- Biography Tab --}}
-      <div class="tab biography cprgraphics" data-group="primary" data-tab="biography">
-		  {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}}
-	  </div>
-		
-		
-	  {{!-- Appearance Tab --}}
-      <div class="tab appearance cprgraphics" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-		  {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}}
-	  </div>
-		
-		
-	  {{!-- Attributes and Skills Tab --}}
+    <div class="cpr-content cprgraphics"> {{!-- Biography Tab --}}
+      <div class="tab biography cprgraphics" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
+      {{!-- Appearance Tab --}}
+      <div class="tab appearance cprgraphics" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} </div>
+      {{!-- Attributes and Skills Tab --}}
       <div class="tab attrnskills cprgraphics" data-group="primary" data-tab="attrnskills">
         <div class="combatstats grid grid-2col">
           <div class="resource flex-group-center">
@@ -58,32 +49,24 @@
           </div>
         </div>
         <ol class="grid grid-4col">
-          <li class="nowrap">
             <label>{{localize "SHEET.attribute"}}</label>
             <label>{{localize "SHEET.base"}}</label>
             <label>{{localize "SHEET.mod"}}</label>
-            <label>{{localize "SHEET.totalroll"}}</label>          
-          </li>
+            <label>{{localize "SHEET.totalroll"}}</label>
           {{#each data.attributes as |attr key|}}
-          <li class="nowrap">
             <label for="data.attributes.{{key}}.value">{{localize (concat "SHEET." key)}}</label>
             <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
             <input type="text" name="data.attributes.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
             <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
-          </li>
           {{/each}}
           {{#each data.skills as |skill key|}}
-          <li class="nowrap">
-          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'SHEET.' key)}}" data-roll="{{../dieRollCommand}}+@attributes.{{skill.linkedattribute}}.roll+{{skill.roll}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
+            <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'SHEET.' key)}}" data-roll="{{../dieRollCommand}}+@attributes.{{skill.linkedattribute}}.roll+{{skill.roll}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
             <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
             <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
             <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
-          {{/each}}
-          </li>
+            {{/each}}
         </ol>
       </div>
-		
-		
       {{!-- Owned Cyberware Tab --}}
       <div class="tab cyberware cprgraphics" data-group="primary" data-tab="cyberware">
         <ol class="items-list">
@@ -101,8 +84,6 @@
           {{/each}}
         </ol>
       </div>
-		
-		
       {{!-- Owned Weapons Tab --}}
       <div class="tab weapons cprgraphics" data-group="primary" data-tab="weapons">
         <ol class="items-list">
@@ -120,8 +101,6 @@
           {{/each}}
         </ol>
       </div>
-		
-		
       {{!-- Owned Gear Tab --}}
       <div class="tab gear cprgraphics" data-group="primary" data-tab="gear">
         <ol class="items-list">
@@ -139,12 +118,9 @@
           {{/each}}
         </ol>
       </div>
-		
-		
- 	  {{!-- Combat Setup Tab --}}
-      <div class="tab combatsetup cprgraphics" data-group="primary" data-tab="combatsetup">
-        This tab will hold the simple method of defining character combat stats.
-      <ol class="items-list">
+      {{!-- Combat Setup Tab --}}
+      <div class="tab combatsetup cprgraphics" data-group="primary" data-tab="combatsetup"> This tab will hold the simple method of defining character combat stats.
+        <ol class="items-list">
           <li class="item flexrow item-header">
             <div class="item-name">Name</div>
             <div class="item-name">Damage</div>
@@ -153,28 +129,21 @@
           {{#each data.weaponsetup as |item id|}}
           <li class="item flexrow" data-item-id="{{item._id}}">
             <div class="item-name">{{item.name}}</div>
-            <div class="item-name">{{item.damage}}</div>            
+            <div class="item-name">{{item.damage}}</div>
             <div class="item-name">{{item.skill}}</div>
           </li>
           {{/each}}
         </ol>
-	  </div>
-
-		
-	  {{!-- Combat Tab --}}
-      <div class="tab combat cprgraphics" data-group="primary" data-tab="combat">
-		  This tab will hold specialized buttons for combat.
-
+      </div>
+      {{!-- Combat Tab --}}
+      <div class="tab combat cprgraphics" data-group="primary" data-tab="combat"> This tab will hold specialized buttons for combat.
+        
         {{#if simpleCombatSetup}}
         SIMPLE COMBAT SETUP IS ENABLED
         {{/if}}
         {{#if itemCombatSetup}}
         ITEM BASED COMBAT SETUP IS ENABLED
-        {{/if}}
-
-	  </div>
-
-
+        {{/if}} </div>
     </div>
   </div>
 </form>
