@@ -52,26 +52,26 @@ export class cyberpunkredActorSheet extends ActorSheet {
       this._prepareCharacterItems(data);
     }
     */
-    
+
     for (let [key, attr] of Object.entries(data.data.attributes)) {
       attr.roll = attr.value + attr.mod;
-      crlog("Calculating " + key + ": " + attr.value + "+" + attr.mod +  "=" + attr.roll);
+      crlog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
     }
-    
+
     for (let [key, attr] of Object.entries(data.data.skills)) {
       attr.roll = attr.value + attr.mod;
-      crlog("Calculating " + key + ": " + attr.value + "+" + attr.mod +  "=" + attr.roll);
-    }    
-    
+      crlog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
+    }
+
     data.data.resources["healthpool"].max = data.data.attributes["body"].roll * 5;
     crlog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.resources["healthpool"].max);
-    if (data.data.resources["healthpool"].max<data.data.resources["healthpool"].value) {
-      data.data.resources["healthpool"].value=data.data.resources["healthpool"].max;
+    if (data.data.resources["healthpool"].max < data.data.resources["healthpool"].value) {
+      data.data.resources["healthpool"].value = data.data.resources["healthpool"].max;
     }
-    
+
     data.data.resources["luckpool"].max = data.data.attributes["luck"].roll;
     crlog("Luck Pool Max = " + data.data.attributes["luck"].roll);
-    if (data.data.resources["luckpool"].max<data.data.resources["luckpool"].value) {
+    if (data.data.resources["luckpool"].max < data.data.resources["luckpool"].value) {
       data.data.resources["luckpool"].value = data.data.resources["luckpool"].max;
     }
 
