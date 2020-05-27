@@ -1,6 +1,10 @@
 # Branch Information
 
+- Current Status: Alpha
+  - Character Sheet is current focus
+
 - There are two branches for this project, development and stable_release. You should generally not use the development branch for games as it may have significant bugs. See below for download links.
+
 
 # Cyberpunk RED
 
