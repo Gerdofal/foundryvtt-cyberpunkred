@@ -71,7 +71,7 @@
           {{#each data.skills as |skill key|}}
           <li class="flexrow nowrap" data-attribute="{{key}}">
             <label for="data.skills.{{key}}.value" data-roll="{{setting_die}}+@attributes.{{skill.linkedattribute}}.value+{{skill.value}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
-            <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}"/>
+            <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}} data-dtype="Number"/>
             <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
             <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
           </li>
