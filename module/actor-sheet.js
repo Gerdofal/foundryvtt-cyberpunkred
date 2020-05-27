@@ -63,6 +63,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       
     }
 
+    // TODO - This code breaks the NPC sheet as they don't have a body.
     data.data.combatstats["healthpool"].max = data.data.attributes["body"].roll * 5;
     _cprLog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.combatstats["healthpool"].max);
     if (data.data.combatstats["healthpool"].max < data.data.combatstats["healthpool"].value) {
