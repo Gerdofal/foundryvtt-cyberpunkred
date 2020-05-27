@@ -1,3 +1,4 @@
+![CyberpunkRED Media Card](https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/css/cpredmediacard.png?raw=true "CyberpunkRED Media Card")
 # Branch Information
 
 - Current Status: Alpha
