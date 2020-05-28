@@ -1,4 +1,8 @@
 ![CyberpunkRED Media Card](https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/css/cpredmediacard.png?raw=true "CyberpunkRED Media Card")
+# Cyberpunk RED
+
+An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit and will also also options for house rules to extend the system.
+
 # Branch Information
 
 - Current Status: Alpha
@@ -6,17 +10,37 @@
 
 - There are two branches for this project, development and stable_release. You should generally not use the development branch for games as it may have significant bugs. See below for download links.
 
-
-# Cyberpunk RED
-
-An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit and will also also options for house rules to extend the system.
-
 # Installing
 
 - The files in the "Stable Release" branch are the suggestion for download. Use this as the manifest URL:
   - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
 
 - If you want to manually install the files from the dev branch, feel free. I don't recommend this.
+
+# Current Status
+- **Basic_Functionality**: Character sheet stores base attributes and skills and has space to save modifications for each.
+- **Rolls**: All skills can be rolled from the skill tab.
+- **Encounters**: Initiative may be automatically rolled, using REF as a tie breaker.
+- **NPCs**: The NPC sheet is at it's beginning stages, 10 fields to set custom die pools with notes and easy to click buttons to roll dice. (Use the character sheet for named NPCs, the NPC sheet is for quick grunts.)
+- **GM_Options**: The GM can determine several options, such as the base die roll to use, in System Settings.
+- **Localization**: All text is localized, only EN for now.
+
+# Upcoming Changes
+
+**Soon**
+- **Combat_Functions**: basic buttons for auto-fire, hacking, facedown, death saves, etc...
+- **Situational Modifiers**: tracker for various combinations of modifiers
+- **Rolling Damage**: damage buttons, first in the sheet, then in chat
+- **Simple Combat Functionality**: a way to set weapon stats using basic text fields
+
+**Next**
+- **Hacking**: buttons for all hacking actions
+- **Item Based Combat**: adding weapons to the inventory will result in buttons to roll their attacks and damage
+- **Item Based Mods**: adding cyberware with mods will impact stats in the sheet
+- **Tokens**: calculate range for attacks, apply damage automatically, etc...
+
+**COMING LATER - Once the Core Rulebook is Out**
+- **Compendium**: if the license allows it, will include compendium of weapons and other gear.
 
 # Features Planned
 
@@ -44,7 +68,7 @@ Since playstyles vary greatly, this sheet is designed with the following in mind
 2. Everything should be efficient and quick during play. Nothing should require multiple clicks if we can find a way to do it with just one.
 3. Help text and tips should be available at the beginning, but hidable with a simple setting change.
 
-# License
+# License and Credits
 
-See the file license.md
+See the file license.md and credits.md
 

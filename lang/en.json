@@ -33,6 +33,7 @@
 	"SHEET.emp":"EMP",
 	"SHEET.firstaid":"First Aid",
 	"SHEET.gear":"Gear",
+  "SHEET.hacking":"Hacking",
 	"SHEET.healthpool":"Health Pool",
 	"SHEET.humanperception":"Human Perception",
 	"SHEET.init":"INIT",
