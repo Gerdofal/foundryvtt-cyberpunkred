@@ -57,7 +57,7 @@
 	"CPRED.tech":"TECH",
 	"CPRED.tracking":"Tracking",
   "CPRED.totalroll":"Total",
-  "CPRED.underconstruction":"This area is under construction.",
+  "CPRED.underconstruction":"This area is under construction and may not behave as expected.",
 	"CPRED.weapons":"Weapons",
 	"CPRED.will":"WILL"
 }
