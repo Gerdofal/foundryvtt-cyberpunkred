@@ -147,6 +147,35 @@
           {{/each}}
         {{/if}}
 
+        <br><br>
+
+        <h3>Other Modifiers</h3>
+        <ol class="grid grid-2col">
+        <input class="modlist" type="checkbox" id="mods_facedown" name="mods_facedown" value="-3">
+        <label class="modlist" for="mods_facedown">Facedown</label>
+        <input class="modlist" type="checkbox" id="mods_headshot" name="mods_headshot" value="-6">
+        <label class="modlist" for="mods_headshot">Headshot</label>
+        <input class="modlist" type="checkbox" id="mods_unfamiliar" name="mods_unfamiliar" value="-4">
+        <label class="modlist" for="mods_unfamiliar">Unfamiliar Equipment</label>
+        <input class="modlist" type="checkbox" id="mods_noinstruction" name="mods_noinstruction" value="-2">
+        <label class="modlist" for="mods_noinstruction">No&nbsp;Instructions</label>
+        <input class="modlist" type="checkbox" id="mods_wrongtools" name="mods_wrongtools" value="-2">
+        <label class="modlist" for="mods_wrongtools">Wrong&nbsp;Tools</label>
+        <input class="modlist" type="checkbox" id="mods_complextask" name="mods_complextask" value="-3">
+        <label class="modlist" for="mods_complextask">Complex&nbsp;Task</label>
+        <input class="modlist" type="checkbox" id="mods_neverdone" name="mods_neverdone" value="-1">
+        <label class="modlist" for="mods_neverdone">Never&nbsp;Done&nbsp;Before</label>
+        <input class="modlist" type="checkbox" id="mods_underattack" name="mods_underattack" value="-3">
+        <label class="modlist" for="mods_underattack">Under&nbsp;Stress&nbsp;or&nbsp;Attack</label>
+        <input class="modlist" type="checkbox" id="mods_drunkdruggedtired" name="mods_drunkdruggedtired" value="-4">
+        <label class="modlist" for="mods_drunkdruggedtired">Drunk/Drugged/Tired</label>
+        <input class="modlist" type="checkbox" id="mods_secretly" name="mods_secretly" value="-4">
+        <label class="modlist" for="mods_secretly">Performing&nbsp;Secretly</label>
+        <input class="modlist" type="checkbox" id="mods_obscured" name="mods_obscured" value="-4">
+        <label class="modlist" for="mods_obscured">Dark&nbsp;or&nbsp;Obscured</label>
+        </ol>
+        Manual<input type="number" name="mods_othermod"><br>
+        <input type="number" name="mods_finalmodifier" readonly>
       </div>
 
       {{!-- Hacking Tab --}}
