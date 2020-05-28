@@ -52,6 +52,8 @@ export class cyberpunkredActorSheet extends ActorSheet {
       attr.roll = attr.value + attr.mod;
       //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
     }      
+    } else {
+      _cprLog("Skipping attribute calculations because no attributes detected");
     }
 
     if(data.data.skills) {
@@ -59,10 +61,12 @@ export class cyberpunkredActorSheet extends ActorSheet {
       attr.roll = attr.value + attr.mod;
       //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
     } 
+    } else {
+      _cprLog("Skipping skill calculations because no skills detected");
     }
 
     // TODO - Need to tweak NPC page so this can work I think
-    if(data.data.attributes in Object.entries) {
+    if(data.data.attributes) {
       data.data.combatstats["healthpool"].max = data.data.attributes["body"].roll * 5;
       //_cprLog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.combatstats["healthpool"].max);
       if (data.data.combatstats["healthpool"].max < data.data.combatstats["healthpool"].value) {
@@ -74,6 +78,8 @@ export class cyberpunkredActorSheet extends ActorSheet {
       if (data.data.combatstats["luckpool"].max < data.data.combatstats["luckpool"].value) {
         data.data.combatstats["luckpool"].value = data.data.combatstats["luckpool"].max;
       }      
+    } else {
+      _cprLog("Skipping health and luck calculatons because no attributes detected");
     }
 
     data.simpleCombatSetup = game.settings.get("cyberpunkred","simpleCombatSetup");
