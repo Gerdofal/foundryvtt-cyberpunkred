@@ -227,8 +227,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
       var rollstring = "roll";
     }
 
-    _cprLog("Roll String: " + rollstring);
-
     if (dataset.roll) {
       console.log(dataset);
       let roll = new Roll(dataset.roll, this.actor.data.data);
