@@ -16,29 +16,29 @@
     
     {{!-- Navigation Sidebar --}}
     <div class="cpr-nav sheet-tabs cprgraphics">
-      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "SHEET.bio"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "SHEET.appearance"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "SHEET.attrnskills"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "SHEET.combatsetup"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "SHEET.combat"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
       <br>
       {{#if showHacking}}
-      <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "SHEET.hacking"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
       <br>
       {{/if}}
       {{#if showInventory}}
-      <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "SHEET.cyberware"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "SHEET.weapons"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "SHEET.gear"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
       <br>
       {{/if}}
-      <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "SHEET.settings"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
       <br>
     </div>
     
@@ -64,7 +64,7 @@
       <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
         <div class="combatstats grid grid-2col">
           <div class="resource flex-group-center">
-            <label for="data.combatstats.healthpool.value" class="resource-label">{{localize (concat "SHEET.healthpool")}}</label>
+            <label for="data.combatstats.healthpool.value" class="resource-label">{{localize (concat "CPRED.healthpool")}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="data.combatstats.healthpool.value" value="{{data.combatstats.healthpool.value}}" data-dtype="Number"/>
               <span> / </span>
@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class="resource flex-group-center">
-            <label for="data.combatstats.luckpool.value" class="resource-label">{{localize "SHEET.luckpool"}}</label>
+            <label for="data.combatstats.luckpool.value" class="resource-label">{{localize "CPRED.luckpool"}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="data.combatstats.luckpool.value" value="{{data.combatstats.luckpool.value}}" data-dtype="Number"/>
               <span> / </span>
@@ -81,18 +81,18 @@
           </div>
         </div>
         <ol class="grid grid-4col">
-          <label>{{localize "SHEET.attribute"}}</label>
-          <label>{{localize "SHEET.base"}}</label>
-          <label>{{localize "SHEET.mod"}}</label>
-          <label>{{localize "SHEET.totalroll"}}</label>
+          <label>{{localize "CPRED.attribute"}}</label>
+          <label>{{localize "CPRED.base"}}</label>
+          <label>{{localize "CPRED.mod"}}</label>
+          <label>{{localize "CPRED.totalroll"}}</label>
           {{#each data.attributes as |attr key|}}
-          <label for="data.attributes.{{key}}.value">{{localize (concat "SHEET." key)}}</label>
+          <label for="data.attributes.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
           <input type="text" name="data.attributes.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
           <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
           {{#each data.skills as |skill key|}}
-          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'SHEET.' key)}}" data-roll="{{buildRollString key}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{buildRollString key}}" class="rollable">{{localize (concat "CPRED." key)}} ({{localize (concat "CPRED." skill.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>

@@ -8,13 +8,13 @@
     </div>
     {{!-- Navigation Sidebar --}}
     <div class="cpr-nav sheet-tabs cprgraphics">
-      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "SHEET.bio"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "SHEET.appearance"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="rollsetup">{{localize "SHEET.rollsetup"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="rollsetup">{{localize "CPRED.rollsetup"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="rollbuttons">{{localize "SHEET.rollbuttons"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="rollbuttons">{{localize "CPRED.rollbuttons"}}</a></div>
     </div>
     <div class="cpr-content cprgraphics"> {{!-- Biography Tab --}}
       <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
@@ -24,7 +24,7 @@
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollsetup">
         <div class="combatstats grid grid-2col">
           <div class="resource flex-group-center">
-            <label for="data.combatstats.healthpool.value" class="resource-label">{{localize "SHEET.healthpool"}}</label>
+            <label for="data.combatstats.healthpool.value" class="resource-label">{{localize "CPRED.healthpool"}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="data.combatstats.healthpool.value" value="{{data.combatstats.healthpool.value}}" data-dtype="Number"/>
               <span> / </span>
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="resource flex-group-center">
-            <label for="data.combatstats.luckpool.value" class="resource-label">{{localize "SHEET.luckpool"}}</label>
+            <label for="data.combatstats.luckpool.value" class="resource-label">{{localize "CPRED.luckpool"}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="data.combatstats.luckpool.value" value="{{data.combatstats.luckpool.value}}" data-dtype="Number"/>
               <span> / </span>

@@ -3,8 +3,8 @@ import {_cprLog} from "./tools.js";
 export const registerSystemSettings = function() {
 
 	game.settings.register("cyberpunkred", "dieRollCommand", {
-    name: "SETTINGS.dierollcommandname",
-    hint: "SETTINGS.dierollcommandhint",
+    name: "CPRED.dierollcommandname",
+    hint: "CPRED.dierollcommandhint",
     scope: "world",
     config: true,
     default: "d10x10",
@@ -12,8 +12,8 @@ export const registerSystemSettings = function() {
   });
 	
 	game.settings.register("cyberpunkred", "GMAlwaysWhisper", {
-    name: "SETTINGS.gmalwayswhispername",
-    hint: "SETTINGS.gmalwayswhisperhint",
+    name: "CPRED.gmalwayswhispername",
+    hint: "CPRED.gmalwayswhisperhint",
     scope: "world",
     config: true,
     default: true,
@@ -21,8 +21,8 @@ export const registerSystemSettings = function() {
   });
 	
 	game.settings.register("cyberpunkred", "simpleCombatSetup", {
-    name: "SETTINGS.usesimplecombatname",
-    hint: "SETTINGS.usesimplecombathint",
+    name: "CPRED.usesimplecombatname",
+    hint: "CPRED.usesimplecombathint",
     scope: "world",
     config: true,
     default: true,
@@ -30,8 +30,8 @@ export const registerSystemSettings = function() {
   });
   
 	game.settings.register("cyberpunkred", "itemCombatSetup", {
-    name: "SETTINGS.useitembasedcombatname",
-    hint: "SETTINGS.useitembasedcombathint",
+    name: "CPRED.useitembasedcombatname",
+    hint: "CPRED.useitembasedcombathint",
     scope: "world",
     config: true,
     default: true,
@@ -39,8 +39,8 @@ export const registerSystemSettings = function() {
   });
   
   game.settings.register("cyberpunkred", "showInventory", {
-    name: "SETTINGS.showinventoryname",
-    hint: "SETTINGS.showinventoryhint",
+    name: "CPRED.showinventoryname",
+    hint: "CPRED.showinventoryhint",
     scope: "world",
     config: true,
     default: true,
