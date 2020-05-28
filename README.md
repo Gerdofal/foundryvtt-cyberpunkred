@@ -25,7 +25,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 - **GM_Options**: The GM can determine several options, such as the base die roll to use, in System Settings.
 - **Localization**: All text is localized, only EN for now.
 
-# Coming Next
+# Upcoming Changes
 
 **Soon**
 - **Combat_Functions**: basic buttons for auto-fire, hacking, facedown, death saves, etc...
