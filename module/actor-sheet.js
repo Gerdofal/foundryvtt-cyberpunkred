@@ -50,27 +50,27 @@ export class cyberpunkredActorSheet extends ActorSheet {
     if(data.data.attributes) {
     for (let [key, attr] of Object.entries(data.data.attributes)) {
       attr.roll = attr.value + attr.mod;
-      _cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
+      //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
     }      
     }
 
     if(data.data.skills) {
     for (let [key, attr] of Object.entries(data.data.skills)) {
       attr.roll = attr.value + attr.mod;
-      _cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
+      //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
     } 
     }
 
     // TODO - Need to tweak NPC page so this can work I think
     if(data.data.attributes in Object.entries) {
       data.data.combatstats["healthpool"].max = data.data.attributes["body"].roll * 5;
-      _cprLog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.combatstats["healthpool"].max);
+      //_cprLog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.combatstats["healthpool"].max);
       if (data.data.combatstats["healthpool"].max < data.data.combatstats["healthpool"].value) {
         data.data.combatstats["healthpool"].value = data.data.combatstats["healthpool"].max;
       }
 
       data.data.combatstats["luckpool"].max = data.data.attributes["luck"].roll;
-      _cprLog("Luck Pool Max = " + data.data.attributes["luck"].roll);
+      //_cprLog("Luck Pool Max = " + data.data.attributes["luck"].roll);
       if (data.data.combatstats["luckpool"].max < data.data.combatstats["luckpool"].value) {
         data.data.combatstats["luckpool"].value = data.data.combatstats["luckpool"].max;
       }      
