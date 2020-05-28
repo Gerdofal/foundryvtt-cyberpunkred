@@ -26,6 +26,10 @@
       <br>
       <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "SHEET.combat"}}</a></div>
       <br>
+      {{#if showHacking}}
+      <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "SHEET.hacking"}}</a></div>
+      <br>
+      {{/if}}
       {{#if showInventory}}
       <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "SHEET.cyberware"}}</a></div>
       <br>
@@ -88,7 +92,7 @@
           <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
           {{#each data.skills as |skill key|}}
-          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'SHEET.' key)}}" data-roll="{{../dieRollCommand}}+@attributes.{{skill.linkedattribute}}.roll+{{skill.roll}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'SHEET.' key)}}" data-roll="{{buildRollString key}}" class="rollable">{{localize (concat "SHEET." key)}} ({{localize (concat "SHEET." skill.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
@@ -97,6 +101,59 @@
       </div>
       
       
+      
+      {{!-- Combat Setup Tab --}}
+      <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup"> This tab will hold the simple method of defining character combat stats.
+        <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-name">Name</div>
+            <div class="item-name">Damage</div>
+            <div class="item-name">Skill</div>
+          </li>
+          {{#each data.weaponsetup as |item key|}}
+          <li class="item flexrow" data-item-id="{{item.id}}">
+            <div class="item-name">{{item.name}}</div>
+            <div class="item-name"><input type="text" name="data.weaponsetup.{{key}}.damage" value="{{item.damage}}"></div>
+            <div class="item-name">
+              <select name="data.weaponsetup.{{key}}.skill">
+              {{#select item.skill}}
+              <option value="marksmanship">Marksmanship</option>
+              <option value="meleeweapon">Meelee Weapon</option>
+              {{/select}}
+              </select>
+            </div>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+      
+      
+      {{!-- Combat Tab --}}
+      <div class="tab cprgraphics" data-group="primary" data-tab="combat">
+        This tab will hold specialized buttons for combat.<br>
+            
+        {{#if simpleCombatSetup}}
+        This section is Simple Combat:<br>
+          {{#each data.weaponsetup as |item key|}}
+          <li class="item flexrow" data-item-id="{{item.id}}">
+            {{log "item.skill"}}
+            {{log item.skill}}
+            {{log "skills"}}
+            {{log ../data.skills}}
+            {{log "attributes"}}
+            {{log ../data.attributes}}
+            <div class="rollable" data-label="{{item.name}}" data-roll="{{buildRollString item.skill}}">{{item.name}}</div>
+          </li>
+          {{/each}}
+        {{/if}}
+
+      </div>
+
+      {{!-- Hacking Tab --}}
+      <div class="tab cprgraphics" data-group="primary" data-tab="hacking">
+        This tab will hold specialized buttons for hacking and programs.<br>
+      </div>
+
       {{#if showInventory}}
       
       
@@ -155,32 +212,9 @@
           {{/each}}
         </ol>
       </div>
+
+      
       {{/if}}
-      
-      
-      {{!-- Combat Setup Tab --}}
-      <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup"> This tab will hold the simple method of defining character combat stats.
-        <ol class="items-list">
-          <li class="item flexrow item-header">
-            <div class="item-name">Name</div>
-            <div class="item-name">Damage</div>
-            <div class="item-name">Skill</div>
-          </li>
-          {{#each data.weaponsetup as |item id|}}
-          <li class="item flexrow" data-item-id="{{item._id}}">
-            <div class="item-name">{{item.name}}</div>
-            <div class="item-name">{{item.damage}}</div>
-            <div class="item-name">{{item.skill}}</div>
-          </li>
-          {{/each}}
-        </ol>
-      </div>
-      
-      
-      {{!-- Combat Tab --}}
-      <div class="tab cprgraphics" data-group="primary" data-tab="combat">
-        This tab will hold specialized buttons for combat.<br>
-      </div>
       
       
       {{!-- SETTINGS TAB --}}

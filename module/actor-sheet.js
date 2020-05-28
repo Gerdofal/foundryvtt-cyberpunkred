@@ -47,20 +47,18 @@ export class cyberpunkredActorSheet extends ActorSheet {
       this._prepareCharacterItems(data);
     }
     */
-
-    if(data.data.attributes in Object.entries) {
+    if(data.data.attributes) {
     for (let [key, attr] of Object.entries(data.data.attributes)) {
       attr.roll = attr.value + attr.mod;
       _cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
     }      
     }
 
-    if(data.data.skills in Object.entries) {
+    if(data.data.skills) {
     for (let [key, attr] of Object.entries(data.data.skills)) {
       attr.roll = attr.value + attr.mod;
       _cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
-    }
-      
+    } 
     }
 
     // TODO - Need to tweak NPC page so this can work I think
@@ -87,11 +85,32 @@ export class cyberpunkredActorSheet extends ActorSheet {
       data.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
     }
     
+    
+    //Setup helper for roll info
+    Handlebars.registerHelper('buildRollString', function (skill) {
+      var outStr = game.settings.get("cyberpunkred", "dieRollCommand");
+      var arr = new Array();
+      arr.push(data.data.skills[skill].roll);  
+      arr.push(data.data.attributes[data.data.skills[skill].linkedattribute].roll);
+      //TODO - Add more arr.push later to handle damage penalties
+      arr.forEach(element => {
+        if (element>=0) {
+          outStr += " + " + element;
+        } else {
+          outStr += " - " + element;
+        }      
+      });    
+      return(outStr);
+    });  
+
+
+
     _cprLog("Finished setting up data");
     console.log(data);
     return data;
   }
 
+  
   /**
    * Organize and classify Items for Character sheets.
    *
@@ -225,5 +244,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
 
     } // End if Dataset.roll
   }
+
 
 }
