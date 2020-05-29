@@ -106,9 +106,9 @@
       <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup"> {{localize "CPRED.underconstruction"}}
         <ol class="items-list">
           <li class="item flexrow item-header">
-            <div class="item-name">Name</div>
-            <div class="item-name">Damage</div>
-            <div class="item-name">Skill</div>
+            <div class="item-name">{{localize "CPRED.name"}}</div>
+            <div class="item-name">{{localize "CPRED.damage"}}</div>
+            <div class="item-name">{{localize "CPRED.skill"}}</div>
           </li>
           {{#each data.weaponsetup as |item key|}}
           <li class="item flexrow" data-item-id="{{item.id}}">
@@ -117,8 +117,8 @@
             <div class="item-name">
               <select name="data.weaponsetup.{{key}}.skill">
               {{#select item.skill}}
-              <option value="marksmanship">Marksmanship</option>
-              <option value="meleeweapon">Meelee Weapon</option>
+              <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>
+              <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
               {{/select}}
               </select>
             </div>
@@ -133,7 +133,6 @@
         {{localize "CPRED.underconstruction"}}<br>
             
         {{#if simpleCombatSetup}}
-        This section is Simple Combat:<br>
           {{#each data.weaponsetup as |item key|}}
           <li class="item flexrow" data-item-id="{{item.id}}">
             <div class="rollable" data-label="{{item.name}}" data-roll="{{buildRollString item.skill}}">{{item.name}}</div>
@@ -143,16 +142,18 @@
 
         <br><br>
 
-        {{!-- TODO - Limit EACH to only checkboxes --}}
-        <h3>Other Modifiers</h3>
+        <h3>{{localize "CPRED.modsectiontitle"}}</h3>
           <ol class="grid grid-2col">
-            {{#each data.modifiers as |mod key|}}          
-            <input class="modlist" type="checkbox" id="mods_{{key}}" name="data.modifiers.{{key}}.checked" value="{{mod.checked}}" data-dtype="boolean">
-            <label class="modlist" for="mods_{{key}}">{{localize (concat "CPRED." key)}}</label>
+            {{#each data.modifiers as |mod key|}}
+            {{#if_exists mod "checked"}} {{!-- Only show the following if it contains checked--}}
+            <input class="modlist" type="checkbox" id="mods_{{key}}" name="data.modifiers.{{key}}.checked" {{checked mod.checked}}>
+            <label class="modlist" for="mods_{{key}}">{{localize (concat "CPRED." key)}} ({{mod.penalty}})</label>
+            {{/if_exists}}
             {{/each}}  
-            {{localize "CPRED.modmanualmod"}}<input type="number" name="data.modifiers.{{key}}.penalty"><br>
           </ol>
-        {{localize "CPRED.modfinalmod"}}<input type="number" name="mods_finalmodifier" readonly>
+        {{localize "CPRED.modmanualmod"}}<input type="number" name="data.modifiers.modmanualmod.penalty" value="{{data.modifiers.modmanualmod.penalty}}" data-dtype="Number"><br>
+        {{localize "CPRED.modfinalmod"}}<input type="number" name="data.modifiers.modfinalmod.totalpenalty" value="{{data.modifiers.modfinalmod.totalpenalty}}" data-dtype="Number" readonly><br>
+        <label class="modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
       </div>
 
       {{!-- Hacking Tab --}}

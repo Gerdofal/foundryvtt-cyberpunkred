@@ -429,8 +429,7 @@
           },
           
           "modmanualmod": {
-            "penalty": 0,
-            "checked": true
+            "penalty": 0
           },
           
           "modfinalmod": {

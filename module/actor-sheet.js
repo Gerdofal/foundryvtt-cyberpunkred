@@ -65,7 +65,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       _cprLog("Skipping skill calculations because no skills detected");
     }
 
-    // TODO - Need to tweak NPC page so this can work I think
+    // TODO - Need to tweak NPC page so this can work for them... maybe?
     if(data.data.attributes) {
       data.data.combatstats["healthpool"].max = data.data.attributes["body"].roll * 5;
       //_cprLog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.combatstats["healthpool"].max);
@@ -82,6 +82,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       _cprLog("Skipping health and luck calculatons because no attributes detected");
     }
 
+    //Set variables for some of the system settings
     data.simpleCombatSetup = game.settings.get("cyberpunkred","simpleCombatSetup");
     data.GMAlwaysWhisper = game.settings.get("cyberpunkred","GMAlwaysWhisper");
     data.itemCombatSetup = game.settings.get("cyberpunkred","itemCombatSetup");
@@ -91,6 +92,18 @@ export class cyberpunkredActorSheet extends ActorSheet {
       data.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
     }
     
+    //Compute current damage mod
+    var tempmod = 0;
+    for (let [key, attr] of Object.entries(data.data.modifiers)) {
+      if (attr.hasOwnProperty("checked")) {
+        if (attr.checked) {
+          tempmod += attr.penalty;
+        }
+      }
+    }
+    tempmod += data.data.modifiers.modmanualmod.penalty;
+    data.data.modifiers.modfinalmod.totalpenalty = tempmod;
+    
     
     //Setup helper for roll info
     Handlebars.registerHelper('buildRollString', function (skill) {
@@ -98,13 +111,9 @@ export class cyberpunkredActorSheet extends ActorSheet {
       var arr = new Array();
       arr.push(data.data.skills[skill].roll);  
       arr.push(data.data.attributes[data.data.skills[skill].linkedattribute].roll);
-      //TODO - Add more arr.push later to handle damage penalties
+      arr.push(data.data.modifiers.modfinalmod.totalpenalty);
       arr.forEach(element => {
-        if (element>=0) {
           outStr += " + " + element;
-        } else {
-          outStr += " - " + element;
-        }      
       });    
       return(outStr);
     });  
@@ -184,6 +193,20 @@ export class cyberpunkredActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       this.actor.deleteOwnedItem(li.data("itemId"));
       li.slideUp(200, () => this.render(false));
+    });
+
+    // Reset all modifiers and clear penalties
+    html.find('.resetallmods').click(ev => {
+      var intdata = this.actor.data;
+      for (let [key, attr] of Object.entries(intdata.data.modifiers)) {
+      if (attr.hasOwnProperty("checked")) {
+        if (attr.checked) {
+          attr.checked=false;
+        }
+      }
+    }
+    intdata.data.modifiers.modmanualmod.penalty=0;
+    this.actor.update({"data.modifiers":intdata.modifiers});
     });
 
     // Rollable abilities.
