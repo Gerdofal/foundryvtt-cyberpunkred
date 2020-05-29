@@ -25,7 +25,7 @@
            <ol class="grid grid-2col">
 				{{#each data as |skill key|}}
 				<li class="flexrow nowrap" data-attribute="{{key}}">
-				  <label for="data.{{key}}.value">{{localize (concat "SHEET." key)}}</label>
+				  <label for="data.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
 				  <input class="skill-value" type="text" name="data.{{key}}.value" value="{{skill.value}}"/>
 				</li>
 				{{/each}}

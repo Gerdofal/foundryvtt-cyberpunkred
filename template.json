@@ -369,10 +369,77 @@
             "description": "Roll description..."
           }
         }
-      }
+      },
+      
+      "modifiers": {
+        "modifiers": {
+          "modfacedown": {
+            "penalty": -3,
+            "checked": false
+          },
+          
+          "modheadshot": {
+            "penalty": -6,
+            "checked": false
+          },
+          
+          "modunfamiliarequipment": {
+            "penalty": -4,
+            "checked": false
+          },
+          
+          "modnoinstructions": {
+            "penalty": -2,
+            "checked": false
+          },
+          
+          "modwrongtools": {
+            "penalty": -2,
+            "checked": false
+          },
+          
+          "modcomplextask": {
+            "penalty": -3,
+            "checked": false
+          },
+          
+          "modneverdonebefore": {
+            "penalty": -1,
+            "checked": false
+          },
+          
+          "modunderattack": {
+            "penalty": -3,
+            "checked": false
+          },
+          
+          "moddrunkdruggedtired": {
+            "penalty": -4,
+            "checked": false
+          },
+          
+          "modsecretly": {
+            "penalty": -4,
+            "checked": false
+          },
+          
+          "moddarkobscured": {
+            "penalty": -4,
+            "checked": false
+          },
+          
+          "modmanualmod": {
+            "penalty": 0
+          },
+          
+          "modfinalmod": {
+            "totalpenalty": 0
+          }       
+        }
+      }      
     },
     "character": {
-      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup"]
+      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers"]
     },
     "npc": {
       "templates": ["description", "combatstats", "npc"]

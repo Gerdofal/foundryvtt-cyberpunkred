@@ -74,6 +74,15 @@ Hooks.once('init', async function () {
       return opts.inverse(this);
     }
   });
+  
+  //Displays the block only if the property b exists in object a
+  Handlebars.registerHelper('if_exists', function (a, b, opts) {
+    if (a.hasOwnProperty(b)) {
+      return opts.fn(this);
+    } else {
+      return opts.inverse(this);
+    }
+  });
 
   Handlebars.registerHelper('if_simpleCombatSetup', function (a, b, opts) {
     if (a == b) {

@@ -25,6 +25,10 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 - **GM_Options**: The GM can determine several options, such as the base die roll to use, in System Settings.
 - **Localization**: All text is localized, only EN for now.
 
+# Recent (major) updates
+- 0.27 - Inclusion of various roll modifiers to the combat tab and change of the localization prefix from SHEET. to CPRED.
+- 0.26 - Fixed bug introduced in 0.25 when NPC sheets were excluded from some calculations. The exclusion was also applying to characters under some circumstances.
+
 # Upcoming Changes
 
 **Soon**

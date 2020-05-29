@@ -349,3 +349,19 @@
   flex: 0 0 86px;
   text-align: right;
 }
+.cyberpunkred input.modlist[type=checkbox] {
+	position: absolute;
+	left: -999px;
+}
+
+.cyberpunkred input.modlist[type=checkbox]:checked + label {
+  background-color: #A9FFA9;
+	color: #004000;
+	font-weight: bold;
+}
+
+.cyberpunkred input.modlist[type=checkbox]:unchecked + label {
+  background-color: transparent;
+	font-weight: normal;
+	color: #404040;
+}
