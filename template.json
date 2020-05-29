@@ -436,10 +436,24 @@
             "totalpenalty": 0
           }       
         }
-      }      
+      },
+      
+      "settings": {
+        "settings" : {
+          "role": {
+            "rolename":"No role set yet"
+          },
+          "showtabs": {
+            "hacking": true
+          }
+        } 
+      }
+      
+      
+      
     },
     "character": {
-      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers"]
+      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers","settings"]
     },
     "npc": {
       "templates": ["description", "combatstats", "npc"]
