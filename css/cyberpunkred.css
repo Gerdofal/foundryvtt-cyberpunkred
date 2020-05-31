@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
-/* Global styles */
+
+/* Hide the roll select as the character sheet has .js for this */
 .roll-type-select {
 	display: none;
 }
+
+/* Set default font */
 .window-app {
   font-family: "Roboto", sans-serif;
 }
 
+/* Add graphical border around this block */
 .cyberpunkred .cprgraphics {
   border: 10px ridge #FF1010;
 	border-image-source: url("crredborder.jpg?ver1"); /* source url */
@@ -18,6 +22,7 @@
   color: #600000;
 }
 
+/* Make sure this block has room to edit */
 .cyberpunkred .roomtoedit {
   height: 400px;
 }
@@ -27,6 +32,7 @@
   height: 100%;
 }
 
+/* Main grid with header, left nav, and right content */
 .cyberpunkred .cpr-grid {
   display: grid;
   grid-template-columns: 90px auto;
@@ -57,6 +63,8 @@
   border: none;
   padding: 3px;
 }
+
+/* Navigation grid styles */
 .cyberpunkred .cpr-nav .cpr-nav-item {
   justify-self: start;
   display: block;
@@ -71,14 +79,294 @@
   text-shadow: none;
   font-weight: bold;
 }
-.rollable:hover, .rollable:focus {
+
+/* General code for hover indications of rollable and clickable */
+.cyberpunkred .rollable:before {
+  content: "\f6cf\00a0\00a0";
+  font-family: "Font Awesome 5 Free";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  src: url(../webfonts/fa-solid-900.eot);
+  src: url(../webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(../webfonts/fa-solid-900.woff2) format("woff2"), url(../webfonts/fa-solid-900.woff) format("woff"), url(../webfonts/fa-solid-900.ttf) format("truetype"), url(../webfonts/fa-solid-900.svg#fontawesome) format("svg")
+}
+
+.cyberpunkred .rollable:hover, .cyberpunkred .rollable:focus {
   color: #000;
   text-shadow: 0 0 6px red;
   cursor: pointer;
 }
-.nowrap {
+
+.cyberpunkred .clickable:hover, .cyberpunkred .clickable:focus {
+  color: #000;
+  text-shadow: 0 0 6px red;
+  cursor: pointer;
+}
+
+
+/* Generic control classes */
+.cyberpunkred .cpr-nowrap {
   white-space: nowrap;
 }
+
+.cyberpunkred .cpr-center {
+  align-content: center;
+  align-items: center;
+}
+
+
+/* Rolls */
+.dice-roll .dice-formula {
+  background: #AAAAFF;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.dice-roll .dice-total {
+  background: #FFAAAA;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.dice-roll .dice-tooltip {
+  background: #FFFFAA;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+/* Attributes and Skills Tab */
+.cyberpunkred .attrnskill-label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.cyberpunkred .attrnskill-content {
+  font-weight: normal;
+}
+
+
+/* Combat Setup Tab */
+.cyberpunkred .combatsetup-head {
+    font-weight: bold;
+}
+
+
+/* Items List for Inventory Tab */
+.cyberpunkred .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.cyberpunkred .items-list .item-header {
+  font-weight: bold;
+}
+.cyberpunkred .items-list .item {
+  height: 30px;
+  line-height: 24px;
+  padding: 0px 0;
+  border-bottom: 1px solid #BBB;
+}
+.cyberpunkred .items-list .item .item-image {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 24px;
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+.cyberpunkred .items-list .item img {
+  display: block;
+}
+.cyberpunkred .items-list .item-name {
+  margin: 0;
+}
+.cyberpunkred .items-list .item-controls {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 86px;
+  flex: 0 0 86px;
+  text-align: right;
+}
+
+/* Weapon list on Combat Tab */
+.cyberpunkred .cpr-weaponbox {
+  border: 1px solid #600000;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-size: 9px;
+}
+
+.cyberpunkred .cpr-weaponinlinebox {
+  border: 1px solid #600000;
+  padding: 2px;
+  margin: 0px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 9px;
+}
+
+/* Skill List on Combat Tab */
+.cyberpunkred .skilllist-grid {
+  display: grid;
+  gap: 0px;
+  margin: 0px;
+  padding: 0px;
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  font-size: 9px;
+}
+
+.cyberpunkred .skilllist-item {
+  display: grid;
+  gap: 0px;
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  border: 1px solid #600000; 
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  font-size: 9px;
+}
+
+
+/* Modification Lists on Combat Tab */
+.cyberpunkred .cpr-manualmodentry {
+  width: 7em;
+  display: inline;
+}
+
+.cyberpunkred .cpr-totalmoddisplay {
+  width: 7em;
+  display: inline;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.cyberpunkred .modlist-grid {
+  display: grid;
+  gap: 0px;
+  margin: 0px;
+  padding: 0px;
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  font-size: 9px;
+}
+
+.cyberpunkred .modlist-item {
+  display: grid;
+  gap: 0px;
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  border: 1px solid #600000; 
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  font-size: 9px;
+}
+
+.cyberpunkred input.modlist[type=checkbox] {
+	position: absolute;
+	left: -999px;
+}
+
+.cyberpunkred input.modlist[type=checkbox]:checked + label {
+  background-color: #FF9090;
+	font-weight: bold;
+  border: 1px solid #600000;
+  border-color: #600000;
+  padding: 3px;
+  margin: 0px;
+}
+
+.cyberpunkred input.modlist[type=checkbox]:not(:checked) + label {
+  background-color: transparent;
+	font-weight: normal;
+  border: 1px solid #600000;
+  border-color: #600000;
+  padding: 3px;
+  margin: 0px;
+}
+
+/* Grid Setups */
+.grid {
+  display: grid;
+  gap: 3px;
+  margin: 3px 0;
+  padding: 0;
+}
+.grid-1col {
+  grid-column: span 1 / span 1;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-2col {
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-6col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-7col {
+  grid-column: span 7 / span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.grid-8col {
+  grid-column: span 8 / span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+.grid-9col {
+  grid-column: span 9 / span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+.grid-10col {
+  grid-column: span 10 / span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+.grid-11col {
+  grid-column: span 11 / span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+.grid-12col {
+  grid-column: span 12 / span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+
+
 /* NPC Sheet*/
 .cyberpunkred .npc-buttonlabel {
   width: 30%;
@@ -141,227 +429,13 @@
   box-shadow: 0 0 5px 5px red;
 }
 
-/* Rolls */
-.dice-roll .dice-formula {
-  background: #AAAAFF;
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.dice-roll .dice-total {
-  background: #FFAAAA;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: normal;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.dice-roll .dice-tooltip {
-  background: #FFFFAA;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.grid {
-  display: grid;
-  gap: 3px;
-  margin: 3px 0;
-  padding: 0;
-}
-.grid-1col {
-  grid-column: span 1 / span 1;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-.grid-2col {
-  grid-column: span 2 / span 2;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.grid-3col {
-  grid-column: span 3 / span 3;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid-4col {
-  grid-column: span 4 / span 4;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-.grid-5col {
-  grid-column: span 5 / span 5;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-.grid-6col {
-  grid-column: span 5 / span 5;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-.grid-7col {
-  grid-column: span 7 / span 7;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-}
-.grid-8col {
-  grid-column: span 8 / span 8;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-}
-.grid-9col {
-  grid-column: span 9 / span 9;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-}
-.grid-10col {
-  grid-column: span 10 / span 10;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-}
-.grid-11col {
-  grid-column: span 11 / span 11;
-  grid-template-columns: repeat(11, minmax(0, 1fr));
-}
-.grid-12col {
-  grid-column: span 12 / span 12;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-}
-.flex-group-center, .flex-group-left, .flex-group-right {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-  padding: 0px;
-}
-.flex-group-left {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  text-align: left;
-}
-.flex-group-right {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  text-align: right;
-}
-.flex-center {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-}
-.flex-between {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-/* Styles limited to cyberpunkred sheets */
-.cyberpunkred .item-form {
-  font-family: "Roboto", sans-serif;
-}
-.cyberpunkred .sheet-header {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 50px;
-  flex: 0 0 50px;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
-.cyberpunkred .sheet-header .profile-img {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100px;
-  flex: 0 0 100px;
-  height: 100px;
-  margin-right: 10px;
-}
-.cyberpunkred .sheet-header .header-fields {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-.cyberpunkred .sheet-header h1.charname {
-  height: 50px;
-  padding: 0px;
-  margin: 5px 0;
-  border-bottom: 0;
-}
-.cyberpunkred .sheet-header h1.charname input {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-.cyberpunkred .sheet-body, .cyberpunkred .sheet-body .tab, .cyberpunkred .sheet-body .tab .editor {
-  height: 100%;
-}
-.cyberpunkred .sheet-body .sheet-main {
-  -webkit-box-flex: 3;
-  -ms-flex: 3;
-  flex: 3;
-  display: inline-flex;
-}
+
+
+/* Legacy CSS left over from Boilerplate */
 .cyberpunkred .tox .tox-editor-container {
   background: #fff;
 }
 .cyberpunkred .tox .tox-edit-area {
   padding: 0 8px;
 }
-.cyberpunkred .resource-label {
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.cyberpunkred .items-list {
-  list-style: none;
-  margin: 7px 0;
-  padding: 0;
-  overflow-y: auto;
-}
-.cyberpunkred .items-list .item-header {
-  font-weight: bold;
-}
-.cyberpunkred .items-list .item {
-  height: 30px;
-  line-height: 24px;
-  padding: 0px 0;
-  border-bottom: 1px solid #BBB;
-}
-.cyberpunkred .items-list .item .item-image {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 24px;
-  flex: 0 0 24px;
-  margin-right: 5px;
-}
-.cyberpunkred .items-list .item img {
-  display: block;
-}
-.cyberpunkred .items-list .item-name {
-  margin: 0;
-}
-.cyberpunkred .items-list .item-controls {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 86px;
-  flex: 0 0 86px;
-  text-align: right;
-}
-.cyberpunkred input.modlist[type=checkbox] {
-	position: absolute;
-	left: -999px;
-}
 
-.cyberpunkred input.modlist[type=checkbox]:checked + label {
-  background-color: #A9FFA9;
-	color: #004000;
-	font-weight: bold;
-}
-
-.cyberpunkred input.modlist[type=checkbox]:unchecked + label {
-  background-color: transparent;
-	font-weight: normal;
-	color: #404040;
-}

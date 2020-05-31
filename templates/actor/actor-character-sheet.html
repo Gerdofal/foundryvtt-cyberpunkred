@@ -64,19 +64,19 @@
       <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
         <div class="combatstats grid grid-2col">
           <div class="resource flex-group-center">
-            <label for="data.combatstats.healthpool.value" class="resource-label">{{localize (concat "CPRED.healthpool")}}</label>
+            <label for="data.combatstats.healthpool.value" class="attrnskill-label">{{localize (concat "CPRED.healthpool")}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="data.combatstats.healthpool.value" value="{{data.combatstats.healthpool.value}}" data-dtype="Number"/>
               <span> / </span>
-              <input type="text" name="data.combatstats.healthpool.max" value="{{data.combatstats.healthpool.max}}" data-dtype="Number"/>
+              <input type="text" name="data.combatstats.healthpool.max" value="{{data.combatstats.healthpool.max}}" data-dtype="Number" readonly/>
             </div>
           </div>
           <div class="resource flex-group-center">
-            <label for="data.combatstats.luckpool.value" class="resource-label">{{localize "CPRED.luckpool"}}</label>
+            <label for="data.combatstats.luckpool.value" class="attrnskill-label">{{localize "CPRED.luckpool"}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="data.combatstats.luckpool.value" value="{{data.combatstats.luckpool.value}}" data-dtype="Number"/>
               <span> / </span>
-              <input type="text" name="data.combatstats.luckpool.max" value="{{data.combatstats.luckpool.max}}" data-dtype="Number"/>
+              <input type="text" name="data.combatstats.luckpool.max" value="{{data.combatstats.luckpool.max}}" data-dtype="Number" readonly/>
             </div>
           </div>
         </div>
@@ -104,17 +104,17 @@
       
       {{!-- Combat Setup Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup"> {{localize "CPRED.underconstruction"}}
-        <ol class="items-list">
-          <li class="item flexrow item-header">
-            <div class="item-name">{{localize "CPRED.name"}}</div>
-            <div class="item-name">{{localize "CPRED.damage"}}</div>
-            <div class="item-name">{{localize "CPRED.skill"}}</div>
+        <ol class="combatsetup-head">
+          <li class="flexrow">
+            <div>{{localize "CPRED.name"}}</div>
+            <div>{{localize "CPRED.damage"}}</div>
+            <div>{{localize "CPRED.skill"}}</div>
           </li>
           {{#each data.weaponsetup as |item key|}}
-          <li class="item flexrow" data-item-id="{{item.id}}">
-            <div class="item-name">{{item.name}}</div>
-            <div class="item-name"><input type="text" name="data.weaponsetup.{{key}}.damage" value="{{item.damage}}"></div>
-            <div class="item-name">
+          <li class="flexrow" data-item-id="{{item.id}}">
+            <div><input type="text" name="data.weaponsetup.{{key}}.name" value="{{item.name}}"></div>
+            <div><input type="text" name="data.weaponsetup.{{key}}.damage" value="{{item.damage}}"></div>
+            <div>
               <select name="data.weaponsetup.{{key}}.skill">
               {{#select item.skill}}
               <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>
@@ -133,37 +133,53 @@
         {{localize "CPRED.underconstruction"}}<br>
             
         {{#if simpleCombatSetup}}
+        <h3>{{localize "CPRED.simplecombatsection"}}</h3>
           {{#each data.weaponsetup as |item key|}}
-          <li class="item flexrow" data-item-id="{{item.id}}">
-            <div class="rollable" data-label="{{item.name}}" data-roll="{{buildRollString item.skill}}">{{item.name}}</div>
+          <li class="flexrow" data-item-id="{{item.id}}">
+            <label class="cpr-weaponinlinebox">{{item.name}}</label>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{buildRollString item.skill}}">{{localize "CPRED.attack"}}</div>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{item.damage}}">{{localize "CPRED.damage"}}</div>
           </li>
           {{/each}}
         {{/if}}
+        
+        <h3>{{localize "CPRED.skills"}}</h3>
+        <ol class="skilllist-grid cpr-center">
+          {{#each data.skills as |skill key|}}
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{buildRollString key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
+          {{/each}}
+        </ol>
 
-        <br><br>
 
         <h3>{{localize "CPRED.modsectiontitle"}}</h3>
-          <ol class="grid grid-2col">
+          <ol class="modlist-grid cpr-center">
             {{#each data.modifiers as |mod key|}}
             {{#if_exists mod "checked"}} {{!-- Only show the following if it contains checked--}}
             <input class="modlist" type="checkbox" id="mods_{{key}}" name="data.modifiers.{{key}}.checked" {{checked mod.checked}}>
-            <label class="modlist" for="mods_{{key}}">{{localize (concat "CPRED." key)}} ({{mod.penalty}})</label>
+            <label class="cpr-center modlist-item modlist clickable" for="mods_{{key}}">{{localize (concat "CPRED." key)}} ({{mod.penalty}})</label>
             {{/if_exists}}
             {{/each}}  
           </ol>
-        {{localize "CPRED.modmanualmod"}}<input type="number" name="data.modifiers.modmanualmod.penalty" value="{{data.modifiers.modmanualmod.penalty}}" data-dtype="Number"><br>
-        {{localize "CPRED.modfinalmod"}}<input type="number" name="data.modifiers.modfinalmod.totalpenalty" value="{{data.modifiers.modfinalmod.totalpenalty}}" data-dtype="Number" readonly><br>
+        
+        <ol class="grid grid-2col">
+          <li class="modlist-item">
+          {{localize "CPRED.modmanualmod"}}&nbsp;&nbsp;&nbsp;<input class="cpr-manualmodentry cpr-nowrap" type="number" name="data.modifiers.modmanualmod.penalty" value="{{data.modifiers.modmanualmod.penalty}}" data-dtype="Number">
+          </li>
+          <li class="cpr-totalmoddisplay cpr-nowrap">
+          {{localize "CPRED.modfinalmod"}} {{data.modifiers.modfinalmod.totalpenalty}}
+          </li>      
+        </ol>
         <label class="modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
       </div>
 
+      {{#if data.settings.showtabs.hacking}}
       {{!-- Hacking Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="hacking">
         {{localize "CPRED.underconstruction"}}<br>
       </div>
+      {{/if}}
 
       {{#if showInventory}}
-      
-      
       {{!-- Owned Cyberware Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="cyberware">
         <ol class="items-list">

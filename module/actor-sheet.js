@@ -121,7 +121,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
 
 
     _cprLog("Finished setting up data");
-    console.log(data);
+    //console.log(data);
     return data;
   }
 
@@ -257,7 +257,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
     }
 
     if (dataset.roll) {
-      console.log(dataset);
+      //console.log(dataset);
       let roll = new Roll(dataset.roll, this.actor.data.data);
       let label = dataset.label ? `${dataset.label}` : '';
       roll.roll().toMessage({
