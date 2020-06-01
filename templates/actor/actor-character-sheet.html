@@ -74,7 +74,7 @@
           <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
           {{#each data.skills as |skill key|}}
-          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{buildRollString key}}" class="rollable">{{localize (concat "CPRED." key)}} ({{localize (concat "CPRED." skill.linkedattribute)}})</label>
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{buildRollString ../data key}}" class="rollable">{{localize (concat "CPRED." key)}} ({{localize (concat "CPRED." skill.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
@@ -118,7 +118,7 @@
         <br>
         <div class="cprgraphics cpr-dot-track">
         <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
-          {{{buildDamageTrack}}}<br>
+          {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
           <ol class="flexrow">
           <i class="alterhealth clickable" data-change="-1000">{{localize "CPRED.zero"}}</i>
           <i class="alterhealth clickable" data-change="-10">-10</i>
@@ -138,7 +138,7 @@
           {{#each data.weaponsetup as |item key|}}
           <li class="flexrow" data-item-id="{{item.id}}">
             <label class="cpr-weaponinlinebox">{{item.name}}</label>
-            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{buildRollString item.skill}}">{{localize "CPRED.attack"}}</div>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{buildRollString ../data  item.skill}}">{{localize "CPRED.attack"}}</div>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{item.damage}}">{{localize "CPRED.damage"}}</div>
           </li>
           {{/each}}
@@ -161,7 +161,7 @@
         <h3>{{localize "CPRED.skills"}}</h3>
         <ol class="skilllist-grid cpr-center">
           {{#each data.skills as |skill key|}}
-          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{buildRollString key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{buildRollString ../data key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
           {{/each}}
         </ol>
         </div>        
@@ -190,7 +190,7 @@
         
         <div class="cprgraphics cpr-dot-track">
         <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
-          {{{buildLuckTrack}}}<br>
+          {{{buildLuckTrack data.combatstats.luckpool.value data.combatstats.luckpool.max}}}<br>
           <ol class="flexrow">
           <i class="alterluck clickable" data-change="-1">{{localize "CPRED.spend"}}</i>
           <i class="alterluck clickable" data-change="+1">{{localize "CPRED.earn"}}</i>

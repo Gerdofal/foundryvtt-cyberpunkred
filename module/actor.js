@@ -27,7 +27,7 @@ export class cyberpunkredActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     const data = actorData.data;
-       
+    _cprLog("Preparing character data");   
     //DEV - Make some updates to data that may need a fix without updating system.json
     data.modifiers.modfulldam.penalty = -2; //Changed in 0.28
 
@@ -51,8 +51,8 @@ export class cyberpunkredActor extends Actor {
 
     // TODO - Need to tweak NPC page so this can work for them... maybe?
     if (data.attributes) {
-      data.combatstats["healthpool"].max = data.attributes["body"].roll * 5;
-      data.combatstats["luckpool"].max = data.attributes["luck"].roll;
+      data.combatstats.healthpool.max = data.attributes.body.roll * 5;
+      data.combatstats.luckpool.max = data.attributes.luck.roll;
     } else {
       _cprLog("Skipping health and luck calculatons because no attributes detected");
     }
@@ -68,16 +68,20 @@ export class cyberpunkredActor extends Actor {
     }
 
     //Check wound penalties
-    if (data.combatstats["healthpool"].value <= (data.combatstats["healthpool"].max / 2)) {
+    if (data.combatstats.healthpool.value <= (data.combatstats.healthpool.max / 2)) {
+      _cprLog("Turning on half dam");
       data.modifiers.modhalfdam.checked = true;
     } else {
+      _cprLog("Turning off half dam");
       data.modifiers.modhalfdam.checked = false;
     }
 
     //Check wound penalties
-    if (data.combatstats["healthpool"].value <= 0) {
+    if (data.combatstats.healthpool.value <= 0) {
+      _cprLog("Turning on full dam");
       data.modifiers.modfulldam.checked = true;
     } else {
+      _cprLog("Turning off full dam");
       data.modifiers.modfulldam.checked = false;
     }
 

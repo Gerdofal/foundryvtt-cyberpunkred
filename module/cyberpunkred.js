@@ -1,18 +1,30 @@
 // Import Modules
-import {_cprLog} from "./tools.js";
-import {cyberpunkredActor} from "./actor.js";
-import {cyberpunkredActorSheet} from "./actor-sheet.js";
-import {cyberpunkredItem} from "./item.js";
-import {cyberpunkredItemSheet} from "./item-sheet.js";
-import {registerSystemSettings} from "./settings.js";
-import {_getInitiativeFormula} from "./combat.js";
-
-
+import {
+  _cprLog
+} from "./tools.js";
+import {
+  cyberpunkredActor
+} from "./actor.js";
+import {
+  cyberpunkredActorSheet
+} from "./actor-sheet.js";
+import {
+  cyberpunkredItem
+} from "./item.js";
+import {
+  cyberpunkredItemSheet
+} from "./item-sheet.js";
+import {
+  registerSystemSettings
+} from "./settings.js";
+import {
+  _getInitiativeFormula
+} from "./combat.js";
 
 
 Hooks.once('init', async function () {
 
-  _cprLog(`Initializing Simple cyberpunkred System`);
+  _cprLog(`Initializing CyberpunkRED System`);
   // Register System Settings
   _cprLog(`Register System Settings`);
   registerSystemSettings();
@@ -23,9 +35,7 @@ Hooks.once('init', async function () {
     cyberpunkredItem
   };
 
-	
 
- 
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -56,67 +66,62 @@ Hooks.once('init', async function () {
   });
 
   _cprLog(`Register Handlebars`);
-  
-      
-     //Setup helper for roll info
-    Handlebars.registerHelper('buildRollString', function (skill) {
-      var outStr = game.settings.get("cyberpunkred", "dieRollCommand");
-      var arr = new Array();
-      arr.push(data.data.skills[skill].roll);
-      arr.push(data.data.attributes[data.data.skills[skill].linkedattribute].roll);
-      arr.push(data.data.modifiers.modfinalmod.totalpenalty);
-      arr.forEach(element => {
-        outStr += " + " + element;
-      });
-      return (outStr);
+
+  //Setup helper for roll info
+  Handlebars.registerHelper('buildRollString', function (data, skill) {
+    var outStr = game.settings.get("cyberpunkred", "dieRollCommand");
+    var arr = new Array();
+    arr.push(data.skills[skill].roll);
+    arr.push(data.attributes[data.skills[skill].linkedattribute].roll);
+    arr.push(data.modifiers.modfinalmod.totalpenalty);
+    arr.forEach(element => {
+      outStr += " + " + element;
     });
+    return (outStr);
+  });
 
-    //Setup helper for damage track
-    Handlebars.registerHelper('buildDamageTrack', function () {
-      var x = 1;
-      var outStr = " ";
-      var current = data.data.combatstats["healthpool"].value;
-      var max = data.data.combatstats["healthpool"].max;
-      for (x = 1; x <= max; x++) {
-        if (x <= current) {
-          outStr += "<i data-setvalue=\"" + x + "\" class=\"fas fa-heart setcurrenthealth \"></i>";
-        } else {
-          outStr += "<i data-setvalue=\"" + x + "\" class=\"far fa-heart setcurrenthealth \"></i>";
-        }
-        if (x % 5 == 0) {
-          outStr += " ";
-        }
-        if (x % 25 == 0) {
-          outStr += "<br>";
-        }
-
+  //Setup helper for damage track
+  Handlebars.registerHelper('buildDamageTrack', function (current, max) {
+    var x = 1;
+    var outStr = " ";
+    for (x = 1; x <= max; x++) {
+      if (x <= current) {
+        outStr += "<i data-setvalue=\"" + x + "\" class=\"fas fa-heart setcurrenthealth \"></i>";
+      } else {
+        outStr += "<i data-setvalue=\"" + x + "\" class=\"far fa-heart setcurrenthealth \"></i>";
       }
-      return outStr;
-    });
-
-    //Setup helper for luck track
-    Handlebars.registerHelper('buildLuckTrack', function () {
-      var x = 1;
-      var outStr = " ";
-      var current = data.data.combatstats["luckpool"].value;
-      var max = data.data.combatstats["luckpool"].max;
-      for (x = 1; x <= max; x++) {
-        if (x <= current) {
-          outStr += "<i data-setvalue=\"" + x + "\" class=\"fas fa-arrow-alt-circle-up setcurrentluck \"></i>";
-        } else {
-          outStr += "<i data-setvalue=\"" + x + "\" class=\"far fa-arrow-alt-circle-up setcurrentluck \"></i>";
-        }
-        if (x % 5 == 0) {
-          outStr += " ";
-        }
-        if (x % 25 == 0) {
-          outStr += "<br>";
-        }
+      if (x % 5 == 0) {
+        outStr += " ";
       }
-      return outStr;
-    });
-  
-  
+      if (x % 25 == 0) {
+        outStr += "<br>";
+      }
+
+    }
+    return outStr;
+  });
+
+  //Setup helper for luck track
+  Handlebars.registerHelper('buildLuckTrack', function (current, max) {
+    var x = 1;
+    var outStr = " ";
+    for (x = 1; x <= max; x++) {
+      if (x <= current) {
+        outStr += "<i data-setvalue=\"" + x + "\" class=\"fas fa-arrow-alt-circle-up setcurrentluck \"></i>";
+      } else {
+        outStr += "<i data-setvalue=\"" + x + "\" class=\"far fa-arrow-alt-circle-up setcurrentluck \"></i>";
+      }
+      if (x % 5 == 0) {
+        outStr += " ";
+      }
+      if (x % 25 == 0) {
+        outStr += "<br>";
+      }
+    }
+    return outStr;
+  });
+
+
   //Return concatination of all arguments - Used for localizing sometimes
   Handlebars.registerHelper('concat', function () {
     var outStr = '';
@@ -136,7 +141,7 @@ Hooks.once('init', async function () {
       return opts.inverse(this);
     }
   });
-  
+
   //Displays the block only if the property b (a string) exists in object a (an object)
   Handlebars.registerHelper('if_exists', function (a, b, opts) {
     if (a.hasOwnProperty(b)) {
@@ -154,31 +159,28 @@ Hooks.once('init', async function () {
       return opts.inverse(this);
     }
   });
-  
+
   //Returns string in lowercase
   Handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
-  });  
-  
+  });
+
   //Indicate selected option in select list
-  Handlebars.registerHelper("select", function(value, options) {
-  return options.fn(this)
-    .split('\n')
-    .map(function(v) {
-      var t = 'value="' + value + '"'
-      return ! RegExp(t).test(v) ? v : v.replace(t, t + ' selected="selected"')
-    })
-    .join('\n')
+  Handlebars.registerHelper("select", function (value, options) {
+    return options.fn(this)
+      .split('\n')
+      .map(function (v) {
+        var t = 'value="' + value + '"'
+        return !RegExp(t).test(v) ? v : v.replace(t, t + ' selected="selected"')
+      })
+      .join('\n')
   })
-  
-  
-  
+
 
 });
 /**
  * Re-define the dice roll click event to also unhide the formula
  */
-
 
 
 /*
