@@ -111,9 +111,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
     }
     tempmod += data.data.modifiers.modmanualmod.penalty;
     data.data.modifiers.modfinalmod.totalpenalty = tempmod;
-
-    
-    
      
     //Setup helper for roll info
     Handlebars.registerHelper('buildRollString', function (skill) {
@@ -278,7 +275,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       this.actor.update({"data.combatstats":intdata.combatstats});
     });
 
-    //Set current health based on click on dot
+    //Set current health based on click on modifier number
     html.find('.alterhealth').click(ev => {
       var intdata = this.actor.data;
       var setTo = $(ev.currentTarget).attr("data-change") * 1;
@@ -293,7 +290,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       this.actor.update({"data.combatstats":intdata.combatstats});
     });
     
-    //Set current luck based on click on dot
+    //Set current luck based on click on modifier number
     html.find('.alterluck').click(ev => {
       var intdata = this.actor.data;
       var setTo = $(ev.currentTarget).attr("data-change") * 1;

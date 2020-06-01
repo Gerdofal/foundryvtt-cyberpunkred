@@ -56,7 +56,9 @@ Hooks.once('init', async function () {
   });
 
   _cprLog(`Register Handlebars`);
-  // If you need to add Handlebars helpers, here are a few useful examples:
+  
+  
+  //Return concatination of all arguments - Used for localizing sometimes
   Handlebars.registerHelper('concat', function () {
     var outStr = '';
     for (var arg in arguments) {
@@ -67,6 +69,7 @@ Hooks.once('init', async function () {
     return outStr;
   });
 
+  //Display block only if a and b are equal
   Handlebars.registerHelper('if_eq', function (a, b, opts) {
     if (a == b) {
       return opts.fn(this);
@@ -75,7 +78,7 @@ Hooks.once('init', async function () {
     }
   });
   
-  //Displays the block only if the property b exists in object a
+  //Displays the block only if the property b (a string) exists in object a (an object)
   Handlebars.registerHelper('if_exists', function (a, b, opts) {
     if (a.hasOwnProperty(b)) {
       return opts.fn(this);
@@ -84,6 +87,7 @@ Hooks.once('init', async function () {
     }
   });
 
+  //TODO - Am I still using this ?
   Handlebars.registerHelper('if_simpleCombatSetup', function (a, b, opts) {
     if (a == b) {
       return opts.fn(this);
@@ -92,10 +96,12 @@ Hooks.once('init', async function () {
     }
   });
   
+  //Returns string in lowercase
   Handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
   });  
   
+  //Indicate selected option in select list
   Handlebars.registerHelper("select", function(value, options) {
   return options.fn(this)
     .split('\n')
