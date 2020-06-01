@@ -40,146 +40,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
 
     _cprLog("Got Data");
     console.log(data);
-    
-    //DEV - Make some updates to data that may need a fix without updating system.json
-    data.data.modifiers.modfulldam.penalty = -2; //Changed in 0.28
 
-    /*
-    data.dtypes = ["String", "Number", "Boolean"];
-    for (let attr of Object.values(data.data.attributes)) {
-      attr.isCheckbox = attr.dtype === "Boolean";
-    }
-
-    // Prepare items.
-    if (this.actor.data.type == 'character') {
-      this._prepareCharacterItems(data);
-    }
-    */
-    if (data.data.attributes) {
-      for (let [key, attr] of Object.entries(data.data.attributes)) {
-        attr.roll = attr.value + attr.mod;
-        //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
-      }
-    } else {
-      _cprLog("Skipping attribute calculations because no attributes detected");
-    }
-
-    if (data.data.skills) {
-      for (let [key, attr] of Object.entries(data.data.skills)) {
-        attr.roll = attr.value + attr.mod;
-        //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
-      }
-    } else {
-      _cprLog("Skipping skill calculations because no skills detected");
-    }
-
-    // TODO - Need to tweak NPC page so this can work for them... maybe?
-    if (data.data.attributes) {
-      data.data.combatstats["healthpool"].max = data.data.attributes["body"].roll * 5;
-      //_cprLog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.combatstats["healthpool"].max);
-
-      data.data.combatstats["luckpool"].max = data.data.attributes["luck"].roll;
-      //_cprLog("Luck Pool Max = " + data.data.attributes["luck"].roll);
-    } else {
-      _cprLog("Skipping health and luck calculatons because no attributes detected");
-    }
-
-    //Set variables for some of the system settings
-    data.simpleCombatSetup = game.settings.get("cyberpunkred", "simpleCombatSetup");
-    data.GMAlwaysWhisper = game.settings.get("cyberpunkred", "GMAlwaysWhisper");
-    data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
-    data.dieRollCommand = game.settings.get("cyberpunkred", "dieRollCommand");
-    data.showInventory = game.settings.get("cyberpunkred", "showInventory");
-    if (!data.showInventory) {
-      data.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
-    }
-
-    //Check wound penalties
-    if (data.data.combatstats["healthpool"].value <= (data.data.combatstats["healthpool"].max / 2)) {
-      data.data.modifiers.modhalfdam.checked = true;
-    } else {
-      data.data.modifiers.modhalfdam.checked = false;
-    }
-
-    //Check wound penalties
-    if (data.data.combatstats["healthpool"].value <= 0) {
-      data.data.modifiers.modfulldam.checked = true;
-    } else {
-      data.data.modifiers.modfulldam.checked = false;
-    }
-
-    //Compute current damage mod
-    var tempmod = 0;
-    for (let [key, attr] of Object.entries(data.data.modifiers)) {
-      if (attr.hasOwnProperty("checked")) {
-        if (attr.checked) {
-          tempmod += attr.penalty;
-        }
-      }
-    }
-    tempmod += data.data.modifiers.modmanualmod.penalty;
-    data.data.modifiers.modfinalmod.totalpenalty = tempmod;
-
-    //Setup helper for roll info
-    Handlebars.registerHelper('buildRollString', function (skill) {
-      var outStr = game.settings.get("cyberpunkred", "dieRollCommand");
-      var arr = new Array();
-      arr.push(data.data.skills[skill].roll);
-      arr.push(data.data.attributes[data.data.skills[skill].linkedattribute].roll);
-      arr.push(data.data.modifiers.modfinalmod.totalpenalty);
-      arr.forEach(element => {
-        outStr += " + " + element;
-      });
-      return (outStr);
-    });
-
-    //Setup helper for damage track
-    Handlebars.registerHelper('buildDamageTrack', function () {
-      var x = 1;
-      var outStr = " ";
-      var current = data.data.combatstats["healthpool"].value;
-      var max = data.data.combatstats["healthpool"].max;
-      for (x = 1; x <= max; x++) {
-        if (x <= current) {
-          outStr += "<i data-setvalue=\"" + x + "\" class=\"fas fa-heart setcurrenthealth \"></i>";
-        } else {
-          outStr += "<i data-setvalue=\"" + x + "\" class=\"far fa-heart setcurrenthealth \"></i>";
-        }
-        if (x % 5 == 0) {
-          outStr += " ";
-        }
-        if (x % 25 == 0) {
-          outStr += "<br>";
-        }
-
-      }
-      return outStr;
-    });
-
-    //Setup helper for luck track
-    Handlebars.registerHelper('buildLuckTrack', function () {
-      var x = 1;
-      var outStr = " ";
-      var current = data.data.combatstats["luckpool"].value;
-      var max = data.data.combatstats["luckpool"].max;
-      for (x = 1; x <= max; x++) {
-        if (x <= current) {
-          outStr += "<i data-setvalue=\"" + x + "\" class=\"fas fa-arrow-alt-circle-up setcurrentluck \"></i>";
-        } else {
-          outStr += "<i data-setvalue=\"" + x + "\" class=\"far fa-arrow-alt-circle-up setcurrentluck \"></i>";
-        }
-        if (x % 5 == 0) {
-          outStr += " ";
-        }
-        if (x % 25 == 0) {
-          outStr += "<br>";
-        }
-      }
-      return outStr;
-    });
-
-    _cprLog("Finished setting up data");
-    console.log(data);
     return data;
   }
 
@@ -265,7 +126,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       }
       intdata.data.modifiers.modmanualmod.penalty = 0;
       this.actor.update({
-        "data.modifiers": intdata.modifiers
+        "data": intdata
       });
     });
 
@@ -275,7 +136,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
       intdata.data.combatstats.healthpool.value = setTo;
       this.actor.update({
-        "data.combatstats": intdata.combatstats
+        "data": intdata
       });
     });
 
@@ -285,7 +146,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
       intdata.data.combatstats.luckpool.value = setTo;
       this.actor.update({
-        "data.combatstats": intdata.combatstats
+        "data": intdata
       });
     });
 
@@ -302,7 +163,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
         intdata.data.combatstats.healthpool.value = 0;
       }
       this.actor.update({
-        "data.combatstats": intdata.combatstats
+        "data": intdata
       });
     });
 
@@ -319,7 +180,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
         intdata.data.combatstats.luckpool.value = 0;
       }
       this.actor.update({
-        "data.combatstats": intdata.combatstats
+        "data": intdata
       });
     });
 
@@ -331,7 +192,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       console.log(intdata);
       intdata.data.combatstats.deatsave.penalty++;
       this.actor.update({
-        "data.combatstats": intdata.combatstats
+        "data": intdata
       });
     });
 

@@ -16,6 +16,7 @@ export class cyberpunkredActor extends Actor {
     const data = actorData.data;
     const flags = actorData.flags;
 
+    
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     if (actorData.type === 'character') this._prepareCharacterData(actorData);
@@ -26,11 +27,71 @@ export class cyberpunkredActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     const data = actorData.data;
+       
+    //DEV - Make some updates to data that may need a fix without updating system.json
+    data.modifiers.modfulldam.penalty = -2; //Changed in 0.28
 
-    // Make modifications to data here. For example:
+    if (data.attributes) {
+      for (let [key, attr] of Object.entries(data.attributes)) {
+        attr.roll = attr.value + attr.mod;
+        //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
+      }
+    } else {
+      _cprLog("Skipping attribute calculations because no attributes detected");
+    }
 
-    // Loop through ability scores, and add their modifiers to our sheet output.
+    if (data.skills) {
+      for (let [key, attr] of Object.entries(data.skills)) {
+        attr.roll = attr.value + attr.mod;
+        //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
+      }
+    } else {
+      _cprLog("Skipping skill calculations because no skills detected");
+    }
 
+    // TODO - Need to tweak NPC page so this can work for them... maybe?
+    if (data.attributes) {
+      data.combatstats["healthpool"].max = data.attributes["body"].roll * 5;
+      data.combatstats["luckpool"].max = data.attributes["luck"].roll;
+    } else {
+      _cprLog("Skipping health and luck calculatons because no attributes detected");
+    }
+
+    //Set variables for some of the system settings
+    data.simpleCombatSetup = game.settings.get("cyberpunkred", "simpleCombatSetup");
+    data.GMAlwaysWhisper = game.settings.get("cyberpunkred", "GMAlwaysWhisper");
+    data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
+    data.dieRollCommand = game.settings.get("cyberpunkred", "dieRollCommand");
+    data.showInventory = game.settings.get("cyberpunkred", "showInventory");
+    if (!data.showInventory) {
+      data.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
+    }
+
+    //Check wound penalties
+    if (data.combatstats["healthpool"].value <= (data.combatstats["healthpool"].max / 2)) {
+      data.modifiers.modhalfdam.checked = true;
+    } else {
+      data.modifiers.modhalfdam.checked = false;
+    }
+
+    //Check wound penalties
+    if (data.combatstats["healthpool"].value <= 0) {
+      data.modifiers.modfulldam.checked = true;
+    } else {
+      data.modifiers.modfulldam.checked = false;
+    }
+
+    //Compute current damage mod
+    var tempmod = 0;
+    for (let [key, attr] of Object.entries(data.modifiers)) {
+      if (attr.hasOwnProperty("checked")) {
+        if (attr.checked) {
+          tempmod += attr.penalty;
+        }
+      }
+    }
+    tempmod += data.modifiers.modmanualmod.penalty;
+    data.modifiers.modfinalmod.totalpenalty = tempmod;
   }
 
 }
