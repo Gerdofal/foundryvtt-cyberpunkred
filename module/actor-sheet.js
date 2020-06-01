@@ -103,8 +103,10 @@ export class cyberpunkredActorSheet extends ActorSheet {
     }
     tempmod += data.data.modifiers.modmanualmod.penalty;
     data.data.modifiers.modfinalmod.totalpenalty = tempmod;
+
     
     
+     
     //Setup helper for roll info
     Handlebars.registerHelper('buildRollString', function (skill) {
       var outStr = game.settings.get("cyberpunkred", "dieRollCommand");
@@ -118,14 +120,58 @@ export class cyberpunkredActorSheet extends ActorSheet {
       return(outStr);
     });  
 
+    //Setup helper for damage track
+    Handlebars.registerHelper('buildDamageTrack', function () {
+      var x = 1;
+      var outStr = " ";
+      var current = data.data.combatstats["healthpool"].value;
+      var max = data.data.combatstats["healthpool"].max;
+      for (x=1;x<=max;x++) {
+        if(x<=current) {
+          outStr += "<i data-setvalue=\""+x+"\" class=\"fas fa-heart setcurrenthealth \"></i>";
+        } else {
+          outStr += "<i data-setvalue=\""+x+"\" class=\"far fa-heart setcurrenthealth \"></i>";
+        }    
+        if(x%5==0) {
+          outStr += " ";
+        }
+        if(x%25==0) {
+          outStr += "<br>";
+        }
 
+      }
+      return outStr;
+    });
+
+    //Setup helper for luck track
+    Handlebars.registerHelper('buildLuckTrack', function () {
+      var x = 1;
+      var outStr = " ";
+      var current = data.data.combatstats["luckpool"].value;
+      var max = data.data.combatstats["luckpool"].max;
+      for (x=1;x<=max;x++) {
+        if(x<=current) {
+          outStr += "<i data-setvalue=\""+x+"\" class=\"fas fa-arrow-alt-circle-up setcurrentluck \"></i>";
+        } else {
+          outStr += "<i data-setvalue=\""+x+"\" class=\"far fa-arrow-alt-circle-up setcurrentluck \"></i>";
+        }    
+        if(x%5==0) {
+          outStr += " ";
+        }
+        if(x%25==0) {
+          outStr += "<br>";
+        }
+
+      }
+      return outStr;
+    });
 
     _cprLog("Finished setting up data");
     //console.log(data);
     return data;
   }
 
-  
+   
   /**
    * Organize and classify Items for Character sheets.
    *
@@ -207,6 +253,22 @@ export class cyberpunkredActorSheet extends ActorSheet {
     }
     intdata.data.modifiers.modmanualmod.penalty=0;
     this.actor.update({"data.modifiers":intdata.modifiers});
+    });
+    
+    //Set current health based on click on dot
+    html.find('.setcurrenthealth').click(ev => {
+      var intdata = this.actor.data;
+      var setTo =$(ev.currentTarget).attr("data-setvalue");
+      intdata.data.combatstats.healthpool.value = setTo;
+      this.actor.update({"data.combatstats":intdata.combatstats});
+    });
+
+    //Set current luck based on click on dot
+    html.find('.setcurrentluck').click(ev => {
+      var intdata = this.actor.data;
+      var setTo =$(ev.currentTarget).attr("data-setvalue");
+      intdata.data.combatstats.luckpool.value = setTo;
+      this.actor.update({"data.combatstats":intdata.combatstats});
     });
 
     // Rollable abilities.

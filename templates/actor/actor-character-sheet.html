@@ -62,24 +62,6 @@
       
       {{!-- Attributes and Skills Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
-        <div class="combatstats grid grid-2col">
-          <div class="resource flex-group-center">
-            <label for="data.combatstats.healthpool.value" class="attrnskill-label">{{localize (concat "CPRED.healthpool")}}</label>
-            <div class="resource-content flexrow flex-center flex-between">
-              <input type="text" name="data.combatstats.healthpool.value" value="{{data.combatstats.healthpool.value}}" data-dtype="Number"/>
-              <span> / </span>
-              <input type="text" name="data.combatstats.healthpool.max" value="{{data.combatstats.healthpool.max}}" data-dtype="Number" readonly/>
-            </div>
-          </div>
-          <div class="resource flex-group-center">
-            <label for="data.combatstats.luckpool.value" class="attrnskill-label">{{localize "CPRED.luckpool"}}</label>
-            <div class="resource-content flexrow flex-center flex-between">
-              <input type="text" name="data.combatstats.luckpool.value" value="{{data.combatstats.luckpool.value}}" data-dtype="Number"/>
-              <span> / </span>
-              <input type="text" name="data.combatstats.luckpool.max" value="{{data.combatstats.luckpool.max}}" data-dtype="Number" readonly/>
-            </div>
-          </div>
-        </div>
         <ol class="grid grid-4col">
           <label>{{localize "CPRED.attribute"}}</label>
           <label>{{localize "CPRED.base"}}</label>
@@ -131,8 +113,21 @@
       {{!-- Combat Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combat">
         {{localize "CPRED.underconstruction"}}<br>
-            
+        
+        {{!-- Bullet List Indicators for Current HP and Luck --}}
+        <br>
+        <div class="cprgraphics cpr-dot-track">
+        <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
+          {{{buildDamageTrack}}}
+        </div>
+
+        <div class="cprgraphics cpr-dot-track">
+        <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
+          {{{buildLuckTrack}}}
+        </div>
+        
         {{#if simpleCombatSetup}}
+        <div class="cprgraphics">
         <h3>{{localize "CPRED.simplecombatsection"}}</h3>
           {{#each data.weaponsetup as |item key|}}
           <li class="flexrow" data-item-id="{{item.id}}">
@@ -141,18 +136,22 @@
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{item.damage}}">{{localize "CPRED.damage"}}</div>
           </li>
           {{/each}}
+        </div>
         {{/if}}
-        
+          
+          
+        <div class="cprgraphics">
         <h3>{{localize "CPRED.skills"}}</h3>
         <ol class="skilllist-grid cpr-center">
           {{#each data.skills as |skill key|}}
           <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{buildRollString key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
           {{/each}}
         </ol>
+        </div>        
 
-
+        <div class="cprgraphics">
         <h3>{{localize "CPRED.modsectiontitle"}}</h3>
-          <ol class="modlist-grid cpr-center">
+          <ol class="modlist-grid cpr-center cprgraphics">
             {{#each data.modifiers as |mod key|}}
             {{#if_exists mod "checked"}} {{!-- Only show the following if it contains checked--}}
             <input class="modlist" type="checkbox" id="mods_{{key}}" name="data.modifiers.{{key}}.checked" {{checked mod.checked}}>
@@ -170,6 +169,7 @@
           </li>      
         </ol>
         <label class="modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
+        </div>
       </div>
 
       {{#if data.settings.showtabs.hacking}}
