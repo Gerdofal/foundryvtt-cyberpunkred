@@ -29,6 +29,9 @@
             "value": 5,
             "mod": 0,
             "roll": 5
+          },
+          "deathsave": {
+            "penalty": 0
           }
         }
       },
@@ -384,7 +387,7 @@
             "checked": false
           },
           "modfulldam": {
-            "penalty":-3,
+            "penalty":-2,
             "checked":false
           },
           "modfacedown": {

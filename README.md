@@ -26,6 +26,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 - **Localization**: All text is localized, only EN for now.
 
 # Recent (major) updates
+- 0.28 - Setup damage rolls for weapons as well as weapon type drop-down for future help determining hit target at range, re-wrote CSS to begin process of setting up the final appearance of the character sheet, added comments in many files to make future additions easier, major changes to formatting of the combat tab to make more fit, added die icons to rolls to make them easier to spot, added half damage and fully damaged to the modifiers list (set automatically based on health track), added clickable health and luck tracks to the combat tab, removed health and luck from the attr tab, added buttons to alter current health and luck.
 - 0.27 - Inclusion of various roll modifiers to the combat tab and change of the localization prefix from SHEET. to CPRED.
 - 0.26 - Fixed bug introduced in 0.25 when NPC sheets were excluded from some calculations. The exclusion was also applying to characters under some circumstances.
 
@@ -33,11 +34,12 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 
 **Soon**
 - **Combat_Functions**: basic buttons for auto-fire, hacking, facedown, death saves, etc...
-- **Situational Modifiers**: tracker for various combinations of modifiers
-- **Rolling Damage**: damage buttons, first in the sheet, then in chat
-- **Simple Combat Functionality**: a way to set weapon stats using basic text fields
+- ~~**Situational Modifiers**: tracker for various combinations of modifiers~~ Finished in 0.28
+- ~~**Rolling Damage**: damage buttons, first in the sheet, then in chat~~ Added in 0.28
+- ~~**Simple Combat Functionality**: a way to set weapon stats using basic text fields~~ Added in 0.28
 
 **Next**
+- **Roll Appearance Update**: Adding template for rolls so more info can be included, like damage buttons and hidden details.
 - **Hacking**: buttons for all hacking actions
 - **Item Based Combat**: adding weapons to the inventory will result in buttons to roll their attacks and damage
 - **Item Based Mods**: adding cyberware with mods will impact stats in the sheet

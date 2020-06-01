@@ -147,6 +147,17 @@
           
           
         <div class="cprgraphics">
+        <h3>{{localize "CPRED.specialrolls"}}</h3>
+          {{localize "CPRED.notlocalized"}}
+        <ol class="">
+          <label for="Death Save" data-label="Death save. If you roll under your body of {{data.attributes.body.roll}}, you live. Each future roll takes a cumulative -1." data-roll="{{dieRollCommand}} - {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">Death Save (-{{data.combatstats.deathsave.penalty}})</label>
+          
+        </ol>
+        </div> 
+        
+        
+        
+        <div class="cprgraphics">
         <h3>{{localize "CPRED.skills"}}</h3>
         <ol class="skilllist-grid cpr-center">
           {{#each data.skills as |skill key|}}
