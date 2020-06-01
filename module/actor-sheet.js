@@ -69,15 +69,9 @@ export class cyberpunkredActorSheet extends ActorSheet {
     if(data.data.attributes) {
       data.data.combatstats["healthpool"].max = data.data.attributes["body"].roll * 5;
       //_cprLog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.combatstats["healthpool"].max);
-      if (data.data.combatstats["healthpool"].max < data.data.combatstats["healthpool"].value) {
-        data.data.combatstats["healthpool"].value = data.data.combatstats["healthpool"].max;
-      }
 
       data.data.combatstats["luckpool"].max = data.data.attributes["luck"].roll;
       //_cprLog("Luck Pool Max = " + data.data.attributes["luck"].roll);
-      if (data.data.combatstats["luckpool"].max < data.data.combatstats["luckpool"].value) {
-        data.data.combatstats["luckpool"].value = data.data.combatstats["luckpool"].max;
-      }      
     } else {
       _cprLog("Skipping health and luck calculatons because no attributes detected");
     }
@@ -90,6 +84,20 @@ export class cyberpunkredActorSheet extends ActorSheet {
     data.showInventory = game.settings.get("cyberpunkred", "showInventory");
     if(!data.showInventory) {
       data.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
+    }
+    
+    //Check wound penalties
+    if(data.data.combatstats["healthpool"].value <= (data.data.combatstats["healthpool"].max/2) ) {
+      data.data.modifiers.modhalfdam.checked=true;
+    } else {
+      data.data.modifiers.modhalfdam.checked=false;
+    }
+    
+    //Check wound penalties
+    if(data.data.combatstats["healthpool"].value <= 0 ) {
+      data.data.modifiers.modfulldam.checked=true;
+    } else {
+      data.data.modifiers.modfulldam.checked=false;
     }
     
     //Compute current damage mod
@@ -161,7 +169,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
         if(x%25==0) {
           outStr += "<br>";
         }
-
       }
       return outStr;
     });
@@ -258,19 +265,49 @@ export class cyberpunkredActorSheet extends ActorSheet {
     //Set current health based on click on dot
     html.find('.setcurrenthealth').click(ev => {
       var intdata = this.actor.data;
-      var setTo =$(ev.currentTarget).attr("data-setvalue");
+      var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
       intdata.data.combatstats.healthpool.value = setTo;
       this.actor.update({"data.combatstats":intdata.combatstats});
     });
 
-    //Set current luck based on click on dot
+    //Set current luck based on click on dot....
     html.find('.setcurrentluck').click(ev => {
       var intdata = this.actor.data;
-      var setTo =$(ev.currentTarget).attr("data-setvalue");
+      var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
       intdata.data.combatstats.luckpool.value = setTo;
       this.actor.update({"data.combatstats":intdata.combatstats});
     });
 
+    //Set current health based on click on dot
+    html.find('.alterhealth').click(ev => {
+      var intdata = this.actor.data;
+      var setTo = $(ev.currentTarget).attr("data-change") * 1;
+      var max = intdata.data.actor.data.combatstats.healthpool.max;
+      intdata.data.combatstats.healthpool.value += setTo;
+      if (intdata.data.combatstats.healthpool.value>max) {
+        intdata.data.combatstats.healthpool.value=max;
+      }
+      if (intdata.data.combatstats.healthpool.value<0) {
+        intdata.data.combatstats.healthpool.value=0;
+      }
+      this.actor.update({"data.combatstats":intdata.combatstats});
+    });
+    
+    //Set current luck based on click on dot
+    html.find('.alterluck').click(ev => {
+      var intdata = this.actor.data;
+      var setTo = $(ev.currentTarget).attr("data-change") * 1;
+      var max = intdata.data.actor.data.combatstats.luckpool.max;
+      intdata.data.combatstats.luckpool.value += setTo;
+      if (intdata.data.combatstats.luckpool.value>max) {
+        intdata.data.combatstats.luckpool.value=max;
+      }
+      if (intdata.data.combatstats.luckpool.value<0) {
+        intdata.data.combatstats.luckpool.value=0;
+      }
+      this.actor.update({"data.combatstats":intdata.combatstats});
+    });
+    
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
   }

@@ -118,14 +118,20 @@
         <br>
         <div class="cprgraphics cpr-dot-track">
         <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
-          {{{buildDamageTrack}}}
-        </div>
-
-        <div class="cprgraphics cpr-dot-track">
-        <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
-          {{{buildLuckTrack}}}
+          {{{buildDamageTrack}}}<br>
+          <ol class="flexrow">
+          <i class="alterhealth clickable" data-change="-1000">{{localize "CPRED.zero"}}</i>
+          <i class="alterhealth clickable" data-change="-10">-10</i>
+          <i class="alterhealth clickable" data-change="-5">-5</i>
+          <i class="alterhealth clickable" data-change="-1">-1</i>
+          <i class="alterhealth clickable" data-change="+1">+1</i>
+          <i class="alterhealth clickable" data-change="+5">+5</i>
+          <i class="alterhealth clickable" data-change="+10">+10</i>
+          <i class="alterhealth clickable" data-change="+1000">{{localize "CPRED.full"}}</i>
+          </ol>
         </div>
         
+
         {{#if simpleCombatSetup}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.simplecombatsection"}}</h3>
@@ -151,7 +157,7 @@
 
         <div class="cprgraphics">
         <h3>{{localize "CPRED.modsectiontitle"}}</h3>
-          <ol class="modlist-grid cpr-center cprgraphics">
+          <ol class="modlist-grid cpr-center">
             {{#each data.modifiers as |mod key|}}
             {{#if_exists mod "checked"}} {{!-- Only show the following if it contains checked--}}
             <input class="modlist" type="checkbox" id="mods_{{key}}" name="data.modifiers.{{key}}.checked" {{checked mod.checked}}>
@@ -159,7 +165,7 @@
             {{/if_exists}}
             {{/each}}  
           </ol>
-        
+         
         <ol class="grid grid-2col">
           <li class="modlist-item">
           {{localize "CPRED.modmanualmod"}}&nbsp;&nbsp;&nbsp;<input class="cpr-manualmodentry cpr-nowrap" type="number" name="data.modifiers.modmanualmod.penalty" value="{{data.modifiers.modmanualmod.penalty}}" data-dtype="Number">
@@ -170,6 +176,16 @@
         </ol>
         <label class="modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
         </div>
+        
+        <div class="cprgraphics cpr-dot-track">
+        <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
+          {{{buildLuckTrack}}}<br>
+          <ol class="flexrow">
+          <i class="alterluck clickable" data-change="-1">{{localize "CPRED.spend"}}</i>
+          <i class="alterluck clickable" data-change="+1">{{localize "CPRED.earn"}}</i>
+          </ol>
+        </div>
+ 
       </div>
 
       {{#if data.settings.showtabs.hacking}}
