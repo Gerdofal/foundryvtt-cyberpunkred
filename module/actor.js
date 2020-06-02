@@ -77,7 +77,11 @@ export class cyberpunkredActor extends Actor {
       _cprLog("Turning off half dam");
       data.modifiers.modhalfdam.checked = false;
     }
-
+    
+    //Setup init
+    //TODO - Need to tweak this 
+    data.combatstats.init.roll = data.attributes.ref.roll + data.combatstats.init.mod;
+    
     //Check wound penalties
     if (data.combatstats.healthpool.value <= 0) {
       _cprLog("Turning on full dam");

@@ -28,7 +28,10 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 - **Localization**: All text is localized, only EN for now.
 
 # Recent (major) updates
-- 0.28 - Beta
+- 0.29 - TBD - Beta
+  - Fixed but: Initiative roll value will now change when ref value, ref mod, or init mod change.
+  - Cleanup: Removed init.value since it's meaningless
+- 0.28 - 6/2/2020 - Beta
   - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
   - Re-wrote CSS to begin process of setting up the final appearance of the character sheet
   - Added comments in many files to make future additions easier
@@ -39,9 +42,9 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
   - Rremoved health and luck from the attr tab
   - Added buttons to alter current health and luck
   - Added death saves with appropriate modifier and help text
-- 0.27 - Alpha
+- 0.27 - 5/28/2020 - Alpha
   - Inclusion of various roll modifiers to the combat tab and change of the localization prefix from SHEET. to CPRED.
-- 0.26 - Alpha
+- 0.26 - 5/27/2020 - Alpha
   - Fixed bug introduced in 0.25 when NPC sheets were excluded from some calculations. The exclusion was also applying to characters under some circumstances.
 
 # Upcoming Changes

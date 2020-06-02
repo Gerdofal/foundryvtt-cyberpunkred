@@ -26,7 +26,6 @@
             "max": 50
           },
           "init": {
-            "value": 5,
             "mod": 0,
             "roll": 5
           },
