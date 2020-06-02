@@ -16,7 +16,7 @@ Sections:
   - Ease of Use: Added button to reset luck to full.
   - Ease of Use: Added more weapons to simple combat setup, for that Solo who has to have everything!
 
-### Release Notes (#release-notes)
+### Release Notes
 
 - 0.28 - Released 6/2/2020 - Beta
   - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
@@ -36,7 +36,7 @@ Sections:
 - 0.26 - Released 5/27/2020 - Alpha
   - Fixed bug introduced in 0.25 when NPC sheets were excluded from some calculations. The exclusion was also applying to characters under some circumstances.
 
-### Future Plans (#future-plans)
+### Future Plans
 
 - 0.31 - Item Inventory System (Including modifiers and other attributes based on items)
 - 0.30 - Re-write roll system to use a custom card
