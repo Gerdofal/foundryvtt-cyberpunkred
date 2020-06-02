@@ -50,5 +50,9 @@ Since playstyles vary greatly, this sheet is designed with the following in mind
 
 # License and Credits
 
-See the file license.md and credits.md
+License:
+https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/license.md
+
+Credits:
+https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/credits.md
 
