@@ -2,7 +2,7 @@
 
 - 0.29 - In Development / Not Yet Released - Beta
   - BugFix: Initiative roll will now properly change when ref value, ref mod, or init mod change.
-  - Cleanup: Removed init.value since it's meaningless
+  - Cleanup: Removed init.value from template.json since it's meaningless
   - BugFix: Die command once again displays properly on the character sheet settings tab
   - Cleanup: Changed default values for luck to something realistic (I want 25 luck too!)
   - Cleanup: Added check in actor.js to capture health and luck out of range.
