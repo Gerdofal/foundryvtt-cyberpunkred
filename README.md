@@ -29,7 +29,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 
 # Recent updates
 
-Please see https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
+Please see https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/updates.md
 
 # Upcoming Changes
 
