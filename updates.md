@@ -1,4 +1,4 @@
-# Recent updates
+# Release Notes
 
 - 0.29 - In Development / Not Yet Released - Beta
   - Initiative roll will now properly change when ref value, ref mod, or init mod change.

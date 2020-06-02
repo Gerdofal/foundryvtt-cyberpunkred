@@ -27,9 +27,9 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 - **GM_Options**: The GM can determine several options, such as the base die roll to use, in System Settings.
 - **Localization**: All text is localized, only EN for now.
 
-# Recent updates
+# Release Notes
 
-Please see https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/updates.md
+Release notes are in their own file. Please see https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/updates.md
 
 # Upcoming Changes
 
