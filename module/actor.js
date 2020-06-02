@@ -16,6 +16,12 @@ export class cyberpunkredActor extends Actor {
     const data = actorData.data;
     const flags = actorData.flags;
 
+    //All sheets need setup variables
+    data.dieRollCommand = game.settings.get("cyberpunkred", "dieRollCommand");
+    data.simpleCombatSetup = game.settings.get("cyberpunkred", "simpleCombatSetup");
+    data.GMAlwaysWhisper = game.settings.get("cyberpunkred", "GMAlwaysWhisper");
+    data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
+    data.showInventory = game.settings.get("cyberpunkred", "showInventory");
     
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -28,6 +34,7 @@ export class cyberpunkredActor extends Actor {
   _prepareCharacterData(actorData) {
     const data = actorData.data;
     _cprLog("Preparing character data");   
+    
     //DEV - Make some updates to data that may need a fix without updating system.json
     data.modifiers.modfulldam.penalty = -2; //Changed in 0.28
 
@@ -57,12 +64,7 @@ export class cyberpunkredActor extends Actor {
       _cprLog("Skipping health and luck calculatons because no attributes detected");
     }
 
-    //Set variables for some of the system settings
-    data.simpleCombatSetup = game.settings.get("cyberpunkred", "simpleCombatSetup");
-    data.GMAlwaysWhisper = game.settings.get("cyberpunkred", "GMAlwaysWhisper");
-    data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
-    data.dieRollCommand = game.settings.get("cyberpunkred", "dieRollCommand");
-    data.showInventory = game.settings.get("cyberpunkred", "showInventory");
+
     if (!data.showInventory) {
       data.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
     }

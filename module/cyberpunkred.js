@@ -86,9 +86,9 @@ Hooks.once('init', async function () {
     var outStr = " ";
     for (x = 1; x <= max; x++) {
       if (x <= current) {
-        outStr += "<i data-setvalue=\"" + x + "\" class=\"fas fa-heart setcurrenthealth \"></i>";
+        outStr += "<i data-setvalue=\"" + x + "\" class=\"clickable fas fa-heart setcurrenthealth \"></i>";
       } else {
-        outStr += "<i data-setvalue=\"" + x + "\" class=\"far fa-heart setcurrenthealth \"></i>";
+        outStr += "<i data-setvalue=\"" + x + "\" class=\"clickable far fa-heart setcurrenthealth \"></i>";
       }
       if (x % 5 == 0) {
         outStr += " ";
@@ -107,9 +107,9 @@ Hooks.once('init', async function () {
     var outStr = " ";
     for (x = 1; x <= max; x++) {
       if (x <= current) {
-        outStr += "<i data-setvalue=\"" + x + "\" class=\"fas fa-arrow-alt-circle-up setcurrentluck \"></i>";
+        outStr += "<i data-setvalue=\"" + x + "\" class=\"clickable fas fa-arrow-alt-circle-up setcurrentluck \"></i>";
       } else {
-        outStr += "<i data-setvalue=\"" + x + "\" class=\"far fa-arrow-alt-circle-up setcurrentluck \"></i>";
+        outStr += "<i data-setvalue=\"" + x + "\" class=\"clickable far fa-arrow-alt-circle-up setcurrentluck \"></i>";
       }
       if (x % 5 == 0) {
         outStr += " ";

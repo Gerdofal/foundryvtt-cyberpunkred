@@ -167,16 +167,27 @@ export class cyberpunkredActorSheet extends ActorSheet {
       this.actor.prepareData();this.actor.render();
     });
 
+      //Set the deathsave counter
+    html.find('.alterdeathsave').click(ev => {
+      var change = $(ev.currentTarget).attr("data-change") * 1;
+      this.actor.data.data.combatstats.deathsave.penalty += (change * 1);
+      if (this.actor.data.data.combatstats.deathsave.penalty<0) {
+        this.actor.data.data.combatstats.deathsave.penalty=0;
+      }
+      _cprLog("Death save is now " + this.actor.data.data.combatstats.deathsave.penalty);
+      this.actor.prepareData();this.actor.render();
+    });
 
     //Increment penalty on deathsave
     html.find('.deathsave').click(ev => {
-      this.actor.data.data.combatstats.deatsave.penalty++;
+      this.actor.data.data.combatstats.deathsave.penalty++;
       this.actor.prepareData();this.actor.render();
     });
 
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
+    html.find('.npcrollable').click(this._onRoll.bind(this));
   }
 
   /**

@@ -30,7 +30,7 @@
       <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
       <br>
       {{/if}}
-      {{#if showInventory}}
+      {{#if data.showInventory}}
       <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
       <br>
       <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
@@ -132,7 +132,7 @@
         </div>
         
 
-        {{#if simpleCombatSetup}}
+        {{#if data.simpleCombatSetup}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.simplecombatsection"}}</h3>
           {{#each data.weaponsetup as |item key|}}
@@ -150,7 +150,9 @@
         <h3>{{localize "CPRED.specialrolls"}}</h3>
           {{localize "CPRED.notlocalized"}}
         <ol class="">
-          <label for="Death Save" data-label="Death save. If you roll under your body of {{data.attributes.body.roll}}, you live. Each future roll takes a cumulative -1." data-roll="{{dieRollCommand}} - {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">Death Save (-{{data.combatstats.deathsave.penalty}})</label>
+          <label for="Death Save" data-label="Death save. If you roll under your body of {{data.attributes.body.roll}}, you live. Each future roll takes a cumulative penalty." data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">Death Save (+{{data.combatstats.deathsave.penalty}})</label>
+          <i class="alterdeathsave clickable" data-change="-1">-1</i>
+          <i class="alterdeathsave clickable" data-change="1">+1</i>
           
         </ol>
         </div> 
@@ -206,7 +208,7 @@
       </div>
       {{/if}}
 
-      {{#if showInventory}}
+      {{#if data.showInventory}}
       {{!-- Owned Cyberware Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="cyberware">
         <ol class="items-list">
@@ -276,22 +278,22 @@
         The following settings have been set by the GM and are in effect for this game:<br>
         <br>
         The base die roll is: {{dieRollCommand}}<br>
-        {{#if GMAlwaysWhisper}}
+        {{#if data.GMAlwaysWhisper}}
         GM rolls for NPCs are HIDDEN from players<br>
         {{else}}
         GM rolls for NPCs are VISIBLE to players<br>
         {{/if}}
-        {{#if showInventory}}
+        {{#if data.showInventory}}
         Inventory management is ENABLED<br>
         {{else}}
         Inventory management is DISABLED<br>
         {{/if}}
-        {{#if simpleCombatSetup}}
+        {{#if data.simpleCombatSetup}}
         Simple combat setup is ENABLED<br>
         {{else}}
         Simple combat setup is DISABLED<br>
         {{/if}}
-        {{#if itemCombatSetup}}
+        {{#if data.itemCombatSetup}}
         Item-based combat setup is ENABLED<br>
         {{else}}
         Item-based combat setup is DISABLED<br>
