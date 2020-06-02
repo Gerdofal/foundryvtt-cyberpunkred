@@ -29,6 +29,9 @@
             "value": 5,
             "mod": 0,
             "roll": 5
+          },
+          "deathsave": {
+            "penalty": 0
           }
         }
       },
@@ -38,32 +41,38 @@
           "weapon1": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship"
+            "skill": "marksmanship",
+            "type":"Pistol"
           },
           "weapon2": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship"
+            "skill": "marksmanship",
+            "type":"Pistol"
           },
           "weapon3": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship"
+            "skill": "marksmanship",
+            "type":"Pistol"
           },
           "weapon4": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship"
+            "skill": "marksmanship",
+            "type":"Pistol"
           },
           "weapon5": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship"
+            "skill": "marksmanship",
+            "type":"Pistol"
           },
           "weapon6": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship"
+            "skill": "marksmanship",
+            "type":"Pistol"
           }
         }
       },
@@ -373,6 +382,14 @@
       
       "modifiers": {
         "modifiers": {
+          "modhalfdam": {
+            "penalty":-3,
+            "checked": false
+          },
+          "modfulldam": {
+            "penalty":-2,
+            "checked":false
+          },
           "modfacedown": {
             "penalty": -3,
             "checked": false
@@ -436,10 +453,24 @@
             "totalpenalty": 0
           }       
         }
-      }      
+      },
+      
+      "settings": {
+        "settings" : {
+          "role": {
+            "rolename":"No role set yet"
+          },
+          "showtabs": {
+            "hacking": true
+          }
+        } 
+      }
+      
+      
+      
     },
     "character": {
-      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers"]
+      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers","settings"]
     },
     "npc": {
       "templates": ["description", "combatstats", "npc"]

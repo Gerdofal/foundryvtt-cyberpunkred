@@ -1,4 +1,6 @@
-import {_cprLog} from "./tools.js";
+import {
+  _cprLog
+} from "./tools.js";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet} 
@@ -35,97 +37,11 @@ export class cyberpunkredActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-
-    /*
-    data.dtypes = ["String", "Number", "Boolean"];
-    for (let attr of Object.values(data.data.attributes)) {
-      attr.isCheckbox = attr.dtype === "Boolean";
-    }
-
-    // Prepare items.
-    if (this.actor.data.type == 'character') {
-      this._prepareCharacterItems(data);
-    }
-    */
-    if(data.data.attributes) {
-    for (let [key, attr] of Object.entries(data.data.attributes)) {
-      attr.roll = attr.value + attr.mod;
-      //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
-    }      
-    } else {
-      _cprLog("Skipping attribute calculations because no attributes detected");
-    }
-
-    if(data.data.skills) {
-    for (let [key, attr] of Object.entries(data.data.skills)) {
-      attr.roll = attr.value + attr.mod;
-      //_cprLog("Calculating " + key + ": " + attr.value + "+" + attr.mod + "=" + attr.roll);
-    } 
-    } else {
-      _cprLog("Skipping skill calculations because no skills detected");
-    }
-
-    // TODO - Need to tweak NPC page so this can work for them... maybe?
-    if(data.data.attributes) {
-      data.data.combatstats["healthpool"].max = data.data.attributes["body"].roll * 5;
-      //_cprLog("Calculating Health Max " + data.data.attributes["body"].roll + " * 5 = " + data.data.combatstats["healthpool"].max);
-      if (data.data.combatstats["healthpool"].max < data.data.combatstats["healthpool"].value) {
-        data.data.combatstats["healthpool"].value = data.data.combatstats["healthpool"].max;
-      }
-
-      data.data.combatstats["luckpool"].max = data.data.attributes["luck"].roll;
-      //_cprLog("Luck Pool Max = " + data.data.attributes["luck"].roll);
-      if (data.data.combatstats["luckpool"].max < data.data.combatstats["luckpool"].value) {
-        data.data.combatstats["luckpool"].value = data.data.combatstats["luckpool"].max;
-      }      
-    } else {
-      _cprLog("Skipping health and luck calculatons because no attributes detected");
-    }
-
-    //Set variables for some of the system settings
-    data.simpleCombatSetup = game.settings.get("cyberpunkred","simpleCombatSetup");
-    data.GMAlwaysWhisper = game.settings.get("cyberpunkred","GMAlwaysWhisper");
-    data.itemCombatSetup = game.settings.get("cyberpunkred","itemCombatSetup");
-    data.dieRollCommand = game.settings.get("cyberpunkred", "dieRollCommand");
-    data.showInventory = game.settings.get("cyberpunkred", "showInventory");
-    if(!data.showInventory) {
-      data.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
-    }
-    
-    //Compute current damage mod
-    var tempmod = 0;
-    for (let [key, attr] of Object.entries(data.data.modifiers)) {
-      if (attr.hasOwnProperty("checked")) {
-        if (attr.checked) {
-          tempmod += attr.penalty;
-        }
-      }
-    }
-    tempmod += data.data.modifiers.modmanualmod.penalty;
-    data.data.modifiers.modfinalmod.totalpenalty = tempmod;
-    
-    
-    //Setup helper for roll info
-    Handlebars.registerHelper('buildRollString', function (skill) {
-      var outStr = game.settings.get("cyberpunkred", "dieRollCommand");
-      var arr = new Array();
-      arr.push(data.data.skills[skill].roll);  
-      arr.push(data.data.attributes[data.data.skills[skill].linkedattribute].roll);
-      arr.push(data.data.modifiers.modfinalmod.totalpenalty);
-      arr.forEach(element => {
-          outStr += " + " + element;
-      });    
-      return(outStr);
-    });  
-
-
-
-    _cprLog("Finished setting up data");
-    console.log(data);
+    _cprLog("Returning sheet data");
     return data;
   }
 
-  
+
   /**
    * Organize and classify Items for Character sheets.
    *
@@ -198,19 +114,80 @@ export class cyberpunkredActorSheet extends ActorSheet {
     // Reset all modifiers and clear penalties
     html.find('.resetallmods').click(ev => {
       var intdata = this.actor.data;
-      for (let [key, attr] of Object.entries(intdata.data.modifiers)) {
-      if (attr.hasOwnProperty("checked")) {
-        if (attr.checked) {
-          attr.checked=false;
+      for (let [key, attr] of Object.entries(this.actor.data.data.modifiers)) {
+        if (attr.hasOwnProperty("checked")) {
+          if (attr.checked) {
+            attr.checked = false;
+          }
         }
       }
-    }
-    intdata.data.modifiers.modmanualmod.penalty=0;
-    this.actor.update({"data.modifiers":intdata.modifiers});
+      this.actor.data.data.modifiers.modmanualmod.penalty = 0;
+      this.actor.prepareData();this.actor.render();
     });
+
+    //Set current health based on click on dot
+    html.find('.setcurrenthealth').click(ev => {
+      var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
+      this.actor.data.data.combatstats.healthpool.value = setTo * 1;
+      this.actor.prepareData();this.actor.render();
+    });
+
+    //Set current luck based on click on dot....
+    html.find('.setcurrentluck').click(ev => {
+      var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
+      this.actor.data.data.combatstats.luckpool.value = setTo * 1;
+      this.actor.prepareData();this.actor.render();
+    });
+
+    //Set current health based on click on modifier number
+    html.find('.alterhealth').click(ev => {
+      var setTo = $(ev.currentTarget).attr("data-change") * 1;
+      var max = this.actor.data.data.combatstats.healthpool.max;
+      this.actor.data.data.combatstats.healthpool.value += setTo;
+      if (this.actor.data.data.combatstats.healthpool.value > max) {
+        this.actor.data.data.combatstats.healthpool.value = max;
+      }
+      if (this.actor.data.data.combatstats.healthpool.value < 0) {
+        this.actor.data.data.combatstats.healthpool.value = 0;
+      }
+      this.actor.prepareData();this.actor.render();
+    });
+
+    //Set current luck based on click on modifier number
+    html.find('.alterluck').click(ev => {
+      var setTo = $(ev.currentTarget).attr("data-change") * 1;
+      var max = this.actor.data.data.combatstats.luckpool.max;
+      this.actor.data.data.combatstats.luckpool.value += setTo;
+      if (this.actor.data.data.combatstats.luckpool.value > max) {
+        this.actor.data.data.combatstats.luckpool.value = max;
+      }
+      if (this.actor.data.data.combatstats.luckpool.value < 0) {
+        this.actor.data.data.combatstats.luckpool.value = 0;
+      }
+      this.actor.prepareData();this.actor.render();
+    });
+
+      //Set the deathsave counter
+    html.find('.alterdeathsave').click(ev => {
+      var change = $(ev.currentTarget).attr("data-change") * 1;
+      this.actor.data.data.combatstats.deathsave.penalty += (change * 1);
+      if (this.actor.data.data.combatstats.deathsave.penalty<0) {
+        this.actor.data.data.combatstats.deathsave.penalty=0;
+      }
+      _cprLog("Death save is now " + this.actor.data.data.combatstats.deathsave.penalty);
+      this.actor.prepareData();this.actor.render();
+    });
+
+    //Increment penalty on deathsave
+    html.find('.deathsave').click(ev => {
+      this.actor.data.data.combatstats.deathsave.penalty++;
+      this.actor.prepareData();this.actor.render();
+    });
+
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
+    html.find('.npcrollable').click(this._onRoll.bind(this));
   }
 
   /**
@@ -257,7 +234,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
     }
 
     if (dataset.roll) {
-      console.log(dataset);
+      //console.log(dataset);
       let roll = new Roll(dataset.roll, this.actor.data.data);
       let label = dataset.label ? `${dataset.label}` : '';
       roll.roll().toMessage({
@@ -270,7 +247,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       });
 
     } // End if Dataset.roll
-  }
+  } // end OnRoll
 
 
-}
+} //End class cyberpunkredactorsheet
