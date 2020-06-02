@@ -12,7 +12,9 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 
 # Installing
 
-- The files in the "Stable Release" branch are the suggestion for download. Use this as the manifest URL:
+- This system is available in the "Game-systems" browser in game and may be installed there.
+
+- You can also manually direct your FoundryVTT to the correct manifest. Use this as the manifest URL:
   - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
 
 - If you want to manually install the files from the dev branch, feel free. I don't recommend this.
