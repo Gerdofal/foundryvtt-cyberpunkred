@@ -27,7 +27,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 
 # Recent (major) updates
 - 0.28 - Beta
-  - Setup damage rolls for weapons as well as weapon type drop-down for future help determining hit target at range.
+  - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
   - Re-wrote CSS to begin process of setting up the final appearance of the character sheet
   - Added comments in many files to make future additions easier
   - Major changes to formatting of the combat tab to make more fit
