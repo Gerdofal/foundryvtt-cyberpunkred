@@ -8,6 +8,7 @@
   - Cleanup: Added check in actor.js to capture health and luck out of range.
   - BugFix: Teaked half damage mod to turn on when at LESS than half hp, instead of AT half hp.
   - BugFix: Added wound penalties to initiative roll
+  - Ease of Use: Added button to reset luck to full.
   
 - 0.28 - Released 6/2/2020 - Beta
   - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
