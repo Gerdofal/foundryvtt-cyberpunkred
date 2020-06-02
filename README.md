@@ -29,7 +29,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 
 # Recent (major) updates
 - 0.29 - TBD - Beta
-  - Fixed but: Initiative roll value will now change when ref value, ref mod, or init mod change.
+  - Fixed bug: Initiative roll value will now change when ref value, ref mod, or init mod change.
   - Cleanup: Removed init.value since it's meaningless
 - 0.28 - 6/2/2020 - Beta
   - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
