@@ -21,9 +21,9 @@
             "max": 50
           },
           "luckpool": {
-            "value": 25,
+            "value": 5,
             "min": 0,
-            "max": 50
+            "max": 5
           },
           "init": {
             "mod": 0,

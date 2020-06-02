@@ -59,7 +59,14 @@ export class cyberpunkredActor extends Actor {
     // TODO - Need to tweak NPC page so this can work for them... maybe?
     if (data.attributes) {
       data.combatstats.healthpool.max = data.attributes.body.roll * 5;
+      if(data.combatstats.healthpool.value > data.combatstats.healthpool.max) {
+        data.combatstats.healthpool.value = data.combatstats.healthpool.max;
+      }
       data.combatstats.luckpool.max = data.attributes.luck.roll;
+      if(data.combatstats.luckpool.value > data.combatstats.luckpool.max) {
+        data.combatstats.luckpool.value = data.combatstats.luckpool.max;
+      }
+      
     } else {
       _cprLog("Skipping health and luck calculatons because no attributes detected");
     }
