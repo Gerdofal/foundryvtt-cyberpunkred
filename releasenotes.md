@@ -1,13 +1,13 @@
 # Release Notes
 
 - 0.29 - In Development / Not Yet Released - Beta
-  - Initiative roll will now properly change when ref value, ref mod, or init mod change.
-  - Removed init.value since it's meaningless
-  - Die command once again displays properly on the character sheet settings tab
-  - Changed default values for luck to something realistic (I want 25 luck too!)
-  - Added check in actor.js to capture health and luck out of range.
-  - Teaked half damage mod to turn on when at LESS than half hp, instead of AT half hp.
-  - Added wound penalties to initiative roll
+  - BugFix: Initiative roll will now properly change when ref value, ref mod, or init mod change.
+  - Cleanup: Removed init.value since it's meaningless
+  - BugFix: Die command once again displays properly on the character sheet settings tab
+  - Cleanup: Changed default values for luck to something realistic (I want 25 luck too!)
+  - Cleanup: Added check in actor.js to capture health and luck out of range.
+  - BugFix: Teaked half damage mod to turn on when at LESS than half hp, instead of AT half hp.
+  - BugFix: Added wound penalties to initiative roll
   
 - 0.28 - Released 6/2/2020 - Beta
   - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
