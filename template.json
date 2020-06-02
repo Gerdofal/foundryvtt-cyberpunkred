@@ -72,6 +72,30 @@
             "damage": "5d6",
             "skill": "marksmanship",
             "type":"Pistol"
+          },
+          "weapon7": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship",
+            "type":"Pistol"
+          },
+          "weapon8": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship",
+            "type":"Pistol"
+          },
+          "weapon9": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship",
+            "type":"Pistol"
+          },
+          "weapon10": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "marksmanship",
+            "type":"Pistol"
           }
         }
       },
