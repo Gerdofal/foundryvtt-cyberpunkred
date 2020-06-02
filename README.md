@@ -29,27 +29,9 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 
 # Release Notes
 
-Release notes are in their own file. Please see:
+Release notes (and plans for future releases) are in their own file. Please see:
 
 https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/releasenotes.md
-
-# Upcoming Changes
-
-**Soon**
-- **Combat_Functions**: basic buttons for auto-fire, hacking, facedown, death saves, etc...
-- ~~**Situational Modifiers**: tracker for various combinations of modifiers~~ Finished in 0.28
-- ~~**Rolling Damage**: damage buttons, first in the sheet, then in chat~~ Added in 0.28
-- ~~**Simple Combat Functionality**: a way to set weapon stats using basic text fields~~ Added in 0.28
-
-**Next**
-- **Roll Appearance Update**: Adding template for rolls so more info can be included, like damage buttons and hidden details.
-- **Hacking**: buttons for all hacking actions
-- **Item Based Combat**: adding weapons to the inventory will result in buttons to roll their attacks and damage
-- **Item Based Mods**: adding cyberware with mods will impact stats in the sheet
-- **Tokens**: calculate range for attacks, apply damage automatically, etc...
-
-**COMING LATER - Once the Core Rulebook is Out**
-- **Compendium**: if the license allows it, will include compendium of weapons and other gear.
 
 # Features Planned
 

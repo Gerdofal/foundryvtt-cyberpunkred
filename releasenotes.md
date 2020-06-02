@@ -28,3 +28,9 @@
 
 - 0.26 - Released 5/27/2020 - Alpha
   - Fixed bug introduced in 0.25 when NPC sheets were excluded from some calculations. The exclusion was also applying to characters under some circumstances.
+
+# Future Plans
+
+- 0.31 - Item Inventory System (Including modifiers and other attributes based on items)
+- 0.30 - Re-write roll system to use a custom card
+- 0.29 - Tweak formatting of the character sheet to improve usability and squash bugs.
