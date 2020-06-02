@@ -28,11 +28,12 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 - **Localization**: All text is localized, only EN for now.
 
 # Recent (major) updates
-- 0.29 - TBD - Beta
+- 0.29 - In Development / Not Yet Released - Beta
   - Initiative roll will now properly change when ref value, ref mod, or init mod change.
   - Removed init.value since it's meaningless
   - Die command once again displays properly on the character sheet settings tab
   - Changed default values for luck to something realistic (I want 25 luck too!)
+  - Added check in actor.js to capture health and luck out of range.
   
 - 0.28 - 6/2/2020 - Beta
   - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
