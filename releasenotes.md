@@ -40,4 +40,4 @@ Sections:
 
 - 0.31 - Item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons)
 - 0.30 - Re-write roll system to use a custom card
-- 0.29 - Tweak formatting of the character sheet to improve usability and squash bugs.
+- 0.29 - Tweak formatting of the character sheet to improve usability and squash bugs. Add hacking actions to hacking tab.
