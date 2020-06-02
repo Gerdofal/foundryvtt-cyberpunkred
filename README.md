@@ -1,31 +1,20 @@
 ![CyberpunkRED Media Card](https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/css/cpredmediacard.png?raw=true "CyberpunkRED Media Card")
 # Cyberpunk RED
 
-An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit and will also also options for house rules to extend the system.
+An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit and will also also include options for house rules to extend the system.
 
 # Branch Information
-
-- Current Status: Alpha
-  - Character Sheet is current focus
 
 - There are two branches for this project, development and stable_release. You should generally not use the development branch for games as it may have significant bugs. See below for download links.
 
 # Installing
 
-- This system is available in the "Game-systems" browser in game and may be installed there.
+- This system is available in the "Game-systems" browser in-game and may be installed there.
 
 - You can also manually direct your FoundryVTT to the correct manifest. Use this as the manifest URL:
   - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
 
 - If you want to manually install the files from the dev branch, feel free. I don't recommend this.
-
-# Current Status
-- **Basic_Functionality**: Character sheet stores base attributes and skills and has space to save modifications for each.
-- **Rolls**: All skills can be rolled from the skill tab.
-- **Encounters**: Initiative may be automatically rolled, using REF as a tie breaker.
-- **NPCs**: The NPC sheet is at it's beginning stages, 10 fields to set custom die pools with notes and easy to click buttons to roll dice. (Use the character sheet for named NPCs, the NPC sheet is for quick grunts.)
-- **GM_Options**: The GM can determine several options, such as the base die roll to use, in System Settings.
-- **Localization**: All text is localized, only EN for now.
 
 # Release Notes
 
