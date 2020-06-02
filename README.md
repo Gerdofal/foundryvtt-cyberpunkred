@@ -34,6 +34,8 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
   - Die command once again displays properly on the character sheet settings tab
   - Changed default values for luck to something realistic (I want 25 luck too!)
   - Added check in actor.js to capture health and luck out of range.
+  - Teaked half damage mod to turn on when at LESS than half hp, instead of AT half hp.
+  - Added wound penalties to initiative roll
   
 - 0.28 - 6/2/2020 - Beta
   - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.

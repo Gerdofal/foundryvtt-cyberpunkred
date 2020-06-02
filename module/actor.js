@@ -77,7 +77,7 @@ export class cyberpunkredActor extends Actor {
     }
 
     //Check wound penalties
-    if (data.combatstats.healthpool.value <= (data.combatstats.healthpool.max / 2)) {
+    if (data.combatstats.healthpool.value < (data.combatstats.healthpool.max / 2)) {
       _cprLog("Turning on half dam");
       data.modifiers.modhalfdam.checked = true;
     } else {
