@@ -15,6 +15,8 @@ Sections:
   - BugFix: Added wound penalties to initiative roll
   - Ease of Use: Added button to reset luck to full.
   - Ease of Use: Added more weapons to simple combat setup, for that Solo who has to have everything!
+  - Adjusted health pool and luck pool so they are adjacent to each other
+  - Localized the death save section
 
 ### Release Notes
 

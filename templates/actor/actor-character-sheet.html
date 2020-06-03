@@ -160,9 +160,8 @@
           
         <div class="cprgraphics">
         <h3>{{localize "CPRED.specialrolls"}}</h3>
-          {{localize "CPRED.notlocalized"}}
         <ol class="">
-          <label for="Death Save" data-label="Death save. If you roll under your body of {{data.attributes.body.roll}}, you live. Each future roll takes a cumulative penalty." data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">Death Save (+{{data.combatstats.deathsave.penalty}})</label>
+          <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label>
           <i class="alterdeathsave clickable" data-change="-1">-1</i>
           <i class="alterdeathsave clickable" data-change="1">+1</i>
           
@@ -210,6 +209,25 @@
       {{!-- Hacking Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="hacking">
         {{localize "CPRED.underconstruction"}}<br>
+        1d10 + Interface
+        Scanner vs DV from GM
+        Backdoor vs DV from GM
+        Pathfinder vs DV from GM
+        Eye-Dee vs DV from GM
+        Control vs DV from GM
+        Slide vs Black ICE 1d10 + Perception
+        
+        Zap vs Netrunner 1d10 + Interface or Program 1d10 + Defense Value does 1d6 damage
+
+        Virus - GM will record result as power of virus
+        Cloak - Becomes DV of pathfinder to find you
+        
+        
+        Programs
+        Speedy Gonzalez - Increases SPD by +4
+        Banhammer - +2 ATT - 3d6 vs hellhounds, 2d6 vs other programs
+        Flack - Stops the first successful non-helhound attack from doing damage
+        
       </div>
       {{/if}}
 
