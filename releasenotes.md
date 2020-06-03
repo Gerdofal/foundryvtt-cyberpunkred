@@ -17,6 +17,8 @@ Sections:
   - Ease of Use: Added more weapons to simple combat setup, for that Solo who has to have everything!
   - Adjusted health pool and luck pool so they are adjacent to each other
   - Localized the death save section
+  - Added ability to hide some weapons from simple combat setup
+  - Added zero luck button
 
 ### Release Notes
 
