@@ -13,17 +13,21 @@ Sections:
   - Cleanup: Added check in actor.js to capture health and luck out of range.
   - BugFix: Teaked half damage mod to turn on when at LESS than half hp, instead of AT half hp.
   - BugFix: Added wound penalties to initiative roll
-  - Ease of Use: Added button to reset luck to full.
-  - Ease of Use: Added more weapons to simple combat setup, for that Solo who has to have everything!
-  - Ease of Use: Adjusted health pool and luck pool so they are adjacent to each other
-  - Ease of Use: Localized the death save section
+  - UI Improvement: Added button to reset luck to full.
+  - UI Improvement: Added more weapons to simple combat setup, for that Solo who has to have everything!
+  - UI Improvement: Adjusted health pool and luck pool so they are adjacent to each other
+  - UI Improvement: Localized the death save section
   - Cleanup: Added ability to hide some weapons from simple combat setup
-  - Ease of Use: Added zero luck button
+  - UI Improvement: Added zero luck button
   - Cleanup: Added automod field to stats for future use in item setup, so manual mods are still possible and diferentiated
   - Cleanup: Removed min and max from numerous stats
   - BugFix: Added calculations for Cultural Familiarity for all skills
-  - Ease of Use: Improved appearance of navigation tabs on character sheet and made the whole tab clickable
-  - Ease of Use: Adjusted the blur-radius and other text effects of clickable items to make it easier to spot
+  - UI Improvement: Improved appearance of navigation tabs on character sheet and made the whole tab clickable
+  - UI Improvement: Adjusted the blur-radius and other text effects of clickable items to make it easier to spot
+  - New Feature: Added roleskills to the template.json to hold role specific skills.
+  - New Feature: Added interface to roleskills for use in hacking
+  
+  
 
 ### Release Notes
 

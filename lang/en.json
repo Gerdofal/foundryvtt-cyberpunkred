@@ -47,6 +47,7 @@
   "CPRED.humanperception": "Human Perception",
   "CPRED.int": "INT",
   "CPRED.init": "INIT",
+  "CPRED.interface": "Interface",
   "CPRED.interrogation": "Interrogation",
   "CPRED.localexpert": "Local Expert",
   "CPRED.luck": "LUCK",

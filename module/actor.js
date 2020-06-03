@@ -60,6 +60,11 @@ export class cyberpunkredActor extends Actor {
       }
     }
     
+    //Compute roll attribute for roleskills
+    for (let [key, attr] of Object.entries(data.roleskills)) {
+      attr.roll = attr.value + attr.mod;
+    }
+    
     
 
     //TODO - Need to add a field to edit init.mod

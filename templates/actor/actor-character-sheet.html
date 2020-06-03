@@ -203,10 +203,22 @@
 
       {{#if data.settings.showtabs.hacking}}
       {{!-- Hacking Tab --}}
+      
       <div class="tab cprgraphics" data-group="primary" data-tab="hacking">
         {{localize "CPRED.underconstruction"}}<br>
         
-        <pre>
+        <div class="grid grid-4col">
+          <label>{{localize "CPRED.attribute"}}</label>
+          <label>{{localize "CPRED.base"}}</label>
+          <label>{{localize "CPRED.mod"}}</label>
+          <label>{{localize "CPRED.totalroll"}}</label>
+          {{!-- TODO - Future changes may require re-writing this to not use int --}}
+          <label for="data.roleskills.interface.value" data-roll="{{data.dieRollCommand}} + {{data.roleskills.interface.roll}} + {{data.attributes.int.roll}}" class="rollable" data-label="{{localize 'CPRED.interface'}}">{{localize "CPRED.interface"}} ({{localize (concat "CPRED." data.roleskills.interface.linkedattribute)}})</label>
+          <input class="skill-value" type="text" name="data.roleskills.interface.value" value="{{data.roleskills.interface.value}}" data-dtype="Number"/>
+          <input type="text" name="data.roleskills.interface.mod" value="{{data.roleskills.interface.mod}}" data-dtype="Number"/>
+          <input type="text" name="data.roleskills.interface.roll" value="{{data.roleskills.interface.roll}}" data-dtype="Number" readonly/>
+        </div>
+        
         Base Roll: Roll 1d10 + Interface
         Initiative:
         
@@ -229,7 +241,6 @@
         Speedy Gonzalez - Increases SPD by +4
         Banhammer - +2 ATT - 3d6 vs hellhounds, 2d6 vs other programs
         Flack - Stops the first successful non-helhound attack from doing damage
-        </pre>
         
       </div>
       {{/if}}

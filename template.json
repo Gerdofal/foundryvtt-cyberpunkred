@@ -456,13 +456,25 @@
             "hacking": true
           }
         } 
+      },
+      
+      "roleskills": {
+        "roleskills": {
+          "interface": {
+            "value": 0,
+            "mod": 0,
+            "automod": 0,
+            "roll": 0,
+            "linkedattribute": "int"
+          }
+        }
       }
       
       
       
     },
     "character": {
-      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers","settings"]
+      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers","settings","roleskills"]
     },
     "npc": {
       "templates": ["description", "combatstats", "npc"]
