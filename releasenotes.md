@@ -15,11 +15,12 @@ Sections:
   - BugFix: Added wound penalties to initiative roll
   - Ease of Use: Added button to reset luck to full.
   - Ease of Use: Added more weapons to simple combat setup, for that Solo who has to have everything!
-  - Adjusted health pool and luck pool so they are adjacent to each other
-  - Localized the death save section
-  - Added ability to hide some weapons from simple combat setup
-  - Added zero luck button
-  - Added automod field to stats for future use in item setup, so manual mods are still possible and diferentiated
+  - Ease of Use: Adjusted health pool and luck pool so they are adjacent to each other
+  - Ease of Use: Localized the death save section
+  - Cleanup: Added ability to hide some weapons from simple combat setup
+  - Ease of Use: Added zero luck button
+  - Cleanup: Added automod field to stats for future use in item setup, so manual mods are still possible and diferentiated
+  - Cleanup: Removed min and max from numerous stats
 
 ### Release Notes
 
