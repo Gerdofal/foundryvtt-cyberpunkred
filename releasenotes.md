@@ -21,6 +21,7 @@ Sections:
   - Ease of Use: Added zero luck button
   - Cleanup: Added automod field to stats for future use in item setup, so manual mods are still possible and diferentiated
   - Cleanup: Removed min and max from numerous stats
+  - BugFix: Added calculations for Cultural Familiarity for all skills
 
 ### Release Notes
 
