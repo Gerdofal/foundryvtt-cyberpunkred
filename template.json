@@ -40,61 +40,61 @@
           "weapon1": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon2": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon3": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon4": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon5": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon6": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon7": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon8": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon9": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon10": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           }
         }

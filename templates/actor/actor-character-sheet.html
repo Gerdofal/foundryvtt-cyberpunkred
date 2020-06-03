@@ -99,6 +99,7 @@
             <div>
               <select name="data.weaponsetup.{{key}}.skill">
               {{#select item.skill}}
+              <option value="hidden">{{localize "CPRED.hidden"}}</option>
               <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>
               <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
               {{/select}}
@@ -117,22 +118,22 @@
         {{!-- Bullet List Indicators for Current HP and Luck --}}
         <br>
         <div class="cprgraphics cpr-dot-track">
-          <div style="display: inline-block; width: 69%;vertical-align: top;">
+          <div style="display: inline-block; width: 48%;vertical-align: top;">
           <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
             {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
             <ol class="grid grid-3col">
             <i class="grid alterhealth clickable" data-change="-10">-10</i>
             <i class="grid alterhealth clickable" data-change="-5">-5</i>
             <i class="grid alterhealth clickable" data-change="-1">-1</i>
-            <i class="grid alterhealth clickable" data-change="+1">+1</i>
-            <i class="grid alterhealth clickable" data-change="+5">+5</i>
             <i class="grid alterhealth clickable" data-change="+10">+10</i>
+            <i class="grid alterhealth clickable" data-change="+5">+5</i>
+            <i class="grid alterhealth clickable" data-change="+1">+1</i>
             <i class="grid alterhealth clickable" data-change="-1000">{{localize "CPRED.zero"}}</i>
+            <i class="grid"></i>
             <i class="grid alterhealth clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
             </ol>
           </div>
-          <div style="display: inline-block; width: 30%;vertical-align: top;">
-            <div class="cpr-dot-track">
+          <div style="display: inline-block; width: 48%;vertical-align: top;">
             <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
               {{{buildLuckTrack data.combatstats.luckpool.value data.combatstats.luckpool.max}}}<br>
               <ol class="grid grid-1col">
@@ -140,7 +141,6 @@
               <i class="grid alterluck clickable" data-change="+1">{{localize "CPRED.earn"}}</i>
               <i class="grid alterluck clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
               </ol>
-            </div>
           </div>
         </div>        
 
@@ -148,11 +148,13 @@
         <div class="cprgraphics">
         <h3>{{localize "CPRED.simplecombatsection"}}</h3>
           {{#each data.weaponsetup as |item key|}}
+          {{#if_not_eq item.skill "hidden"}}
           <li class="flexrow" data-item-id="{{item.id}}">
             <label class="cpr-weaponinlinebox">{{item.name}}</label>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{buildRollString ../data  item.skill}}">{{localize "CPRED.attack"}}</div>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{item.damage}}">{{localize "CPRED.damage"}}</div>
           </li>
+          {{/if_not_eq}}
           {{/each}}
         </div>
         {{/if}}
@@ -161,7 +163,7 @@
         <div class="cprgraphics">
         <h3>{{localize "CPRED.specialrolls"}}</h3>
         <ol class="">
-          <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label>
+          <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
           <i class="alterdeathsave clickable" data-change="-1">-1</i>
           <i class="alterdeathsave clickable" data-change="1">+1</i>
           

@@ -141,6 +141,16 @@ Hooks.once('init', async function () {
       return opts.inverse(this);
     }
   });
+  
+  //Display block only if a and b are not equal
+  Handlebars.registerHelper('if_not_eq', function (a, b, opts) {
+    if (a != b) {
+      return opts.fn(this);
+    } else {
+      return opts.inverse(this);
+    }
+  });
+
 
   //Displays the block only if the property b (a string) exists in object a (an object)
   Handlebars.registerHelper('if_exists', function (a, b, opts) {
