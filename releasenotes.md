@@ -22,6 +22,7 @@ Sections:
   - Cleanup: Added automod field to stats for future use in item setup, so manual mods are still possible and diferentiated
   - Cleanup: Removed min and max from numerous stats
   - BugFix: Added calculations for Cultural Familiarity for all skills
+  - Improved appearance of navigation tabs on character sheet
 
 ### Release Notes
 

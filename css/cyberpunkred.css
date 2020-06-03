@@ -79,16 +79,39 @@
 .cyberpunkred .cpr-nav .cpr-nav-item {
   justify-self: start;
   display: block;
+  height: 45px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  overflow: visible;
+  background: tranparent;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item {
   font-weight: normal;
   display: block;
   width: 100%;
+  padding: 3px;
+  margin: 0px;
+  height: 45px;
+  background: #FFFFFF;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 10px 0px 0px 0px;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item.active {
   text-decoration: underline;
   text-shadow: none;
   font-weight: bold;
+  padding: 3px;
+  margin: 0px;
+  height: 45px;
+  background: linear-gradient(#D0D0D0,#E0E0E0);
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 10px 0px 0px 0px;
 }
 
 /* General code for hover indications of rollable and clickable */
