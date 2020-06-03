@@ -93,7 +93,7 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 25 == 0) {
+      if (x % 10 == 0) {
         outStr += "<br>";
       }
 
@@ -114,7 +114,7 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 25 == 0) {
+      if (x % 10 == 0) {
         outStr += "<br>";
       }
     }

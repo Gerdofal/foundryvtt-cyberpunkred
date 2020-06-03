@@ -117,20 +117,32 @@
         {{!-- Bullet List Indicators for Current HP and Luck --}}
         <br>
         <div class="cprgraphics cpr-dot-track">
-        <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
-          {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
-          <ol class="flexrow">
-          <i class="alterhealth clickable" data-change="-1000">{{localize "CPRED.zero"}}</i>
-          <i class="alterhealth clickable" data-change="-10">-10</i>
-          <i class="alterhealth clickable" data-change="-5">-5</i>
-          <i class="alterhealth clickable" data-change="-1">-1</i>
-          <i class="alterhealth clickable" data-change="+1">+1</i>
-          <i class="alterhealth clickable" data-change="+5">+5</i>
-          <i class="alterhealth clickable" data-change="+10">+10</i>
-          <i class="alterhealth clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
-          </ol>
-        </div>
-        
+          <div style="display: inline-block; width: 69%;vertical-align: top;">
+          <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
+            {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
+            <ol class="grid grid-3col">
+            <i class="grid alterhealth clickable" data-change="-10">-10</i>
+            <i class="grid alterhealth clickable" data-change="-5">-5</i>
+            <i class="grid alterhealth clickable" data-change="-1">-1</i>
+            <i class="grid alterhealth clickable" data-change="+1">+1</i>
+            <i class="grid alterhealth clickable" data-change="+5">+5</i>
+            <i class="grid alterhealth clickable" data-change="+10">+10</i>
+            <i class="grid alterhealth clickable" data-change="-1000">{{localize "CPRED.zero"}}</i>
+            <i class="grid alterhealth clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
+            </ol>
+          </div>
+          <div style="display: inline-block; width: 30%;vertical-align: top;">
+            <div class="cpr-dot-track">
+            <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
+              {{{buildLuckTrack data.combatstats.luckpool.value data.combatstats.luckpool.max}}}<br>
+              <ol class="grid grid-1col">
+              <i class="grid alterluck clickable" data-change="-1">{{localize "CPRED.spend"}}</i>
+              <i class="grid alterluck clickable" data-change="+1">{{localize "CPRED.earn"}}</i>
+              <i class="grid alterluck clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
+              </ol>
+            </div>
+          </div>
+        </div>        
 
         {{#if data.simpleCombatSetup}}
         <div class="cprgraphics">
@@ -190,15 +202,7 @@
         <label class="modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
         </div>
         
-        <div class="cprgraphics cpr-dot-track">
-        <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
-          {{{buildLuckTrack data.combatstats.luckpool.value data.combatstats.luckpool.max}}}<br>
-          <ol class="flexrow">
-          <i class="alterluck clickable" data-change="-1">{{localize "CPRED.spend"}}</i>
-          <i class="alterluck clickable" data-change="+1">{{localize "CPRED.earn"}}</i>
-          <i class="alterluck clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
-          </ol>
-        </div>
+
  
       </div>
 
