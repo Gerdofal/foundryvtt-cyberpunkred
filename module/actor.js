@@ -51,7 +51,6 @@ export class cyberpunkredActor extends Actor {
     //Calculate Cultural Familiarity
     //TODO - Try to figure out if I should include mod in this?
     data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod)/3);
-    _cprLog("CF is " + data.culturalFamiliarity);
     //Compute all roll values to be equal to value + mod for skills
     for (let [key, attr] of Object.entries(data.skills)) {
       if (attr.value >= data.culturalFamiliarity) {
@@ -78,10 +77,8 @@ export class cyberpunkredActor extends Actor {
 
     //Check wound penalties for half damage
     if (data.combatstats.healthpool.value < (data.combatstats.healthpool.max / 2)) {
-      _cprLog("Turning on half dam");
       data.modifiers.modhalfdam.checked = true;
     } else {
-      _cprLog("Turning off half dam");
       data.modifiers.modhalfdam.checked = false;
     }
 
