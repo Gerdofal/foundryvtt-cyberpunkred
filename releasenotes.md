@@ -19,6 +19,7 @@ Sections:
   - Localized the death save section
   - Added ability to hide some weapons from simple combat setup
   - Added zero luck button
+  - Added automod field to stats for future use in item setup, so manual mods are still possible and diferentiated
 
 ### Release Notes
 
