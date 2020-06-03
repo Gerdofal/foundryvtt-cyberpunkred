@@ -75,7 +75,7 @@
       
       
       {{!-- Combat Setup Tab --}}
-      <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup"> {{localize "CPRED.underconstruction"}}
+      <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup">
         <ol class="combatsetup-head">
           <li class="flexrow">
             <div>{{localize "CPRED.name"}}</div>
@@ -102,12 +102,9 @@
       
       
       {{!-- Combat Tab --}}
-      <div class="tab cprgraphics" data-group="primary" data-tab="combat">
-        {{localize "CPRED.underconstruction"}}<br>
-        
+      <div class="tab cprgraphics" data-group="primary" data-tab="combat">  
         {{!-- Bullet List Indicators for Current HP and Luck --}}
         <br>
-        <div class="cpr-dot-track">
           <div class="cprgraphics" style="display: inline-block; width: 48%;vertical-align: top;">
           <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
             {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
@@ -133,7 +130,6 @@
               <i class="grid alterluck clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
               </ol>
           </div>
-        </div>        
 
         {{#if data.simpleCombatSetup}}
         <div class="cprgraphics">
@@ -153,11 +149,19 @@
           
         <div class="cprgraphics">
         <h3>{{localize "CPRED.specialrolls"}}</h3>
-        <ol class="">
-          <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
-          <i class="alterdeathsave clickable" data-change="-1">-1</i>
-          <i class="alterdeathsave clickable" data-change="1">+1</i>
-        </ol>
+          <ol class="specialroll-grid">
+            <ol class="specialroll-item">
+              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
+              <li class="flexrow" data-item-id="{{item.id}}">
+              <i class="alterdeathsave clickable" data-change="-1">-1</i>
+              <i class="alterdeathsave clickable" data-change="1">+1</i>
+              </li>
+            </ol>
+            <ol class="specialroll-item">Facedown</ol>
+            <ol class="specialroll-item">Suppressive Fire</ol>
+            <ol class="specialroll-item">Reputation Check</ol>
+            <ol class="specialroll-item">Initiative</ol>
+          </ol>
         </div> 
         
         
@@ -201,24 +205,31 @@
       {{!-- Hacking Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="hacking">
         {{localize "CPRED.underconstruction"}}<br>
-        1d10 + Interface
-        Scanner vs DV from GM
-        Backdoor vs DV from GM
-        Pathfinder vs DV from GM
-        Eye-Dee vs DV from GM
-        Control vs DV from GM
-        Slide vs Black ICE 1d10 + Perception
         
+        <pre>
+        Base Roll: Roll 1d10 + Interface
+        Initiative:
+        
+      Rolls vs DV from GM
+        Scanner
+        Backdoor
+        Pathfinder
+        Eye-Dee
+        Control
+        
+      Rolls vs Enemy Roll
+        Slide vs Black ICE 1d10 + Perception
         Zap vs Netrunner 1d10 + Interface or Program 1d10 + Defense Value does 1d6 damage
-
+  
+      Rolls which result in a DV for use later
         Virus - GM will record result as power of virus
         Cloak - Becomes DV of pathfinder to find you
         
-        
-        Programs
+      Programs
         Speedy Gonzalez - Increases SPD by +4
         Banhammer - +2 ATT - 3d6 vs hellhounds, 2d6 vs other programs
         Flack - Stops the first successful non-helhound attack from doing damage
+        </pre>
         
       </div>
       {{/if}}
@@ -288,7 +299,6 @@
       {{!-- TODO Localize this tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="settings">
         {{localize "CPRED.notlocalized"}} <br>
-        {{localize "CPRED.underconstruction"}}<br>
         <br>
         The following settings have been set by the GM and are in effect for this game:<br>
         <br>

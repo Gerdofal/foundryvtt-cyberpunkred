@@ -23,6 +23,7 @@ Sections:
   - Cleanup: Removed min and max from numerous stats
   - BugFix: Added calculations for Cultural Familiarity for all skills
   - Improved appearance of navigation tabs on character sheet
+  - Adjusted the blur-radius and other text effects of clickable items to make it easier to spot
 
 ### Release Notes
 
