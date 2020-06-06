@@ -465,7 +465,10 @@
 	display: inline-block;
   margin-top: 10px;
   margin-bottom: 10px;
-	width: 152px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px;
+	width: 137px;
 }
 
 .cyberpunkred .npc-custom-box {
@@ -475,7 +478,10 @@
   margin-bottom: 10px;
 }
 .cyberpunkred .npc-small-button {
-	width: 25px;
+	width: 23px;
+  padding: 1px;
+  margin: 1px;
+  text-align: center;
 }
 
 .cyberpunkred .npc-button-array:after {
