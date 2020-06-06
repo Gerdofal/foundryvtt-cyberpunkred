@@ -26,8 +26,7 @@ Sections:
   - UI Improvement: Adjusted the blur-radius and other text effects of clickable items to make it easier to spot
   - New Feature: Added roleskills to the template.json to hold role specific skills.
   - New Feature: Added interface to roleskills for use in hacking
-  
-  
+  - New Feature: Added some notes to hacking tab  
 
 ### Release Notes
 
@@ -51,6 +50,6 @@ Sections:
 
 ### Future Plans
 
-- 0.31 - Item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons)
-- 0.30 - Re-write roll system to use a custom card
+- 0.31 - Item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons).
+- 0.30 - Re-write roll system to use a custom card, expansion of the hacking tab, further improvements of the character sheet ui, finishing up the hacking and settings tab
 - 0.29 - Tweak formatting of the character sheet to improve usability and squash bugs. Add hacking actions to hacking tab.
