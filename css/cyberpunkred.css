@@ -73,22 +73,46 @@
   grid-row: 2;
   border: none;
   padding: 3px;
+  vertical-align: top;
+  text-align: left;
 }
 
 /* Navigation grid styles */
 .cyberpunkred .cpr-nav .cpr-nav-item {
   justify-self: start;
   display: block;
+  height: 45px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  overflow: visible;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item {
   font-weight: normal;
   display: block;
   width: 100%;
+  padding: 3px;
+  margin: 0px;
+  height: 45px;
+  background: #FFFFFF;
+  border-left: 1px solid #600000;
+  border-top: 1px solid #600000;
+  border-bottom: 1px solid #600000;
+  border-radius: 10px 0px 0px 0px;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item.active {
   text-decoration: underline;
   text-shadow: none;
   font-weight: bold;
+  padding: 3px;
+  margin: 0px;
+  height: 45px;
+  background: linear-gradient(#D0D0D0,#E0E0E0);
+  border-left: 1px solid #600000;
+  border-top: 1px solid #600000;
+  border-bottom: 1px solid #600000;
+  border-radius: 10px 0px 0px 0px;
 }
 
 /* General code for hover indications of rollable and clickable */
@@ -111,10 +135,19 @@
   src: url(../webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(../webfonts/fa-solid-900.woff2) format("woff2"), url(../webfonts/fa-solid-900.woff) format("woff"), url(../webfonts/fa-solid-900.ttf) format("truetype"), url(../webfonts/fa-solid-900.svg#fontawesome) format("svg")
 }
 
-.cyberpunkred .npcrollable:hover, .cyberpunkred .npcrollable:focus, .cyberpunkred .rollable:hover, .cyberpunkred .rollable:focus, .cyberpunkred .clickable:focus, .cyberpunkred .clickable:hover {
-  color: #000;
-  text-shadow: 0 0 6px red;
+.cyberpunkred .npcrollable:hover, .cyberpunkred .npcrollable:focus, .cyberpunkred .rollable:hover, .cyberpunkred .rollable:focus, .cyberpunkred .clickable:focus, .cyberpunkred .clickable:hover, .cyberpunkred .cpr-nav .cpr-nav-item .item:hover {
+  color: #f00;
   cursor: pointer;
+  text-shadow:
+    0 0 1px #fff,
+    0 0 2px #fff,
+    0 0 3px #fff,
+    0 0 4px #f00,
+    0 0 5px #f00,
+    0 0 6px #f00,
+    0 0 70px #f00,
+    0 0 8px #f00;
+
 }
 
 /* Generic control classes */
@@ -254,6 +287,31 @@
   font-size: 9px;
 }
 
+.cyberpunkred .specialroll-grid {
+  display: grid;
+  gap: 0px;
+  margin: 0px;
+  padding: 0px;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+}
+
+.cyberpunkred .specialroll-item {
+  display: grid;
+  gap: 0px;
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  border: 1px solid #600000; 
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
 
 /* Modification Lists on Combat Tab */
 .cyberpunkred .cpr-manualmodentry {
@@ -407,7 +465,10 @@
 	display: inline-block;
   margin-top: 10px;
   margin-bottom: 10px;
-	width: 152px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px;
+	width: 137px;
 }
 
 .cyberpunkred .npc-custom-box {
@@ -417,7 +478,10 @@
   margin-bottom: 10px;
 }
 .cyberpunkred .npc-small-button {
-	width: 25px;
+	width: 23px;
+  padding: 1px;
+  margin: 1px;
+  text-align: center;
 }
 
 .cyberpunkred .npc-button-array:after {

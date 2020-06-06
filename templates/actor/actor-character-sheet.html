@@ -17,29 +17,19 @@
     {{!-- Navigation Sidebar --}}
     <div class="cpr-nav sheet-tabs cprgraphics">
       <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
-      <br>
       <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
-      <br>
       <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
-      <br>
       <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
-      <br>
       <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
-      <br>
       {{#if data.settings.showtabs.hacking}}
       <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
-      <br>
       {{/if}}
       {{#if data.showInventory}}
       <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
-      <br>
       <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
-      <br>
       <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
-      <br>
       {{/if}}
       <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
-      <br>
     </div>
     
     
@@ -85,7 +75,7 @@
       
       
       {{!-- Combat Setup Tab --}}
-      <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup"> {{localize "CPRED.underconstruction"}}
+      <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup">
         <ol class="combatsetup-head">
           <li class="flexrow">
             <div>{{localize "CPRED.name"}}</div>
@@ -99,6 +89,7 @@
             <div>
               <select name="data.weaponsetup.{{key}}.skill">
               {{#select item.skill}}
+              <option value="hidden">{{localize "CPRED.hidden"}}</option>
               <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>
               <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
               {{/select}}
@@ -111,36 +102,46 @@
       
       
       {{!-- Combat Tab --}}
-      <div class="tab cprgraphics" data-group="primary" data-tab="combat">
-        {{localize "CPRED.underconstruction"}}<br>
-        
+      <div class="tab cprgraphics" data-group="primary" data-tab="combat">  
         {{!-- Bullet List Indicators for Current HP and Luck --}}
         <br>
-        <div class="cprgraphics cpr-dot-track">
-        <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
-          {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
-          <ol class="flexrow">
-          <i class="alterhealth clickable" data-change="-1000">{{localize "CPRED.zero"}}</i>
-          <i class="alterhealth clickable" data-change="-10">-10</i>
-          <i class="alterhealth clickable" data-change="-5">-5</i>
-          <i class="alterhealth clickable" data-change="-1">-1</i>
-          <i class="alterhealth clickable" data-change="+1">+1</i>
-          <i class="alterhealth clickable" data-change="+5">+5</i>
-          <i class="alterhealth clickable" data-change="+10">+10</i>
-          <i class="alterhealth clickable" data-change="+1000">{{localize "CPRED.full"}}</i>
-          </ol>
-        </div>
-        
+          <div class="cprgraphics" style="display: inline-block; width: 48%;vertical-align: top;">
+          <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
+            {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
+            <ol class="grid grid-3col">
+            <i class="grid alterhealth clickable" data-change="-10">-10</i>
+            <i class="grid alterhealth clickable" data-change="-5">-5</i>
+            <i class="grid alterhealth clickable" data-change="-1">-1</i>
+            <i class="grid alterhealth clickable" data-change="+10">+10</i>
+            <i class="grid alterhealth clickable" data-change="+5">+5</i>
+            <i class="grid alterhealth clickable" data-change="+1">+1</i>
+            <i class="grid alterhealth clickable" data-change="-9999">{{localize "CPRED.zero"}}</i>
+            <i class="grid"></i>
+            <i class="grid alterhealth clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
+            </ol>
+          </div>
+          <div class="cprgraphics" style="display: inline-block; width: 48%;vertical-align: top;">
+            <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
+              {{{buildLuckTrack data.combatstats.luckpool.value data.combatstats.luckpool.max}}}<br>
+              <ol class="grid grid-2col">
+              <i class="grid alterluck clickable" data-change="-1">{{localize "CPRED.spend"}}</i>
+              <i class="grid alterluck clickable" data-change="+1">{{localize "CPRED.earn"}}</i>
+              <i class="grid alterluck clickable" data-change="-9999">{{localize "CPRED.zero"}}</i>
+              <i class="grid alterluck clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
+              </ol>
+          </div>
 
         {{#if data.simpleCombatSetup}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.simplecombatsection"}}</h3>
           {{#each data.weaponsetup as |item key|}}
+          {{#if_not_eq item.skill "hidden"}}
           <li class="flexrow" data-item-id="{{item.id}}">
             <label class="cpr-weaponinlinebox">{{item.name}}</label>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{buildRollString ../data  item.skill}}">{{localize "CPRED.attack"}}</div>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{item.damage}}">{{localize "CPRED.damage"}}</div>
           </li>
+          {{/if_not_eq}}
           {{/each}}
         </div>
         {{/if}}
@@ -148,13 +149,19 @@
           
         <div class="cprgraphics">
         <h3>{{localize "CPRED.specialrolls"}}</h3>
-          {{localize "CPRED.notlocalized"}}
-        <ol class="">
-          <label for="Death Save" data-label="Death save. If you roll under your body of {{data.attributes.body.roll}}, you live. Each future roll takes a cumulative penalty." data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">Death Save (+{{data.combatstats.deathsave.penalty}})</label>
-          <i class="alterdeathsave clickable" data-change="-1">-1</i>
-          <i class="alterdeathsave clickable" data-change="1">+1</i>
-          
-        </ol>
+          <ol class="specialroll-grid">
+            <ol class="specialroll-item">
+              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
+              <li class="flexrow" data-item-id="{{item.id}}">
+              <i class="alterdeathsave clickable" data-change="-1">-1</i>
+              <i class="alterdeathsave clickable" data-change="1">+1</i>
+              </li>
+            </ol>
+            <ol class="specialroll-item">Facedown</ol>
+            <ol class="specialroll-item">Suppressive Fire</ol>
+            <ol class="specialroll-item">Reputation Check</ol>
+            <ol class="specialroll-item">Initiative</ol>
+          </ol>
         </div> 
         
         
@@ -190,22 +197,42 @@
         <label class="modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
         </div>
         
-        <div class="cprgraphics cpr-dot-track">
-        <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
-          {{{buildLuckTrack data.combatstats.luckpool.value data.combatstats.luckpool.max}}}<br>
-          <ol class="flexrow">
-          <i class="alterluck clickable" data-change="-1">{{localize "CPRED.spend"}}</i>
-          <i class="alterluck clickable" data-change="+1">{{localize "CPRED.earn"}}</i>
-          </ol>
-        </div>
+
  
       </div>
 
       {{#if data.settings.showtabs.hacking}}
       {{!-- Hacking Tab --}}
+      
       <div class="tab cprgraphics" data-group="primary" data-tab="hacking">
         {{localize "CPRED.underconstruction"}}<br>
+        
+        <div class="grid grid-4col">
+          <label>{{localize "CPRED.attribute"}}</label>
+          <label>{{localize "CPRED.base"}}</label>
+          <label>{{localize "CPRED.mod"}}</label>
+          <label>{{localize "CPRED.totalroll"}}</label>
+          {{!-- TODO - Future changes may require re-writing this to not use int --}}
+          <label for="data.roleskills.interface.value" data-roll="{{data.dieRollCommand}} + {{data.roleskills.interface.roll}} + {{data.attributes.int.roll}}" class="rollable" data-label="{{localize 'CPRED.interface'}}">{{localize "CPRED.interface"}} ({{localize (concat "CPRED." data.roleskills.interface.linkedattribute)}})</label>
+          <input class="skill-value" type="text" name="data.roleskills.interface.value" value="{{data.roleskills.interface.value}}" data-dtype="Number"/>
+          <input type="text" name="data.roleskills.interface.mod" value="{{data.roleskills.interface.mod}}" data-dtype="Number"/>
+          <input type="text" name="data.roleskills.interface.roll" value="{{data.roleskills.interface.roll}}" data-dtype="Number" readonly/>
+        </div>
+        
+<br>        {{localize "CPRED.notlocalized"}}
+<br>        
+<br>        <h3>Notes for future hacking tab expansion: </h3>
+<br>        Base Roll: Roll 1d10 + Interface
+<br>        Initiative:
+<br>        SPD:
+<br>        
+<br>      Programs
+<br>        Speedy Gonzalez - Increases SPD by +4
+<br>        Banhammer - +2 ATT - 3d6 vs hellhounds, 2d6 vs other programs
+<br>        Flack - Stops the first successful non-helhound attack from doing damage
+<br>        
       </div>
+      
       {{/if}}
 
       {{#if data.showInventory}}
@@ -273,11 +300,10 @@
       {{!-- TODO Localize this tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="settings">
         {{localize "CPRED.notlocalized"}} <br>
-        {{localize "CPRED.underconstruction"}}<br>
         <br>
         The following settings have been set by the GM and are in effect for this game:<br>
         <br>
-        The base die roll is: {{dieRollCommand}}<br>
+        The base die roll is: {{data.dieRollCommand}}<br>
         {{#if data.GMAlwaysWhisper}}
         GM rolls for NPCs are HIDDEN from players<br>
         {{else}}

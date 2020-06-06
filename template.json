@@ -18,15 +18,14 @@
           "healthpool": {
             "value": 25,
             "min": 0,
-            "max": 50
+            "max": 25
           },
           "luckpool": {
-            "value": 25,
+            "value": 5,
             "min": 0,
-            "max": 50
+            "max": 5
           },
           "init": {
-            "value": 5,
             "mod": 0,
             "roll": 5
           },
@@ -41,37 +40,61 @@
           "weapon1": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon2": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon3": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon4": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon5": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
             "type":"Pistol"
           },
           "weapon6": {
             "name": "Weapon Name...",
             "damage": "5d6",
-            "skill": "marksmanship",
+            "skill": "hidden",
+            "type":"Pistol"
+          },
+          "weapon7": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "hidden",
+            "type":"Pistol"
+          },
+          "weapon8": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "hidden",
+            "type":"Pistol"
+          },
+          "weapon9": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "hidden",
+            "type":"Pistol"
+          },
+          "weapon10": {
+            "name": "Weapon Name...",
+            "damage": "5d6",
+            "skill": "hidden",
             "type":"Pistol"
           }
         }
@@ -82,72 +105,62 @@
           "int": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           },
           "ref": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           },
           "dex": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           },
           "tech": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           },
           "cool": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           },
           "will": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           },
           "luck": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           },
           "move": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           },
           "body": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           },
           "emp": {
             "value": 5,
             "mod": 0,
-            "roll": 5,
-            "min": 0,
-            "max": 10
+            "automod": 0,
+            "roll": 5
           }
         }
       },
@@ -157,169 +170,148 @@
           "brawling": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "dex"
           },
           "evasion": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "dex"
           },
           "meleeweapon": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "dex"
           },
           "marksmanship": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "ref"
           },
           "concentration": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "will"
           },
           "perception": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "int"
           },
           "tracking": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "int"
           },
           "driving": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "ref"
           },
           "athletics": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "dex"
           },
           "stealth": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "dex"
           },
           "bribery": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "cool"
           },
           "conversation": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "emp"
           },
           "humanperception": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "emp"
           },
           "interrogation": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "cool"
           },
           "persuasion": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "cool"
           },
           "basictech": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "tech"
           },
           "cybertech": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "tech"
           },
           "firstaid": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "tech"
           },
           "playinstrument": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "emp"
           },
           "education": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "int"
           },
           "localexpert": {
             "value": 5,
             "mod": 0,
+            "automod": 0,
             "roll": 5,
-            "min": 0,
-            "max": 10,
             "linkedattribute": "int"
           }
         }
@@ -464,13 +456,25 @@
             "hacking": true
           }
         } 
+      },
+      
+      "roleskills": {
+        "roleskills": {
+          "interface": {
+            "value": 0,
+            "mod": 0,
+            "automod": 0,
+            "roll": 0,
+            "linkedattribute": "int"
+          }
+        }
       }
       
       
       
     },
     "character": {
-      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers","settings"]
+      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers","settings","roleskills"]
     },
     "npc": {
       "templates": ["description", "combatstats", "npc"]
