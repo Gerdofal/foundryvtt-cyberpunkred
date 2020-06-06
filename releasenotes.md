@@ -5,7 +5,7 @@ Sections:
 
 ### In Development
 
-- 0.29 - In Development / Not Yet Released - Beta
+- 0.29 - Released 6/6/2020 - Beta
   - BugFix: Initiative roll will now properly change when ref value, ref mod, or init mod change.
   - Cleanup: Removed init.value from template.json since it's meaningless
   - BugFix: Die command once again displays properly on the character sheet settings tab
