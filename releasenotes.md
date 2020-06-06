@@ -26,7 +26,8 @@ Sections:
   - UI Improvement: Adjusted the blur-radius and other text effects of clickable items to make it easier to spot
   - New Feature: Added roleskills to the template.json to hold role specific skills.
   - New Feature: Added interface to roleskills for use in hacking
-  - New Feature: Added some notes to hacking tab  
+  - New Feature: Added some notes to hacking tab
+  - UI Improvement: Tweaked the alignment of NPC buttons
 
 ### Release Notes
 
