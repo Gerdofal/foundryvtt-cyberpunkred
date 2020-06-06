@@ -1,64 +1,26 @@
 ![CyberpunkRED Media Card](https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/css/cpredmediacard.png?raw=true "CyberpunkRED Media Card")
 # Cyberpunk RED
 
-An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit and will also also options for house rules to extend the system.
+An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit and will also also include options for house rules to extend the system.
 
 # Branch Information
-
-- Current Status: Alpha
-  - Character Sheet is current focus
 
 - There are two branches for this project, development and stable_release. You should generally not use the development branch for games as it may have significant bugs. See below for download links.
 
 # Installing
 
-- The files in the "Stable Release" branch are the suggestion for download. Use this as the manifest URL:
+- This system is available in the "Game-systems" browser in-game and may be installed there.
+
+- You can also manually direct your FoundryVTT to the correct manifest. Use this as the manifest URL:
   - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
 
 - If you want to manually install the files from the dev branch, feel free. I don't recommend this.
 
-# Current Status
-- **Basic_Functionality**: Character sheet stores base attributes and skills and has space to save modifications for each.
-- **Rolls**: All skills can be rolled from the skill tab.
-- **Encounters**: Initiative may be automatically rolled, using REF as a tie breaker.
-- **NPCs**: The NPC sheet is at it's beginning stages, 10 fields to set custom die pools with notes and easy to click buttons to roll dice. (Use the character sheet for named NPCs, the NPC sheet is for quick grunts.)
-- **GM_Options**: The GM can determine several options, such as the base die roll to use, in System Settings.
-- **Localization**: All text is localized, only EN for now.
+# Release Notes
 
-# Recent (major) updates
-- 0.28 - Beta
-  - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
-  - Re-wrote CSS to begin process of setting up the final appearance of the character sheet
-  - Added comments in many files to make future additions easier
-  - Major changes to formatting of the combat tab to make more fit
-  - Added die icons to rolls to make them easier to spot
-  - Added half damage and fully damaged to the modifiers list (set automatically based on health track)
-  - Added clickable health and luck tracks to the combat tab
-  - Rremoved health and luck from the attr tab
-  - Added buttons to alter current health and luck
-  - Added death saves with appropriate modifier and help text
-- 0.27 - Alpha
-  - Inclusion of various roll modifiers to the combat tab and change of the localization prefix from SHEET. to CPRED.
-- 0.26 - Alpha
-  - Fixed bug introduced in 0.25 when NPC sheets were excluded from some calculations. The exclusion was also applying to characters under some circumstances.
+Release notes (and plans for future releases) are in their own file. Please see:
 
-# Upcoming Changes
-
-**Soon**
-- **Combat_Functions**: basic buttons for auto-fire, hacking, facedown, death saves, etc...
-- ~~**Situational Modifiers**: tracker for various combinations of modifiers~~ Finished in 0.28
-- ~~**Rolling Damage**: damage buttons, first in the sheet, then in chat~~ Added in 0.28
-- ~~**Simple Combat Functionality**: a way to set weapon stats using basic text fields~~ Added in 0.28
-
-**Next**
-- **Roll Appearance Update**: Adding template for rolls so more info can be included, like damage buttons and hidden details.
-- **Hacking**: buttons for all hacking actions
-- **Item Based Combat**: adding weapons to the inventory will result in buttons to roll their attacks and damage
-- **Item Based Mods**: adding cyberware with mods will impact stats in the sheet
-- **Tokens**: calculate range for attacks, apply damage automatically, etc...
-
-**COMING LATER - Once the Core Rulebook is Out**
-- **Compendium**: if the license allows it, will include compendium of weapons and other gear.
+https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/releasenotes.md
 
 # Features Planned
 
@@ -88,5 +50,9 @@ Since playstyles vary greatly, this sheet is designed with the following in mind
 
 # License and Credits
 
-See the file license.md and credits.md
+License:
+https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/license.md
+
+Credits:
+https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/credits.md
 
