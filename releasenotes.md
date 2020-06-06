@@ -5,6 +5,10 @@ Sections:
 
 ### In Development
 
+- 0.30 - In Development / Not Yet Released
+
+### Release Notes
+
 - 0.29 - Released 6/6/2020 - Beta
   - BugFix: Initiative roll will now properly change when ref value, ref mod, or init mod change.
   - Cleanup: Removed init.value from template.json since it's meaningless
@@ -28,8 +32,6 @@ Sections:
   - New Feature: Added interface to roleskills for use in hacking
   - New Feature: Added some notes to hacking tab
   - UI Improvement: Tweaked the alignment of NPC buttons
-
-### Release Notes
 
 - 0.28 - Released 6/2/2020 - Beta
   - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
