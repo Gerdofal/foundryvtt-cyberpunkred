@@ -53,5 +53,5 @@ Sections:
 
 ### Future Plans
 
-- 0.30 - Re-write roll system to use a custom card, expansion of the hacking tab, further improvements of the character sheet ui, finishing up the hacking and settings tab
+- 0.30 - Re-write roll system to use a custom card, expansion of the hacking tab, further improvements of the character sheet ui, finishing up the hacking and settings tab, Finish up the combat tab
 - 0.31 - Item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons).
