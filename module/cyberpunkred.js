@@ -96,10 +96,10 @@ Hooks.once('init', async function () {
       if (x % 10 == 0) {
         outStr += "<br>";
       }
-
     }
     return outStr;
   });
+  
 
   //Setup helper for luck track
   Handlebars.registerHelper('buildLuckTrack', function (current, max) {
@@ -121,6 +121,14 @@ Hooks.once('init', async function () {
     return outStr;
   });
 
+
+  //Initiative Roll
+  Handlebars.registerHelper('initiativeRoll', function(data) {
+    _cprLog("Initiative handlebar");
+    console.log(data);
+    return _getInitiativeFormula(data);
+    //return;
+  });
 
   //Return concatination of all arguments - Used for localizing sometimes
   Handlebars.registerHelper('concat', function () {

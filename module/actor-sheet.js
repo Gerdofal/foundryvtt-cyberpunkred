@@ -5,7 +5,10 @@ import {
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet} 
  */
+
 export class cyberpunkredActorSheet extends ActorSheet {
+
+
 
   /** @override */
   static get defaultOptions() {
@@ -51,6 +54,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
+
 
     _cprLog("Parsing Item List");
     // Initialize containers.

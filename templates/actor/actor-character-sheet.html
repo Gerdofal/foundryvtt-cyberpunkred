@@ -157,10 +157,12 @@
               <i class="alterdeathsave clickable" data-change="1">+1</i>
               </li>
             </ol>
-            <ol class="specialroll-item">Facedown</ol>
-            <ol class="specialroll-item">Suppressive Fire</ol>
-            <ol class="specialroll-item">Reputation Check</ol>
-            <ol class="specialroll-item">Initiative</ol>
+            <ol class="specialroll-item">{{localize "CPRED.facedown"}}</ol>
+            <ol class="specialroll-item">{{localize "CPRED.suppressivefire"}}</ol>
+            <ol class="specialroll-item">{{localize "CPRED.reputationcheck"}}</ol>
+            <ol class="specialroll-item">
+              <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{initiativeRoll data }}" class="rollable">{{initiativeRoll data }} - {{localize "CPRED.initiative"}}</label>
+            </ol>
           </ol>
         </div> 
         
