@@ -8,7 +8,9 @@ Sections:
 - 0.30 - In Development / Not Yet Released
   - Localized remaining rolls on combat tab
   - Made facedown, suppressive fire, reputation check, and initiave rollable
+  - Added reputation to combatstats
   - Incremented supported version to 0.6.2
+  - INIT now uses defined roll prefix
 
 ### Release Notes
 

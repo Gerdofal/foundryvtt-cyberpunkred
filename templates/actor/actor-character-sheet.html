@@ -146,7 +146,7 @@
         </div>
         {{/if}}
           
-          
+        {{!-- TODO: Add a way to edit reputation --}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.specialrolls"}}</h3>
           <ol class="specialroll-grid">
@@ -157,11 +157,13 @@
               <i class="alterdeathsave clickable" data-change="1">+1</i>
               </li>
             </ol>
-            <ol class="specialroll-item">{{localize "CPRED.facedown"}}</ol>
-            <ol class="specialroll-item">{{localize "CPRED.suppressivefire"}}</ol>
-            <ol class="specialroll-item">{{localize "CPRED.reputationcheck"}}</ol>
             <ol class="specialroll-item">
-              <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{initiativeRoll data }}" class="rollable">{{initiativeRoll data }} - {{localize "CPRED.initiative"}}</label>
+                <label for="Facedown" data-label='{{localize "CPRED.facedown"}}' data-roll="{{data.dieRollCommand}} + {{data.attributes.cool.roll}} + {{data.combatstats.reputation.value}}" class="rollable">{{localize "CPRED.facedown"}}</label>
+            </ol>
+            <ol class="specialroll-item"><label for="Suppressivefire" data-label='{{localize "CPRED.suppressivefire"}}' data-roll="{{data.dieRollCommand}} + {{data.attributes.ref.roll}} + {{data.skills.marksmanship.roll}}" class="rollable">{{localize "CPRED.suppressivefire"}}</label></ol>
+            <ol class="specialroll-item"><label for="reputationcheck" data-label='{{localize "CPRED.reputationchecklabela"}}{{data.combatstats.reputation.value}}{{localize "CPRED.reputationchecklabelb"}}' data-roll="1d10" class="rollable">{{localize "CPRED.reputationcheck"}}</label></ol>
+            <ol class="specialroll-item">
+              <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{initiativeRoll data }}" class="rollable">{{localize "CPRED.initiative"}}</label>
             </ol>
           </ol>
         </div> 
