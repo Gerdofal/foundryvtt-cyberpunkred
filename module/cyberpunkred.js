@@ -65,6 +65,10 @@ Hooks.once('init', async function () {
     makeDefault: true
   });
 
+  
+
+    
+    
   _cprLog(`Register Handlebars`);
 
   //Setup helper for roll info

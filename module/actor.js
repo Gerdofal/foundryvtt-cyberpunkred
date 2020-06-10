@@ -111,22 +111,25 @@ export class cyberpunkredActor extends Actor {
   } //End Prepare Character Data
 
 
-  async rollCPR(roll, data, templateData=null) {
-    // Render the roll.
+  async rollCPR(roll, actorData, templateData=null) {
+    _cprLog("Rendering roll using template");
+    console.log(actorData);
+
     let template = 'systems/cyberpunkred/templates/chat/roll-cpr.html';
 
     let formula = '';
     
+    const data = actorData.data;
     
     //Title, Trigger, Flavor, Details, rollCPR, tagsCPR
     if(templateData==null) { //This section just for testing
-    var tagData = ["one","two","three"];
+      tagData = [];
       templateData = {
         title: "Title",
-        trigger: "Trigger",
         flavor: "Flavor",
         details: "Details",
-        tags: tagData
+        tags: tagData,
+        uid: "jhsdy2373redasdsa"
       }
     }
     
@@ -139,12 +142,30 @@ export class cyberpunkredActor extends Actor {
     };
 
     //Config option from CPR Settings
-    if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && data.type == "npc") {
+    if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc") {
       chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+      templateData.tags.push("NPC Rolls always GM Only");
+      _cprLog("NPC Rolls Always Whisper");
     } else {
-      var rollstring = "roll";
+      let rollMode = game.settings.get("core", "rollMode");
+      
+      if (["gmroll", "blindroll"].includes(rollMode)) {
+        chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+        templateData.tags.push("Sent to GM");    
+      }
+
+      if (rollMode === "selfroll") {
+        templateData.tags.push("Whispered to " + game.user.name);
+        chatData["whisper"] = [game.user._id];
+      }
+      
+      if (rollMode === "blindroll") {
+        chatData["blind"] = true;
+        templateData.tags.push("Sent blindly to GM");
+      }
     }
 
+    
     if (roll.match(/(\d*)d\d+/g)) {
       formula = roll;
     }

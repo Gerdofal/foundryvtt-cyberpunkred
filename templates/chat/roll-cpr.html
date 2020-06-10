@@ -1,13 +1,12 @@
 <section style="background-color: #FFFFFF;" class="dw-chat-card">
   <div class="cell cell--chat">
-    <h2 class="cell__title">{{title}}</h2>
-    {{#if flavor}}<div class="row"><em>{{flavor}}</em></div>{{/if}}
-    {{#if trigger}}<div class="row"><strong>Trigger:</strong> {{trigger}}</div>{{/if}}
-    {{#if details}}<div class="row">{{{details}}}</div>{{/if}}
-    {{#if rollcpr}}<div class="roll">{{{rollcpr}}}</div>{{/if}}
+    <div class="cpr-roll-title">{{title}}</div>
+    {{#if flavor}}<div class="cpr-roll-flavor"><em>{{flavor}}</em></div>{{/if}}
+    {{#if details}}<div class="cpr-roll-details">{{{details}}}</div>{{/if}}
+    {{#if rollcpr}}<div class="cpr-roll-roll">{{{rollcpr}}}</div>{{/if}}
     {{#if tags}}
-    <hr>
-      {{{cprTags tags}}}
+    <label for="puppy" class="cpr-roll-showtags">Details<input id="{{uid}}" class="cpr-roll-showtagscheck" type="checkbox"></label>
+    <div class="cpr-roll-tags"><hr>{{{cprTags tags}}}</div>
     {{/if}}
     </div>
 </section>

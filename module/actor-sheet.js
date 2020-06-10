@@ -232,17 +232,20 @@ export class cyberpunkredActorSheet extends ActorSheet {
     const dataset = element.dataset;
     console.log(dataset);
     var tagData = [];
-    
+    tagData.push("Hi World");
+    tagData.push("Hi World");
+    tagData.push("Hi World");
+    tagData.push("Hi World");
     //Default template data
     let templateData = {
         title: this.actor.data.name,
-        trigger: '',
         flavor: '',
         details: dataset.label ? `${dataset.label}` : '',
-        tags: tagData
+        tags: tagData,
+        uid: this.actor.data._id+(new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)
       }
     
-    this.actor.rollCPR(dataset.roll, this.actor.data.data, templateData);
+    this.actor.rollCPR(dataset.roll, this.actor.data, templateData);
     
     /* Testing new roll template
     if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && this.actor.data.type == "npc") {

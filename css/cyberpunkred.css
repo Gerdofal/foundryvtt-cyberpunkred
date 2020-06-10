@@ -3,13 +3,63 @@
 /* Primary Color Variables: */
 
 :root {
-  --cpr-red-color: #600000; /* var(--cpr-red-color) */
+  --cpr-red-color: #800000; /* var(--cpr-red-color) */
   --cpr-light-bak-color: #FFFFFF; /* var(--cpr-light-bak-color) */
-  --cpr-app-bak-color: rgba(255,219,219,1.00); /* var(--cpr-app-bak-color) */
+  --cpr-app-bak-color: rgba(0,0,0,1.00); /* var(--cpr-app-bak-color) */
   
   
 }
 
+/* Roll Template */
+.cpr-roll-title {
+  font-size: 1.5em;
+  border-bottom: 2px solid var(--cpr-red-color);
+}
+
+
+.cpr-roll-flavor {
+  font-size: .8em;
+  font-style: italic;
+}
+
+.cpr-roll-details {
+  font-size: .9em;
+}
+
+.cpr-roll-roll {
+  font-size: .8em;
+}
+
+.cpr-roll-tags {
+  display: none;
+  font-size: .6em;
+}
+
+.cpr-roll-showtagscheck:checked > .cpr-roll-tags {
+  display: block;
+}
+
+
+/* Rolls */
+.dice-roll .dice-formula {
+  background: #FFFFFF;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.dice-roll .dice-total {
+  background: #FFAAAA;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.dice-roll .dice-tooltip {
+  background: #FFFFAA;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 /* Damage Track and Luck Track */
 .cyberpunkred .cpr-dot-track {
@@ -20,9 +70,11 @@
 
 
 /* Hide the roll select as the character sheet has .js for this */
+/*
 .roll-type-select {
 	display: none;
 }
+*/
 
 /* Set default font */
 .window-app {
@@ -32,6 +84,7 @@
 /* Add graphical border around this block */
 .cyberpunkred .cprgraphics, #chat-log .message {
   border: 10px ridge #FF1010;
+	border-image-source: url("crredborder.jpg?ver1"); /* source url */
 	border-image-source: url("crredborder.jpg?ver1"); /* source url */
 	border-image-slice: 17 0 17 9;
 	border-image-width: 17px 0px 17px 9px;
@@ -187,8 +240,8 @@
   src: url(../webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(../webfonts/fa-solid-900.woff2) format("woff2"), url(../webfonts/fa-solid-900.woff) format("woff"), url(../webfonts/fa-solid-900.ttf) format("truetype"), url(../webfonts/fa-solid-900.svg#fontawesome) format("svg")
 }
 
-.cyberpunkred .npcrollable:hover, .cyberpunkred .npcrollable:focus, .cyberpunkred .rollable:hover, .cyberpunkred .rollable:focus, .cyberpunkred .clickable:focus, .cyberpunkred .clickable:hover, .cyberpunkred .cpr-nav .cpr-nav-item .item:hover {
-  color: #f00;
+.cyberpunkred .npcrollable:hover, .cyberpunkred .npcrollable:focus, .cyberpunkred .rollable:hover, .cyberpunkred .rollable:focus, .cyberpunkred .clickable:focus, .cyberpunkred .clickable:hover, .cyberpunkred .cpr-nav .cpr-nav-item .item:hover, .cpr-roll-showtags:hover {
+  color: var(--cpr-red-color);
   cursor: pointer;
   text-shadow:
     0 0 1px #fff,
@@ -213,26 +266,7 @@
 }
 
 
-/* Rolls */
-.dice-roll .dice-formula {
-  background: #AAAAFF;
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.dice-roll .dice-total {
-  background: #FFAAAA;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: normal;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.dice-roll .dice-tooltip {
-  background: #FFFFAA;
-  padding-left: 10px;
-  padding-right: 10px;
-}
+
 
 
 /* Attributes and Skills Tab */
@@ -547,9 +581,8 @@
 }
 
 .cyberpunkred .npc-button-array button:hover {
-  color: red;
+  color: var(--cpr-red-color);
   z-index: 2;
-  color: #000;
   text-shadow: 0 0 6px red;
   cursor: pointer;
   box-shadow: 0 0 5px 5px red;
