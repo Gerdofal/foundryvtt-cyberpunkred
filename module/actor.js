@@ -47,25 +47,24 @@ export class cyberpunkredActor extends Actor {
     for (let [key, attr] of Object.entries(data.attributes)) {
       attr.roll = attr.value + attr.mod;
     }
-    
+
     //Calculate Cultural Familiarity
     //TODO - Try to figure out if I should include mod in this?
-    data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod)/3);
+    data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
     //Compute all roll values to be equal to value + mod for skills
     for (let [key, attr] of Object.entries(data.skills)) {
       if (attr.value >= data.culturalFamiliarity) {
-          attr.roll = attr.value + attr.mod;
+        attr.roll = attr.value + attr.mod;
       } else {
         attr.roll = data.culturalFamiliarity + attr.mod;
       }
     }
-    
+
     //Compute roll attribute for roleskills
     for (let [key, attr] of Object.entries(data.roleskills)) {
       attr.roll = attr.value + attr.mod;
     }
-    
-    
+
 
     //TODO - Need to add a field to edit init.mod
     data.combatstats.init.roll = data.attributes.ref.roll + data.combatstats.init.mod;
@@ -110,91 +109,47 @@ export class cyberpunkredActor extends Actor {
     data.modifiers.modfinalmod.totalpenalty = tempmod;
 
   } //End Prepare Character Data
-  
-  
+
+
   async rollCPR(roll, actorData, dataset, templateData, form = null) {
     // Render the roll.
-    let template = 'systems/dungeonworld/templates/chat/roll-cpr.html';
-    // GM rolls.
+    let template = 'systems/cyberpunkred/templates/chat/roll-cpr.html';
+
     let chatData = {
       user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor })
+      speaker: ChatMessage.getSpeaker({
+        actor: this.actor
+      })
     };
-    let rollMode = game.settings.get("core", "rollMode");
-    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-    if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
-    if (rollMode === "blindroll") chatData["blind"] = true;
-    // Handle dice rolls.
-    if (!DwUtility.isEmpty(roll)) {
-      // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
-      let formula = '';
-      // Handle bond (user input).
-      if (roll == 'BOND') {
-        formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
-        if (dataset.mod && dataset.mod != 0) {
-          formula += `+${dataset.mod}`;
-        }
-      }
-      // Handle ability scores (no input).
-      else if (roll.match(/(\d*)d\d+/g)) {
-        formula = roll;
-      }
-      // Handle moves.
-      else {
-        formula = `2d6+${actorData.abilities[roll].mod}`;
-        if (dataset.mod && dataset.mod != 0) {
-          formula += `+${dataset.mod}`;
-        }
-      }
-      if (formula != null) {
-        // Do the roll.
-        let roll = new Roll(`${formula}`);
-        roll.roll();
-        // Render it.
-        roll.render().then(r => {
-          templateData.rollDw = r;
-          renderTemplate(template, templateData).then(content => {
-            chatData.content = content;
-            if (game.dice3d) {
-              game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-            }
-            else {
-              chatData.sound = CONFIG.sounds.dice;
-              ChatMessage.create(chatData);
-            }
-          });
+
+    //Config option from CPR Settings
+    if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && this.actor.data.type == "npc") {
+      chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+    } else {
+      var rollstring = "roll";
+    }
+
+    if (roll.match(/(\d*)d\d+/g)) {
+      formula = roll;
+    }
+
+    if (formula != null) {
+      // Do the roll.
+      let roll = new Roll(`${formula}`);
+      roll.roll();
+      // Render it.
+      roll.render().then(r => {
+        templateData.rollDw = r;
+        renderTemplate(template, templateData).then(content => {
+          chatData.content = content;
+          if (game.dice3d) {
+            game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+          } else {
+            chatData.sound = CONFIG.sounds.dice;
+            ChatMessage.create(chatData);
+          }
         });
-      }
-    }
-    else {
-      renderTemplate(template, templateData).then(content => {
-        chatData.content = content;
-        ChatMessage.create(chatData);
-      });
-    }
-
-    // Update the combat flags.
-    if (game.combat && game.combat.combatants) {
-      let combatant = game.combat.combatants.find(c => c.actor.data._id == this.actor._id);
-      if (combatant) {
-        let moveCount = combatant.flags.dungeonworld ? combatant.flags.dungeonworld.moveCount : 0;
-        moveCount = moveCount ? Number(moveCount) + 1 : 1;
-        // Emit a socket for the GM client.
-        if (!game.user.isGM) {
-          game.socket.emit('system.dungeonworld', {
-            combatantUpdate: { _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount }
-          });
-        }
-        else {
-          await game.combat.updateCombatant({ _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount });
-          ui.combat.render();
-        }
-      }
-    }
-  }
-
-  
-  
-  
-  
-}
+      }); //End Roll Render
+    } // End if formula != null
+  } // End rollCPR
+} // End extension of actor
