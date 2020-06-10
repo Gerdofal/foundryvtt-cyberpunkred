@@ -121,13 +121,11 @@ Hooks.once('init', async function () {
     return outStr;
   });
 
-  Handlebars.registerHelper('cprTags', function(tagsInput) {
-      
-      const tags = JSON.parse(tagsInput);
+  Handlebars.registerHelper('cprTags', function(tagsInput) { 
       let output = '<div class="tags">';
-      tagsInput.forEach((element)) => {
+      tagsInput.forEach(element => {
         output += `<div class="tag">${element}</div>`;
-      }
+      });
       output += '</div>';
       return output;
     });

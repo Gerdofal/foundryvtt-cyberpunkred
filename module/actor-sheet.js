@@ -237,7 +237,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       var rollstring = "roll";
     }
 
-    rollCPR(dataset.roll, this.actor.data.data);
+    this.actor.rollCPR(dataset.roll, this.actor.data.data);
     
     /* Testing new roll template
     if (dataset.roll) {

@@ -115,6 +115,10 @@ export class cyberpunkredActor extends Actor {
     // Render the roll.
     let template = 'systems/cyberpunkred/templates/chat/roll-cpr.html';
 
+    let formula = '';
+    
+    var tagData = ["one","two","three"];
+    
     //Title, Trigger, Flavor, Details, rollCPR, tagsCPR
     if(templateData==null) { //This section just for testing
       templateData = {
@@ -122,13 +126,10 @@ export class cyberpunkredActor extends Actor {
         trigger: "Trigger",
         flavor: "Flavor",
         details: "Details",
-        tags: {
-          one: "One",
-          two: "Two",
-          three: "Three"
-        }
+        tags: tagData
       }
     }
+    
     
     let chatData = {
       user: game.user._id,
@@ -138,7 +139,7 @@ export class cyberpunkredActor extends Actor {
     };
 
     //Config option from CPR Settings
-    if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && this.actor.data.type == "npc") {
+    if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && data.type == "npc") {
       chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
     } else {
       var rollstring = "roll";
