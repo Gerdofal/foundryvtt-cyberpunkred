@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
 
+/* Primary Color Variables: */
+
+:root {
+  --cpr-red-color: #600000; /* var(--cpr-red-color) */
+  --cpr-light-bak-color: #FFFFFF; /* var(--cpr-light-bak-color) */
+  --cpr-app-bak-color: rgba(255,219,219,1.00); /* var(--cpr-app-bak-color) */
+  
+  
+}
+
+
 /* Damage Track and Luck Track */
 .cyberpunkred .cpr-dot-track {
   padding: 10px 0px 10px 5px;
@@ -19,7 +30,7 @@
 }
 
 /* Add graphical border around this block */
-.cyberpunkred .cprgraphics {
+.cyberpunkred .cprgraphics, #chat-log .message {
   border: 10px ridge #FF1010;
 	border-image-source: url("crredborder.jpg?ver1"); /* source url */
 	border-image-slice: 17 0 17 9;
@@ -27,12 +38,42 @@
 	border-image-outset: 0px;
 	border-image-repeat: stretch;
   background: white;
-  color: #600000;
+  color: var(--cpr-red-color);
   padding-top: 5px !important;
   padding-bottom: 3px !important; 
   box-sizing: border-box;
+  image-rendering: crisp-edges;
 }
 
+/* Redefine look of screen elements */
+#hotbar .macro {
+  border: 1px solid var(--cpr-red-color);
+  background: var(--cpr-app-bak-color);
+}
+
+#hotbat .macro.inactive {
+  box-shadow: 0 0 5px #400000 inset;
+}
+
+.app {
+  background: var(--cpr-app-bak-color);
+  color: var(--cpr-red-color);
+}
+
+#sidebar-tabs > .item.active, #sidebar-tabs > .item, #players {
+  color: var(--cpr-red-color);
+  border: 1px solid var(--cpr-red-color);
+  background: var(--cpr-app-bak-color);
+}
+
+.button {
+  background: var(--cpr-app-bak-color);
+  color: var(--cpr-red-color);
+}
+
+.sidebar-tab .directory-list .entity {
+  background: var(--cpr-app-bak-color);
+}
 /* Make sure this block has room to edit */
 .cyberpunkred .roomtoedit {
   height: 400px;
@@ -43,6 +84,17 @@
   height: 100%;
 }
 
+#players ol .player-name.self {
+ color: var(--cpr-red-color); 
+}
+
+#combat #combat-round .encounters a {
+ color: var(--cpr-red-color); 
+}
+
+#combat #combat-round .encounters h4 {
+ color: var(--cpr-red-color);   
+}
 /* Main grid with header, left nav, and right content */
 .cyberpunkred .cpr-grid {
   display: grid;
@@ -95,10 +147,10 @@
   padding: 3px;
   margin: 0px;
   height: 45px;
-  background: #FFFFFF;
-  border-left: 1px solid #600000;
-  border-top: 1px solid #600000;
-  border-bottom: 1px solid #600000;
+  background: var(--cpr-light-bak-color);
+  border-left: 1px solid var(--cpr-red-color);
+  border-top: 1px solid var(--cpr-red-color);
+  border-bottom: 1px solid var(--cpr-red-color);
   border-radius: 10px 0px 0px 0px;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item.active {
@@ -109,9 +161,9 @@
   margin: 0px;
   height: 45px;
   background: linear-gradient(#D0D0D0,#E0E0E0);
-  border-left: 1px solid #600000;
-  border-top: 1px solid #600000;
-  border-bottom: 1px solid #600000;
+  border-left: 1px solid var(--cpr-red-color);
+  border-top: 1px solid var(--cpr-red-color);
+  border-bottom: 1px solid var(--cpr-red-color);
   border-radius: 10px 0px 0px 0px;
 }
 
@@ -236,7 +288,7 @@
 
 /* Weapon list on Combat Tab */
 .cyberpunkred .cpr-weaponbox {
-  border: 1px solid #600000;
+  border: 1px solid var(--cpr-red-color);
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
@@ -244,7 +296,7 @@
 }
 
 .cyberpunkred .cpr-weaponinlinebox {
-  border: 1px solid #600000;
+  border: 1px solid var(--cpr-red-color);
   padding: 2px;
   margin: 0px;
   box-sizing: border-box;
@@ -277,7 +329,7 @@
   margin: 0px;
   padding: 0px;
   display: grid;
-  border: 1px solid #600000; 
+  border: 1px solid var(--cpr-red-color); 
   display: inline-block;
   height: 100%;
   width: 100%;
@@ -304,7 +356,7 @@
   margin: 0px;
   padding: 0px;
   display: grid;
-  border: 1px solid #600000; 
+  border: 1px solid var(--cpr-red-color); 
   display: inline-block;
   height: 100%;
   width: 100%;
@@ -344,7 +396,7 @@
   margin: 0px;
   padding: 0px;
   display: grid;
-  border: 1px solid #600000; 
+  border: 1px solid var(--cpr-red-color); 
   display: inline-block;
   height: 100%;
   width: 100%;
@@ -362,8 +414,8 @@
 .cyberpunkred input.modlist[type=checkbox]:checked + label {
   background-color: #FF9090;
 	font-weight: bold;
-  border: 1px solid #600000;
-  border-color: #600000;
+  border: 1px solid var(--cpr-red-color);
+  border-color: var(--cpr-red-color);
   padding: 3px;
   margin: 0px;
 }
@@ -371,8 +423,8 @@
 .cyberpunkred input.modlist[type=checkbox]:not(:checked) + label {
   background-color: transparent;
 	font-weight: normal;
-  border: 1px solid #600000;
-  border-color: #600000;
+  border: 1px solid var(--cpr-red-color);
+  border-color: var(--cpr-red-color);
   padding: 3px;
   margin: 0px;
 }

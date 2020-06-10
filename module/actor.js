@@ -117,10 +117,10 @@ export class cyberpunkredActor extends Actor {
 
     let formula = '';
     
-    var tagData = ["one","two","three"];
     
     //Title, Trigger, Flavor, Details, rollCPR, tagsCPR
     if(templateData==null) { //This section just for testing
+    var tagData = ["one","two","three"];
       templateData = {
         title: "Title",
         trigger: "Trigger",
