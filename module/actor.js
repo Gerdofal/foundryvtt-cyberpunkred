@@ -111,10 +111,25 @@ export class cyberpunkredActor extends Actor {
   } //End Prepare Character Data
 
 
-  async rollCPR(roll, actorData, dataset, templateData, form = null) {
+  async rollCPR(roll, data, templateData=null) {
     // Render the roll.
     let template = 'systems/cyberpunkred/templates/chat/roll-cpr.html';
 
+    //Title, Trigger, Flavor, Details, rollCPR, tagsCPR
+    if(templateData==null) { //This section just for testing
+      templateData = {
+        title: "Title",
+        trigger: "Trigger",
+        flavor: "Flavor",
+        details: "Details",
+        tags: {
+          one: "One",
+          two: "Two",
+          three: "Three"
+        }
+      }
+    }
+    
     let chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({
@@ -139,7 +154,7 @@ export class cyberpunkredActor extends Actor {
       roll.roll();
       // Render it.
       roll.render().then(r => {
-        templateData.rollDw = r;
+        templateData.rollcpr = r;
         renderTemplate(template, templateData).then(content => {
           chatData.content = content;
           if (game.dice3d) {

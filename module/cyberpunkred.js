@@ -121,6 +121,17 @@ Hooks.once('init', async function () {
     return outStr;
   });
 
+  Handlebars.registerHelper('cprTags', function(tagsInput) {
+      
+      const tags = JSON.parse(tagsInput);
+      let output = '<div class="tags">';
+      tagsInput.forEach((element)) => {
+        output += `<div class="tag">${element}</div>`;
+      }
+      output += '</div>';
+      return output;
+    });
+
 
   //Initiative Roll
   Handlebars.registerHelper('initiativeRoll', function(data) {
