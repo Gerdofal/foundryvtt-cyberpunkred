@@ -11,6 +11,8 @@ Sections:
   - Added reputation to combatstats
   - Set supported version to 0.6.2
   - INIT now uses defined roll prefix
+  - Changed CSS for most UI items to fit CPR theme
+  - Implemented simple roll template with room for future expansion
 
 ### Release Notes
 
