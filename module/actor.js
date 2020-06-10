@@ -108,9 +108,93 @@ export class cyberpunkredActor extends Actor {
     }
     tempmod += data.modifiers.modmanualmod.penalty;
     data.modifiers.modfinalmod.totalpenalty = tempmod;
-    
-    
 
+  } //End Prepare Character Data
+  
+  
+  async rollCPR(roll, actorData, dataset, templateData, form = null) {
+    // Render the roll.
+    let template = 'systems/dungeonworld/templates/chat/roll-cpr.html';
+    // GM rolls.
+    let chatData = {
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor })
+    };
+    let rollMode = game.settings.get("core", "rollMode");
+    if (["gmroll", "blindroll"].includes(rollMode)) chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
+    if (rollMode === "selfroll") chatData["whisper"] = [game.user._id];
+    if (rollMode === "blindroll") chatData["blind"] = true;
+    // Handle dice rolls.
+    if (!DwUtility.isEmpty(roll)) {
+      // Roll can be either a formula like `2d6+3` or a raw stat like `str`.
+      let formula = '';
+      // Handle bond (user input).
+      if (roll == 'BOND') {
+        formula = form.bond.value ? `2d6+${form.bond.value}` : '2d6';
+        if (dataset.mod && dataset.mod != 0) {
+          formula += `+${dataset.mod}`;
+        }
+      }
+      // Handle ability scores (no input).
+      else if (roll.match(/(\d*)d\d+/g)) {
+        formula = roll;
+      }
+      // Handle moves.
+      else {
+        formula = `2d6+${actorData.abilities[roll].mod}`;
+        if (dataset.mod && dataset.mod != 0) {
+          formula += `+${dataset.mod}`;
+        }
+      }
+      if (formula != null) {
+        // Do the roll.
+        let roll = new Roll(`${formula}`);
+        roll.roll();
+        // Render it.
+        roll.render().then(r => {
+          templateData.rollDw = r;
+          renderTemplate(template, templateData).then(content => {
+            chatData.content = content;
+            if (game.dice3d) {
+              game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+            }
+            else {
+              chatData.sound = CONFIG.sounds.dice;
+              ChatMessage.create(chatData);
+            }
+          });
+        });
+      }
+    }
+    else {
+      renderTemplate(template, templateData).then(content => {
+        chatData.content = content;
+        ChatMessage.create(chatData);
+      });
+    }
+
+    // Update the combat flags.
+    if (game.combat && game.combat.combatants) {
+      let combatant = game.combat.combatants.find(c => c.actor.data._id == this.actor._id);
+      if (combatant) {
+        let moveCount = combatant.flags.dungeonworld ? combatant.flags.dungeonworld.moveCount : 0;
+        moveCount = moveCount ? Number(moveCount) + 1 : 1;
+        // Emit a socket for the GM client.
+        if (!game.user.isGM) {
+          game.socket.emit('system.dungeonworld', {
+            combatantUpdate: { _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount }
+          });
+        }
+        else {
+          await game.combat.updateCombatant({ _id: combatant._id, 'flags.dungeonworld.moveCount': moveCount });
+          ui.combat.render();
+        }
+      }
+    }
   }
 
+  
+  
+  
+  
 }

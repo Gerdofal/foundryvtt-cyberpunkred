@@ -249,7 +249,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
       }, {
         rollMode: rollstring
       });
-
     } // End if Dataset.roll
   } // end OnRoll
 
