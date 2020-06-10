@@ -35,10 +35,13 @@
   font-size: .6em;
 }
 
-.cpr-roll-showtagscheck:checked > .cpr-roll-tags {
+.cpr-roll-showtagscheck:checked + .cpr-roll-tags {
   display: block;
 }
 
+.cpr-roll-showtagscheck {
+  display: none;
+}
 
 /* Rolls */
 .dice-roll .dice-formula {
