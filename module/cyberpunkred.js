@@ -81,11 +81,12 @@ Hooks.once('init', async function () {
   });
 
   Handlebars.registerHelper('rollHacking', function(command) {
-      return "_RollHacking" + command;
+      return "_RollHacking " + command;
   });
   
   Handlebars.registerHelper('rollManualFormula', function(formula) {
-      return "_RollManualFormula" + formula;
+      console.log(formula);
+      return "_RollManualFormula " + formula;
   });
   
   //Setup helper for damage track
@@ -137,15 +138,6 @@ Hooks.once('init', async function () {
       output += '</div>';
       return output;
     });
-
-
-  //Initiative Roll
-  Handlebars.registerHelper('initiativeRoll', function(data) {
-    _cprLog("Initiative handlebar");
-    //console.log(data);
-    return _getInitiativeFormula(data);
-    //return;
-  });
 
   //Return concatination of all arguments - Used for localizing sometimes
   Handlebars.registerHelper('concat', function () {

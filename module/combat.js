@@ -20,7 +20,7 @@ export const _getInitiativeFormula = function(combatant) {
   }
   
   //console.log(intData);
-  const initadd = intData.combatstats.init.roll - intData.modifiers.modfinalmod.totalpenalty;
+  const initadd = intData.combatstats.init.roll + intData.modifiers.modfinalmod.healthpenalty;
   const reftie = intData.attributes.ref.roll / 100;
   const dieconfig = [rollPrefix, initadd, reftie];
   //_cprLog("Returning " + dieconfig);

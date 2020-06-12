@@ -139,7 +139,7 @@
           <li class="flexrow" data-item-id="{{item.id}}">
             <label class="cpr-weaponinlinebox">{{item.name}}</label>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollSkill item.skill}}">{{localize "CPRED.attack"}}</div>
-            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{item.damage}}">{{localize "CPRED.damage"}}</div>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollManualFormula item.damage}}">{{localize "CPRED.damage"}}</div>
           </li>
           {{/if_not_eq}}
           {{/each}}
@@ -151,19 +151,19 @@
         <h3>{{localize "CPRED.specialrolls"}}</h3>
           <ol class="specialroll-grid">
             <ol class="specialroll-item">
-              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{rollManualFormula (data.dieRollCommand + data.combatstats.deathsave.penalty)}}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
+              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{rollManualFormula (concat data.dieRollCommand '+' data.combatstats.deathsave.penalty) }}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
               <li class="flexrow" data-item-id="{{item.id}}">
               <i class="alterdeathsave clickable" data-change="-1">-1</i>
               <i class="alterdeathsave clickable" data-change="1">+1</i>
               </li>
             </ol>
             <ol class="specialroll-item">
-                <label for="Facedown" data-label='{{localize "CPRED.facedown"}}' data-roll="{{data.dieRollCommand}} + {{data.attributes.cool.roll}} + {{data.combatstats.reputation.value}}" class="rollable">{{localize "CPRED.facedown"}}</label>
+                <label for="Facedown" data-label='{{localize "CPRED.facedown"}}' data-roll="{{rollManualFormula (concat data.dieRollCommand '+' data.attributes.cool.roll '+' data.combatstats.reputation.value) }}" class="rollable">{{localize "CPRED.facedown"}}</label>
             </ol>
-            <ol class="specialroll-item"><label for="Suppressivefire" data-label='{{localize "CPRED.suppressivefire"}}' data-roll="{{data.dieRollCommand}} + {{data.attributes.ref.roll}} + {{data.skills.marksmanship.roll}}" class="rollable">{{localize "CPRED.suppressivefire"}}</label></ol>
-            <ol class="specialroll-item"><label for="reputationcheck" data-label='{{localize "CPRED.reputationchecklabela"}}{{data.combatstats.reputation.value}}{{localize "CPRED.reputationchecklabelb"}}' data-roll="1d10" class="rollable">{{localize "CPRED.reputationcheck"}}</label></ol>
+            <ol class="specialroll-item"><label for="Suppressivefire" data-label='{{localize "CPRED.suppressivefire"}}' data-roll="{{rollSkill 'marksmanship'}}" class="rollable">{{localize "CPRED.suppressivefire"}}</label></ol>
+            <ol class="specialroll-item"><label for="reputationcheck" data-label='{{localize "CPRED.reputationchecklabela"}}{{data.combatstats.reputation.value}}{{localize "CPRED.reputationchecklabelb"}}' data-roll="{{rollManualFormula '1d10'}}" class="rollable">{{localize "CPRED.reputationcheck"}}</label></ol>
             <ol class="specialroll-item">
-              <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{initiativeRoll data }}" class="rollable">{{localize "CPRED.initiative"}}</label>
+              <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="rollable">{{localize "CPRED.initiative"}}</label>
             </ol>
           </ol>
         </div> 
@@ -217,7 +217,7 @@
           <label>{{localize "CPRED.mod"}}</label>
           <label>{{localize "CPRED.totalroll"}}</label>
           {{!-- TODO - Future changes may require re-writing this to not use int --}}
-          <label for="data.roleskills.hacking.interface.value" data-roll="{{data.dieRollCommand}} + {{data.roleskills.hacking.interface.roll}} + {{data.attributes.int.roll}}" class="rollable" data-label="{{localize 'CPRED.interface'}}">{{localize "CPRED.interface"}} ({{localize (concat "CPRED." data.roleskills.hacking.interface.linkedattribute)}})</label>
+          <label for="data.roleskills.hacking.interface.value" data-roll="{{rollHacking interfacecheck}}" class="rollable" data-label="{{localize 'CPRED.interface'}}">{{localize "CPRED.interface"}} ({{localize (concat "CPRED." data.roleskills.hacking.interface.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.roleskills.hacking.interface.value" value="{{data.roleskills.hacking.interface.value}}" data-dtype="Number"/>
           <input type="text" name="data.roleskills.hacking.interface.mod" value="{{data.roleskills.hacking.interface.mod}}" data-dtype="Number"/>
           <input type="text" name="data.roleskills.hacking.interface.roll" value="{{data.roleskills.hacking.interface.roll}}" data-dtype="Number" readonly/>
@@ -230,8 +230,8 @@
         
 <br>        {{localize "CPRED.notlocalized"}}
 <br>        
-<br>        <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{initiativeRoll data }}" class="rollable">{{localize "CPRED.initiative"}}</label>
-<br>        <label data-roll="{{data.dieRollCommand}} + {{data.roleskills.hacking.interface.roll}} + {{data.attributes.int.roll}} + {{data.roleskills.hacking.spd.roll}}" class="rollable" data-label="{{localize 'CPRED.encounterblackice'}}">{{localize "CPRED.encounterblackice"}}</label>
+<br>        <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="rollable">{{localize "CPRED.initiative"}}</label>
+<br>        <label data-roll="{{rollHacking 'encounterblackice'}}" class="rollable" data-label="{{localize 'CPRED.encounterblackice'}}">{{localize "CPRED.encounterblackice"}}</label>
 <br>        
 <br>      Programs
 <br>        Speedy Gonzalez - Increases SPD by +4

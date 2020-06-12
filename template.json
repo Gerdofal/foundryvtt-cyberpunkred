@@ -445,7 +445,8 @@
           },
 
           "modfinalmod": {
-            "totalpenalty": 0
+            "totalpenalty": 0,
+            "healthpenalty": 0
           }
         }
       },
