@@ -12,6 +12,7 @@ export class cyberpunkredActor extends Actor {
    * Augment the basic actor data with additional dynamic data.
    */
   prepareData() {
+    //console.log(ui.chat);
     super.prepareData();
 
     const actorData = this.data;
