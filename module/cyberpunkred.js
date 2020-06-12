@@ -72,18 +72,22 @@ Hooks.once('init', async function () {
   _cprLog(`Register Handlebars`);
 
   //Setup helper for roll info
-  Handlebars.registerHelper('buildRollString', function (data, skill) {
-    var outStr = game.settings.get("cyberpunkred", "dieRollCommand");
-    var arr = new Array();
-    arr.push(data.skills[skill].roll);
-    arr.push(data.attributes[data.skills[skill].linkedattribute].roll);
-    arr.push(data.modifiers.modfinalmod.totalpenalty);
-    arr.forEach(element => {
-      outStr += " + " + element;
-    });
-    return (outStr);
+  Handlebars.registerHelper('rollSkill', function (skill) {
+      return "_RollSkill " + skill;
+  });
+  
+  Handlebars.registerHelper('rollInitiative', function() {
+      return "_RollInitiative";
   });
 
+  Handlebars.registerHelper('rollHacking', function(command) {
+      return "_RollHacking" + command;
+  });
+  
+  Handlebars.registerHelper('rollManualFormula', function(formula) {
+      return "_RollManualFormula" + formula;
+  });
+  
   //Setup helper for damage track
   Handlebars.registerHelper('buildDamageTrack', function (current, max) {
     var x = 1;
@@ -138,7 +142,7 @@ Hooks.once('init', async function () {
   //Initiative Roll
   Handlebars.registerHelper('initiativeRoll', function(data) {
     _cprLog("Initiative handlebar");
-    console.log(data);
+    //console.log(data);
     return _getInitiativeFormula(data);
     //return;
   });

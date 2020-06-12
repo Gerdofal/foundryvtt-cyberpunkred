@@ -227,15 +227,15 @@ export class cyberpunkredActorSheet extends ActorSheet {
    * @private
    */
   _onRoll(event) {
+    
+    //This function calls rollCPR with whatever was sent to the command. 
+    //All special roll logic happens in rollCPR
+    
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    console.log(dataset);
+    //console.log(dataset);
     var tagData = [];
-    tagData.push("Hi World");
-    tagData.push("Hi World");
-    tagData.push("Hi World");
-    tagData.push("Hi World");
     //Default template data
     let templateData = {
         title: this.actor.data.name,

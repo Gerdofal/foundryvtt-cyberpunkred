@@ -37,11 +37,27 @@ export class cyberpunkredActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
+    _cprLog("Preparing character data for: " + actorData.name);
+    console.log(actorData);
     const data = actorData.data;
-    _cprLog("Preparing character data");
 
+
+    //TODO - put all these transitions into their own module
+
+    //NOTE: ui.notifications accepts info, warn, and error
     //DEV - Make some updates to data that may need a fix without updating system.json
-    data.modifiers.modfulldam.penalty = -2; //Changed in 0.28
+    if (data.modifiers.modfulldam.penalty != -2) {
+      data.modifiers.modfulldam.penalty = -2;
+      console.warn(".28 Update - Changing penalty for modfulldam to -2.");
+      delete data.roleskills.interface;
+    } //Default changed in 0.28
+    //DEV - Interim solution for transition to .30
+    if (data.roleskills.hasOwnProperty('interface')) {
+      data.roleskills.hacking.interface = data.roleskills.interface;
+      console.warn(".30 Update - Found old hacking data template and fixed.");
+      delete data.roleskills.interface;
+    }
+
 
     //Compute all roll values to be equal to value + mod for attributes
     for (let [key, attr] of Object.entries(data.attributes)) {
@@ -51,6 +67,7 @@ export class cyberpunkredActor extends Actor {
     //Calculate Cultural Familiarity
     //TODO - Try to figure out if I should include mod in this?
     data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
+
     //Compute all roll values to be equal to value + mod for skills
     for (let [key, attr] of Object.entries(data.skills)) {
       if (attr.value >= data.culturalFamiliarity) {
@@ -60,11 +77,16 @@ export class cyberpunkredActor extends Actor {
       }
     }
 
+    //ROLESKILLS
+    //HACKING
+    data.roleskills.hacking.interface.roll = data.roleskills.hacking.interface.value + data.roleskills.hacking.interface.mod;
+    data.roleskills.hacking.spd.roll = data.roleskills.hacking.spd.value + data.roleskills.hacking.spd.mod;
+
+
     //Compute roll attribute for roleskills
     for (let [key, attr] of Object.entries(data.roleskills)) {
       attr.roll = attr.value + attr.mod;
     }
-
 
     //TODO - Need to add a field to edit init.mod
     data.combatstats.init.roll = data.attributes.ref.roll + data.combatstats.init.mod;
@@ -86,13 +108,12 @@ export class cyberpunkredActor extends Actor {
       data.modifiers.modhalfdam.checked = false;
     }
 
-
     //Check wound penalties for zero health
     if (data.combatstats.healthpool.value <= 0) {
-      _cprLog("Turning on full dam");
+      //_cprLog("Turning on full dam");
       data.modifiers.modfulldam.checked = true;
     } else {
-      _cprLog("Turning off full dam");
+      //_cprLog("Turning off full dam");
       data.modifiers.modfulldam.checked = false;
     }
 
@@ -110,30 +131,96 @@ export class cyberpunkredActor extends Actor {
 
   } //End Prepare Character Data
 
-
-  async rollCPR(roll, actorData, templateData=null) {
-    _cprLog("Rendering roll using template");
-    console.log(actorData);
-
-    let template = 'systems/cyberpunkred/templates/chat/roll-cpr.html';
-
-    let formula = '';
+  
+  //Various Special Functions for Rolls
+  
+  rollSkill(skill) {
+    var outStr = game.settings.get("cyberpunkred", "dieRollCommand");
+    var arr = new Array();
+    var tags = new Array();
+    var data = this.data.data;
+    console.log(data);
+    //Skill Roll Value
+    arr.push(data.skills[skill].roll);
+    tags.push(game.i18n.localize("CPRED." + skill) + ": " + data.skills[skill].value + " + " + data.skills[skill].mod + " = " + data.skills[skill].roll);
     
-    const data = actorData.data;
+    //Attribute Roll Value
+    arr.push(data.attributes[data.skills[skill].linkedattribute].roll);
+    tags.push(game.i18n.localize("CPRED." + data.skills[skill].linkedattribute) + ": " + data.attributes[data.skills[skill].linkedattribute].value + " + " + data.attributes[data.skills[skill].linkedattribute].mod + " = " + data.attributes[data.skills[skill].linkedattribute].roll);
     
-    //Title, Trigger, Flavor, Details, rollCPR, tagsCPR
-    if(templateData==null) { //This section just for testing
-      tagData = [];
-      templateData = {
-        title: "Title",
-        flavor: "Flavor",
-        details: "Details",
-        tags: tagData,
-        uid: "jhsdy2373redasdsa"
+    //Roll Mod
+    arr.push(data.modifiers.modfinalmod.totalpenalty);
+    
+    //Compute current total damage mod
+    for (let [key, attr] of Object.entries(data.modifiers)) {
+      if (attr.hasOwnProperty("checked")) {
+        if (attr.checked) {
+          tags.push(game.i18n.localize("CPRED." + key) + ": " + attr.penalty);
+        }
       }
     }
     
+    arr.forEach(element => {
+      outStr += " + " + element;
+    });
+    var retArray = [outStr,tags];
+    console.debug(retArray);
+    return (retArray);  
+  }
+  
+  async rollCPR(roll, actorData, templateData = null) {
+    _cprLog("rollCPR - Rendering roll using template");
+    /*
+    _cprLog("roll");
+    console.log(roll);
+    _cprLog("actorData");
+    console.log(actorData);
+    _cprLog("templateData");
+    console.log(templateData);
+    */
+    //Setup critical variables
+    let template = 'systems/cyberpunkred/templates/chat/roll-cpr.html';
+    let formula = '';
+    const data = actorData.data;
+
+    //Here we capture any normal roll string
+    //this is not desirable as we want to print details
+    if (roll.match(/(\d*)d\d+/g)) {
+      formula = roll;
+      console.warn("CyberpunkRED | Incoming roll did not match expected format introduced in version .30. Rendering using default method.");
+    } else {
+      //Expects a command like "_RollSkill marksmanship"
+      var cmdArray = roll.split(" "); //Split the incoming command into an array
+      var cmdCmd = cmdArray[0]; //ex _RollSkill
+      var cmdId = cmdArray[1]; //ex marksmanship
+      var retArray = [];
+      //Expected Return:
+      //retArray[0] will have the formula as a string
+      //retArray[1] will have an array additional tags
+      switch(cmdCmd) {
+        case '_RollSkill':
+          retArray=this.rollSkill(cmdId);
+          break;
+        case '_RollInitiative':
+          retArray=this.actor.rollInitiative();
+          break;
+        case '_RollHacking':
+          retArray=this.actor.rollHacking(command);
+          break;
+        case '_RollManualFormula':
+          retArray[0] = roll;
+          break;
+        default:
+          retArray[0] = roll;
+          console.error("CyberpunkRED | Incoming roll command not recognized, attempting default.");
+      }
+      formula=retArray[0];
+      var tempTags = templateData.tags;
+      templateData.tags = tempTags.concat(retArray[1]);
+    }
+
     
+    //Everything past here is the same for all rolls.
     let chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({
@@ -148,27 +235,24 @@ export class cyberpunkredActor extends Actor {
       _cprLog("NPC Rolls Always Whisper");
     } else {
       let rollMode = game.settings.get("core", "rollMode");
-      
+
       if (["gmroll", "blindroll"].includes(rollMode)) {
         chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
-        templateData.tags.push("Sent to GM");    
+        templateData.tags.push("Sent to GM");
       }
 
       if (rollMode === "selfroll") {
         templateData.tags.push("Whispered to " + game.user.name);
         chatData["whisper"] = [game.user._id];
       }
-      
+
       if (rollMode === "blindroll") {
         chatData["blind"] = true;
         templateData.tags.push("Sent blindly to GM");
       }
     }
 
-    
-    if (roll.match(/(\d*)d\d+/g)) {
-      formula = roll;
-    }
+
 
     if (formula != null) {
       // Do the roll.
