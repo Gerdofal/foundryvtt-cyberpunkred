@@ -86,7 +86,6 @@ Hooks.once('init', async function () {
   });
   
   Handlebars.registerHelper('rollManualFormula', function(formula) {
-      console.log(formula);
       return "_RollManualFormula " + formula;
   });
   

@@ -13,6 +13,7 @@ Sections:
   - INIT now uses defined roll prefix
   - Changed CSS for most UI items to fit CPR theme
   - Implemented simple roll template with room for future expansion
+  - Completely re-wrote roll logic to provide optional details on all rolls
 
 ### Release Notes
 

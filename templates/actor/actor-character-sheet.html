@@ -198,7 +198,7 @@
           {{localize "CPRED.modfinalmod"}} {{data.modifiers.modfinalmod.totalpenalty}}
           </li>      
         </ol>
-        <label class="modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
+        <label class="clickable modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
         </div>
         
 
@@ -217,7 +217,7 @@
           <label>{{localize "CPRED.mod"}}</label>
           <label>{{localize "CPRED.totalroll"}}</label>
           {{!-- TODO - Future changes may require re-writing this to not use int --}}
-          <label for="data.roleskills.hacking.interface.value" data-roll="{{rollHacking interfacecheck}}" class="rollable" data-label="{{localize 'CPRED.interface'}}">{{localize "CPRED.interface"}} ({{localize (concat "CPRED." data.roleskills.hacking.interface.linkedattribute)}})</label>
+          <label for="data.roleskills.hacking.interface.value" data-roll="{{rollHacking 'interfacecheck'}}" class="rollable" data-label="{{localize 'CPRED.interface'}}">{{localize "CPRED.interface"}} ({{localize (concat "CPRED." data.roleskills.hacking.interface.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.roleskills.hacking.interface.value" value="{{data.roleskills.hacking.interface.value}}" data-dtype="Number"/>
           <input type="text" name="data.roleskills.hacking.interface.mod" value="{{data.roleskills.hacking.interface.mod}}" data-dtype="Number"/>
           <input type="text" name="data.roleskills.hacking.interface.roll" value="{{data.roleskills.hacking.interface.roll}}" data-dtype="Number" readonly/>

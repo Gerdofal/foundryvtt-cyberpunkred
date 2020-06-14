@@ -234,7 +234,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    //console.log(dataset);
     var tagData = [];
     //Default template data
     let templateData = {
@@ -247,27 +246,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
     
     this.actor.rollCPR(dataset.roll, this.actor.data, templateData);
     
-    /* Testing new roll template
-    if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && this.actor.data.type == "npc") {
-      var rollstring = "gmroll";
-    } else {
-      var rollstring = "roll";
-    }
-
-    if (dataset.roll) {
-      //console.log(dataset);
-      let roll = new Roll(dataset.roll, this.actor.data.data);
-      let label = dataset.label ? `${dataset.label}` : '';
-      roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({
-          actor: this.actor
-        }),
-        flavor: label
-      }, {
-        rollMode: rollstring
-      });
-    } // End if Dataset.roll
-    end testing */
   } // end OnRoll
 
 
