@@ -6,14 +6,16 @@ Sections:
 ### In Development
 
 - 0.30 - In Development / Not Yet Released
-  - Localized remaining rolls on combat tab
-  - Facedown, suppressive fire, reputation check, and initiave are now rollable
-  - Added reputation to combatstats
-  - Set supported version to 0.6.2
-  - INIT now uses defined roll prefix
-  - Changed CSS for most UI items to fit CPR theme
-  - Implemented simple roll template with room for future expansion
-  - Completely re-wrote roll logic to provide optional details on all rolls
+  - UI: Localized remaining rolls on combat tab
+  - New: Facedown, suppressive fire, reputation check, and initiave are now rollable
+  - New: Added reputation to combatstats
+  - Update: Set supported version to 0.6.2
+  - Bugfix: INIT now uses defined roll prefix
+  - UI: Changed CSS for most UI items to fit CPR theme
+  - New: Implemented simple roll template with room for future expansion
+  - New: Completely re-wrote roll logic to provide optional details on all rolls
+  - Bugfix: Fixed bug where health, luck, and deathsave penalty are reset upon page reload
+  
 
 ### Release Notes
 

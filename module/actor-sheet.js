@@ -41,6 +41,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     _cprLog("Returning sheet data");
+    console.log(data);
     return data;
   }
 
@@ -178,13 +179,13 @@ export class cyberpunkredActorSheet extends ActorSheet {
       if (this.actor.data.data.combatstats.deathsave.penalty<0) {
         this.actor.data.data.combatstats.deathsave.penalty=0;
       }
-      _cprLog("Death save is now " + this.actor.data.data.combatstats.deathsave.penalty);
       this.actor.prepareData();this.actor.render();
     });
 
     //Increment penalty on deathsave
     html.find('.deathsave').click(ev => {
       this.actor.data.data.combatstats.deathsave.penalty++;
+      //this.actor.update(this.actor.data.data)
       this.actor.prepareData();this.actor.render();
     });
 

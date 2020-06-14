@@ -137,25 +137,24 @@ export class cyberpunkredActor extends Actor {
 
   //Various Special Functions for Rolls
 
-  rollMod(arr, tags) {
+  rollMod(rollObject) {
     //Compute current total mod
     var data = this.data.data;
-    arr.push(data.modifiers.modfinalmod.totalpenalty);
-    tags.push("<hr>");
-    tags.push("Total Penalty: " + data.modifiers.modfinalmod.totalpenalty + "<hr>");
+    rollObject.rollFormula = rollObject.rollFormula + data.modifiers.modfinalmod.totalpenalty;
+    rollObject.tags.push("<hr>");
+    rollObject.tags.push("Total Penalty: " + data.modifiers.modfinalmod.totalpenalty + "<hr>");
     for (let [key, attr] of Object.entries(data.modifiers)) {
       if (attr.hasOwnProperty("checked")) {
         if (attr.checked) {
-          tags.push(game.i18n.localize("CPRED." + key) + ": " + attr.penalty);
+          rollObject.tags.push(game.i18n.localize("CPRED." + key) + ": " + attr.penalty);
         }
       }
     }
-    var retArray = [arr, tags];
-    return (retArray);
+    return rollObject;
   }
 
   rollSkill(skill, rootstr = "skills") {
-    var rollarray = new Array();
+    var rollArray = new Array();
     var tags = new Array();
     var data = this.data.data;
 
@@ -169,19 +168,21 @@ export class cyberpunkredActor extends Actor {
     }
 
     //Skill Roll Value
-    rollarray.push(root[skill].roll);
+    rollArray.push(root[skill].roll);
     tags.push(game.i18n.localize("CPRED." + skill) + ": " + root[skill].value + " + " + root[skill].mod + " = " + root[skill].roll);
 
     //Attribute Roll Value
-    rollarray.push(data.attributes[root[skill].linkedattribute].roll);
+    rollArray.push(data.attributes[root[skill].linkedattribute].roll);
     tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " = " + data.attributes[root[skill].linkedattribute].roll);
 
-    var retArray = [rollarray, tags];
-    return (retArray);
+    return {
+      rollArray: rollArray,
+      tags: tags
+    }
   }
 
   rollHacking(command) {
-    var rollarray = new Array();
+    var rollArray = new Array();
     var tags = new Array();
     var data = this.data.data;
 
@@ -189,22 +190,24 @@ export class cyberpunkredActor extends Actor {
       case 'interfacecheck':
         //TODO: This needs customization in the future
         var tempArray = this.rollSkill("interface","hacking");
-        rollarray = tempArray[0];
+        rollArray = tempArray[0];
         tags = tempArray[1]
         break;
       case 'encounterblackice':
         //TODO: Needs details
         var tempArray = this.rollSkill("interface", "hacking");
-        rollarray = tempArray[0];
+        rollArray = tempArray[0];
         tags = tempArray[1]
-        rollarray.push(data.roleskills.hacking.spd.roll);
+        rollArray.push(data.roleskills.hacking.spd.roll);
         break;
       default:
         console.error("Hacking command not recognized in rollHacking: command=" + command);
     }
 
-    var retArray = [rollarray, tags];
-    return (retArray);
+    return {
+      rollArray: rollArray,
+      tags: tags
+    }
   }
 
   rollInitiative() {
@@ -214,65 +217,79 @@ export class cyberpunkredActor extends Actor {
     var outStr = Combat.prototype._getInitiativeFormula(data);
     tags.push(game.i18n.localize("CPRED.initiativerolldetail"));
     var retArray = [outStr, tags];
-    return (retArray);
+    return {
+      rollFormula: outStr,
+      tags: tags
+    }
   }
 
   async rollCPR(roll, actorData, templateData = null) {
-    _cprLog("rollCPR - Rendering roll using template");
+    _cprLog("rollCPR - Computing Roll");
 
     //Setup critical variables
     let template = 'systems/cyberpunkred/templates/chat/roll-cpr.html';
-    var formula = game.settings.get("cyberpunkred", "dieRollCommand");
+    
     const data = actorData.data;
 
     //Expects a command like "_RollSkill marksmanship"
     var cmdArray = roll.split(" "); //Split the incoming command into an array
     var cmdCmd = cmdArray[0]; //ex _RollSkill
     var cmdId = cmdArray[1]; //ex marksmanship
-    var retArray = new Array();
-
+    var needsMods = true;
+    var rollObject = {};
     //Expected Return:
     //retArray[0] will have an array of each forula element
     //retArray[1] will have an array additional tags
     switch (cmdCmd) {
       case '_RollSkill':
-        retArray = this.rollSkill(cmdId);
+        rollObject = this.rollSkill(cmdId);
         break;
       case '_RollInitiative':
-        retArray = this.rollInitiative();
+        rollObject = this.rollInitiative();
+        needsMods = false;
         break;
       case '_RollHacking':
-        retArray = this.rollHacking(cmdId);
+        rollObject = this.rollHacking(cmdId);
         break;
-      case '_RollManualFormula':
-        retArray[0] = roll.replace('_RollManualFormula', '');
-        retArray[1] = new Array();
-        retArray[1].push("Manual Formula");
+      case '_RollWithMods':
+        rollObject.rollFormula = roll.replace('_RollWithMods', '');
+        rollObject.tags = new Array();
+        rollObject.tags.push("Manual Formula");
         break;
+      case '_RollWithoutMods':
+        rollObject.rollFormula = roll.replace('_RollWithoutMods', '');
+        rollObject.tags = new Array();
+        rollObject.tags.push("Manual Formula");
+        needsMods = false;
+        break;
+      case '_RollDamage':
+        rollObject.rollFormula = roll.replace('_RollDamage', '');
+        rollObject.tags = new Array();
+        rollObject.tags.push("Damage Formula");
+        needsMods = false;
+        break;        
       default:
-        retArray[0] = roll;
+        rollObject[0] = roll;
         console.error("CyberpunkRED | Incoming roll command not recognized, attempting default.");
     }
 
     //Everything past here is the same for all rolls.
 
-    //Calculate the modifier and return the new roll array and tags
-    retArray = this.rollMod(retArray[0], retArray[1]);
-
+    
     //Compute the formula
-    if(retArray[0].length>1) {
-      retArray[0].forEach(element => {
-        formula += " + " + element;
+    if(rollObject.rollArray) {
+      rollObject.rollFormula = game.settings.get("cyberpunkred", "dieRollCommand");
+      rollObject.rollArray.forEach(element => {
+        rollObject.rollFormula += " + " + element;
       });      
-    } else {
-      //If it isn't an array, then the formula is in 0 (eg Initiative or Raw)
-      formula = retArray[0];
+    }
+    
+    //Calculate the modifier and return the new roll array and tags
+    if(needsMods) {
+      rollObject = this.rollMod(rollObject);
     }
 
-    //Compute the tags
-    var tempTags = templateData.tags;
-    templateData.tags = tempTags.concat(retArray[1]);
-
+    
     //Setup Chat Message
     let chatData = {
       user: game.user._id,
@@ -281,6 +298,15 @@ export class cyberpunkredActor extends Actor {
       })
     };
 
+    console.log(rollObject);
+
+    //Setup the output tags
+    var tempTags = templateData.tags;
+    templateData.tags = tempTags.concat(rollObject.tags);
+
+    //Setup the output formula
+    var formula = rollObject.rollFormula;
+    
     //Config option from CPR Settings
     if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc") {
       chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
@@ -304,9 +330,9 @@ export class cyberpunkredActor extends Actor {
         templateData.tags.push("Sent blindly to GM");
       }
     }
-
-
+    
     if (formula != null) {
+      _cprLog("rollCPR - Rendering roll using template")
       // Do the roll.
       let roll = new Roll(`${formula}`);
       roll.roll();

@@ -139,7 +139,7 @@
           <li class="flexrow" data-item-id="{{item.id}}">
             <label class="cpr-weaponinlinebox">{{item.name}}</label>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollSkill item.skill}}">{{localize "CPRED.attack"}}</div>
-            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollManualFormula item.damage}}">{{localize "CPRED.damage"}}</div>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollDamage item.damage}}">{{localize "CPRED.damage"}}</div>
           </li>
           {{/if_not_eq}}
           {{/each}}
@@ -151,17 +151,18 @@
         <h3>{{localize "CPRED.specialrolls"}}</h3>
           <ol class="specialroll-grid">
             <ol class="specialroll-item">
-              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{rollManualFormula (concat data.dieRollCommand '+' data.combatstats.deathsave.penalty) }}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
+              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{RollWithoutMods (concat data.dieRollCommand '+' data.combatstats.deathsave.penalty) }}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
               <li class="flexrow" data-item-id="{{item.id}}">
+              <i class="alterdeathsave clickable" data-change="-9999">{{localize "CPRED.zero"}}</i>
               <i class="alterdeathsave clickable" data-change="-1">-1</i>
               <i class="alterdeathsave clickable" data-change="1">+1</i>
               </li>
             </ol>
             <ol class="specialroll-item">
-                <label for="Facedown" data-label='{{localize "CPRED.facedown"}}' data-roll="{{rollManualFormula (concat data.dieRollCommand '+' data.attributes.cool.roll '+' data.combatstats.reputation.value) }}" class="rollable">{{localize "CPRED.facedown"}}</label>
+                <label for="Facedown" data-label='{{localize "CPRED.facedown"}}' data-roll="{{RollWithoutMods (concat data.dieRollCommand '+' data.attributes.cool.roll '+' data.combatstats.reputation.value) }}" class="rollable">{{localize "CPRED.facedown"}}</label>
             </ol>
             <ol class="specialroll-item"><label for="Suppressivefire" data-label='{{localize "CPRED.suppressivefire"}}' data-roll="{{rollSkill 'marksmanship'}}" class="rollable">{{localize "CPRED.suppressivefire"}}</label></ol>
-            <ol class="specialroll-item"><label for="reputationcheck" data-label='{{localize "CPRED.reputationchecklabela"}}{{data.combatstats.reputation.value}}{{localize "CPRED.reputationchecklabelb"}}' data-roll="{{rollManualFormula '1d10'}}" class="rollable">{{localize "CPRED.reputationcheck"}}</label></ol>
+            <ol class="specialroll-item"><label for="reputationcheck" data-label='{{localize "CPRED.reputationchecklabela"}}{{data.combatstats.reputation.value}}{{localize "CPRED.reputationchecklabelb"}}' data-roll="{{RollWithoutMods '1d10'}}" class="rollable">{{localize "CPRED.reputationcheck"}}</label></ol>
             <ol class="specialroll-item">
               <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="rollable">{{localize "CPRED.initiative"}}</label>
             </ol>

@@ -85,8 +85,16 @@ Hooks.once('init', async function () {
       return "_RollHacking " + command;
   });
   
-  Handlebars.registerHelper('rollManualFormula', function(formula) {
-      return "_RollManualFormula " + formula;
+  Handlebars.registerHelper('RollWithMods', function(formula) {
+      return "_RollWithMods " + formula;
+  });
+  
+  Handlebars.registerHelper('RollWithoutMods', function(formula) {
+      return "_RollWithoutMods " + formula;
+  });
+
+  Handlebars.registerHelper('rollDamage', function(formula) {
+      return "_RollDamage " + formula;
   });
   
   //Setup helper for damage track
