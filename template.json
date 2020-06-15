@@ -520,32 +520,99 @@
       },
       "weapon": {
         "damage": {
-          "value": 0
+          "value": "3d6"
         },
         "ammo": {
           "min": 0,
-          "max": "16",
+          "max": 16,
           "value": 0
         },
         "weapontype": {
           "value": "pistol"
         },
         "burst": {
-          "value": true
+          "value": false
         },
         "fullauto": {
           "value": false
+        },
+        "skill": {
+          "value": "marksmanship"
+        }
+      },
+      "modlist": {
+        "modlist": {
+          "mod1": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          },
+          "mod2": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          },
+          "mod3": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          },
+          "mod4": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          },
+          "mod5": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          },
+          "mod6": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          },
+          "mod7": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          },
+          "mod8": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          },
+          "mod9": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          },
+          "mod10": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": false
+          }
         }
       }
     },
     "weapons": {
-      "templates": ["general", "weapon"]
+      "templates": ["general", "weapon", "modlist"]
     },
     "cyberware": {
-      "templates": ["general", "cyberware"]
+      "templates": ["general", "cyberware", "modlist"]
     },
     "gear": {
-      "templates": ["general"]
+      "templates": ["general", "modlist"]
     }
   }
 }

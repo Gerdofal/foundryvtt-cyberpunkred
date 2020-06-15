@@ -23,10 +23,10 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
            <ol class="grid grid-2col">
-				{{#each data as |skill key|}}
+				{{#each data as |item key|}}
 				<li class="flexrow nowrap" data-attribute="{{key}}">
 				  <label for="data.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
-				  <input class="skill-value" type="text" name="data.{{key}}.value" value="{{skill.value}}"/>
+				  <input class="item-value" type="text" name="data.{{key}}.value" value="{{item.value}}"/>
 				</li>
 				{{/each}}
       		</ol>

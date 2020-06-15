@@ -193,7 +193,7 @@
 .cyberpunkred .cpr-nav .cpr-nav-item {
   justify-self: start;
   display: block;
-  height: 45px;
+  height: 25px;
   width: 100%;
   padding: 0px;
   margin: 0px;
@@ -206,7 +206,7 @@
   width: 100%;
   padding: 3px;
   margin: 0px;
-  height: 45px;
+  height: 25px;
   background: var(--cpr-light-bak-color);
   border-left: 1px solid var(--cpr-red-color);
   border-top: 1px solid var(--cpr-red-color);
@@ -219,7 +219,7 @@
   font-weight: bold;
   padding: 3px;
   margin: 0px;
-  height: 45px;
+  height: 25px;
   background: linear-gradient(#D0D0D0,#E0E0E0);
   border-left: 1px solid var(--cpr-red-color);
   border-top: 1px solid var(--cpr-red-color);

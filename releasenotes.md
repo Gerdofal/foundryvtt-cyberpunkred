@@ -6,12 +6,13 @@ Sections:
 ### In Development
 
 - 0.31 - In Development / Not Yet Released
+  - Added combat section based on weapons in inventory
 
 ### Release Notes
 
 - 0.30 - Released 6/15/2020 - Beta
   - UI: Localized remaining rolls on combat tab
-  - New: Facedown, suppressive fire, reputation check, and initiave are now rollable
+  - New: Facedown, suppressive fire, reputation check, and initiative are now rollable
   - New: Added reputation to combatstats
   - Update: Set supported version to 0.6.2
   - Bugfix: INIT now uses defined roll prefix

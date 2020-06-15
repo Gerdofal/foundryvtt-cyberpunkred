@@ -56,7 +56,6 @@ export class cyberpunkredActor extends Actor {
       delete data.roleskills.interface;
     }
 
-
     //Compute all roll values to be equal to value + mod for attributes
     for (let [key, attr] of Object.entries(data.attributes)) {
       attr.roll = attr.value + attr.mod;
@@ -131,6 +130,22 @@ export class cyberpunkredActor extends Actor {
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
 
+    //Calculate automot
+    //Setup modlog
+    
+    data.modlog = [];
+    
+    // Iterate through items, finding modifiers
+    for (let i of actorData.items) {
+      const itemData = i.data;
+      console.log(itemData.modlist); //Returns objects
+      for(let [key,mod] of Object.entries(itemData.modlist)) {
+        console.log(mod); //Returns arrays
+        console.log(mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:" + mod.modactive + ")");  
+        //data.modlog.push(mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:)" + mod.modactive);
+      }
+    }
+    
   } //End Prepare Character Data
 
 

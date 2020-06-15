@@ -30,6 +30,7 @@
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
       {{/if}}
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="modlog">{{localize "CPRED.modlog"}}</a></div>
     </div>
     
     
@@ -131,6 +132,21 @@
               <i class="grid alterluck clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
               </ol>
           </div>
+        
+        {{!-- TODO: To make internal tabs need to override the _onChangeTab(event, tabs, active) method in your sheet class. Check out module/actor/sheet/base.js in the starfinder system. --}}
+        
+        {{#if data.itemCombatSetup}}
+        <div class="cprgraphics">
+        <h3>{{localize "CPRED.itemcombatsection"}}</h3>
+          {{#each actor.weapons as |item id|}}
+          <li class="flexrow" data-item-id="{{id}}">
+            <label class="cpr-weaponinlinebox">{{item.name}}</label>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollSkill item.data.skill.value}}">{{localize "CPRED.attack"}}</div>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollDamage item.data.damage.value}}">{{localize "CPRED.damage"}}</div>
+          </li>
+          {{/each}}
+        </div>
+        {{/if}}
         
         {{#if data.simpleCombatSetup}}
         <div class="cprgraphics">
@@ -305,7 +321,6 @@
       {{/if}}
       
       {{!-- SETTINGS TAB --}}
-      {{!-- TODO Localize this tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="settings">
         <h3>{{localize "CPRED.setbygm"}}</h3>
         {{localize "CPRED.dierollcommandname"}}: {{data.dieRollCommand}}
@@ -338,9 +353,18 @@
             <label for="set_{{key}}">{{key}}</label>
           {{/each}}  
         </ol>
-
       </div>
       
+      
+      {{!-- LOG TAB --}}
+      {{!-- TODO Localize this tab --}}
+      <div class="tab cprgraphics" data-group="primary" data-tab="modlog">
+        <h3>{{localize "CPRED.logheader"}}</h3>
+          {{#each data.modlog}}
+            <div>{{this}}</div>
+          {{/each}}  
+        </ol>
+      </div>
       
     </div> {{!-- Here ends main content --}}
   </div> {{!-- Here ends grid definition --}}
