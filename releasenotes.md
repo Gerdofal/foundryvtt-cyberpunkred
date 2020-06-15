@@ -14,8 +14,8 @@ Sections:
   - UI: Changed CSS for most UI items to fit CPR theme
   - New: Implemented simple roll template with room for future expansion
   - New: Completely re-wrote roll logic to provide optional details on all rolls
-  - Bugfix: Fixed bug where health, luck, and deathsave penalty are reset upon page reload
-  
+  - Bugfix: Fixed bug where health, luck, and deathsave penalty are reset upon F5 page reload
+  - New: Added new actions to the hacking tab
 
 ### Release Notes
 

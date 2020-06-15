@@ -202,17 +202,12 @@
         </ol>
         <label class="clickable modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
         </div>
-
-
- 
       </div>
 
       {{#if data.settings.showtabs.hacking}}
       {{!-- Hacking Tab --}}
       
       <div class="tab cprgraphics" data-group="primary" data-tab="hacking">
-        {{localize "CPRED.underconstruction"}}<br>
-        
         <div class="grid grid-4col">
           <label>{{localize "CPRED.attribute"}}</label>
           <label>{{localize "CPRED.base"}}</label>
@@ -230,16 +225,25 @@
           <input type="text" name="data.roleskills.hacking.spd.roll" value="{{data.roleskills.hacking.spd.roll}}" data-dtype="Number" readonly/>
         </div>
         
-<br>        {{localize "CPRED.notlocalized"}}
+<br>        {{localize "CPRED.underconstruction"}}
 <br>        
 <br>        <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="rollable">{{localize "CPRED.initiative"}}</label>
 <br>        <label data-roll="{{rollHacking 'encounterblackice'}}" class="rollable" data-label="{{localize 'CPRED.encounterblackice'}}">{{localize "CPRED.encounterblackice"}}</label>
-<br>        
+<br>        <label data-roll="{{rollHacking 'encounterblackicewithspeedy'}}" class="rollable" data-label="{{localize 'CPRED.encounterblackicewithspeedy'}}">{{localize "CPRED.encounterblackicewithspeedy"}}</label>
+<br>        <label data-roll="{{rollHacking 'attack'}}" class="rollable" data-label="{{localize 'CPRED.attack'}}">{{localize "CPRED.attack"}}</label>
+<br>        <label data-roll="{{rollHacking 'banhammerattack'}}" class="rollable" data-label="{{localize 'CPRED.banhammerattack'}}">{{localize "CPRED.banhammerattack"}}</label>
+<br><br><br>
+<br>    {{localize "CPRED.damage"}}
+        <div class="flexrow">
+          <div>{{localize "CPRED.banhammer"}}</div>
+          <div class="rollable" data-label="2d6" data-roll="{{rollDamage '2d6'}}">2d6</div>
+          <div class="rollable" data-label="3d6" data-roll="{{rollDamage '3d6'}}">3d6</div>
+        </div>
 <br>      Programs
 <br>        Speedy Gonzalez - Increases SPD by +4
 <br>        Banhammer - +2 ATT - 3d6 vs hellhounds, 2d6 vs other programs
 <br>        Flack - Stops the first successful non-helhound attack from doing damage
-<br>        
+<br>        encounterblackicewithspeedy
       </div>
       
       {{/if}}

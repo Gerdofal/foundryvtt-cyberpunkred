@@ -188,16 +188,41 @@ export class cyberpunkredActor extends Actor {
     switch (command) {
       case 'interfacecheck':
         //TODO: This needs customization in the future
-        var tempArray = this.rollSkill("interface","hacking");
-        rollArray = tempArray[0];
-        tags = tempArray[1]
+        var tempObject = this.rollSkill("interface","hacking");
+        rollArray = tempObject.rollArray;
+        tags =tempObject.tags;
+        break;
+      case 'attack':
+        //TODO: This needs customization in the future
+        var tempObject = this.rollSkill("interface","hacking");
+        rollArray = tempObject.rollArray;
+        tags =tempObject.tags;
+        break;
+      case 'banhammerattack':
+        //TODO: This needs customization in the future
+        var tempObject = this.rollSkill("interface","hacking");
+        rollArray = tempObject.rollArray;
+        tags =tempObject.tags;
+        tags.push(game.i18n.localize("CPRED.banhammer") + ": 2" );
+        rollArray.push(2);
         break;
       case 'encounterblackice':
         //TODO: Needs details
-        var tempArray = this.rollSkill("interface", "hacking");
-        rollArray = tempArray[0];
-        tags = tempArray[1]
+        var tempObject = this.rollSkill("interface", "hacking");
+        rollArray = tempObject.rollArray;
+        tags = tempObject.tags;
+        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.hacking.spd.value + " + " + data.roleskills.hacking.spd.mod + " = " + data.roleskills.hacking.spd.roll);
         rollArray.push(data.roleskills.hacking.spd.roll);
+        break;
+      case 'encounterblackicewithspeedy':
+        //TODO: Needs details
+        var tempObject = this.rollSkill("interface", "hacking");
+        rollArray = tempObject.rollArray;
+        tags = tempObject.tags;
+        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.hacking.spd.value + " + " + data.roleskills.hacking.spd.mod + " = " + data.roleskills.hacking.spd.roll);
+        rollArray.push(data.roleskills.hacking.spd.roll);
+        tags.push(game.i18n.localize("CPRED.speedygonzalez") + ": 4" );
+        rollArray.push(4);
         break;
       default:
         console.error("Hacking command not recognized in rollHacking: command=" + command);
