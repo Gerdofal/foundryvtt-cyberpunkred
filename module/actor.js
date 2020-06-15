@@ -139,7 +139,7 @@ export class cyberpunkredActor extends Actor {
   rollMod(rollObject) {
     //Compute current total mod
     var data = this.data.data;
-    rollObject.rollFormula = rollObject.rollFormula + data.modifiers.modfinalmod.totalpenalty;
+    rollObject.rollFormula = rollObject.rollFormula + " + " + data.modifiers.modfinalmod.totalpenalty;
     rollObject.tags.push("<hr>");
     rollObject.tags.push("Total Penalty: " + data.modifiers.modfinalmod.totalpenalty + "<hr>");
     for (let [key, attr] of Object.entries(data.modifiers)) {

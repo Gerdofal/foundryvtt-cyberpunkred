@@ -39,8 +39,8 @@ export class cyberpunkredActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-    _cprLog("Returning sheet data");
-    console.log(data);
+    //_cprLog("Returning sheet data");
+    //console.log(data);
     return data;
   }
 
@@ -115,96 +115,104 @@ export class cyberpunkredActorSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
-    // Reset all modifiers and clear penalties
+    // Reset all modifiers that are checked
     html.find('.resetallmods').click(ev => {
-      var intdata = this.actor.data;
-      for (let [key, attr] of Object.entries(this.actor.data.data.modifiers)) {
-        if (attr.hasOwnProperty("checked")) {
-          if (attr.checked) {
-            attr.checked = false;
+      const actor = this.actor;
+      var tempStr = "";
+      for (const property in actor.data.data.modifiers) {
+        if (actor.data.data.modifiers[property].hasOwnProperty("checked")) {
+          if (actor.data.data.modifiers[property].checked) {
+            actor.update({
+              [`data.modifiers.` + property + `.checked`] : false
+            });
           }
         }
       }
-      this.actor.data.data.modifiers.modmanualmod.penalty = 0;
-      this.actor.prepareData();
-      this.actor.render();
+      //Reset manual modifier
+      actor.update({
+          "data.modifiers.modmanualmod.penalty": 0
+      });
     });
 
     //Set current health based on click on dot
     html.find('.setcurrenthealth').click(ev => {
+      const actor = this.actor;
       var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
-      this.actor.data.data.combatstats.healthpool.value = setTo * 1;
-      this.actor.prepareData();
-      this.actor.render();
+      var newHealth = setTo * 1;
+      actor.update({
+        "data.combatstats.healthpool.value": newHealth
+      });
     });
 
     //Set current luck based on click on dot....
     html.find('.setcurrentluck').click(ev => {
+      const actor = this.actor;
       var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
-      this.actor.data.data.combatstats.luckpool.value = setTo * 1;
-      this.actor.prepareData();
-      this.actor.render();
+      var newLuck = setTo * 1;
+      actor.update({
+        "data.combatstats.luckpool.value": newLuck
+      });
     });
 
     //Set current health based on click on modifier number
     html.find('.alterhealth').click(ev => {
+      const actor = this.actor;
       var setTo = $(ev.currentTarget).attr("data-change") * 1;
-      var max = this.actor.data.data.combatstats.healthpool.max;
-      this.actor.data.data.combatstats.healthpool.value += setTo;
-      if (this.actor.data.data.combatstats.healthpool.value > max) {
-        this.actor.data.data.combatstats.healthpool.value = max;
+      var max = actor.data.data.combatstats.healthpool.max;
+      var newHealth = actor.data.data.combatstats.healthpool.value + setTo;
+      if (newHealth > max) {
+        newHealth = max;
       }
-      if (this.actor.data.data.combatstats.healthpool.value < 0) {
-        this.actor.data.data.combatstats.healthpool.value = 0;
+      if (newHealth < 0) {
+        newHealth = 0;
       }
-      this.actor.prepareData();
-      this.actor.render();
+      actor.update({
+        "data.combatstats.healthpool.value": newHealth
+      });
     });
 
     //Set current luck based on click on modifier number
     html.find('.alterluck').click(ev => {
+      const actor = this.actor;
       var setTo = $(ev.currentTarget).attr("data-change") * 1;
-      var max = this.actor.data.data.combatstats.luckpool.max;
-      this.actor.data.data.combatstats.luckpool.value += setTo;
-      if (this.actor.data.data.combatstats.luckpool.value > max) {
-        this.actor.data.data.combatstats.luckpool.value = max;
+      var max = actor.data.data.combatstats.luckpool.max;
+      var newLuck = actor.data.data.combatstats.luckpool.value + setTo;
+      
+      if (newLuck > max) {
+        newLuck = max;
       }
-      if (this.actor.data.data.combatstats.luckpool.value < 0) {
-        this.actor.data.data.combatstats.luckpool.value = 0;
+      if (newLuck < 0) {
+        newLuck = 0;
       }
-      this.actor.prepareData();
-      this.actor.render();
+      actor.update({
+        "data.combatstats.luckpool.value": newLuck
+      });
     });
 
     //Set the deathsave counter
     html.find('.alterdeathsave').click(ev => {
-      var change = $(ev.currentTarget).attr("data-change") * 1;
-      this.actor.data.data.combatstats.deathsave.penalty += (change * 1);
-      if (this.actor.data.data.combatstats.deathsave.penalty < 0) {
-        this.actor.data.data.combatstats.deathsave.penalty = 0;
+      const actor = this.actor;      
+      var change = $(ev.currentTarget).attr("data-change") * 1;     
+      var newPenalty = actor.data.data.combatstats.deathsave.penalty + (change * 1);      
+      if (newPenalty < 0) {
+        newPenalty = 0;
       }
-      this.actor.prepareData();
-      this.actor.render();
+      if (newPenalty > 10) {
+        newPenalty = 10;
+      }      
+      actor.update({
+        "data.combatstats.deathsave.penalty": newPenalty
+      });     
     });
 
     //Increment penalty on deathsave
     html.find('.deathsave').click(ev => {
       const actor = this.actor;
-
-      actor.data.data.combatstats.deathsave.penalty++;
-
-      let that = this;
-
+      var newPenalty = actor.data.data.combatstats.deathsave.penalty + 1;
       actor.update({
-        "data.combatstats.deathsave.penalty": actor.data.data.combatstats.deathsave.penalty
-      }).then(item => {
-        that.actor.prepareData()
-      }).then(item => {
-        that.actor.render()
+        "data.combatstats.deathsave.penalty": newPenalty
       });
-  
     });
-
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));

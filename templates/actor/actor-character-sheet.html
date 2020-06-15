@@ -16,20 +16,20 @@
     
     {{!-- Navigation Sidebar --}}
     <div class="cpr-nav sheet-tabs cprgraphics">
-      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
       {{#if data.settings.showtabs.hacking}}
-      <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
       {{/if}}
       {{#if data.showInventory}}
-      <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
       {{/if}}
-      <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
     </div>
     
     
@@ -103,6 +103,7 @@
       
       {{!-- Combat Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combat">  
+        
         {{!-- Bullet List Indicators for Current HP and Luck --}}
         <br>
           <div class="cprgraphics" style="display: inline-block; width: 48%;vertical-align: top;">
@@ -130,7 +131,7 @@
               <i class="grid alterluck clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
               </ol>
           </div>
-
+        
         {{#if data.simpleCombatSetup}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.simplecombatsection"}}</h3>
@@ -179,7 +180,7 @@
           {{/each}}
         </ol>
         </div>        
-
+          
         <div class="cprgraphics">
         <h3>{{localize "CPRED.modsectiontitle"}}</h3>
           <ol class="modlist-grid cpr-center">
@@ -201,7 +202,7 @@
         </ol>
         <label class="clickable modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
         </div>
-        
+
 
  
       </div>
