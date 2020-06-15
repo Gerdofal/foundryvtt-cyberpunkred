@@ -35,9 +35,11 @@
   "CPRED.deathsaverolllabela": "Death save. If you roll under your body of ",
   "CPRED.deathsaverolllabelb": ", you live. Each future roll takes a cumulative penalty.",
   "CPRED.dex": "DEX",
+  "CPRED.disabled": "Disabled",
   "CPRED.driving": "Driving",
   "CPRED.earn": "Earn",
   "CPRED.education": "Education",
+  "CPRED.enabled": "Enabled",
   "CPRED.encounterblackice": "Encounter Black Ice",
   "CPRED.encounterblackicewithspeedy" : "Encounter Black Ice - With Speedy Gonzalez",
   "CPRED.evasion": "Evasion",
@@ -92,6 +94,8 @@
   "CPRED.rollsetup": "Roll Setup",
   "CPRED.rollbuttons": "Buttons",
   "CPRED.settings": "Settings",
+  "CPRED.setbygm" : "These settings are set by the GM in system settings:",
+  "CPRED.showtabs" : "Show the following tabs:",
   "CPRED.simplecombatsection": "Simple Combat Rolls",
   "CPRED.skill": "Skill",
   "CPRED.skills": "Skills",
@@ -107,5 +111,6 @@
   "CPRED.underconstruction": "This area is under construction and may not behave as expected.",
   "CPRED.weapons": "Weapons",
   "CPRED.will": "WILL",
+  "CPRED.youmayset": "You may set the following settings for this sheet:",
   "CPRED.zero": "Zero"
 }

@@ -170,8 +170,6 @@
           </ol>
         </div> 
         
-        
-        
         <div class="cprgraphics">
         <h3>{{localize "CPRED.skills"}}</h3>
         <ol class="skilllist-grid cpr-center">
@@ -265,8 +263,7 @@
           </li>
           {{/each}}
         </ol>
-      </div>
-      
+      </div>  
       
       {{!-- Owned Weapons Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="weapons">
@@ -284,8 +281,7 @@
           </li>
           {{/each}}
         </ol>
-      </div>
-      
+      </div>   
       
       {{!-- Owned Gear Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="gear">
@@ -304,42 +300,37 @@
           {{/each}}
         </ol>
       </div>
-
       
       {{/if}}
-      
       
       {{!-- SETTINGS TAB --}}
       {{!-- TODO Localize this tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="settings">
-        {{localize "CPRED.notlocalized"}} <br>
+        <h3>{{localize "CPRED.setbygm"}}</h3>
+        {{localize "CPRED.dierollcommandname"}}: {{data.dieRollCommand}}
         <br>
-        The following settings have been set by the GM and are in effect for this game:<br>
-        <br>
-        The base die roll is: {{data.dieRollCommand}}<br>
+        {{localize "CPRED.gmalwayswhispername"}}:
         {{#if data.GMAlwaysWhisper}}
-        GM rolls for NPCs are HIDDEN from players<br>
-        {{else}}
-        GM rolls for NPCs are VISIBLE to players<br>
+        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
         {{/if}}
-        {{#if data.showInventory}}
-        Inventory management is ENABLED<br>
-        {{else}}
-        Inventory management is DISABLED<br>
-        {{/if}}
+        <br>
+        {{localize "CPRED.usesimplecombatname"}}:
         {{#if data.simpleCombatSetup}}
-        Simple combat setup is ENABLED<br>
-        {{else}}
-        Simple combat setup is DISABLED<br>
+        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
         {{/if}}
+        <br>
+        {{localize "CPRED.showinventoryname"}}:
+        {{#if data.showInventory}}
+        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
+        {{/if}}
+        <br>
+        {{localize "CPRED.useitembasedcombatname"}}:
         {{#if data.itemCombatSetup}}
-        Item-based combat setup is ENABLED<br>
-        {{else}}
-        Item-based combat setup is DISABLED<br>
+        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
         {{/if}}
-        <br><br>
-        You may set the following settings:<br><br>
-        Show the following tabs:<br>
+        <hr>
+        <h3>{{localize "CPRED.youmayset"}}</h3>
+        {{localize "CPRED.showtabs"}}<br>
         <ol class="grid grid-1col">
           {{#each data.settings.showtabs as |attr key|}}
             <input type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>
