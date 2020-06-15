@@ -16,20 +16,20 @@
     
     {{!-- Navigation Sidebar --}}
     <div class="cpr-nav sheet-tabs cprgraphics">
-      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
       {{#if data.settings.showtabs.hacking}}
-      <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
       {{/if}}
       {{#if data.showInventory}}
-      <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
       {{/if}}
-      <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
     </div>
     
     
@@ -64,7 +64,7 @@
           <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
           {{#each data.skills as |skill key|}}
-          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{buildRollString ../data key}}" class="rollable">{{localize (concat "CPRED." key)}} ({{localize (concat "CPRED." skill.linkedattribute)}})</label>
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="rollable">{{localize (concat "CPRED." key)}} ({{localize (concat "CPRED." skill.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
@@ -103,6 +103,7 @@
       
       {{!-- Combat Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combat">  
+        
         {{!-- Bullet List Indicators for Current HP and Luck --}}
         <br>
           <div class="cprgraphics" style="display: inline-block; width: 48%;vertical-align: top;">
@@ -130,7 +131,7 @@
               <i class="grid alterluck clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
               </ol>
           </div>
-
+        
         {{#if data.simpleCombatSetup}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.simplecombatsection"}}</h3>
@@ -138,43 +139,46 @@
           {{#if_not_eq item.skill "hidden"}}
           <li class="flexrow" data-item-id="{{item.id}}">
             <label class="cpr-weaponinlinebox">{{item.name}}</label>
-            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{buildRollString ../data  item.skill}}">{{localize "CPRED.attack"}}</div>
-            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{item.damage}}">{{localize "CPRED.damage"}}</div>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollSkill item.skill}}">{{localize "CPRED.attack"}}</div>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollDamage item.damage}}">{{localize "CPRED.damage"}}</div>
           </li>
           {{/if_not_eq}}
           {{/each}}
         </div>
         {{/if}}
           
-          
+        {{!-- TODO: Add a way to edit reputation --}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.specialrolls"}}</h3>
           <ol class="specialroll-grid">
             <ol class="specialroll-item">
-              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{data.dieRollCommand}} + {{data.combatstats.deathsave.penalty}}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
+              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{RollWithoutMods (concat data.dieRollCommand '+' data.combatstats.deathsave.penalty) }}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label><br>
               <li class="flexrow" data-item-id="{{item.id}}">
+              <i class="alterdeathsave clickable" data-change="-9999">{{localize "CPRED.zero"}}</i>
               <i class="alterdeathsave clickable" data-change="-1">-1</i>
               <i class="alterdeathsave clickable" data-change="1">+1</i>
               </li>
             </ol>
-            <ol class="specialroll-item">Facedown</ol>
-            <ol class="specialroll-item">Suppressive Fire</ol>
-            <ol class="specialroll-item">Reputation Check</ol>
-            <ol class="specialroll-item">Initiative</ol>
+            <ol class="specialroll-item">
+                <label for="Facedown" data-label='{{localize "CPRED.facedown"}}' data-roll="{{RollWithoutMods (concat data.dieRollCommand '+' data.attributes.cool.roll '+' data.combatstats.reputation.value) }}" class="rollable">{{localize "CPRED.facedown"}}</label>
+            </ol>
+            <ol class="specialroll-item"><label for="Suppressivefire" data-label='{{localize "CPRED.suppressivefire"}}' data-roll="{{rollSkill 'marksmanship'}}" class="rollable">{{localize "CPRED.suppressivefire"}}</label></ol>
+            <ol class="specialroll-item"><label for="reputationcheck" data-label='{{localize "CPRED.reputationchecklabela"}}{{data.combatstats.reputation.value}}{{localize "CPRED.reputationchecklabelb"}}' data-roll="{{RollWithoutMods '1d10'}}" class="rollable">{{localize "CPRED.reputationcheck"}}</label></ol>
+            <ol class="specialroll-item">
+              <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="rollable">{{localize "CPRED.initiative"}}</label>
+            </ol>
           </ol>
         </div> 
-        
-        
         
         <div class="cprgraphics">
         <h3>{{localize "CPRED.skills"}}</h3>
         <ol class="skilllist-grid cpr-center">
           {{#each data.skills as |skill key|}}
-          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{buildRollString ../data key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
           {{/each}}
         </ol>
         </div>        
-
+          
         <div class="cprgraphics">
         <h3>{{localize "CPRED.modsectiontitle"}}</h3>
           <ol class="modlist-grid cpr-center">
@@ -194,43 +198,51 @@
           {{localize "CPRED.modfinalmod"}} {{data.modifiers.modfinalmod.totalpenalty}}
           </li>      
         </ol>
-        <label class="modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
+        <label class="clickable modlist resetallmods">{{localize "CPRED.modclicktoreset"}}</label>
         </div>
-        
-
- 
       </div>
 
       {{#if data.settings.showtabs.hacking}}
       {{!-- Hacking Tab --}}
       
       <div class="tab cprgraphics" data-group="primary" data-tab="hacking">
-        {{localize "CPRED.underconstruction"}}<br>
-        
         <div class="grid grid-4col">
           <label>{{localize "CPRED.attribute"}}</label>
           <label>{{localize "CPRED.base"}}</label>
           <label>{{localize "CPRED.mod"}}</label>
           <label>{{localize "CPRED.totalroll"}}</label>
           {{!-- TODO - Future changes may require re-writing this to not use int --}}
-          <label for="data.roleskills.interface.value" data-roll="{{data.dieRollCommand}} + {{data.roleskills.interface.roll}} + {{data.attributes.int.roll}}" class="rollable" data-label="{{localize 'CPRED.interface'}}">{{localize "CPRED.interface"}} ({{localize (concat "CPRED." data.roleskills.interface.linkedattribute)}})</label>
-          <input class="skill-value" type="text" name="data.roleskills.interface.value" value="{{data.roleskills.interface.value}}" data-dtype="Number"/>
-          <input type="text" name="data.roleskills.interface.mod" value="{{data.roleskills.interface.mod}}" data-dtype="Number"/>
-          <input type="text" name="data.roleskills.interface.roll" value="{{data.roleskills.interface.roll}}" data-dtype="Number" readonly/>
+          <label for="data.roleskills.hacking.interface.value" data-roll="{{rollHacking 'interfacecheck'}}" class="rollable" data-label="{{localize 'CPRED.interface'}}">{{localize "CPRED.interface"}} ({{localize (concat "CPRED." data.roleskills.hacking.interface.linkedattribute)}})</label>
+          <input class="skill-value" type="text" name="data.roleskills.hacking.interface.value" value="{{data.roleskills.hacking.interface.value}}" data-dtype="Number"/>
+          <input type="text" name="data.roleskills.hacking.interface.mod" value="{{data.roleskills.hacking.interface.mod}}" data-dtype="Number"/>
+          <input type="text" name="data.roleskills.hacking.interface.roll" value="{{data.roleskills.hacking.interface.roll}}" data-dtype="Number" readonly/>
+          
+          <label for="data.roleskills.hacking.spd.value" data-label="{{localize 'CPRED.spd'}}">{{localize "CPRED.spd"}}</label>
+          <input class="skill-value" type="text" name="data.roleskills.hacking.spd.value" value="{{data.roleskills.hacking.spd.value}}" data-dtype="Number"/>
+          <input type="text" name="data.roleskills.hacking.spd.mod" value="{{data.roleskills.hacking.spd.mod}}" data-dtype="Number"/>
+          <input type="text" name="data.roleskills.hacking.spd.roll" value="{{data.roleskills.hacking.spd.roll}}" data-dtype="Number" readonly/>
         </div>
         
-<br>        {{localize "CPRED.notlocalized"}}
+<br>        {{localize "CPRED.underconstruction"}}
 <br>        
-<br>        <h3>Notes for future hacking tab expansion: </h3>
-<br>        Base Roll: Roll 1d10 + Interface
-<br>        Initiative:
-<br>        SPD:
-<br>        
-<br>      Programs
+<hr>    <h3>{{localize "CPRED.actions"}}</h3>
+        <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="rollable">{{localize "CPRED.initiative"}}</label>
+<br>        <label data-roll="{{rollHacking 'encounterblackice'}}" class="rollable" data-label="{{localize 'CPRED.encounterblackice'}}">{{localize "CPRED.encounterblackice"}}</label>
+<br>        <label data-roll="{{rollHacking 'encounterblackicewithspeedy'}}" class="rollable" data-label="{{localize 'CPRED.encounterblackicewithspeedy'}}">{{localize "CPRED.encounterblackicewithspeedy"}}</label>
+<br>        <label data-roll="{{rollHacking 'attack'}}" class="rollable" data-label="{{localize 'CPRED.attack'}}">{{localize "CPRED.attack"}}</label>
+<br>        <label data-roll="{{rollHacking 'banhammerattack'}}" class="rollable" data-label="{{localize 'CPRED.banhammerattack'}}">{{localize "CPRED.banhammerattack"}}</label>
+
+<hr>    <h3>{{localize "CPRED.damage"}}</h3>
+        <div class="flexrow">
+          <div>{{localize "CPRED.banhammer"}}</div>
+          <div class="rollable" data-label="2d6" data-roll="{{rollDamage '2d6'}}">2d6</div>
+          <div class="rollable" data-label="3d6" data-roll="{{rollDamage '3d6'}}">3d6</div>
+        </div>
+<hr>      Programs
 <br>        Speedy Gonzalez - Increases SPD by +4
 <br>        Banhammer - +2 ATT - 3d6 vs hellhounds, 2d6 vs other programs
 <br>        Flack - Stops the first successful non-helhound attack from doing damage
-<br>        
+<br>        encounterblackicewithspeedy
       </div>
       
       {{/if}}
@@ -252,8 +264,7 @@
           </li>
           {{/each}}
         </ol>
-      </div>
-      
+      </div>  
       
       {{!-- Owned Weapons Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="weapons">
@@ -271,8 +282,7 @@
           </li>
           {{/each}}
         </ol>
-      </div>
-      
+      </div>   
       
       {{!-- Owned Gear Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="gear">
@@ -291,42 +301,37 @@
           {{/each}}
         </ol>
       </div>
-
       
       {{/if}}
-      
       
       {{!-- SETTINGS TAB --}}
       {{!-- TODO Localize this tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="settings">
-        {{localize "CPRED.notlocalized"}} <br>
+        <h3>{{localize "CPRED.setbygm"}}</h3>
+        {{localize "CPRED.dierollcommandname"}}: {{data.dieRollCommand}}
         <br>
-        The following settings have been set by the GM and are in effect for this game:<br>
-        <br>
-        The base die roll is: {{data.dieRollCommand}}<br>
+        {{localize "CPRED.gmalwayswhispername"}}:
         {{#if data.GMAlwaysWhisper}}
-        GM rolls for NPCs are HIDDEN from players<br>
-        {{else}}
-        GM rolls for NPCs are VISIBLE to players<br>
+        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
         {{/if}}
-        {{#if data.showInventory}}
-        Inventory management is ENABLED<br>
-        {{else}}
-        Inventory management is DISABLED<br>
-        {{/if}}
+        <br>
+        {{localize "CPRED.usesimplecombatname"}}:
         {{#if data.simpleCombatSetup}}
-        Simple combat setup is ENABLED<br>
-        {{else}}
-        Simple combat setup is DISABLED<br>
+        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
         {{/if}}
+        <br>
+        {{localize "CPRED.showinventoryname"}}:
+        {{#if data.showInventory}}
+        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
+        {{/if}}
+        <br>
+        {{localize "CPRED.useitembasedcombatname"}}:
         {{#if data.itemCombatSetup}}
-        Item-based combat setup is ENABLED<br>
-        {{else}}
-        Item-based combat setup is DISABLED<br>
+        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
         {{/if}}
-        <br><br>
-        You may set the following settings:<br><br>
-        Show the following tabs:<br>
+        <hr>
+        <h3>{{localize "CPRED.youmayset"}}</h3>
+        {{localize "CPRED.showtabs"}}<br>
         <ol class="grid grid-1col">
           {{#each data.settings.showtabs as |attr key|}}
             <input type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>

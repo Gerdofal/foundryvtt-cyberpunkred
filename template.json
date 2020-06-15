@@ -31,6 +31,9 @@
           },
           "deathsave": {
             "penalty": 0
+          },
+          "reputation": {
+            "value": 1
           }
         }
       },
@@ -41,61 +44,61 @@
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           },
           "weapon2": {
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           },
           "weapon3": {
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           },
           "weapon4": {
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           },
           "weapon5": {
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           },
           "weapon6": {
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           },
           "weapon7": {
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           },
           "weapon8": {
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           },
           "weapon9": {
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           },
           "weapon10": {
             "name": "Weapon Name...",
             "damage": "5d6",
             "skill": "hidden",
-            "type":"Pistol"
+            "type": "Pistol"
           }
         }
       },
@@ -371,110 +374,119 @@
           }
         }
       },
-      
+
       "modifiers": {
         "modifiers": {
           "modhalfdam": {
-            "penalty":-3,
+            "penalty": -3,
             "checked": false
           },
           "modfulldam": {
-            "penalty":-2,
-            "checked":false
+            "penalty": -2,
+            "checked": false
           },
           "modfacedown": {
             "penalty": -3,
             "checked": false
           },
-          
+
           "modheadshot": {
             "penalty": -6,
             "checked": false
           },
-          
+
           "modunfamiliarequipment": {
             "penalty": -4,
             "checked": false
           },
-          
+
           "modnoinstructions": {
             "penalty": -2,
             "checked": false
           },
-          
+
           "modwrongtools": {
             "penalty": -2,
             "checked": false
           },
-          
+
           "modcomplextask": {
             "penalty": -3,
             "checked": false
           },
-          
+
           "modneverdonebefore": {
             "penalty": -1,
             "checked": false
           },
-          
+
           "modunderattack": {
             "penalty": -3,
             "checked": false
           },
-          
+
           "moddrunkdruggedtired": {
             "penalty": -4,
             "checked": false
           },
-          
+
           "modsecretly": {
             "penalty": -4,
             "checked": false
           },
-          
+
           "moddarkobscured": {
             "penalty": -4,
             "checked": false
           },
-          
+
           "modmanualmod": {
             "penalty": 0
           },
-          
+
           "modfinalmod": {
-            "totalpenalty": 0
-          }       
+            "totalpenalty": 0,
+            "healthpenalty": 0
+          }
         }
       },
-      
+
       "settings": {
-        "settings" : {
+        "settings": {
           "role": {
-            "rolename":"No role set yet"
+            "rolename": "No role set yet"
           },
           "showtabs": {
             "hacking": true
           }
-        } 
+        }
       },
-      
+
       "roleskills": {
         "roleskills": {
-          "interface": {
-            "value": 0,
-            "mod": 0,
-            "automod": 0,
-            "roll": 0,
-            "linkedattribute": "int"
+          "hacking": {
+            "interface": {
+              "value": 0,
+              "mod": 0,
+              "automod": 0,
+              "roll": 0,
+              "linkedattribute": "int"
+            },
+            "spd": {
+              "value": 0,
+              "mod": 0,
+              "automod": 0,
+              "roll": 0,
+              "linkedattribute": "int"
+            }
           }
         }
       }
-      
-      
-      
+
+
     },
     "character": {
-      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup","modifiers","settings","roleskills"]
+      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
     },
     "npc": {
       "templates": ["description", "combatstats", "npc"]

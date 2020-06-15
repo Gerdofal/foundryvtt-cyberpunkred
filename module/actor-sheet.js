@@ -5,7 +5,9 @@ import {
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet} 
  */
+
 export class cyberpunkredActorSheet extends ActorSheet {
+
 
   /** @override */
   static get defaultOptions() {
@@ -37,7 +39,8 @@ export class cyberpunkredActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-    _cprLog("Returning sheet data");
+    //_cprLog("Returning sheet data");
+    //console.log(data);
     return data;
   }
 
@@ -51,6 +54,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
+
 
     _cprLog("Parsing Item List");
     // Initialize containers.
@@ -111,79 +115,123 @@ export class cyberpunkredActorSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
-    // Reset all modifiers and clear penalties
+    // Reset all modifiers that are checked
     html.find('.resetallmods').click(ev => {
-      var intdata = this.actor.data;
-      for (let [key, attr] of Object.entries(this.actor.data.data.modifiers)) {
-        if (attr.hasOwnProperty("checked")) {
-          if (attr.checked) {
-            attr.checked = false;
+      const actor = this.actor;
+      const modData = duplicate(actor.data.data);
+      for (const property in modData.modifiers) {
+        if (modData.modifiers[property].hasOwnProperty("checked")) {
+          if (modData.modifiers[property].checked) {
+            modData.modifiers[property].checked = false;
+          };
+        }
+      }
+      modData.modifiers.modmanualmod.penalty = 0;
+      actor.update({
+        "data.modifiers": modData.modifiers
+      });
+    });
+
+    /*
+    // Reset all modifiers that are checked
+    html.find('.resetallmods').click(ev => {
+      const actor = this.actor;
+      var tempStr = "";
+      for (const property in actor.data.data.modifiers) {
+        if (actor.data.data.modifiers[property].hasOwnProperty("checked")) {
+          if (actor.data.data.modifiers[property].checked) {
+            actor.update({
+              [`data.modifiers.` + property + `.checked`] : false
+            });
           }
         }
       }
-      this.actor.data.data.modifiers.modmanualmod.penalty = 0;
-      this.actor.prepareData();this.actor.render();
+      //Reset manual modifier
+      actor.update({
+          "data.modifiers.modmanualmod.penalty": 0
+      });
     });
+    */
 
     //Set current health based on click on dot
     html.find('.setcurrenthealth').click(ev => {
+      const actor = this.actor;
       var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
-      this.actor.data.data.combatstats.healthpool.value = setTo * 1;
-      this.actor.prepareData();this.actor.render();
+      var newHealth = setTo * 1;
+      actor.update({
+        "data.combatstats.healthpool.value": newHealth
+      });
     });
 
     //Set current luck based on click on dot....
     html.find('.setcurrentluck').click(ev => {
+      const actor = this.actor;
       var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
-      this.actor.data.data.combatstats.luckpool.value = setTo * 1;
-      this.actor.prepareData();this.actor.render();
+      var newLuck = setTo * 1;
+      actor.update({
+        "data.combatstats.luckpool.value": newLuck
+      });
     });
 
     //Set current health based on click on modifier number
     html.find('.alterhealth').click(ev => {
+      const actor = this.actor;
       var setTo = $(ev.currentTarget).attr("data-change") * 1;
-      var max = this.actor.data.data.combatstats.healthpool.max;
-      this.actor.data.data.combatstats.healthpool.value += setTo;
-      if (this.actor.data.data.combatstats.healthpool.value > max) {
-        this.actor.data.data.combatstats.healthpool.value = max;
+      var max = actor.data.data.combatstats.healthpool.max;
+      var newHealth = actor.data.data.combatstats.healthpool.value + setTo;
+      if (newHealth > max) {
+        newHealth = max;
       }
-      if (this.actor.data.data.combatstats.healthpool.value < 0) {
-        this.actor.data.data.combatstats.healthpool.value = 0;
+      if (newHealth < 0) {
+        newHealth = 0;
       }
-      this.actor.prepareData();this.actor.render();
+      actor.update({
+        "data.combatstats.healthpool.value": newHealth
+      });
     });
 
     //Set current luck based on click on modifier number
     html.find('.alterluck').click(ev => {
+      const actor = this.actor;
       var setTo = $(ev.currentTarget).attr("data-change") * 1;
-      var max = this.actor.data.data.combatstats.luckpool.max;
-      this.actor.data.data.combatstats.luckpool.value += setTo;
-      if (this.actor.data.data.combatstats.luckpool.value > max) {
-        this.actor.data.data.combatstats.luckpool.value = max;
+      var max = actor.data.data.combatstats.luckpool.max;
+      var newLuck = actor.data.data.combatstats.luckpool.value + setTo;
+
+      if (newLuck > max) {
+        newLuck = max;
       }
-      if (this.actor.data.data.combatstats.luckpool.value < 0) {
-        this.actor.data.data.combatstats.luckpool.value = 0;
+      if (newLuck < 0) {
+        newLuck = 0;
       }
-      this.actor.prepareData();this.actor.render();
+      actor.update({
+        "data.combatstats.luckpool.value": newLuck
+      });
     });
 
-      //Set the deathsave counter
+    //Set the deathsave counter
     html.find('.alterdeathsave').click(ev => {
+      const actor = this.actor;
       var change = $(ev.currentTarget).attr("data-change") * 1;
-      this.actor.data.data.combatstats.deathsave.penalty += (change * 1);
-      if (this.actor.data.data.combatstats.deathsave.penalty<0) {
-        this.actor.data.data.combatstats.deathsave.penalty=0;
+      var newPenalty = actor.data.data.combatstats.deathsave.penalty + (change * 1);
+      if (newPenalty < 0) {
+        newPenalty = 0;
       }
-      _cprLog("Death save is now " + this.actor.data.data.combatstats.deathsave.penalty);
-      this.actor.prepareData();this.actor.render();
+      if (newPenalty > 10) {
+        newPenalty = 10;
+      }
+      actor.update({
+        "data.combatstats.deathsave.penalty": newPenalty
+      });
     });
 
     //Increment penalty on deathsave
     html.find('.deathsave').click(ev => {
-      this.actor.data.data.combatstats.deathsave.penalty++;
-      this.actor.prepareData();this.actor.render();
+      const actor = this.actor;
+      var newPenalty = actor.data.data.combatstats.deathsave.penalty + 1;
+      actor.update({
+        "data.combatstats.deathsave.penalty": newPenalty
+      });
     });
-
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
@@ -223,30 +271,25 @@ export class cyberpunkredActorSheet extends ActorSheet {
    * @private
    */
   _onRoll(event) {
+
+    //This function calls rollCPR with whatever was sent to the command. 
+    //All special roll logic happens in rollCPR
+
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-
-    if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && this.actor.data.type == "npc") {
-      var rollstring = "gmroll";
-    } else {
-      var rollstring = "roll";
+    var tagData = [];
+    //Default template data
+    let templateData = {
+      title: this.actor.data.name,
+      flavor: '',
+      details: dataset.label ? `${dataset.label}` : '',
+      tags: tagData,
+      uid: this.actor.data._id + (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)
     }
 
-    if (dataset.roll) {
-      //console.log(dataset);
-      let roll = new Roll(dataset.roll, this.actor.data.data);
-      let label = dataset.label ? `${dataset.label}` : '';
-      roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({
-          actor: this.actor
-        }),
-        flavor: label
-      }, {
-        rollMode: rollstring
-      });
+    this.actor.rollCPR(dataset.roll, this.actor.data, templateData);
 
-    } // End if Dataset.roll
   } // end OnRoll
 
 

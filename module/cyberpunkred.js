@@ -23,8 +23,9 @@ import {
 
 
 Hooks.once('init', async function () {
-
+  
   _cprLog(`Initializing CyberpunkRED System`);
+  
   // Register System Settings
   _cprLog(`Register System Settings`);
   registerSystemSettings();
@@ -65,21 +66,37 @@ Hooks.once('init', async function () {
     makeDefault: true
   });
 
+  
+
+    
+    
   _cprLog(`Register Handlebars`);
 
   //Setup helper for roll info
-  Handlebars.registerHelper('buildRollString', function (data, skill) {
-    var outStr = game.settings.get("cyberpunkred", "dieRollCommand");
-    var arr = new Array();
-    arr.push(data.skills[skill].roll);
-    arr.push(data.attributes[data.skills[skill].linkedattribute].roll);
-    arr.push(data.modifiers.modfinalmod.totalpenalty);
-    arr.forEach(element => {
-      outStr += " + " + element;
-    });
-    return (outStr);
+  Handlebars.registerHelper('rollSkill', function (skill) {
+      return "_RollSkill " + skill;
+  });
+  
+  Handlebars.registerHelper('rollInitiative', function() {
+      return "_RollInitiative";
   });
 
+  Handlebars.registerHelper('rollHacking', function(command) {
+      return "_RollHacking " + command;
+  });
+  
+  Handlebars.registerHelper('RollWithMods', function(formula) {
+      return "_RollWithMods " + formula;
+  });
+  
+  Handlebars.registerHelper('RollWithoutMods', function(formula) {
+      return "_RollWithoutMods " + formula;
+  });
+
+  Handlebars.registerHelper('rollDamage', function(formula) {
+      return "_RollDamage " + formula;
+  });
+  
   //Setup helper for damage track
   Handlebars.registerHelper('buildDamageTrack', function (current, max) {
     var x = 1;
@@ -96,10 +113,10 @@ Hooks.once('init', async function () {
       if (x % 10 == 0) {
         outStr += "<br>";
       }
-
     }
     return outStr;
   });
+  
 
   //Setup helper for luck track
   Handlebars.registerHelper('buildLuckTrack', function (current, max) {
@@ -121,6 +138,14 @@ Hooks.once('init', async function () {
     return outStr;
   });
 
+  Handlebars.registerHelper('cprTags', function(tagsInput) { 
+      let output = '<div class="tags">';
+      tagsInput.forEach(element => {
+        output += `<div class="tag">${element}</div>`;
+      });
+      output += '</div>';
+      return output;
+    });
 
   //Return concatination of all arguments - Used for localizing sometimes
   Handlebars.registerHelper('concat', function () {

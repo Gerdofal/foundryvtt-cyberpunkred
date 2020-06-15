@@ -5,7 +5,24 @@ Sections:
 
 ### In Development
 
-- 0.29 - In Development / Not Yet Released - Beta
+- 0.31 - In Development / Not Yet Released
+
+### Release Notes
+
+- 0.30 - Released 6/15/2020 - Beta
+  - UI: Localized remaining rolls on combat tab
+  - New: Facedown, suppressive fire, reputation check, and initiave are now rollable
+  - New: Added reputation to combatstats
+  - Update: Set supported version to 0.6.2
+  - Bugfix: INIT now uses defined roll prefix
+  - UI: Changed CSS for most UI items to fit CPR theme
+  - New: Implemented simple roll template with room for future expansion
+  - New: Completely re-wrote roll logic to provide optional details on all rolls
+  - Bugfix: Fixed bug where health, luck, and deathsave penalty are reset upon F5 page reload
+  - New: Added new actions to the hacking tab
+  - UI: Localized the settings tab
+  
+- 0.29 - Released 6/6/2020 - Beta
   - BugFix: Initiative roll will now properly change when ref value, ref mod, or init mod change.
   - Cleanup: Removed init.value from template.json since it's meaningless
   - BugFix: Die command once again displays properly on the character sheet settings tab
@@ -29,8 +46,6 @@ Sections:
   - New Feature: Added some notes to hacking tab
   - UI Improvement: Tweaked the alignment of NPC buttons
 
-### Release Notes
-
 - 0.28 - Released 6/2/2020 - Beta
   - Setup damage rolls for weapons as well as weapon type for future help determining hit target at range.
   - Re-wrote CSS to begin process of setting up the final appearance of the character sheet
@@ -51,6 +66,4 @@ Sections:
 
 ### Future Plans
 
-- 0.31 - Item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons).
-- 0.30 - Re-write roll system to use a custom card, expansion of the hacking tab, further improvements of the character sheet ui, finishing up the hacking and settings tab
-- 0.29 - Tweak formatting of the character sheet to improve usability and squash bugs. Add hacking actions to hacking tab.
+- 0.31 - UI cleanup, adding ways to edit random attributes not included on other tabs, item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons).

@@ -1,0 +1,15 @@
+<section style="background-color: #FFFFFF;" class="dw-chat-card">
+  <div class="cell cell--chat">
+    <div class="cpr-roll-title">{{title}}</div>
+    {{#if flavor}}<div class="cpr-roll-flavor"><em>{{flavor}}</em></div>{{/if}}
+    {{#if details}}<div class="cpr-roll-details">{{{details}}}</div>{{/if}}
+    {{#if rollcpr}}<div class="cpr-roll-roll">{{{rollcpr}}}</div>{{/if}}
+    {{#if tags}}
+    <label>
+      <div class="cpr-roll-showtagslink">Details Available</div>
+      <input class="cpr-roll-showtagscheck" type="checkbox">
+      <div class="cpr-roll-tags"><hr>{{{cprTags tags}}}</div>
+    </label>
+    {{/if}}
+    </div>
+</section>
