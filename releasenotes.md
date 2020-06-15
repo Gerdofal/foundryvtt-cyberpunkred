@@ -16,6 +16,7 @@ Sections:
   - New: Completely re-wrote roll logic to provide optional details on all rolls
   - Bugfix: Fixed bug where health, luck, and deathsave penalty are reset upon F5 page reload
   - New: Added new actions to the hacking tab
+  - UI: Localized the settings tab
 
 ### Release Notes
 
