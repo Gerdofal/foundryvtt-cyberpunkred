@@ -9,7 +9,6 @@ import {
 export class cyberpunkredActorSheet extends ActorSheet {
 
 
-
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -127,21 +126,24 @@ export class cyberpunkredActorSheet extends ActorSheet {
         }
       }
       this.actor.data.data.modifiers.modmanualmod.penalty = 0;
-      this.actor.prepareData();this.actor.render();
+      this.actor.prepareData();
+      this.actor.render();
     });
 
     //Set current health based on click on dot
     html.find('.setcurrenthealth').click(ev => {
       var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
       this.actor.data.data.combatstats.healthpool.value = setTo * 1;
-      this.actor.prepareData();this.actor.render();
+      this.actor.prepareData();
+      this.actor.render();
     });
 
     //Set current luck based on click on dot....
     html.find('.setcurrentluck').click(ev => {
       var setTo = $(ev.currentTarget).attr("data-setvalue") * 1;
       this.actor.data.data.combatstats.luckpool.value = setTo * 1;
-      this.actor.prepareData();this.actor.render();
+      this.actor.prepareData();
+      this.actor.render();
     });
 
     //Set current health based on click on modifier number
@@ -155,7 +157,8 @@ export class cyberpunkredActorSheet extends ActorSheet {
       if (this.actor.data.data.combatstats.healthpool.value < 0) {
         this.actor.data.data.combatstats.healthpool.value = 0;
       }
-      this.actor.prepareData();this.actor.render();
+      this.actor.prepareData();
+      this.actor.render();
     });
 
     //Set current luck based on click on modifier number
@@ -169,24 +172,37 @@ export class cyberpunkredActorSheet extends ActorSheet {
       if (this.actor.data.data.combatstats.luckpool.value < 0) {
         this.actor.data.data.combatstats.luckpool.value = 0;
       }
-      this.actor.prepareData();this.actor.render();
+      this.actor.prepareData();
+      this.actor.render();
     });
 
-      //Set the deathsave counter
+    //Set the deathsave counter
     html.find('.alterdeathsave').click(ev => {
       var change = $(ev.currentTarget).attr("data-change") * 1;
       this.actor.data.data.combatstats.deathsave.penalty += (change * 1);
-      if (this.actor.data.data.combatstats.deathsave.penalty<0) {
-        this.actor.data.data.combatstats.deathsave.penalty=0;
+      if (this.actor.data.data.combatstats.deathsave.penalty < 0) {
+        this.actor.data.data.combatstats.deathsave.penalty = 0;
       }
-      this.actor.prepareData();this.actor.render();
+      this.actor.prepareData();
+      this.actor.render();
     });
 
     //Increment penalty on deathsave
     html.find('.deathsave').click(ev => {
-      this.actor.data.data.combatstats.deathsave.penalty++;
-      //this.actor.update(this.actor.data.data)
-      this.actor.prepareData();this.actor.render();
+      const actor = this.actor;
+
+      actor.data.data.combatstats.deathsave.penalty++;
+
+      let that = this;
+
+      actor.update({
+        "data.combatstats.deathsave.penalty": actor.data.data.combatstats.deathsave.penalty
+      }).then(item => {
+        that.actor.prepareData()
+      }).then(item => {
+        that.actor.render()
+      });
+  
     });
 
 
@@ -228,25 +244,25 @@ export class cyberpunkredActorSheet extends ActorSheet {
    * @private
    */
   _onRoll(event) {
-    
+
     //This function calls rollCPR with whatever was sent to the command. 
     //All special roll logic happens in rollCPR
-    
+
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
     var tagData = [];
     //Default template data
     let templateData = {
-        title: this.actor.data.name,
-        flavor: '',
-        details: dataset.label ? `${dataset.label}` : '',
-        tags: tagData,
-        uid: this.actor.data._id+(new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)
-      }
-    
+      title: this.actor.data.name,
+      flavor: '',
+      details: dataset.label ? `${dataset.label}` : '',
+      tags: tagData,
+      uid: this.actor.data._id + (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)
+    }
+
     this.actor.rollCPR(dataset.roll, this.actor.data, templateData);
-    
+
   } // end OnRoll
 
 

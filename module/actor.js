@@ -40,7 +40,6 @@ export class cyberpunkredActor extends Actor {
     _cprLog("Preparing character data for: " + actorData.name);
     const data = actorData.data;
 
-
     //TODO - put all these transitions into their own module
 
     //NOTE: ui.notifications accepts info, warn, and error
