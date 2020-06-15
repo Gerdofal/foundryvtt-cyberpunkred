@@ -118,6 +118,24 @@ export class cyberpunkredActorSheet extends ActorSheet {
     // Reset all modifiers that are checked
     html.find('.resetallmods').click(ev => {
       const actor = this.actor;
+      const modData = duplicate(actor.data.data);
+      for (const property in modData.modifiers) {
+        if (modData.modifiers[property].hasOwnProperty("checked")) {
+          if (modData.modifiers[property].checked) {
+            modData.modifiers[property].checked = false;
+          };
+        }
+      }
+      modData.modifiers.modmanualmod.penalty = 0;
+      actor.update({
+        "data.modifiers": modData.modifiers
+      });
+    });
+
+    /*
+    // Reset all modifiers that are checked
+    html.find('.resetallmods').click(ev => {
+      const actor = this.actor;
       var tempStr = "";
       for (const property in actor.data.data.modifiers) {
         if (actor.data.data.modifiers[property].hasOwnProperty("checked")) {
@@ -133,6 +151,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
           "data.modifiers.modmanualmod.penalty": 0
       });
     });
+    */
 
     //Set current health based on click on dot
     html.find('.setcurrenthealth').click(ev => {
@@ -177,7 +196,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       var setTo = $(ev.currentTarget).attr("data-change") * 1;
       var max = actor.data.data.combatstats.luckpool.max;
       var newLuck = actor.data.data.combatstats.luckpool.value + setTo;
-      
+
       if (newLuck > max) {
         newLuck = max;
       }
@@ -191,18 +210,18 @@ export class cyberpunkredActorSheet extends ActorSheet {
 
     //Set the deathsave counter
     html.find('.alterdeathsave').click(ev => {
-      const actor = this.actor;      
-      var change = $(ev.currentTarget).attr("data-change") * 1;     
-      var newPenalty = actor.data.data.combatstats.deathsave.penalty + (change * 1);      
+      const actor = this.actor;
+      var change = $(ev.currentTarget).attr("data-change") * 1;
+      var newPenalty = actor.data.data.combatstats.deathsave.penalty + (change * 1);
       if (newPenalty < 0) {
         newPenalty = 0;
       }
       if (newPenalty > 10) {
         newPenalty = 10;
-      }      
+      }
       actor.update({
         "data.combatstats.deathsave.penalty": newPenalty
-      });     
+      });
     });
 
     //Increment penalty on deathsave
