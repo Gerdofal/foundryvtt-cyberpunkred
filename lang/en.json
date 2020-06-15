@@ -10,6 +10,7 @@
   "CPRED.useitembasedcombathint": "Enables a system where adding items to the Cyberware, Weapons, and Gear tabs populates the buttons on the Combat tab. Can be used on it's own or in concert with the simple combat setup.",
   "CPRED.showinventoryname": "Show inventory tabs?",
   "CPRED.showinventoryhint": "Unchecking this will completely disable inventory management of cyberware, weapons, and gear. In their place, a simple text based system of tracking inventory will be presented to the player. Note that unchecking this will also disable the item based combat setup.",
+  "CPRED.actions": "Actions",
   "CPRED.appearance": "Appearance",
   "CPRED.attack": "Attack",
   "CPRED.athletics": "Athletics",

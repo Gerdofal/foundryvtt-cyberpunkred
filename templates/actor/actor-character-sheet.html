@@ -225,19 +225,20 @@
         
 <br>        {{localize "CPRED.underconstruction"}}
 <br>        
-<br>        <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="rollable">{{localize "CPRED.initiative"}}</label>
+<hr>    <h3>{{localize "CPRED.actions"}}</h3>
+        <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="rollable">{{localize "CPRED.initiative"}}</label>
 <br>        <label data-roll="{{rollHacking 'encounterblackice'}}" class="rollable" data-label="{{localize 'CPRED.encounterblackice'}}">{{localize "CPRED.encounterblackice"}}</label>
 <br>        <label data-roll="{{rollHacking 'encounterblackicewithspeedy'}}" class="rollable" data-label="{{localize 'CPRED.encounterblackicewithspeedy'}}">{{localize "CPRED.encounterblackicewithspeedy"}}</label>
 <br>        <label data-roll="{{rollHacking 'attack'}}" class="rollable" data-label="{{localize 'CPRED.attack'}}">{{localize "CPRED.attack"}}</label>
 <br>        <label data-roll="{{rollHacking 'banhammerattack'}}" class="rollable" data-label="{{localize 'CPRED.banhammerattack'}}">{{localize "CPRED.banhammerattack"}}</label>
-<br><br><br>
-<br>    {{localize "CPRED.damage"}}
+
+<hr>    <h3>{{localize "CPRED.damage"}}</h3>
         <div class="flexrow">
           <div>{{localize "CPRED.banhammer"}}</div>
           <div class="rollable" data-label="2d6" data-roll="{{rollDamage '2d6'}}">2d6</div>
           <div class="rollable" data-label="3d6" data-roll="{{rollDamage '3d6'}}">3d6</div>
         </div>
-<br>      Programs
+<hr>      Programs
 <br>        Speedy Gonzalez - Increases SPD by +4
 <br>        Banhammer - +2 ATT - 3d6 vs hellhounds, 2d6 vs other programs
 <br>        Flack - Stops the first successful non-helhound attack from doing damage
