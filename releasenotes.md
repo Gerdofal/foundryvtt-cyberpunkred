@@ -7,6 +7,7 @@ Sections:
 
 - 0.31 - In Development / Not Yet Released
   - Added combat section based on weapons in inventory
+  - Added functionality to allow items like cyberware to modify attributes and skills
 
 ### Release Notes
 
