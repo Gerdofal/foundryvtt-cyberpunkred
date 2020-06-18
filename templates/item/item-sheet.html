@@ -16,18 +16,20 @@
     <section class="sheet-body">
 
         {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
+        <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="description">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
-           <ol class="grid grid-2col">
+           <ol class="grid grid-1col">
 				{{#each data as |item key|}}
+             {{#if_not_eq key "modlist"}}
 				<li class="flexrow nowrap" data-attribute="{{key}}">
 				  <label for="data.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
 				  <input class="item-value" type="text" name="data.{{key}}.value" value="{{item.value}}"/>
 				</li>
+             {{/if_not_eq}}
 				{{/each}}
       		</ol>
         </div>

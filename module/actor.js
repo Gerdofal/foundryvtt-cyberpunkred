@@ -55,10 +55,39 @@ export class cyberpunkredActor extends Actor {
       console.warn(".30 Update - Found old hacking data template and fixed.");
       delete data.roleskills.interface;
     }
-
+    
+    //Calculate automod values based on inventory
+    //Setup modlog
+    
+    data.modlog = [];
+    var itemName="None";
+    // Iterate through items, finding modifiers
+    for (let i of actorData.items) {
+      const itemData = i.data;
+      itemName = i.name;
+      _cprLog("Now finding automods on " + itemName);
+      console.log(i.data);
+      console.log(Object.entries(itemData.modlist));
+      for(let [key,mod] of Object.entries(itemData.modlist)) {
+        //data.modlog.push(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:" + mod.modactive + ")");  
+        _cprLog(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (on:" + mod.modactive + ")"); 
+        switch(mod.modcat.toLowerCase) {
+            //Modcat is the type of mod this is
+            //Attribute - Permanently modifies an attribute
+            //Skill - Permanently modifies a skill
+          case "attribute":
+            data.attributes[mod.moditem].automod += mod.modvalue * 1;
+            break;
+            
+          case "skill":
+            data.skills[mod.moditem].automod += mod.modvalue * 1;
+            break;
+        }
+      }
+    }
     //Compute all roll values to be equal to value + mod for attributes
     for (let [key, attr] of Object.entries(data.attributes)) {
-      attr.roll = attr.value + attr.mod;
+      attr.roll = attr.value + attr.mod + attr.automod;
     }
 
     //Calculate Cultural Familiarity
@@ -68,9 +97,9 @@ export class cyberpunkredActor extends Actor {
     //Compute all roll values to be equal to value + mod for skills
     for (let [key, attr] of Object.entries(data.skills)) {
       if (attr.value >= data.culturalFamiliarity) {
-        attr.roll = attr.value + attr.mod;
+        attr.roll = attr.value + attr.mod + attr.automod;
       } else {
-        attr.roll = data.culturalFamiliarity + attr.mod;
+        attr.roll = data.culturalFamiliarity + attr.mod + attr.automod;
       }
     }
 
@@ -130,25 +159,14 @@ export class cyberpunkredActor extends Actor {
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
 
-    //Calculate automot
-    //Setup modlog
-    
-    data.modlog = [];
-    
-    // Iterate through items, finding modifiers
-    for (let i of actorData.items) {
-      const itemData = i.data;
-      console.log(itemData.modlist); //Returns objects
-      for(let [key,mod] of Object.entries(itemData.modlist)) {
-        console.log(mod); //Returns arrays
-        console.log(mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:" + mod.modactive + ")");  
-        //data.modlog.push(mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:)" + mod.modactive);
-      }
-    }
+
     
   } //End Prepare Character Data
 
-
+  //Various special functions for modifying skills and stats
+  
+  
+  
   //Various Special Functions for Rolls
 
   rollMod(rollObject) {

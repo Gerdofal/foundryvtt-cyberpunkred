@@ -59,7 +59,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
-    _cprLog("Parsing Item List");
+    _cprLog("Categorizing Item List for Actor Sheet");
     // Initialize containers.
     const cyberware = [];
     const weapons = [];
