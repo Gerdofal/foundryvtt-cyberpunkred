@@ -58,24 +58,35 @@ export class cyberpunkredActor extends Actor {
     
     //Calculate itemmod values based on inventory
     //Setup modlog
-    
     data.modlog = [];
+    //All itemmod values must start at 0 because we have to add mods to them
+    //Attributes
+    for (let [key, attr] of Object.entries(data.attributes)) {
+      attr.itemmod=0;
+    }
+    //Items
+    for (let [key, attr] of Object.entries(data.skills)) {
+      attr.itemmod=0;
+    }
+    
     var itemName="None";
     // Iterate through items, finding modifiers
     for (let i of actorData.items) {
       const itemData = i.data;
       itemName = i.name;
       _cprLog("Now finding itemmods on " + itemName);
-      console.log(i.data);
-      console.log(Object.entries(itemData.modlist));
+      //console.log(i.data);
+      //console.log(Object.entries(itemData.modlist));
       for(let [key,mod] of Object.entries(itemData.modlist)) {
         //data.modlog.push(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:" + mod.modactive + ")");  
-        _cprLog(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (on:" + mod.modactive + ")"); 
-        switch(mod.modcat.toLowerCase) {
+       _cprLog(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (on:" + mod.modactive + ")"); 
+
+        switch(mod.modcat.toLowerCase()) {
             //Modcat is the type of mod this is
             //Attribute - Permanently modifies an attribute
             //Skill - Permanently modifies a skill
           case "attribute":
+            _cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
             data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
             break;
             
