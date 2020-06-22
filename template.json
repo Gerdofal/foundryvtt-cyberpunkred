@@ -108,61 +108,61 @@
           "int": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "ref": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "dex": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "tech": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "cool": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "will": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "luck": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "move": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "body": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "emp": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           }
         }
@@ -173,147 +173,147 @@
           "brawling": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "evasion": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "meleeweapon": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "marksmanship": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "ref"
           },
           "concentration": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "will"
           },
           "perception": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "int"
           },
           "tracking": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "int"
           },
           "driving": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "ref"
           },
           "athletics": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "stealth": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "bribery": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "cool"
           },
           "conversation": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "emp"
           },
           "humanperception": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "emp"
           },
           "interrogation": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "cool"
           },
           "persuasion": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "cool"
           },
           "basictech": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "tech"
           },
           "cybertech": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "tech"
           },
           "firstaid": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "tech"
           },
           "playinstrument": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "emp"
           },
           "education": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "int"
           },
           "localexpert": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "int"
           }
@@ -468,14 +468,14 @@
             "interface": {
               "value": 0,
               "mod": 0,
-              "automod": 0,
+              "itemmod": 0,
               "roll": 0,
               "linkedattribute": "int"
             },
             "spd": {
               "value": 0,
               "mod": 0,
-              "automod": 0,
+              "itemmod": 0,
               "roll": 0,
               "linkedattribute": "int"
             }

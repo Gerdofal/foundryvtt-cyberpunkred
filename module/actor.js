@@ -56,7 +56,7 @@ export class cyberpunkredActor extends Actor {
       delete data.roleskills.interface;
     }
     
-    //Calculate automod values based on inventory
+    //Calculate itemmod values based on inventory
     //Setup modlog
     
     data.modlog = [];
@@ -65,7 +65,7 @@ export class cyberpunkredActor extends Actor {
     for (let i of actorData.items) {
       const itemData = i.data;
       itemName = i.name;
-      _cprLog("Now finding automods on " + itemName);
+      _cprLog("Now finding itemmods on " + itemName);
       console.log(i.data);
       console.log(Object.entries(itemData.modlist));
       for(let [key,mod] of Object.entries(itemData.modlist)) {
@@ -76,18 +76,18 @@ export class cyberpunkredActor extends Actor {
             //Attribute - Permanently modifies an attribute
             //Skill - Permanently modifies a skill
           case "attribute":
-            data.attributes[mod.moditem].automod += mod.modvalue * 1;
+            data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
             break;
             
           case "skill":
-            data.skills[mod.moditem].automod += mod.modvalue * 1;
+            data.skills[mod.moditem].itemmod += mod.modvalue * 1;
             break;
         }
       }
     }
     //Compute all roll values to be equal to value + mod for attributes
     for (let [key, attr] of Object.entries(data.attributes)) {
-      attr.roll = attr.value + attr.mod + attr.automod;
+      attr.roll = attr.value + attr.mod + attr.itemmod;
     }
 
     //Calculate Cultural Familiarity
@@ -97,9 +97,9 @@ export class cyberpunkredActor extends Actor {
     //Compute all roll values to be equal to value + mod for skills
     for (let [key, attr] of Object.entries(data.skills)) {
       if (attr.value >= data.culturalFamiliarity) {
-        attr.roll = attr.value + attr.mod + attr.automod;
+        attr.roll = attr.value + attr.mod + attr.itemmod;
       } else {
-        attr.roll = data.culturalFamiliarity + attr.mod + attr.automod;
+        attr.roll = data.culturalFamiliarity + attr.mod + attr.itemmod;
       }
     }
 

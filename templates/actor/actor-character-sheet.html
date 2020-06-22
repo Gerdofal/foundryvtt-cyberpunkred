@@ -57,20 +57,20 @@
           <label>{{localize "CPRED.attribute"}}</label>
           <label>{{localize "CPRED.base"}}</label>
           <label>{{localize "CPRED.mod"}}</label>
-          <label>{{localize "CPRED.automod"}}</label>
+          <label>{{localize "CPRED.itemmod"}}</label>
           <label>{{localize "CPRED.totalroll"}}</label>
           {{#each data.attributes as |attr key|}}
           <label for="data.attributes.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
           <input type="text" name="data.attributes.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
-          <input type="text" name="data.attributes.{{key}}.automod" value="{{attr.automod}}" data-dtype="Number" readonly/>
+          <input type="text" name="data.attributes.{{key}}.itemmod" value="{{attr.itemmod}}" data-dtype="Number" readonly/>
           <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
           {{#each data.skills as |skill key|}}
           <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="rollable">{{localize (concat "CPRED." key)}} ({{localize (concat "CPRED." skill.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
-          <input type="text" name="data.skills.{{key}}.automod" value="{{skill.automod}}" data-dtype="Number" readonly/>
+          <input type="text" name="data.skills.{{key}}.itemmod" value="{{skill.itemmod}}" data-dtype="Number" readonly/>
           <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
           {{/each}}
         </ol>
