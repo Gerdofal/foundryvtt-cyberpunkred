@@ -546,61 +546,61 @@
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           },
           "mod2": {
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           },
           "mod3": {
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           },
           "mod4": {
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           },
           "mod5": {
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           },
           "mod6": {
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           },
           "mod7": {
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           },
           "mod8": {
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           },
           "mod9": {
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           },
           "mod10": {
             "modcat": "none",
             "moditem": "none",
             "modvalue": 0,
-            "modactive": false
+            "modactive": true
           }
         }
       }

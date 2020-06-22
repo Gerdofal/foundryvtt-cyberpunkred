@@ -1,37 +1,51 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-        </div>
-    </header>
+  <header class="sheet-header"> <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname">
+        <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
+      </h1>
+    </div>
+  </header>
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary"> <a class="item" data-tab="description">Description</a> <a class="item" data-tab="attributes">Attributes</a> <a class="item" data-tab="attributes">Mods</a> </nav>
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    
+    
+    {{!-- Description Tab --}}
+    <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="description"> {{editor content=data.description target="data.description" button=true owner=owner editable=editable}} </div>
 
-    {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="attributes">Attributes</a>
-    </nav>
+    
+    
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      <ol class="grid grid-1col">
+        {{#each data as |item key|}}
+        {{#if_not_eq key "modlist"}}
+        <li class="flexrow nowrap" data-attribute="{{key}}">
+          <label for="data.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
+          <input class="item-value" type="text" name="data.{{key}}.value" value="{{item.value}}"/>
+        </li>
+        {{/if_not_eq}}
+        {{/each}}
+      </ol>
+    </div>
+    
+    
+    {{!-- Mods Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      <ol class="grid grid-1col">
+        {{#each data.modlist as |item key|}}
+        <li class="flexrow nowrap" data-attribute="{{key}}">
+          <input type="text" name="data.modlist.{{key}}.modcat" value="{{item.modcat}}"/>
+          <input type="text" name="data.modlist.{{key}}.moditem" value="{{item.moditem}}"/>
+          <input type="text" name="data.modlist.{{key}}.modvalue" value="{{item.modvalue}}"/>
+          <input type="text" name="data.modlist.{{key}}.modactive" value="{{item.modactive}}" readonly/>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
 
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
-
-        {{!-- Description Tab --}}
-        <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-        </div>
-
-        {{!-- Attributes Tab --}}
-        <div class="tab attributes" data-group="primary" data-tab="attributes">
-           <ol class="grid grid-1col">
-				{{#each data as |item key|}}
-             {{#if_not_eq key "modlist"}}
-				<li class="flexrow nowrap" data-attribute="{{key}}">
-				  <label for="data.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
-				  <input class="item-value" type="text" name="data.{{key}}.value" value="{{item.value}}"/>
-				</li>
-             {{/if_not_eq}}
-				{{/each}}
-      		</ol>
-        </div>
-    </section>
+    
+  </section>
 </form>
