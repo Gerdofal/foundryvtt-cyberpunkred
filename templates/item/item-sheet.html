@@ -1,3 +1,5 @@
+          {{log "SHEET DATA IS:"}}
+          {{log data}}
 <form class="{{cssClass}}" autocomplete="off">
   <header class="sheet-header"> <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
@@ -7,16 +9,14 @@
     </div>
   </header>
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary"> <a class="item" data-tab="description">Description</a> <a class="item" data-tab="attributes">Attributes</a> <a class="item" data-tab="attributes">Mods</a> </nav>
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="mods">Mods</a>
+  </nav>
   {{!-- Sheet Body --}}
-  <section class="sheet-body">
-    
-    
-    {{!-- Description Tab --}}
+  <section class="sheet-body"> {{!-- Description Tab --}}
     <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="description"> {{editor content=data.description target="data.description" button=true owner=owner editable=editable}} </div>
-
-    
-    
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <ol class="grid grid-1col">
@@ -30,22 +30,32 @@
         {{/each}}
       </ol>
     </div>
-    
-    
     {{!-- Mods Tab --}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
+    {{log "DATA TEMP IS"}}
+    {{log data.temp}}
+    <div class="tab mods" data-group="primary" data-tab="mods">
       <ol class="grid grid-1col">
-        {{#each data.modlist as |item key|}}
+        {{#each data.modlist as |moditem modkey|}}
         <li class="flexrow nowrap" data-attribute="{{key}}">
-          <input type="text" name="data.modlist.{{key}}.modcat" value="{{item.modcat}}"/>
-          <input type="text" name="data.modlist.{{key}}.moditem" value="{{item.moditem}}"/>
-          <input type="text" name="data.modlist.{{key}}.modvalue" value="{{item.modvalue}}"/>
-          <input type="text" name="data.modlist.{{key}}.modactive" value="{{item.modactive}}" readonly/>
+          <select name="data.modlist.{{modkey}}.modcat">
+          {{#select data.modlist[modkey].modcat}}
+            <option value="hidden">{{localize "CPRED.hidden"}}</option>
+            <option value="attribute">{{localize "CPRED.attribute"}}</option>
+            <option value="skill">{{localize "CPRED.skill"}}</option>
+          {{/select}}
+          </select>
+          <select name="data.modlist.{{modkey}}.moditem">
+          {{#select data.modlist[modkey].moditem"}}
+            {{#each data.temp as |innerItem innerKey|}}
+               <option value="innerKey">innerKey</option>
+            {{/each}}
+          {{/select}}
+          </select>
+          <input type="text" name="data.modlist.{{modkey}}.modvalue" value="{{item.modvalue}}"/>
+          <input type="text" name="data.modlist.{{modkey}}.modactive" value="{{item.modactive}}" readonly/>
         </li>
         {{/each}}
       </ol>
     </div>
-
-    
   </section>
 </form>

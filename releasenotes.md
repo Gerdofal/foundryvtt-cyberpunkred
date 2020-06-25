@@ -9,7 +9,6 @@ Sections:
   - Added combat section based on weapons in inventory
   - Added functionality to allow items like cyberware to modify attributes and skills
   - Changed "automod" fields to "itemmod" as that makes more sense
-  
 
 ### Release Notes
 
