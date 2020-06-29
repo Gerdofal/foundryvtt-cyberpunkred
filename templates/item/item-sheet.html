@@ -31,28 +31,39 @@
       </ol>
     </div>
     {{!-- Mods Tab --}}
-    {{log "DATA TEMP IS"}}
-    {{log data.temp}}
+
     <div class="tab mods" data-group="primary" data-tab="mods">
       <ol class="grid grid-1col">
-        {{#each data.modlist as |moditem modkey|}}
-        <li class="flexrow nowrap" data-attribute="{{key}}">
-          <select name="data.modlist.{{modkey}}.modcat">
-          {{#select data.modlist[modkey].modcat}}
-            <option value="hidden">{{localize "CPRED.hidden"}}</option>
-            <option value="attribute">{{localize "CPRED.attribute"}}</option>
-            <option value="skill">{{localize "CPRED.skill"}}</option>
+        {{#each data.modlist as |eachitem eachkey|}}
+          <li class="flexrow nowrap" data-attribute="{{key}}">
+          <select name="data.modlist.{{eachkey}}.modcat">
+          {{#select eachitem.modcat}}
+            <option value="none">{{localize "CPRED.hidden"}}</option>
+            <option value="attributes">{{localize "CPRED.attribute"}}</option>
+            <option value="skills">{{localize "CPRED.skill"}}</option>
           {{/select}}
           </select>
-          <select name="data.modlist.{{modkey}}.moditem">
-          {{#select data.modlist[modkey].moditem"}}
-            {{#each data.temp as |innerItem innerKey|}}
-               <option value="innerKey">innerKey</option>
+          <select name="data.modlist.{{eachkey}}.moditem">
+          {{#select eachitem.moditem}}
+          {{log "DATA IS"}}
+          {{log data}}
+          {{log "../DATA IS"}}
+          {{log ../data}}
+          {{log "../DATA[{{moditem.modcat}}] is"}}
+          {{log (lookup ../data.temp moditem.modcat)}}
+          {{log "EACHITEM IS"}}
+          {{log eachitem}}
+          {{log "EACHKEY IS"}}
+          {{log eachkey}}
+          {{log "EACHITEM.modcat IS"}}
+          {{log eachitem.modcat}}
+            {{#each (lookup ../data.temp eachitem.modcat) as |innerItem innerKey|}}
+               <option value="{{innerKey}}">{{innerKey}}</option>
             {{/each}}
           {{/select}}
           </select>
-          <input type="text" name="data.modlist.{{modkey}}.modvalue" value="{{item.modvalue}}"/>
-          <input type="text" name="data.modlist.{{modkey}}.modactive" value="{{item.modactive}}" readonly/>
+          <input type="text" name="data.modlist.{{eachkey}}.modvalue" value="{{eachitem.modvalue}}"/>
+          <input type="text" name="data.modlist.{{eachkey}}.modactive" value="{{eachitem.modactive}}" readonly/>
         </li>
         {{/each}}
       </ol>

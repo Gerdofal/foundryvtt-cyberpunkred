@@ -55,21 +55,21 @@ export class cyberpunkredActor extends Actor {
       console.warn(".30 Update - Found old hacking data template and fixed.");
       delete data.roleskills.interface;
     }
-    
+
     //Calculate itemmod values based on inventory
     //Setup modlog
     data.modlog = [];
     //All itemmod values must start at 0 because we have to add mods to them
     //Attributes
     for (let [key, attr] of Object.entries(data.attributes)) {
-      attr.itemmod=0;
+      attr.itemmod = 0;
     }
     //Items
     for (let [key, attr] of Object.entries(data.skills)) {
-      attr.itemmod=0;
+      attr.itemmod = 0;
     }
-    
-    var itemName="None";
+
+    var itemName = "None";
     // Iterate through items, finding modifiers
     for (let i of actorData.items) {
       const itemData = i.data;
@@ -77,22 +77,23 @@ export class cyberpunkredActor extends Actor {
       _cprLog("Now finding itemmods on " + itemName);
       //console.log(i.data);
       //console.log(Object.entries(itemData.modlist));
-      for(let [key,mod] of Object.entries(itemData.modlist)) {
+      for (let [key, mod] of Object.entries(itemData.modlist)) {
         //data.modlog.push(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:" + mod.modactive + ")");  
-       _cprLog(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (on:" + mod.modactive + ")"); 
-
-        switch(mod.modcat.toLowerCase()) {
+        _cprLog(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
+        if (key.substr(1,3)=="mod"&&modcat.toLowerCase != "none" && mod.moditem.toLowerCase != "none" && mod.modvalue != 0) {
+          switch (mod.modcat.toLowerCase()) {
             //Modcat is the type of mod this is
             //Attribute - Permanently modifies an attribute
             //Skill - Permanently modifies a skill
-          case "attribute":
-            _cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
-            data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
-            break;
-            
-          case "skill":
-            data.skills[mod.moditem].itemmod += mod.modvalue * 1;
-            break;
+            case "attribute":
+              _cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
+              data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
+              break;
+
+            case "skill":
+              data.skills[mod.moditem].itemmod += mod.modvalue * 1;
+              break;
+          }
         }
       }
     }
@@ -171,13 +172,11 @@ export class cyberpunkredActor extends Actor {
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
 
 
-    
   } //End Prepare Character Data
 
   //Various special functions for modifying skills and stats
-  
-  
-  
+
+
   //Various Special Functions for Rolls
 
   rollMod(rollObject) {
@@ -232,22 +231,22 @@ export class cyberpunkredActor extends Actor {
     switch (command) {
       case 'interfacecheck':
         //TODO: This needs customization in the future
-        var tempObject = this.rollSkill("interface","hacking");
+        var tempObject = this.rollSkill("interface", "hacking");
         rollArray = tempObject.rollArray;
-        tags =tempObject.tags;
+        tags = tempObject.tags;
         break;
       case 'attack':
         //TODO: This needs customization in the future
-        var tempObject = this.rollSkill("interface","hacking");
+        var tempObject = this.rollSkill("interface", "hacking");
         rollArray = tempObject.rollArray;
-        tags =tempObject.tags;
+        tags = tempObject.tags;
         break;
       case 'banhammerattack':
         //TODO: This needs customization in the future
-        var tempObject = this.rollSkill("interface","hacking");
+        var tempObject = this.rollSkill("interface", "hacking");
         rollArray = tempObject.rollArray;
-        tags =tempObject.tags;
-        tags.push(game.i18n.localize("CPRED.banhammer") + ": 2" );
+        tags = tempObject.tags;
+        tags.push(game.i18n.localize("CPRED.banhammer") + ": 2");
         rollArray.push(2);
         break;
       case 'encounterblackice':
@@ -265,7 +264,7 @@ export class cyberpunkredActor extends Actor {
         tags = tempObject.tags;
         tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.hacking.spd.value + " + " + data.roleskills.hacking.spd.mod + " = " + data.roleskills.hacking.spd.roll);
         rollArray.push(data.roleskills.hacking.spd.roll);
-        tags.push(game.i18n.localize("CPRED.speedygonzalez") + ": 4" );
+        tags.push(game.i18n.localize("CPRED.speedygonzalez") + ": 4");
         rollArray.push(4);
         break;
       default:
@@ -296,7 +295,7 @@ export class cyberpunkredActor extends Actor {
 
     //Setup critical variables
     let template = 'systems/cyberpunkred/templates/chat/roll-cpr.html';
-    
+
     const data = actorData.data;
 
     //Expects a command like "_RollSkill marksmanship"
@@ -335,7 +334,7 @@ export class cyberpunkredActor extends Actor {
         rollObject.tags = new Array();
         rollObject.tags.push("Damage Formula");
         needsMods = false;
-        break;        
+        break;
       default:
         rollObject[0] = roll;
         console.error("CyberpunkRED | Incoming roll command not recognized, attempting default.");
@@ -343,21 +342,21 @@ export class cyberpunkredActor extends Actor {
 
     //Everything past here is the same for all rolls.
 
-    
+
     //Compute the formula
-    if(rollObject.rollArray) {
+    if (rollObject.rollArray) {
       rollObject.rollFormula = game.settings.get("cyberpunkred", "dieRollCommand");
       rollObject.rollArray.forEach(element => {
         rollObject.rollFormula += " + " + element;
-      });      
+      });
     }
-    
+
     //Calculate the modifier and return the new roll array and tags
-    if(needsMods) {
+    if (needsMods) {
       rollObject = this.rollMod(rollObject);
     }
 
-    
+
     //Setup Chat Message
     let chatData = {
       user: game.user._id,
@@ -374,7 +373,7 @@ export class cyberpunkredActor extends Actor {
 
     //Setup the output formula
     var formula = rollObject.rollFormula;
-    
+
     //Config option from CPR Settings
     if (game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc") {
       chatData["whisper"] = ChatMessage.getWhisperRecipients("GM");
@@ -398,7 +397,7 @@ export class cyberpunkredActor extends Actor {
         templateData.tags.push("Sent blindly to GM");
       }
     }
-    
+
     if (formula != null) {
       _cprLog("rollCPR - Rendering roll using template")
       // Do the roll.
