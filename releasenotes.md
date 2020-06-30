@@ -8,6 +8,9 @@ Sections:
 - 0.31 - Item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons
 - 0.32 - UI cleanup, adding ways to edit random attributes not included on other tabs, .
 
+- TBD
+  - Total the Cyber Psychosis from cyberware for the character sheet
+  
 ### In Development
 
 - 0.31 - In Development / Not Yet Released

@@ -16,20 +16,63 @@
   <section class="sheet-body"> {{!-- Description Tab --}}
     <div class="tab roomtoedit" data-group="primary" data-tab="description"> {{editor content=data.description target="data.description" button=true owner=owner editable=editable}} </div>
     {{!-- Attributes Tab --}}
+    {{log data.temp.type}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
-      <ol class="grid grid-1col">
-        {{#each data as |item key|}}
-        {{#if_not_eq key "modlist"}}
-        {{#if_not_eq key "temp"}}
-        <li class="flexrow nowrap" data-attribute="{{key}}">
-          <label for="data.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
-          <input class="item-value" type="text" name="data.{{key}}.value" value="{{item.value}}"/>
-        </li>
-        {{/if_not_eq}}
-        {{/if_not_eq}}
-        {{/each}}
-      </ol>
+
+      <br>
+      {{localize "CPRED.price"}}<input type="number" name="data.price.value" value="{{data.price.value}}">
+      <br>
+      {{localize "CPRED.rarity"}}<input type="number" name="data.rarity.value" value="{{data.rarity.value}}">
+      <br>
+      {{localize "CPRED.legality"}}<input type="number" name="data.legality.value" value="{{data.legality.value}}">
+      
+      {{#if_eq data.temp.type "cyberware"}}
+      <br>
+      {{localize "CPRED.internal"}}<input type="checkbox" name="data.internal.value" value="{{data.internal.value}}" {{checked data.internal.value}}>
+      <br>
+      {{localize "CPRED.hackable"}}<input type="checkbox" name="data.hackable.value" value="{{data.internal.value}}" {{checked data.hackable.value}}>
+      <br>
+      {{localize "CPRED.psychosis"}}<input type="number" name="data.psychosis.value" value="{{data.psychosis.value}}">
+      {{/if_eq}}
+      
+      {{#if_eq data.temp.type "weapons"}}
+      <br>
+      {{localize "CPRED.damage"}}<input type="text" name="data.damage.value" value="{{data.damage.value}}">
+      <br>
+      {{localize "CPRED.ammomax"}}<input type="number" name="data.ammo.max" value="{{data.ammo.max}}">
+      <br>
+      {{localize "CPRED.weapontype"}}
+      <br>
+      <select name="data.weapontype.value">
+      {{#select data.weapontype.value}}
+        <option value="pistol">{{localize "CPRED.pistol"}}</option>  
+        <option value="shotgun">{{localize "CPRED.shotgun"}}</option>
+        <option value="submachinegun">{{localize "CPRED.submachinegun"}}</option>
+        <option value="carbine">{{localize "CPRED.carbine"}}</option>
+        <option value="assaultrifle">{{localize "CPRED.assaultrifle"}}</option>
+      {{/select}}
+      </select>
+      <br>
+      {{localize "CPRED.burst"}}<input type="checkbox" name="data.burst.value" value="{{data.burst.value}}" {{checked data.burst.value}}>
+      <br>
+      {{localize "CPRED.fullauto"}}<input type="checkbox" name="data.fullauto.value" value="{{data.fullauto.value}}"{{checked data.fullauto.value}}>
+      <br>
+      {{localize "CPRED.skill"}}
+      <br>
+      <select name="data.skill">
+      {{#select data.skill}}
+        <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>  
+        <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
+      {{/select}}
+      </select>
+      {{/if_eq}}
+
+      {{#if_eq data.temp.type "cyberware"}}
+      {{/if_eq}}
+
     </div>
+    
+    
     {{!-- Mods Tab --}}
 
     <div class="tab mods" data-group="primary" data-tab="mods">
