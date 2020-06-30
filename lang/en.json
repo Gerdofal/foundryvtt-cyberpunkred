@@ -13,6 +13,7 @@
   "CPRED.actions": "Actions",
   "CPRED.appearance": "Appearance",
   "CPRED.armorheading": "Armor (Important: Armor closest to your skin should be first, with next closest second, and so on. Temporary cover, like a car, may also be added at the end.)",
+  "CPRED.armorstacknote": "Note: As the jumpstart kit does not have rules for armor stacking, this system uses the stacking rules from previous editions.",
   "CPRED.attack": "Attack",
   "CPRED.athletics": "Athletics",
   "CPRED.attribute": "Attribute",
