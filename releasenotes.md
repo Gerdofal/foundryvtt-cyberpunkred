@@ -14,7 +14,11 @@ Sections:
   
 ### In Development
 
-- 0.31 - In Development / Not Yet Released
+- 0.32 - In Development / Not Yet Released
+
+### Release Notes
+
+- 0.31 - Released 6/30/2020 - Beta
   - Added combat section based on weapons in inventory
   - Added functionality to allow items like cyberware to modify attributes and skills
   - Changed "automod" fields to "itemmod" as that makes more sense
@@ -23,8 +27,6 @@ Sections:
   - Setup workable UI for item sheet (more UI improvements for Actor and Item coming in beta 0.32)
   
   NOTICE: Significant template.json changes may impact items already in inventory. A transition will be attempted, but you might need to re-create those items.
-
-### Release Notes
 
 - 0.30 - Released 6/15/2020 - Beta
   - UI: Localized remaining rolls on combat tab
