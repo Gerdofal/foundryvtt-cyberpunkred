@@ -57,7 +57,7 @@
 .dice-roll .dice-total {
   background: #FFAAAA;
   display: inline-block;
-  font-size: 14px;
+  font-size: 1em;
   font-weight: normal;
   padding-left: 10px;
   padding-right: 10px;
@@ -212,6 +212,7 @@
   border-top: 1px solid var(--cpr-red-color);
   border-bottom: 1px solid var(--cpr-red-color);
   border-radius: 10px 0px 0px 0px;
+  font-size: 1em;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item.active {
   text-decoration: underline;
@@ -225,6 +226,7 @@
   border-top: 1px solid var(--cpr-red-color);
   border-bottom: 1px solid var(--cpr-red-color);
   border-radius: 10px 0px 0px 0px;
+  font-size: 1em;
 }
 
 /* General code for hover indications of rollable and clickable */
@@ -333,7 +335,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-size: 9px;
+  font-size: 1em;
 }
 
 .cyberpunkred .cpr-weaponinlinebox {
@@ -342,7 +344,7 @@
   margin: 0px;
   box-sizing: border-box;
   text-align: center;
-  font-size: 9px;
+  font-size: 1em;
 }
 
 /* Damage Track and Luck Track */
@@ -361,7 +363,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
-  font-size: 9px;
+  font-size: 1em;
 }
 
 .cyberpunkred .skilllist-item {
@@ -377,7 +379,7 @@
   align-self: center;
   justify-self: center;
   text-align: center;
-  font-size: 9px;
+  font-size: 1em;
 }
 
 .cyberpunkred .specialroll-grid {
@@ -415,7 +417,7 @@
 .cyberpunkred .cpr-totalmoddisplay {
   width: 7em;
   display: inline;
-  font-size: 12px;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -428,7 +430,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
-  font-size: 9px;
+  font-size: 1em;
 }
 
 .cyberpunkred .modlist-item {
@@ -444,7 +446,7 @@
   align-self: center;
   justify-self: center;
   text-align: center;
-  font-size: 9px;
+  font-size: 1em;
 }
 
 .cyberpunkred input.modlist[type=checkbox] {
