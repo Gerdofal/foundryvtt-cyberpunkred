@@ -7,9 +7,9 @@ Sections:
 
 - 0.32 - UI cleanup and usability improvements
 
-- TBD
-  - Total the Cyber Psychosis from cyberware for the character sheet
-  - Reputation tracking
+- 0.33 - Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
+
+- 0.34 - Token bar actions
   
 ### In Development
 
