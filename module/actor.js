@@ -88,8 +88,8 @@ export class cyberpunkredActor extends Actor {
         if (key.substr(0,3)=="mod"&&mod.modcat.toLowerCase != "none" && mod.moditem.toLowerCase != "none" && (mod.modvalue*1) != 0) {
           switch (mod.modcat.toLowerCase()) {
             //Modcat is the type of mod this is
-            //Attribute - Permanently modifies an attribute
-            //Skill - Permanently modifies a skill
+            //Attributes - Permanently modifies an attribute
+            //Skills - Permanently modifies a skill
             case "attributes":
               _cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
               data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
@@ -103,8 +103,7 @@ export class cyberpunkredActor extends Actor {
               break;
               
             default:
-             _cprLog("WARNING: Badly formed mod command: " + mod.moditem + " + " + mod.modvalue * 1);
-             data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
+             _cprLog("WARNING: Badly formed mod command (not processed): " + mod.moditem + " + " + mod.modvalue * 1);
           }
         }
       }

@@ -475,6 +475,10 @@
   margin: 0px;
 }
 
+.cyberpunkred input:read-only {
+  background-color: #DCA9AA;
+}
+
 /* Grid Setups */
 .grid {
   display: grid;
