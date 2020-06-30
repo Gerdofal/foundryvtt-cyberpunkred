@@ -29,6 +29,7 @@
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
       {{/if}}
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="textinventory">{{localize "CPRED.textinventory"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="modlog">{{localize "CPRED.modlog"}}</a></div>
     </div>
@@ -322,6 +323,11 @@
       </div>
       
       {{/if}}
+      
+      {{!-- Text Inventory Tab --}}
+      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="textinventory">
+          {{editor content=data.description.textinventory target="data.description.textinventory" button=true owner=owner editable=editable}}
+      </div>
       
       {{!-- SETTINGS TAB --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="settings">

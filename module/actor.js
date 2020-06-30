@@ -79,20 +79,24 @@ export class cyberpunkredActor extends Actor {
       //console.log(Object.entries(itemData.modlist));
       for (let [key, mod] of Object.entries(itemData.modlist)) {
         //data.modlog.push(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:" + mod.modactive + ")");  
-        _cprLog(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
-        if (key.substr(1,3)=="mod"&&modcat.toLowerCase != "none" && mod.moditem.toLowerCase != "none" && mod.modvalue != 0) {
+        //_cprLog(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
+        if (key.substr(0,3)=="mod"&&mod.modcat.toLowerCase != "none" && mod.moditem.toLowerCase != "none" && (mod.modvalue*1) != 0) {
           switch (mod.modcat.toLowerCase()) {
             //Modcat is the type of mod this is
             //Attribute - Permanently modifies an attribute
             //Skill - Permanently modifies a skill
-            case "attribute":
+            case "attributes":
               _cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
               data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
               break;
 
-            case "skill":
+            case "skills":
               data.skills[mod.moditem].itemmod += mod.modvalue * 1;
               break;
+              
+            default:
+             _cprLog("WARNING: Badly formed mod command: " + mod.moditem + " + " + mod.modvalue * 1);
+             data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
           }
         }
       }
@@ -365,7 +369,7 @@ export class cyberpunkredActor extends Actor {
       })
     };
 
-    console.log(rollObject);
+    //console.log(rollObject);
 
     //Setup the output tags
     var tempTags = templateData.tags;

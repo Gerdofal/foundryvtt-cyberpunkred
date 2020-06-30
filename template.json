@@ -9,7 +9,8 @@
           "appearance": "A brief physical description...",
           "hair": "",
           "height": "",
-          "weight": ""
+          "weight": "",
+          "textinventory": "<ul><li>A text list</li><li>of any inventory</li><li>you want to record...</li></ol>"
         }
       },
 
