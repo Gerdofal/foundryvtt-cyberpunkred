@@ -57,7 +57,7 @@
 .dice-roll .dice-total {
   background: #FFAAAA;
   display: inline-block;
-  font-size: 1em;
+  font-size: .9em;
   font-weight: normal;
   padding-left: 10px;
   padding-right: 10px;
@@ -214,7 +214,7 @@
   border-top: 1px solid var(--cpr-red-color);
   border-bottom: 1px solid var(--cpr-red-color);
   border-radius: 10px 0px 0px 0px;
-  font-size: 1em;
+  font-size: .9em;
   white-space: nowrap;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item.active {
@@ -229,7 +229,7 @@
   border-top: 1px solid var(--cpr-red-color);
   border-bottom: 1px solid var(--cpr-red-color);
   border-radius: 10px 0px 0px 0px;
-  font-size: 1em;
+  font-size: .9em;
 }
 
 /* General code for hover indications of rollable and clickable */
@@ -338,7 +338,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-size: 1em;
+  font-size: .9em;
 }
 
 .cyberpunkred .cpr-weaponinlinebox {
@@ -347,7 +347,7 @@
   margin: 0px;
   box-sizing: border-box;
   text-align: center;
-  font-size: 1em;
+  font-size: .9em;
 }
 
 /* Damage Track and Luck Track */
@@ -366,7 +366,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
-  font-size: 1em;
+  font-size: .9em;
 }
 
 .cyberpunkred .skilllist-item {
@@ -382,7 +382,7 @@
   align-self: center;
   justify-self: center;
   text-align: center;
-  font-size: 1em;
+  font-size: .9em;
 }
 
 .cyberpunkred .specialroll-grid {
@@ -433,7 +433,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
-  font-size: 1em;
+  font-size: .9em;
 }
 
 .cyberpunkred .modlist-item {
@@ -449,7 +449,7 @@
   align-self: center;
   justify-self: center;
   text-align: center;
-  font-size: 1em;
+  font-size: .9em;
 }
 
 .cyberpunkred input.modlist[type=checkbox] {
