@@ -1,5 +1,5 @@
 {
-  "CPRED.notlocalized": "Apologies. This section is under construction and not yet localized.",
+  "CPRED.notlocalized": "This section is not yet localized.",
   "CPRED.dierollcommandname": "Die roll command for rolls.",
   "CPRED.dierollcommandhint": "Defaults to d10x10. Adjust if you want to remove exploding (d10)",
   "CPRED.gmalwayswhispername": "Always whisper NPC Rolls?",

@@ -16,9 +16,10 @@
   <section class="sheet-body"> {{!-- Description Tab --}}
     <div class="tab roomtoedit" data-group="primary" data-tab="description"> {{editor content=data.description target="data.description" button=true owner=owner editable=editable}} </div>
     {{!-- Attributes Tab --}}
-    {{log data.temp.type}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
 
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+    {{localize "CPRED.underconstruction"}}<br>
+    {{localize "CPRED.notlocalized"}}<br>
       <br>
       {{localize "CPRED.price"}}<input type="number" name="data.price.value" value="{{data.price.value}}">
       <br>
@@ -76,16 +77,26 @@
     {{!-- Mods Tab --}}
 
     <div class="tab mods" data-group="primary" data-tab="mods">
-      <ol class="grid grid-1col">
+      {{localize "CPRED.notlocalized"}}<br>
+    <ul class="flexrow">
+      <li class="flexrow">
+        <label>Category</label>
+        <label>Item</label>
+        <label>Value</label>
+        <label>Active?</label>
+      </li>
         {{#each data.modlist as |eachitem eachkey|}}
-          <li class="flexrow nowrap" data-attribute="{{key}}">
-          <select name="data.modlist.{{eachkey}}.modcat">
+      <li class="flexrow">
+        <div>
+        <select name="data.modlist.{{eachkey}}.modcat">
           {{#select eachitem.modcat}}
             <option value="none">{{localize "CPRED.hidden"}}</option>
             <option value="attributes">{{localize "CPRED.attribute"}}</option>
             <option value="skills">{{localize "CPRED.skill"}}</option>
           {{/select}}
           </select>
+        </div>
+        <div>
           <select name="data.modlist.{{eachkey}}.moditem">
           {{#select eachitem.moditem}}
             {{#each (lookup ../data.temp eachitem.modcat) as |innerItem innerKey|}}
@@ -93,11 +104,12 @@
             {{/each}}
           {{/select}}
           </select>
-          <input type="text" name="data.modlist.{{eachkey}}.modvalue" value="{{eachitem.modvalue}}"/>
-          <input type="text" name="data.modlist.{{eachkey}}.modactive" value="{{eachitem.modactive}}" readonly/>
-        </li>
+        </div>
+        <div><input type="text" name="data.modlist.{{eachkey}}.modvalue" value="{{eachitem.modvalue}}"/></div>
+        <div><input type="text" name="data.modlist.{{eachkey}}.modactive" value="{{eachitem.modactive}}" readonly/></div>
+      </li>
         {{/each}}
-      </ol>
+    </ul>
     </div>
   </section>
 </form>
