@@ -101,7 +101,29 @@
             "skill": "hidden",
             "type": "Pistol"
           }
-        }
+        },
+        "armorsetup": {
+          "armor1": {
+            "name": "Armor Type...",
+            "value": 0
+          },
+          "armor2": {
+            "name": "Armor Type...",
+            "value": 0
+          },
+          "armor3": {
+            "name": "Armor Type...",
+            "value": 0
+          },
+          "armor4": {
+            "name": "Armor Type...",
+            "value": 0
+          },
+          "armor5": {
+            "name": "Armor Type...",
+            "value": 0
+          }
+        },
       },
 
       "attributes": {

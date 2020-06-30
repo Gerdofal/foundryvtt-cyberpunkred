@@ -92,6 +92,8 @@ export class cyberpunkredActor extends Actor {
               break;
 
             case "skills":
+              _cprLog("ITEMMOD: Skill " + mod.moditem + " + " + mod.modvalue * 1);
+              data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
               data.skills[mod.moditem].itemmod += mod.modvalue * 1;
               break;
               

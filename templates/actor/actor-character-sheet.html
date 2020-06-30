@@ -82,6 +82,7 @@
       {{!-- Combat Setup Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup">
         <ol class="combatsetup-head">
+          <h3>{{localize "CPRED.weapons"}}</h3>
           <li class="flexrow">
             <div>{{localize "CPRED.name"}}</div>
             <div>{{localize "CPRED.damage"}}</div>
@@ -100,6 +101,19 @@
               {{/select}}
               </select>
             </div>
+          </li>
+          {{/each}}
+        </ol>
+        <ol class="combatsetup-head">
+          <h3>{{localize "CPRED.armor"}}</h3>
+          <li class="flexrow">
+            <div>{{localize "CPRED.name"}}</div>
+            <div>{{localize "CPRED.value"}}</div>
+          </li>
+          {{#each data.armorsetup as |item key|}}
+          <li class="flexrow" data-item-id="{{item.id}}">
+            <div><input type="text" name="data.armorsetup.{{key}}.name" value="{{item.name}}"></div>
+            <div><input type="text" name="data.armorsetup.{{key}}.value" value="{{item.value}}"></div>
           </li>
           {{/each}}
         </ol>

@@ -178,7 +178,8 @@
   grid-template-rows: auto;
   align-content: start;
   border-right: 1px solid #AAA;
-  padding: 3px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 .cyberpunkred .cpr-content {
   grid-column: 2;
@@ -205,7 +206,7 @@
   font-weight: normal;
   display: block;
   width: 100%;
-  padding: 3px;
+  padding: 3px 1px 1px 0px;
   margin: 0px;
   height: 25px;
   background: var(--cpr-light-bak-color);
@@ -220,7 +221,7 @@
   text-decoration: underline;
   text-shadow: none;
   font-weight: bold;
-  padding: 3px;
+  padding: 3px 1px 1px 0px;
   margin: 0px;
   height: 25px;
   background: linear-gradient(#D0D0D0,#E0E0E0);
