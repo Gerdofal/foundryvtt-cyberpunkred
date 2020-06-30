@@ -6,7 +6,7 @@ Sections:
 ### Future Plans
 
 - 0.31 - Item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons
-- 0.32 - UI cleanup, adding ways to edit random attributes not included on other tabs, .
+- 0.32 - UI cleanup, adding ways to edit random attributes not included on other tabs, general usability improvements
 
 - TBD
   - Total the Cyber Psychosis from cyberware for the character sheet
@@ -21,9 +21,7 @@ Sections:
   - Added space for armor on the combat setup tab
   
 In Development Known Issues:
-  - Some item sheet tabs are not localized
   - The item sheet is ugly
-  - Numerous item fields on the "Attributes" tab of the item sheet are text entry instead of the appropriate drop-down, checkbox, or other element
   - The "active" flag on item mods is permanently set to true for the time being
 
 ### Release Notes
