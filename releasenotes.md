@@ -15,6 +15,7 @@ Sections:
   - Added functionality to allow items like cyberware to modify attributes and skills
   - Changed "automod" fields to "itemmod" as that makes more sense
   - Implemented item based mods for all skills and attributes
+  - Added space for armor on the combat setup tab
   
 In Development Known Issues:
   - Die roll totals are correct, but the details sometimes lack item mods
