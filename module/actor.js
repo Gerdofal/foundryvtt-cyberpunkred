@@ -39,7 +39,12 @@ export class cyberpunkredActor extends Actor {
   _prepareCharacterData(actorData) {
     _cprLog("Preparing character data for: " + actorData.name);
     const data = actorData.data;
-
+    //console.log(data);
+    
+    //Generally helpful variables
+    var x = 0; //Our for loop counter
+    
+    
     //TODO - put all these transitions into their own module
 
     //NOTE: ui.notifications accepts info, warn, and error
@@ -109,6 +114,71 @@ export class cyberpunkredActor extends Actor {
       attr.roll = attr.value + attr.mod + attr.itemmod;
     }
 
+    //Calculate armor
+    var finalArmor = 0;
+    var armorArray = [];
+    for (let [key, item] of Object.entries(data.armorsetup)) {
+      armorArray.push(item.value);
+    }
+    finalArmor = armorArray[0];
+    
+    var currentArmor = 0;
+    var armorDiff = 0;
+    
+    for(x = 1;x<=armorArray.length;x++) {
+      currentArmor=armorArray[x] * 1;
+      if(finalArmor<currentArmor) {
+        armorDiff = (currentArmor * 1) - (finalArmor * 1);  
+      } else {
+        armorDiff = (finalArmor * 1) - (currentArmor * 1);
+      }
+      if(armorDiff>0) {
+        _cprLog("Checking armorDiff of " + armorDiff + " current armor = " + finalArmor);
+        //If the armorDiff isn't positive, we don't change finalArmor here
+        switch(armorDiff) {
+          case 0:
+          case 1:
+          case 2:
+          case 3:
+          case 4:
+              finalArmor = (finalArmor * 1) + 5 * 1;
+              break;
+          case 5:
+          case 6:
+          case 7:
+          case 8:
+              finalArmor = (finalArmor * 1)+4 * 1;
+              break;            
+          case 9:
+          case 10:
+          case 11:
+          case 12:
+          case 13:
+          case 14:
+              finalArmor = (finalArmor * 1)+3 * 1;
+              break;            
+          case 15:
+          case 16:
+          case 17:
+          case 18:
+          case 19:
+          case 20:
+              finalArmor = (finalArmor * 1)+2 * 1;
+              break;            
+          case 21:
+          case 22:
+          case 23:
+          case 24:
+          case 25:
+          case 26:
+              finalArmor = (finalArmor * 1)+1 * 1;
+              break;
+        }
+        _cprLog("finalArmor now " + finalArmor);
+      }
+    }
+    data.combatstats.armor.value = finalArmor;
+            
     //Calculate Cultural Familiarity
     //TODO - Try to figure out if I should include mod in this?
     data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
