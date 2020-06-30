@@ -19,10 +19,7 @@ Sections:
   - Changed "automod" fields to "itemmod" as that makes more sense
   - Implemented item based mods for all skills and attributes
   - Added space for armor on the combat setup tab
-  
-In Development Known Issues:
-  - The item sheet is ugly
-  - The "active" flag on item mods is permanently set to true for the time being
+  - Setup workable UI for item sheet (more UI improvements for Actor and Item coming in beta 0.32)
 
 ### Release Notes
 
