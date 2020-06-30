@@ -4,7 +4,7 @@
   "title": "Cyberpunk RED",
   "description": "An in-progress game system for CyberpunkRED. Still very much in development as all we have are the jumpstart rules and the core rulebook isn't even out yet. (Based on the boilerplate system by asacolips)",
   "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.6.2",
+  "compatibleCoreVersion": "0.6.4",
   "templateVersion": 2,
   "author": "Gerdofal",
   "esmodules": ["module/cyberpunkred.js"],
