@@ -199,6 +199,7 @@
   margin: 0px;
   box-sizing: border-box;
   overflow: visible;
+  white-space: nowrap;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item {
   font-weight: normal;
@@ -213,6 +214,7 @@
   border-bottom: 1px solid var(--cpr-red-color);
   border-radius: 10px 0px 0px 0px;
   font-size: 1em;
+  white-space: nowrap;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item.active {
   text-decoration: underline;
