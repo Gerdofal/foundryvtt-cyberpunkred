@@ -124,13 +124,16 @@ export class cyberpunkredActor extends Actor {
     
     var currentArmor = 0;
     var armorDiff = 0;
+    var largerArmor = 0;
     
     for(x = 1;x<=armorArray.length;x++) {
       currentArmor=armorArray[x] * 1;
       if(finalArmor<currentArmor) {
-        armorDiff = (currentArmor * 1) - (finalArmor * 1);  
+        armorDiff = (currentArmor * 1) - (finalArmor * 1); 
+        largerArmor = currentArmor;
       } else {
         armorDiff = (finalArmor * 1) - (currentArmor * 1);
+        largerArmor = finalArmor;
       }
       if(armorDiff>0) {
         _cprLog("Checking armorDiff of " + armorDiff + " current armor = " + finalArmor);
@@ -141,13 +144,13 @@ export class cyberpunkredActor extends Actor {
           case 2:
           case 3:
           case 4:
-              finalArmor = (finalArmor * 1) + 5 * 1;
+              finalArmor = (largerArmor * 1) + 5 * 1;
               break;
           case 5:
           case 6:
           case 7:
           case 8:
-              finalArmor = (finalArmor * 1)+4 * 1;
+              finalArmor = (largerArmor * 1)+4 * 1;
               break;            
           case 9:
           case 10:
@@ -155,7 +158,7 @@ export class cyberpunkredActor extends Actor {
           case 12:
           case 13:
           case 14:
-              finalArmor = (finalArmor * 1)+3 * 1;
+              finalArmor = (largerArmor * 1)+3 * 1;
               break;            
           case 15:
           case 16:
@@ -163,7 +166,7 @@ export class cyberpunkredActor extends Actor {
           case 18:
           case 19:
           case 20:
-              finalArmor = (finalArmor * 1)+2 * 1;
+              finalArmor = (largerArmor * 1)+2 * 1;
               break;            
           case 21:
           case 22:
@@ -171,7 +174,7 @@ export class cyberpunkredActor extends Actor {
           case 24:
           case 25:
           case 26:
-              finalArmor = (finalArmor * 1)+1 * 1;
+              finalArmor = (largerArmor * 1)+1 * 1;
               break;
         }
         _cprLog("finalArmor now " + finalArmor);
