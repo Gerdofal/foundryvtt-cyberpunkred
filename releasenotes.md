@@ -21,6 +21,7 @@ In Development Known Issues:
   - Some tabs are not localized
   - The item sheet is ugly
   - The "Combat Setup" tab is too wide
+  - Item fields for wepontype, burst, fullauto, skill and damage are text instead of drop-down
 
 ### Release Notes
 
