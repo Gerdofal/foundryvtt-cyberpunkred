@@ -21,6 +21,8 @@ Sections:
   - Implemented item based mods for all skills and attributes
   - Added space for armor on the combat setup tab
   - Setup workable UI for item sheet (more UI improvements for Actor and Item coming in beta 0.32)
+  
+  NOTICE: Significant template.json changes may impact items already in inventory. A transition will be attempted, but you might need to re-create those items.
 
 ### Release Notes
 
