@@ -1,5 +1,3 @@
-          {{log "SHEET DATA IS:"}}
-          {{log data}}
 <form class="{{cssClass}}" autocomplete="off">
   <header class="sheet-header"> <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
@@ -22,10 +20,12 @@
       <ol class="grid grid-1col">
         {{#each data as |item key|}}
         {{#if_not_eq key "modlist"}}
+        {{#if_not_eq key "temp"}}
         <li class="flexrow nowrap" data-attribute="{{key}}">
           <label for="data.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
           <input class="item-value" type="text" name="data.{{key}}.value" value="{{item.value}}"/>
         </li>
+        {{/if_not_eq}}
         {{/if_not_eq}}
         {{/each}}
       </ol>
@@ -45,18 +45,6 @@
           </select>
           <select name="data.modlist.{{eachkey}}.moditem">
           {{#select eachitem.moditem}}
-          {{log "DATA IS"}}
-          {{log data}}
-          {{log "../DATA IS"}}
-          {{log ../data}}
-          {{log "../DATA[{{moditem.modcat}}] is"}}
-          {{log (lookup ../data.temp moditem.modcat)}}
-          {{log "EACHITEM IS"}}
-          {{log eachitem}}
-          {{log "EACHKEY IS"}}
-          {{log eachkey}}
-          {{log "EACHITEM.modcat IS"}}
-          {{log eachitem.modcat}}
             {{#each (lookup ../data.temp eachitem.modcat) as |innerItem innerKey|}}
                <option value="{{innerKey}}">{{innerKey}}</option>
             {{/each}}
