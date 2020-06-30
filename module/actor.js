@@ -87,6 +87,7 @@ export class cyberpunkredActor extends Actor {
             //Skill - Permanently modifies a skill
             case "attributes":
               _cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
+              data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
               data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
               break;
 
