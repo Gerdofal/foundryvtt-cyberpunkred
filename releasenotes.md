@@ -18,10 +18,8 @@ Sections:
   - Added space for armor on the combat setup tab
   
 In Development Known Issues:
-  - Die roll totals are correct, but the details sometimes lack item mods
-  - Some tabs are not localized
+  - Some item sheet tabs are not localized
   - The item sheet is ugly
-  - The "Combat Setup" tab is too wide
   - Numerous item fields on the "Attributes" tab of the item sheet are text entry instead of the appropriate drop-down, checkbox, or other element
   - The "active" flag on item mods is permanently set to true for the time being
 
