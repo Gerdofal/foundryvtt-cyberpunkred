@@ -20,6 +20,7 @@ In Development Known Issues:
   - Die roll totals are correct, but the details sometimes lack item mods
   - Some tabs are not localized
   - The item sheet is ugly
+  - The "Combat Setup" tab is too wide
 
 ### Release Notes
 
