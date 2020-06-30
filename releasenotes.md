@@ -1,17 +1,34 @@
 Sections: 
+- [Future Plans](#future-plans)
 - [In Development](#in-development)
 - [Release Notes](#release-notes)
-- [Future Plans](#future-plans)
 
+### Future Plans
+
+- 0.31 - Item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons
+- 0.32 - UI cleanup and usability improvements
+
+- TBD
+  - Total the Cyber Psychosis from cyberware for the character sheet
+  - Reputation tracking
+  
 ### In Development
 
 - 0.31 - In Development / Not Yet Released
+  - Added combat section based on weapons in inventory
+  - Added functionality to allow items like cyberware to modify attributes and skills
+  - Changed "automod" fields to "itemmod" as that makes more sense
+  - Implemented item based mods for all skills and attributes
+  - Added space for armor on the combat setup tab
+  - Setup workable UI for item sheet (more UI improvements for Actor and Item coming in beta 0.32)
+  
+  NOTICE: Significant template.json changes may impact items already in inventory. A transition will be attempted, but you might need to re-create those items.
 
 ### Release Notes
 
 - 0.30 - Released 6/15/2020 - Beta
   - UI: Localized remaining rolls on combat tab
-  - New: Facedown, suppressive fire, reputation check, and initiave are now rollable
+  - New: Facedown, suppressive fire, reputation check, and initiative are now rollable
   - New: Added reputation to combatstats
   - Update: Set supported version to 0.6.2
   - Bugfix: INIT now uses defined roll prefix
@@ -64,6 +81,3 @@ Sections:
 - 0.26 - Released 5/27/2020 - Alpha
   - Fixed bug introduced in 0.25 when NPC sheets were excluded from some calculations. The exclusion was also applying to characters under some circumstances.
 
-### Future Plans
-
-- 0.31 - UI cleanup, adding ways to edit random attributes not included on other tabs, item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons).

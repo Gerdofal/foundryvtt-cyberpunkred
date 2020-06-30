@@ -19,17 +19,19 @@
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
-      {{#if data.settings.showtabs.hacking}}
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
-      {{/if}}
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
       {{#if data.showInventory}}
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
       {{/if}}
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="textinventory">{{localize "CPRED.textinventory"}}</a></div>
+      {{#if data.settings.showtabs.hacking}}
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
+      {{/if}}
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="modlog">{{localize "CPRED.modlog"}}</a></div>
     </div>
     
     
@@ -52,21 +54,24 @@
       
       {{!-- Attributes and Skills Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
-        <ol class="grid grid-4col">
+        <ol class="grid grid-5col">
           <label>{{localize "CPRED.attribute"}}</label>
           <label>{{localize "CPRED.base"}}</label>
           <label>{{localize "CPRED.mod"}}</label>
+          <label>{{localize "CPRED.itemmod"}}</label>
           <label>{{localize "CPRED.totalroll"}}</label>
           {{#each data.attributes as |attr key|}}
           <label for="data.attributes.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
           <input type="text" name="data.attributes.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
+          <input type="text" name="data.attributes.{{key}}.itemmod" value="{{attr.itemmod}}" data-dtype="Number" readonly/>
           <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
           {{#each data.skills as |skill key|}}
           <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="rollable">{{localize (concat "CPRED." key)}} ({{localize (concat "CPRED." skill.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
+          <input type="text" name="data.skills.{{key}}.itemmod" value="{{skill.itemmod}}" data-dtype="Number" readonly/>
           <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
           {{/each}}
         </ol>
@@ -77,6 +82,7 @@
       {{!-- Combat Setup Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup">
         <ol class="combatsetup-head">
+          <h3>{{localize "CPRED.weapons"}}</h3>
           <li class="flexrow">
             <div>{{localize "CPRED.name"}}</div>
             <div>{{localize "CPRED.damage"}}</div>
@@ -98,6 +104,21 @@
           </li>
           {{/each}}
         </ol>
+        <ol class="combatsetup-head">
+          <h3>{{localize "CPRED.armorheading"}}</h3>
+          <li class="flexrow">
+            <div>{{localize "CPRED.name"}}</div>
+            <div>{{localize "CPRED.value"}}</div>
+          </li>
+          {{#each data.armorsetup as |item key|}}
+          <li class="flexrow" data-item-id="{{item.id}}">
+            <div><input type="text" name="data.armorsetup.{{key}}.name" value="{{item.name}}"></div>
+            <div><input type="text" name="data.armorsetup.{{key}}.value" value="{{item.value}}"></div>
+          </li>
+          {{/each}}
+        </ol>
+          {{localize "CPRED.totalarmor"}} = {{data.combatstats.armor.value}}
+          <br>{{localize "CPRED.armorstacknote"}}
       </div>
       
       
@@ -131,6 +152,21 @@
               <i class="grid alterluck clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
               </ol>
           </div>
+        
+        {{!-- TODO: To make internal tabs need to override the _onChangeTab(event, tabs, active) method in your sheet class. Check out module/actor/sheet/base.js in the starfinder system. --}}
+        
+        {{#if data.itemCombatSetup}}
+        <div class="cprgraphics">
+        <h3>{{localize "CPRED.itemcombatsection"}}</h3>
+          {{#each actor.weapons as |item id|}}
+          <li class="flexrow" data-item-id="{{id}}">
+            <label class="cpr-weaponinlinebox">{{item.name}}</label>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollSkill item.data.skill.value}}">{{localize "CPRED.attack"}}</div>
+            <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollDamage item.data.damage.value}}">{{localize "CPRED.damage"}}</div>
+          </li>
+          {{/each}}
+        </div>
+        {{/if}}
         
         {{#if data.simpleCombatSetup}}
         <div class="cprgraphics">
@@ -304,8 +340,12 @@
       
       {{/if}}
       
+      {{!-- Text Inventory Tab --}}
+      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="textinventory">
+          {{editor content=data.description.textinventory target="data.description.textinventory" button=true owner=owner editable=editable}}
+      </div>
+      
       {{!-- SETTINGS TAB --}}
-      {{!-- TODO Localize this tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="settings">
         <h3>{{localize "CPRED.setbygm"}}</h3>
         {{localize "CPRED.dierollcommandname"}}: {{data.dieRollCommand}}
@@ -338,9 +378,18 @@
             <label for="set_{{key}}">{{key}}</label>
           {{/each}}  
         </ol>
-
       </div>
       
+      
+      {{!-- LOG TAB --}}
+      {{!-- TODO Localize this tab --}}
+      <div class="tab cprgraphics" data-group="primary" data-tab="modlog">
+        <h3>{{localize "CPRED.logheader"}}</h3>
+          {{#each data.modlog}}
+            <div>{{this}}</div>
+          {{/each}}  
+        </ol>
+      </div>
       
     </div> {{!-- Here ends main content --}}
   </div> {{!-- Here ends grid definition --}}

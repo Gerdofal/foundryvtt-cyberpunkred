@@ -34,7 +34,7 @@ export const registerSystemSettings = function() {
     hint: "CPRED.useitembasedcombathint",
     scope: "world",
     config: true,
-    default: false,
+    default: true,
     type: Boolean
   });
   
@@ -43,7 +43,7 @@ export const registerSystemSettings = function() {
     hint: "CPRED.showinventoryhint",
     scope: "world",
     config: true,
-    default: false,
+    default: true,
     type: Boolean
   });
 	

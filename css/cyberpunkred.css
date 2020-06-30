@@ -6,7 +6,7 @@
   --cpr-red-color: #800000; /* var(--cpr-red-color) */
   --cpr-light-bak-color: #FFFFFF; /* var(--cpr-light-bak-color) */
   --cpr-app-bak-color: rgba(0,0,0,1.00); /* var(--cpr-app-bak-color) */
-  
+  --cpr-default-text-size: .85em;
   
 }
 
@@ -23,16 +23,16 @@
 }
 
 .cpr-roll-details {
-  font-size: .9em;
+  font-size: var(--cpr-default-text-size);
 }
 
 .cpr-roll-roll {
-  font-size: .8em;
+  font-size: var(--cpr-default-text-size);
 }
 
 .cpr-roll-tags {
   display: none;
-  font-size: .9em;
+  font-size: var(--cpr-default-text-size);
 }
 
 .cpr-roll-showtagscheck:checked + .cpr-roll-tags {
@@ -57,7 +57,7 @@
 .dice-roll .dice-total {
   background: #FFAAAA;
   display: inline-block;
-  font-size: 14px;
+  font-size: var(--cpr-default-text-size);
   font-weight: normal;
   padding-left: 10px;
   padding-right: 10px;
@@ -178,7 +178,8 @@
   grid-template-rows: auto;
   align-content: start;
   border-right: 1px solid #AAA;
-  padding: 3px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 .cyberpunkred .cpr-content {
   grid-column: 2;
@@ -193,38 +194,42 @@
 .cyberpunkred .cpr-nav .cpr-nav-item {
   justify-self: start;
   display: block;
-  height: 45px;
+  height: 25px;
   width: 100%;
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
   overflow: visible;
+  white-space: nowrap;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item {
   font-weight: normal;
   display: block;
   width: 100%;
-  padding: 3px;
+  padding: 3px 1px 1px 0px;
   margin: 0px;
-  height: 45px;
+  height: 25px;
   background: var(--cpr-light-bak-color);
   border-left: 1px solid var(--cpr-red-color);
   border-top: 1px solid var(--cpr-red-color);
   border-bottom: 1px solid var(--cpr-red-color);
   border-radius: 10px 0px 0px 0px;
+  font-size: var(--cpr-default-text-size);
+  white-space: nowrap;
 }
 .cyberpunkred .cpr-nav .cpr-nav-item .item.active {
   text-decoration: underline;
   text-shadow: none;
   font-weight: bold;
-  padding: 3px;
+  padding: 3px 1px 1px 0px;
   margin: 0px;
-  height: 45px;
+  height: 25px;
   background: linear-gradient(#D0D0D0,#E0E0E0);
   border-left: 1px solid var(--cpr-red-color);
   border-top: 1px solid var(--cpr-red-color);
   border-bottom: 1px solid var(--cpr-red-color);
   border-radius: 10px 0px 0px 0px;
+  font-size: var(--cpr-default-text-size);
 }
 
 /* General code for hover indications of rollable and clickable */
@@ -333,7 +338,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-size: 9px;
+  font-size: var(--cpr-default-text-size);
 }
 
 .cyberpunkred .cpr-weaponinlinebox {
@@ -342,7 +347,7 @@
   margin: 0px;
   box-sizing: border-box;
   text-align: center;
-  font-size: 9px;
+  font-size: var(--cpr-default-text-size);
 }
 
 /* Damage Track and Luck Track */
@@ -361,7 +366,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
-  font-size: 9px;
+  font-size: var(--cpr-default-text-size);
 }
 
 .cyberpunkred .skilllist-item {
@@ -377,7 +382,7 @@
   align-self: center;
   justify-self: center;
   text-align: center;
-  font-size: 9px;
+  font-size: var(--cpr-default-text-size);
 }
 
 .cyberpunkred .specialroll-grid {
@@ -415,7 +420,7 @@
 .cyberpunkred .cpr-totalmoddisplay {
   width: 7em;
   display: inline;
-  font-size: 12px;
+  font-size: var(--cpr-default-text-size);
   font-weight: bold;
 }
 
@@ -428,7 +433,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
-  font-size: 9px;
+  font-size: var(--cpr-default-text-size);
 }
 
 .cyberpunkred .modlist-item {
@@ -444,7 +449,7 @@
   align-self: center;
   justify-self: center;
   text-align: center;
-  font-size: 9px;
+  font-size: var(--cpr-default-text-size);
 }
 
 .cyberpunkred input.modlist[type=checkbox] {
@@ -468,6 +473,10 @@
   border-color: var(--cpr-red-color);
   padding: 3px;
   margin: 0px;
+}
+
+.cyberpunkred input:read-only {
+  background-color: #DCA9AA;
 }
 
 /* Grid Setups */

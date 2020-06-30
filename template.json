@@ -9,7 +9,8 @@
           "appearance": "A brief physical description...",
           "hair": "",
           "height": "",
-          "weight": ""
+          "weight": "",
+          "textinventory": "<ul><li>A text list</li><li>of any inventory</li><li>you want to record...</li></ol>"
         }
       },
 
@@ -34,6 +35,9 @@
           },
           "reputation": {
             "value": 1
+          },
+          "armor": {
+            "value": 0
           }
         }
       },
@@ -100,6 +104,28 @@
             "skill": "hidden",
             "type": "Pistol"
           }
+        },
+        "armorsetup": {
+          "armor1": {
+            "name": "Armor Type...",
+            "value": 0
+          },
+          "armor2": {
+            "name": "Armor Type...",
+            "value": 0
+          },
+          "armor3": {
+            "name": "Armor Type...",
+            "value": 0
+          },
+          "armor4": {
+            "name": "Armor Type...",
+            "value": 0
+          },
+          "armor5": {
+            "name": "Armor Type...",
+            "value": 0
+          }
         }
       },
 
@@ -108,61 +134,61 @@
           "int": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "ref": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "dex": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "tech": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "cool": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "will": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "luck": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "move": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "body": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           },
           "emp": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5
           }
         }
@@ -173,147 +199,147 @@
           "brawling": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "evasion": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "meleeweapon": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "marksmanship": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "ref"
           },
           "concentration": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "will"
           },
           "perception": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "int"
           },
           "tracking": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "int"
           },
           "driving": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "ref"
           },
           "athletics": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "stealth": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "dex"
           },
           "bribery": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "cool"
           },
           "conversation": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "emp"
           },
           "humanperception": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "emp"
           },
           "interrogation": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "cool"
           },
           "persuasion": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "cool"
           },
           "basictech": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "tech"
           },
           "cybertech": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "tech"
           },
           "firstaid": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "tech"
           },
           "playinstrument": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "emp"
           },
           "education": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "int"
           },
           "localexpert": {
             "value": 5,
             "mod": 0,
-            "automod": 0,
+            "itemmod": 0,
             "roll": 5,
             "linkedattribute": "int"
           }
@@ -468,14 +494,14 @@
             "interface": {
               "value": 0,
               "mod": 0,
-              "automod": 0,
+              "itemmod": 0,
               "roll": 0,
               "linkedattribute": "int"
             },
             "spd": {
               "value": 0,
               "mod": 0,
-              "automod": 0,
+              "itemmod": 0,
               "roll": 0,
               "linkedattribute": "int"
             }
@@ -520,32 +546,99 @@
       },
       "weapon": {
         "damage": {
-          "value": 0
+          "value": "3d6"
         },
         "ammo": {
           "min": 0,
-          "max": "16",
+          "max": 16,
           "value": 0
         },
         "weapontype": {
           "value": "pistol"
         },
         "burst": {
-          "value": true
+          "value": false
         },
         "fullauto": {
           "value": false
+        },
+        "skill": {
+          "value": "marksmanship"
+        }
+      },
+      "modlist": {
+        "modlist": {
+          "mod1": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          },
+          "mod2": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          },
+          "mod3": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          },
+          "mod4": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          },
+          "mod5": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          },
+          "mod6": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          },
+          "mod7": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          },
+          "mod8": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          },
+          "mod9": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          },
+          "mod10": {
+            "modcat": "none",
+            "moditem": "none",
+            "modvalue": 0,
+            "modactive": true
+          }
         }
       }
     },
     "weapons": {
-      "templates": ["general", "weapon"]
+      "templates": ["general", "weapon", "modlist"]
     },
     "cyberware": {
-      "templates": ["general", "cyberware"]
+      "templates": ["general", "cyberware", "modlist"]
     },
     "gear": {
-      "templates": ["general"]
+      "templates": ["general", "modlist"]
     }
   }
 }

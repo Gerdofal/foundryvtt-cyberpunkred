@@ -20,6 +20,10 @@ export class cyberpunkredActorSheet extends ActorSheet {
         navSelector: ".sheet-tabs",
         contentSelector: ".cpr-content",
         initial: "description"
+      },{
+        navSelector: ".combat-tabs",
+        contentSelector: ".cpr-combat-content",
+        initial: "description"
       }]
     });
   }
@@ -39,6 +43,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
+    this._prepareCharacterItems(data);
     //_cprLog("Returning sheet data");
     //console.log(data);
     return data;
@@ -54,16 +59,13 @@ export class cyberpunkredActorSheet extends ActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
-
-
-    _cprLog("Parsing Item List");
+    _cprLog("Categorizing Item List for Actor Sheet");
     // Initialize containers.
     const cyberware = [];
     const weapons = [];
     const gear = [];
 
     // Iterate through items, allocating to containers
-    // let totalWeight = 0;
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
@@ -84,9 +86,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
       actorData.gear = gear;
       actorData.weapons = weapons;
       actorData.cyberware = cyberware;
-      _cprLog(cyberware);
-      _cprLog(weapons);
-      _cprLog(gear);
     }
   }
   /* -------------------------------------------- */
