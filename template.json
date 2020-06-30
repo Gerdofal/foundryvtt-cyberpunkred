@@ -35,6 +35,9 @@
           },
           "reputation": {
             "value": 1
+          },
+          "armor": {
+            "value": 0
           }
         }
       },
