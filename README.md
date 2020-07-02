@@ -24,7 +24,7 @@ https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/releasenote
 
 # Suggestions
 
-If you wish to make suggestions, please submit issues on the github issue trackeror use my discord: https://discord.gg/dET9xA6
+If you wish to make suggestions, please submit issues on the Github issue trackeror use my Discord: https://discord.gg/dET9xA6
 
 # Features Planned
 
