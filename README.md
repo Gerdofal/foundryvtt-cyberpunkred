@@ -22,6 +22,10 @@ Release notes (and plans for future releases) are in their own file. Please see:
 
 https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/releasenotes.md
 
+# Suggestions
+
+If you wish to make suggestions, please submit issues or use my discord: https://discord.gg/BHzUZbj
+
 # Features Planned
 
 - Character Sheet
