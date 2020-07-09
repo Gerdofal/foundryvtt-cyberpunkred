@@ -15,6 +15,11 @@
 		"lang": "en",
 		"name": "English",
 		"path": "lang/en.json"		  
+	  },
+	  {
+		"lang": "zh",
+		"name": "Simplifed Chinese",
+		"path": "lang/zh.json"		  
 	  }
   ],
   "gridDistance": 1,

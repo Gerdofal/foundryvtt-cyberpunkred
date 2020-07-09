@@ -14,6 +14,7 @@ Sections:
 ### In Development
 
 - 0.32 - In Development / Not Yet Released
+  - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
 
 ### Release Notes
 
