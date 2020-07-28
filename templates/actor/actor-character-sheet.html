@@ -81,7 +81,8 @@
       
       {{!-- Combat Setup Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup">
-        <ol class="combatsetup-head">
+        {{#if data.simpleCombatSetup}}
+        <ol class="combatsetup-head">  
           <h3>{{localize "CPRED.weapons"}}</h3>
           <li class="flexrow">
             <div>{{localize "CPRED.name"}}</div>
@@ -104,6 +105,7 @@
           </li>
           {{/each}}
         </ol>
+        {{/if}}
         <ol class="combatsetup-head">
           <h3>{{localize "CPRED.armorheading"}}</h3>
           <li class="flexrow">
@@ -355,31 +357,27 @@
         {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
         {{/if}}
         <br>
-        {{localize "CPRED.usesimplecombatname"}}:
-        {{#if data.simpleCombatSetup}}
-        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
-        {{/if}}
+        <hr>
+        {{localize "CPRED.usesimplecombatname"}}
+        <input type="checkbox" id="set_simplecombatsetup" name="data.simpleCombatSetup" {{checked data.simpleCombatSetup}}>
         <br>
         
+        {{localize "CPRED.showinventoryname"}}:
+        <input type="checkbox" id="set_showinventory" name="data.showInventory" {{checked data.showInventory}}>
         <br>
+        
         {{localize "CPRED.useitembasedcombatname"}}:
-        {{#if data.itemCombatSetup}}
-        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
-        {{/if}}
+        <input type="checkbox" id="set_itemcombatsetup" name="data.itemCombatSetup" {{checked data.itemCombatSetup}}>
+        <br>
+        
         <hr>
         <h3>{{localize "CPRED.youmayset"}}</h3>
         {{localize "CPRED.showtabs"}}<br>
-        <ol class="grid grid-1col">
           {{#each data.settings.showtabs as |attr key|}}
-            <input type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>
-            <label for="set_{{key}}">{{key}}</label>
+          <label for="set_{{key}}">{{key}}</label>
+          <input type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>    
+          <br>
           {{/each}}  
-        </ol>
-        <ol class="grid grid-1col">
-        {{localize "CPRED.showinventoryname"}}:
-        <input type="checkbox" id="set_showinventory" name="data.showInventory" {{checked data.showInventory}}>
-        <label for="set_showinventory">{{key}}</label>
-        </ol>
       </div>
       
       

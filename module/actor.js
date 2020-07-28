@@ -20,9 +20,9 @@ export class cyberpunkredActor extends Actor {
 
     //All sheets need setup variables
     data.dieRollCommand = game.settings.get("cyberpunkred", "dieRollCommand");
-    data.simpleCombatSetup = game.settings.get("cyberpunkred", "simpleCombatSetup");
+    //data.simpleCombatSetup = game.settings.get("cyberpunkred", "simpleCombatSetup");
     data.GMAlwaysWhisper = game.settings.get("cyberpunkred", "GMAlwaysWhisper");
-    data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
+    //data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
     //data.showInventory = game.settings.get("cyberpunkred", "showInventory");
     if (!data.showInventory) {
       data.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
