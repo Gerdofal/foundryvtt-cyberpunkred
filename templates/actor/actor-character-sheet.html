@@ -360,10 +360,7 @@
         {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
         {{/if}}
         <br>
-        {{localize "CPRED.showinventoryname"}}:
-        {{#if data.showInventory}}
-        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
-        {{/if}}
+        
         <br>
         {{localize "CPRED.useitembasedcombatname"}}:
         {{#if data.itemCombatSetup}}
@@ -377,6 +374,11 @@
             <input type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>
             <label for="set_{{key}}">{{key}}</label>
           {{/each}}  
+        </ol>
+        <ol class="grid grid-1col">
+        {{localize "CPRED.showinventoryname"}}:
+        <input type="checkbox" id="set_showinventory" name="data.showInventory" {{checked data.showInventory}}>
+        <label for="set_showinventory">{{key}}</label>
         </ol>
       </div>
       
