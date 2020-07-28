@@ -20,13 +20,4 @@ export const registerSystemSettings = function() {
     type: Boolean
   });
 	
-	game.settings.register("cyberpunkred", "simpleCombatSetup", {
-    name: "CPRED.usesimplecombatname",
-    hint: "CPRED.usesimplecombathint",
-    scope: "world",
-    config: true,
-    default: true,
-    type: Boolean
-  });
-	
 }

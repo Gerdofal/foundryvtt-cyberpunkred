@@ -21,7 +21,7 @@
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
-      {{#if data.showInventory}}
+      {{#if data.settings.prefs.showInventory}}
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
@@ -81,7 +81,7 @@
       
       {{!-- Combat Setup Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup">
-        {{#if data.simpleCombatSetup}}
+        {{#if data.settings.prefs.simpleCombatSetup}}
         <ol class="combatsetup-head">  
           <h3>{{localize "CPRED.weapons"}}</h3>
           <li class="flexrow">
@@ -157,7 +157,7 @@
         
         {{!-- TODO: To make internal tabs need to override the _onChangeTab(event, tabs, active) method in your sheet class. Check out module/actor/sheet/base.js in the starfinder system. --}}
         
-        {{#if data.itemCombatSetup}}
+        {{#if data.settings.prefs.itemCombatSetup}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.itemcombatsection"}}</h3>
           {{#each actor.weapons as |item id|}}
@@ -170,7 +170,7 @@
         </div>
         {{/if}}
         
-        {{#if data.simpleCombatSetup}}
+        {{#if data.settings.prefs.simpleCombatSetup}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.simplecombatsection"}}</h3>
           {{#each data.weaponsetup as |item key|}}
@@ -285,7 +285,7 @@
       
       {{/if}}
 
-      {{#if data.showInventory}}
+      {{#if data.settings.prefs.showInventory}}
       {{!-- Owned Cyberware Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="cyberware">
         <ol class="items-list">
@@ -359,15 +359,15 @@
         <br>
         <hr>
         {{localize "CPRED.usesimplecombatname"}}
-        <input type="checkbox" id="set_simplecombatsetup" name="data.simpleCombatSetup" {{checked data.simpleCombatSetup}}>
+        <input type="checkbox" id="set_simplecombatsetup" name="data.settings.prefs.simpleCombatSetup" {{checked data.settings.prefs.simpleCombatSetup}}>
         <br>
         
         {{localize "CPRED.showinventoryname"}}:
-        <input type="checkbox" id="set_showinventory" name="data.showInventory" {{checked data.showInventory}}>
+        <input type="checkbox" id="set_showinventory" name="data.settings.prefs.showInventory" {{checked data.settings.prefs.showInventory}}>
         <br>
         
         {{localize "CPRED.useitembasedcombatname"}}:
-        <input type="checkbox" id="set_itemcombatsetup" name="data.itemCombatSetup" {{checked data.itemCombatSetup}}>
+        <input type="checkbox" id="set_itemcombatsetup" name="data.settings.prefs.itemCombatSetup" {{checked data.settings.prefs.itemCombatSetup}}>
         <br>
         
         <hr>

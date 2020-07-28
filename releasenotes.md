@@ -22,7 +22,9 @@ Current Focus: UI Improvements
 
 - 0.32 - In Development / Not Yet Released
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
-  - Removed config setting for showing or hiding inventory tabs and moved that to sheet settings so the players can set it on their own
+  - Removed gm config setting for showing or hiding some portions of sheets
+  - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
+  
 
 ### Release Notes
 
