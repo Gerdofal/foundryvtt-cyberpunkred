@@ -128,11 +128,11 @@
       <div class="tab cprgraphics" data-group="primary" data-tab="combat">  
         
         {{!-- Bullet List Indicators for Current HP and Luck --}}
-        <br>
-          <div class="cprgraphics" style="display: inline-block; width: 48%;vertical-align: top;">
+        
+          <div class="cprgraphics">
           <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
             {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
-            <ol class="grid grid-3col">
+            <ol class="grid grid-8col">
             <i class="grid alterhealth clickable" data-change="-10">-10</i>
             <i class="grid alterhealth clickable" data-change="-5">-5</i>
             <i class="grid alterhealth clickable" data-change="-1">-1</i>
@@ -140,14 +140,13 @@
             <i class="grid alterhealth clickable" data-change="+5">+5</i>
             <i class="grid alterhealth clickable" data-change="+1">+1</i>
             <i class="grid alterhealth clickable" data-change="-9999">{{localize "CPRED.zero"}}</i>
-            <i class="grid"></i>
             <i class="grid alterhealth clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
             </ol>
           </div>
-          <div class="cprgraphics" style="display: inline-block; width: 48%;vertical-align: top;">
+          <div class="cprgraphics">
             <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
               {{{buildLuckTrack data.combatstats.luckpool.value data.combatstats.luckpool.max}}}<br>
-              <ol class="grid grid-2col">
+              <ol class="grid grid-4col">
               <i class="grid alterluck clickable" data-change="-1">{{localize "CPRED.spend"}}</i>
               <i class="grid alterluck clickable" data-change="+1">{{localize "CPRED.earn"}}</i>
               <i class="grid alterluck clickable" data-change="-9999">{{localize "CPRED.zero"}}</i>
@@ -280,7 +279,6 @@
 <br>        Speedy Gonzalez - Increases SPD by +4
 <br>        Banhammer - +2 ATT - 3d6 vs hellhounds, 2d6 vs other programs
 <br>        Flack - Stops the first successful non-helhound attack from doing damage
-<br>        encounterblackicewithspeedy
       </div>
       
       {{/if}}
@@ -358,6 +356,8 @@
         {{/if}}
         <br>
         <hr>
+        <h3>{{localize "CPRED.youmayset"}}</h3>
+        
         {{localize "CPRED.usesimplecombatname"}}
         <input type="checkbox" id="set_simplecombatsetup" name="data.settings.prefs.simpleCombatSetup" {{checked data.settings.prefs.simpleCombatSetup}}>
         <br>
@@ -369,15 +369,14 @@
         {{localize "CPRED.useitembasedcombatname"}}:
         <input type="checkbox" id="set_itemcombatsetup" name="data.settings.prefs.itemCombatSetup" {{checked data.settings.prefs.itemCombatSetup}}>
         <br>
-        
-        <hr>
-        <h3>{{localize "CPRED.youmayset"}}</h3>
+
         {{localize "CPRED.showtabs"}}<br>
           {{#each data.settings.showtabs as |attr key|}}
           <label for="set_{{key}}">{{key}}</label>
           <input type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>    
           <br>
-          {{/each}}  
+          {{/each}}
+        
       </div>
       
       
