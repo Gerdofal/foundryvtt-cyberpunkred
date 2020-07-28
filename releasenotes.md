@@ -18,8 +18,11 @@ Sections:
   
 ### In Development
 
+Current Focus: UI Improvements
+
 - 0.32 - In Development / Not Yet Released
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
+  - Removed config setting for showing or hiding inventory tabs and moved that to sheet settings so the players can set it on their own
 
 ### Release Notes
 
