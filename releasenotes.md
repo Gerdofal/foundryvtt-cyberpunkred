@@ -1,7 +1,12 @@
 Sections: 
+- [Alpha Alert](#alpha-alert)
 - [Future Plans](#future-plans)
 - [In Development](#in-development)
 - [Release Notes](#release-notes)
+
+### Alpha Alert
+
+- Development and live versions are not currently functional in Alpha 7.0
 
 ### Future Plans
 
