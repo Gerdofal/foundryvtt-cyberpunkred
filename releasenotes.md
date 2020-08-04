@@ -10,23 +10,29 @@ Sections:
 
 ### Future Plans
 
-- 0.32 - UI cleanup and usability improvements
+- 0.33 - UI cleanup and usability improvements
 
-- 0.33 - Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
+- 0.34 - Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
 
-- 0.34 - Token bar actions
+- 0.35 - Token bar actions
   
 ### In Development
 
 Current Focus: UI Improvements
 
-- 0.32 - In Development / Not Yet Released
+- 0.33 - In Development / Not Yet Released
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
   - Removed gm config setting for showing or hiding some portions of sheets
   - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
   
 
 ### Release Notes
+
+- 0.32 - Released 8/4/2020 - Beta (Bugfix Release)
+  - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
+  - Removed gm config setting for showing or hiding some portions of sheets
+  - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
+  - Fixed tab bug in FoundryVTT Ver 7.0 Alpha
 
 - 0.31 - Released 6/30/2020 - Beta
   - Added combat section based on weapons in inventory
