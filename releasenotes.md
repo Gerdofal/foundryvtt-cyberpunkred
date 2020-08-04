@@ -1,5 +1,4 @@
 Sections: 
-- [Alpha Alert](#alpha-alert)
 - [Future Plans](#future-plans)
 - [In Development](#in-development)
 - [Release Notes](#release-notes)
