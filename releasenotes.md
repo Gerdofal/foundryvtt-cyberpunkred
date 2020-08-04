@@ -4,10 +4,6 @@ Sections:
 - [In Development](#in-development)
 - [Release Notes](#release-notes)
 
-### Alpha Alert
-
-- Development and live versions are not currently functional in Alpha 7.0
-
 ### Future Plans
 
 - 0.33 - UI cleanup and usability improvements
