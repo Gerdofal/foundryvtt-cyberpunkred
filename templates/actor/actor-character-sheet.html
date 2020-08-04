@@ -15,23 +15,23 @@
     
     
     {{!-- Navigation Sidebar --}}
-    <div class="cpr-nav sheet-tabs cprgraphics">
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
-      {{#if data.showInventory}}
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
+    <div class="cpr-nav sheet-tabs cprgraphics" data-group="primary">
+      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
+      {{#if data.settings.prefs.showInventory}}
+      <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
       {{/if}}
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="textinventory">{{localize "CPRED.textinventory"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="textinventory">{{localize "CPRED.textinventory"}}</a></div>
       {{#if data.settings.showtabs.hacking}}
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
       {{/if}}
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-group="primary" data-tab="modlog">{{localize "CPRED.modlog"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="modlog">{{localize "CPRED.modlog"}}</a></div>
     </div>
     
     
@@ -81,7 +81,8 @@
       
       {{!-- Combat Setup Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup">
-        <ol class="combatsetup-head">
+        {{#if data.settings.prefs.simpleCombatSetup}}
+        <ol class="combatsetup-head">  
           <h3>{{localize "CPRED.weapons"}}</h3>
           <li class="flexrow">
             <div>{{localize "CPRED.name"}}</div>
@@ -104,6 +105,7 @@
           </li>
           {{/each}}
         </ol>
+        {{/if}}
         <ol class="combatsetup-head">
           <h3>{{localize "CPRED.armorheading"}}</h3>
           <li class="flexrow">
@@ -126,11 +128,11 @@
       <div class="tab cprgraphics" data-group="primary" data-tab="combat">  
         
         {{!-- Bullet List Indicators for Current HP and Luck --}}
-        <br>
-          <div class="cprgraphics" style="display: inline-block; width: 48%;vertical-align: top;">
+        
+          <div class="cprgraphics">
           <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
             {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
-            <ol class="grid grid-3col">
+            <ol class="grid grid-8col">
             <i class="grid alterhealth clickable" data-change="-10">-10</i>
             <i class="grid alterhealth clickable" data-change="-5">-5</i>
             <i class="grid alterhealth clickable" data-change="-1">-1</i>
@@ -138,14 +140,13 @@
             <i class="grid alterhealth clickable" data-change="+5">+5</i>
             <i class="grid alterhealth clickable" data-change="+1">+1</i>
             <i class="grid alterhealth clickable" data-change="-9999">{{localize "CPRED.zero"}}</i>
-            <i class="grid"></i>
             <i class="grid alterhealth clickable" data-change="+9999">{{localize "CPRED.full"}}</i>
             </ol>
           </div>
-          <div class="cprgraphics" style="display: inline-block; width: 48%;vertical-align: top;">
+          <div class="cprgraphics">
             <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
               {{{buildLuckTrack data.combatstats.luckpool.value data.combatstats.luckpool.max}}}<br>
-              <ol class="grid grid-2col">
+              <ol class="grid grid-4col">
               <i class="grid alterluck clickable" data-change="-1">{{localize "CPRED.spend"}}</i>
               <i class="grid alterluck clickable" data-change="+1">{{localize "CPRED.earn"}}</i>
               <i class="grid alterluck clickable" data-change="-9999">{{localize "CPRED.zero"}}</i>
@@ -155,7 +156,7 @@
         
         {{!-- TODO: To make internal tabs need to override the _onChangeTab(event, tabs, active) method in your sheet class. Check out module/actor/sheet/base.js in the starfinder system. --}}
         
-        {{#if data.itemCombatSetup}}
+        {{#if data.settings.prefs.itemCombatSetup}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.itemcombatsection"}}</h3>
           {{#each actor.weapons as |item id|}}
@@ -168,7 +169,7 @@
         </div>
         {{/if}}
         
-        {{#if data.simpleCombatSetup}}
+        {{#if data.settings.prefs.simpleCombatSetup}}
         <div class="cprgraphics">
         <h3>{{localize "CPRED.simplecombatsection"}}</h3>
           {{#each data.weaponsetup as |item key|}}
@@ -278,12 +279,11 @@
 <br>        Speedy Gonzalez - Increases SPD by +4
 <br>        Banhammer - +2 ATT - 3d6 vs hellhounds, 2d6 vs other programs
 <br>        Flack - Stops the first successful non-helhound attack from doing damage
-<br>        encounterblackicewithspeedy
       </div>
       
       {{/if}}
 
-      {{#if data.showInventory}}
+      {{#if data.settings.prefs.showInventory}}
       {{!-- Owned Cyberware Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="cyberware">
         <ol class="items-list">
@@ -355,29 +355,28 @@
         {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
         {{/if}}
         <br>
-        {{localize "CPRED.usesimplecombatname"}}:
-        {{#if data.simpleCombatSetup}}
-        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
-        {{/if}}
-        <br>
-        {{localize "CPRED.showinventoryname"}}:
-        {{#if data.showInventory}}
-        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
-        {{/if}}
-        <br>
-        {{localize "CPRED.useitembasedcombatname"}}:
-        {{#if data.itemCombatSetup}}
-        {{localize "CPRED.enabled"}}{{else}}{{localize "CPRED.disabled"}}
-        {{/if}}
         <hr>
         <h3>{{localize "CPRED.youmayset"}}</h3>
+        
+        {{localize "CPRED.usesimplecombatname"}}
+        <input type="checkbox" id="set_simplecombatsetup" name="data.settings.prefs.simpleCombatSetup" {{checked data.settings.prefs.simpleCombatSetup}}>
+        <br>
+        
+        {{localize "CPRED.showinventoryname"}}:
+        <input type="checkbox" id="set_showinventory" name="data.settings.prefs.showInventory" {{checked data.settings.prefs.showInventory}}>
+        <br>
+        
+        {{localize "CPRED.useitembasedcombatname"}}:
+        <input type="checkbox" id="set_itemcombatsetup" name="data.settings.prefs.itemCombatSetup" {{checked data.settings.prefs.itemCombatSetup}}>
+        <br>
+
         {{localize "CPRED.showtabs"}}<br>
-        <ol class="grid grid-1col">
           {{#each data.settings.showtabs as |attr key|}}
-            <input type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>
-            <label for="set_{{key}}">{{key}}</label>
-          {{/each}}  
-        </ol>
+          <label for="set_{{key}}">{{key}}</label>
+          <input type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>    
+          <br>
+          {{/each}}
+        
       </div>
       
       

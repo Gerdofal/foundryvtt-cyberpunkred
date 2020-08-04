@@ -1,20 +1,34 @@
 Sections: 
+- [Alpha Alert](#alpha-alert)
 - [Future Plans](#future-plans)
 - [In Development](#in-development)
 - [Release Notes](#release-notes)
 
+### Alpha Alert
+
+- Development and live versions are not currently functional in Alpha 7.0
+
 ### Future Plans
 
-- 0.31 - Item Inventory System (Including modifiers and other attributes based on items, as well as ranges and damage for weapons
 - 0.32 - UI cleanup and usability improvements
 
-- TBD
-  - Total the Cyber Psychosis from cyberware for the character sheet
-  - Reputation tracking
+- 0.33 - Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
+
+- 0.34 - Token bar actions
   
 ### In Development
 
-- 0.31 - In Development / Not Yet Released
+Current Focus: UI Improvements
+
+- 0.32 - In Development / Not Yet Released
+  - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
+  - Removed gm config setting for showing or hiding some portions of sheets
+  - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
+  
+
+### Release Notes
+
+- 0.31 - Released 6/30/2020 - Beta
   - Added combat section based on weapons in inventory
   - Added functionality to allow items like cyberware to modify attributes and skills
   - Changed "automod" fields to "itemmod" as that makes more sense
@@ -23,8 +37,6 @@ Sections:
   - Setup workable UI for item sheet (more UI improvements for Actor and Item coming in beta 0.32)
   
   NOTICE: Significant template.json changes may impact items already in inventory. A transition will be attempted, but you might need to re-create those items.
-
-### Release Notes
 
 - 0.30 - Released 6/15/2020 - Beta
   - UI: Localized remaining rolls on combat tab

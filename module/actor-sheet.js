@@ -19,11 +19,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       tabs: [{
         navSelector: ".sheet-tabs",
         contentSelector: ".cpr-content",
-        initial: "description"
-      },{
-        navSelector: ".combat-tabs",
-        contentSelector: ".cpr-combat-content",
-        initial: "description"
+        initial: "attrnskills"
       }]
     });
   }

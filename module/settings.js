@@ -20,32 +20,4 @@ export const registerSystemSettings = function() {
     type: Boolean
   });
 	
-	game.settings.register("cyberpunkred", "simpleCombatSetup", {
-    name: "CPRED.usesimplecombatname",
-    hint: "CPRED.usesimplecombathint",
-    scope: "world",
-    config: true,
-    default: true,
-    type: Boolean
-  });
-  
-	game.settings.register("cyberpunkred", "itemCombatSetup", {
-    name: "CPRED.useitembasedcombatname",
-    hint: "CPRED.useitembasedcombathint",
-    scope: "world",
-    config: true,
-    default: true,
-    type: Boolean
-  });
-  
-  game.settings.register("cyberpunkred", "showInventory", {
-    name: "CPRED.showinventoryname",
-    hint: "CPRED.showinventoryhint",
-    scope: "world",
-    config: true,
-    default: true,
-    type: Boolean
-  });
-	
-	
 }

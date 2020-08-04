@@ -484,6 +484,11 @@
           },
           "showtabs": {
             "hacking": true
+          },
+          "prefs": {
+            "simpleCombatSetup" : true,
+            "itemCombatSetup" : true,
+            "showInventory" : true
           }
         }
       },

@@ -110,7 +110,7 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 10 == 0) {
+      if (x % 25 == 0 && x!=max) {
         outStr += "<br>";
       }
     }
@@ -131,7 +131,7 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 10 == 0) {
+      if (x % 25 == 0 && x!=max) {
         outStr += "<br>";
       }
     }

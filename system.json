@@ -1,10 +1,10 @@
 {
-  "version": 0.31,
+  "version": 0.32,
   "name": "cyberpunkred",
   "title": "Cyberpunk RED",
   "description": "An in-progress game system for CyberpunkRED. Still very much in development as all we have are the jumpstart rules and the core rulebook isn't even out yet. (Based on the boilerplate system by asacolips)",
   "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.6.4",
+  "compatibleCoreVersion": "0.6.5",
   "templateVersion": 2,
   "author": "Gerdofal",
   "esmodules": ["module/cyberpunkred.js"],
@@ -15,6 +15,11 @@
 		"lang": "en",
 		"name": "English",
 		"path": "lang/en.json"		  
+	  },
+	  {
+		"lang": "zh",
+		"name": "Simplifed Chinese",
+		"path": "lang/zh.json"		  
 	  }
   ],
   "gridDistance": 1,
