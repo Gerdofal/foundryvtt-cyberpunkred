@@ -31,6 +31,7 @@ IMPORTANT: This version requires FoundryVTT Version 7+
   - Changed background of main ui from black to a light gray, darkened the red text
   - Improved appearance of checkboxes on settings tab
   - Changed default die roll to d10xo10, noted that this requires FVTT ver 7.0+
+  - Fixed bug causing NPC rolls to fail
 
 Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
   
