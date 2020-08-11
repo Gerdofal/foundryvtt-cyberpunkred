@@ -302,6 +302,19 @@ export class cyberpunkredActor extends Actor {
     }
   }
 
+  rollNPC(command) {
+    var rollArray = new Array();
+    var tags = new Array();
+    
+    rollArray.push(command*1);
+    tags.push("NPC Value: " + command);
+    
+    return {
+      rollArray: rollArray,
+      tags: tags
+    }
+  }
+  
   rollHacking(command) {
     var rollArray = new Array();
     var tags = new Array();
@@ -414,13 +427,18 @@ export class cyberpunkredActor extends Actor {
         rollObject.tags.push("Damage Formula");
         needsMods = false;
         break;
+      case '_RollNPC':
+        rollObject = this.rollNPC(cmdId);
+        needsMods = false;
+        break;
       default:
         rollObject[0] = roll;
         console.error("CyberpunkRED | Incoming roll command not recognized, attempting default.");
     }
 
     //Everything past here is the same for all rolls.
-
+    console.log("CyberpunkRED | Incoming Roll: " + cmdCmd + " : " + cmdId);
+    //console.log(rollObject);
 
     //Compute the formula
     if (rollObject.rollArray) {

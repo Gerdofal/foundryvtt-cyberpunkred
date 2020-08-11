@@ -85,6 +85,10 @@ Hooks.once('init', async function () {
       return "_RollHacking " + command;
   });
   
+  Handlebars.registerHelper('rollNPC', function(command) {
+      return "_RollNPC " + command;
+  });
+  
   Handlebars.registerHelper('RollWithMods', function(formula) {
       return "_RollWithMods " + formula;
   });
