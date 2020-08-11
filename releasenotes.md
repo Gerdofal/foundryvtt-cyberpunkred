@@ -19,8 +19,9 @@ Current Focus: UI Improvements
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
   - Removed gm config setting for showing or hiding some portions of sheets
   - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
+  - Added rate of fire to the item sheet
+  - Added Melee Weapon choice to the drop-down for item type
   
-
 ### Release Notes
 
 - 0.32 - Released 8/4/2020 - Beta (Bugfix Release)
