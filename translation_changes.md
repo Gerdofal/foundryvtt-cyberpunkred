@@ -27,4 +27,4 @@ Record of translation changes
 ### Live
 
 .32 - 8/4/2020
-  - Initial translation release (ZH)
+  - Initial translation release of ZH

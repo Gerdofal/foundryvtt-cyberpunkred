@@ -16,6 +16,9 @@ Sections:
 Current Focus: UI Improvements
 
 - 0.33 - In Development / Not Yet Released
+
+IMPORTANT: This version requires FoundryVTT Version 7+
+
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
   - Removed gm config setting for showing or hiding some portions of sheets
   - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
@@ -26,7 +29,6 @@ Current Focus: UI Improvements
   - Changed default die roll to d10xo10, noted that this requires FVTT ver 7.0+
 
 Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
-  
   
 ### Release Notes
 
