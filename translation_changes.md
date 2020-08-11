@@ -13,6 +13,9 @@ Record of translation changes
     - CPRED.usesimplecombathint
     - CPRED.useitembasedcombathint
     - CPRED.showinventoryhint
+  - ADDED:
+    - CPRED.rof
+      - Rate of Fire
 
 ### Live
 
