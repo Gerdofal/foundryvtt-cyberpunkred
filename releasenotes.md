@@ -21,6 +21,8 @@ Current Focus: UI Improvements
   - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
   - Added rate of fire to the item sheet
   - Added Melee Weapon choice to the drop-down for item type
+  - Changed background of main ui from black to a light gray, darkened the red text
+  - Improved appearance of checkboxes on settings tab
   
 ### Release Notes
 

@@ -8,7 +8,7 @@ Record of translation changes
       - TO: Enable weapon entry on the combat setup tab?
     - CPRED.useitembasedcombatname
       - FROM: Enable item-based combat setup?
-      - TO: Show weapon roll buttons on the combat tab for weapons in inventory?
+      - TO: Show weapon roll buttons on the combat tab for weapons in inventory? (Requires 'Show Inventory Tabs?' to be on.)
   - REMOVED:
     - CPRED.usesimplecombathint
     - CPRED.useitembasedcombathint

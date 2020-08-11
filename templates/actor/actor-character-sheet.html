@@ -358,24 +358,25 @@
         <hr>
         <h3>{{localize "CPRED.youmayset"}}</h3>
         
-        {{localize "CPRED.usesimplecombatname"}}
-        <input type="checkbox" id="set_simplecombatsetup" name="data.settings.prefs.simpleCombatSetup" {{checked data.settings.prefs.simpleCombatSetup}}>
-        <br>
-        
-        {{localize "CPRED.showinventoryname"}}:
-        <input type="checkbox" id="set_showinventory" name="data.settings.prefs.showInventory" {{checked data.settings.prefs.showInventory}}>
-        <br>
-        
-        {{localize "CPRED.useitembasedcombatname"}}:
-        <input type="checkbox" id="set_itemcombatsetup" name="data.settings.prefs.itemCombatSetup" {{checked data.settings.prefs.itemCombatSetup}}>
-        <br>
+        <ol class="settings-grid cpr-center">
+          <input class="settings" type="checkbox" id="set_simplecombatsetup" name="data.settings.prefs.simpleCombatSetup" {{checked data.settings.prefs.simpleCombatSetup}}>
+          <label class="cpr-center settings-item settings clickable" for="set_simplecombatsetup">{{localize "CPRED.usesimplecombatname"}}</label>
+          
+          <input class="settings" type="checkbox" id="set_showinventory" name="data.settings.prefs.showInventory" {{checked data.settings.prefs.showInventory}}>
+          <label class="cpr-center settings-item settings clickable" for="set_showinventory">{{localize "CPRED.showinventoryname"}}</label>
 
+          <input class="settings" type="checkbox" id="set_itemcombatsetup" name="data.settings.prefs.itemCombatSetup" {{checked data.settings.prefs.itemCombatSetup}}>
+          <label class="cpr-center settings-item settings clickable" for="set_itemcombatsetup">{{localize "CPRED.useitembasedcombatname"}}</label>          
+        </ol>
+        
+        <hr>
         {{localize "CPRED.showtabs"}}<br>
+        <ol class="settings-grid cpr-center">
           {{#each data.settings.showtabs as |attr key|}}
-          <label for="set_{{key}}">{{key}}</label>
-          <input type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>    
-          <br>
+          <input class="settings" type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>
+          <label class="cpr-center settings-item settings clickable" for="set_{{key}}">{{key}}</label>
           {{/each}}
+        </ol>
         
       </div>
       
