@@ -23,6 +23,8 @@ Current Focus: UI Improvements
   - Added Melee Weapon choice to the drop-down for item type
   - Changed background of main ui from black to a light gray, darkened the red text
   - Improved appearance of checkboxes on settings tab
+
+Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
   
   
 ### Release Notes
