@@ -24,6 +24,7 @@ Current Focus: UI Improvements
   - Changed background of main ui from black to a light gray, darkened the red text
   - Improved appearance of checkboxes on settings tab
   
+  
 ### Release Notes
 
 - 0.32 - Released 8/4/2020 - Beta (Bugfix Release)
