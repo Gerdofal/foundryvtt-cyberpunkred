@@ -1,4 +1,5 @@
 ![CyberpunkRED Media Card](https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/css/cpredmediacard.png?raw=true "CyberpunkRED Media Card")
+
 # Cyberpunk RED
 
 An in-development system for Cyberpunk RED. Since the game is not yet released, this is obviously not finished. It currently aligns with the rules in the CyberpunkRED Jumpstart Kit and will also also include options for house rules to extend the system.

@@ -3,6 +3,10 @@ Sections:
 - [In Development](#in-development)
 - [Release Notes](#release-notes)
 
+### Known Issues
+
+- NPC rolls are failing in version .32 due to an error in determining the die modifier for the NPC. Will be fixed in .33.
+
 ### Future Plans
 
 - 0.33 - UI cleanup and usability improvements
