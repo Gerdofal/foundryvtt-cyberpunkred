@@ -3,9 +3,9 @@
 /* Primary Color Variables: */
 
 :root {
-  --cpr-red-color: #800000; /* var(--cpr-red-color) */
+  --cpr-red-color: #700000; /* var(--cpr-red-color) */
   --cpr-light-bak-color: #FFFFFF; /* var(--cpr-light-bak-color) */
-  --cpr-app-bak-color: rgba(0,0,0,1.00); /* var(--cpr-app-bak-color) */
+  --cpr-app-bak-color: rgba(200,200,200,1.00); /* var(--cpr-app-bak-color) */
   --cpr-default-text-size: .85em;
   
 }
