@@ -206,7 +206,7 @@
   font-weight: normal;
   display: block;
   width: 100%;
-  padding: 3px 1px 1px 0px;
+  padding: 5px 5px 5px 5px;
   margin: 0px;
   height: 25px;
   background: var(--cpr-light-bak-color);
@@ -221,7 +221,7 @@
   text-decoration: underline;
   text-shadow: none;
   font-weight: bold;
-  padding: 3px 1px 1px 0px;
+  padding: 5px 5px 5px 5px;
   margin: 0px;
   height: 25px;
   background: linear-gradient(#D0D0D0,#E0E0E0);
@@ -373,7 +373,7 @@
   display: grid;
   gap: 0px;
   margin: 0px;
-  padding: 0px;
+  padding: 3px;
   display: grid;
   border: 1px solid var(--cpr-red-color); 
   display: inline-block;
@@ -381,7 +381,7 @@
   width: 100%;
   align-self: center;
   justify-self: center;
-  text-align: center;
+  text-align: left;
   font-size: var(--cpr-default-text-size);
 }
 
@@ -467,8 +467,9 @@
 
 /* Modification Lists on Combat Tab */
 .cyberpunkred .cpr-manualmodentry {
-  width: 7em;
+  width: 60%;
   display: inline;
+  margin: 2px 0
 }
 
 .cyberpunkred .cpr-totalmoddisplay {
@@ -502,7 +503,7 @@
   width: 100%;
   align-self: center;
   justify-self: center;
-  text-align: center;
+  text-align: left;
   font-size: var(--cpr-default-text-size);
 }
 
@@ -510,6 +511,8 @@
 	position: absolute;
 	left: -999px;
   display: none;
+	width: 15px;
+	height: 15px;
 }
 
 .cyberpunkred input.modlist[type=checkbox]:checked + label {
@@ -517,7 +520,7 @@
 	font-weight: bold;
   border: 1px solid var(--cpr-red-color);
   border-color: var(--cpr-red-color);
-  padding: 3px;
+  padding: 3px 3px 3px 5px;
   margin: 0px;
 }
 
@@ -526,7 +529,7 @@
 	font-weight: normal;
   border: 1px solid var(--cpr-red-color);
   border-color: var(--cpr-red-color);
-  padding: 3px;
+  padding: 3px 3px 3px 5px;
   margin: 0px;
 }
 
