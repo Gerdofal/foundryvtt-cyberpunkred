@@ -32,6 +32,9 @@ IMPORTANT: This version requires FoundryVTT Version 7+
   - Improved appearance of checkboxes on settings tab
   - Changed default die roll to d10xo10, noted that this requires FVTT ver 7.0+
   - Fixed bug causing NPC rolls to fail
+  - Sorted the skill list alphabetically (for now. On release the skill list will be categorized.)
+  - Tweaked formatting of various UI elements to make them easier to read
+  
 
 Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
   

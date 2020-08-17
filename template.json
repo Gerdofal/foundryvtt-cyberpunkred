@@ -329,19 +329,19 @@
             "roll": 0,
             "linkedattribute": "emp"
           },
-          "tracking": {
-            "value": 0,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "int"
-          },
           "stealth": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
             "linkedattribute": "dex"
+          },
+          "tracking": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "int"
           }
         }
       },
