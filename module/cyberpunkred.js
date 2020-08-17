@@ -203,7 +203,7 @@ Hooks.once('init', async function () {
   Handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
   });
-
+ 
   //Indicate selected option in select list
   Handlebars.registerHelper("select", function (value, options) {
     return options.fn(this)
@@ -213,7 +213,7 @@ Hooks.once('init', async function () {
         return !RegExp(t).test(v) ? v : v.replace(t, t + ' selected="selected"')
       })
       .join('\n')
-  })
+  });
 
 
 });

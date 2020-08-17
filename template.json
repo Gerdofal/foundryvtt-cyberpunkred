@@ -135,61 +135,71 @@
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "int"
           },
           "ref": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "ref"
           },
           "dex": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "dex"
           },
           "tech": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "tech"
           },
           "cool": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "cool"
           },
           "will": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "will"
           },
           "luck": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "luck"
           },
           "move": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "move"
           },
           "body": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "body"
           },
           "emp": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0
+            "roll": 0,
+            "sort": "emp"
           }
         }
       },
@@ -201,147 +211,168 @@
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "dex"
+            "linkedattribute": "dex",
+            "sort": "athletics"
           },
           "basictech": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "tech"
+            "linkedattribute": "tech",
+            "sort": "basictech"
           },
           "brawling": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "dex"
+            "linkedattribute": "dex",
+            "sort": "brawling"
           },
           "bribery": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "cool"
+            "linkedattribute": "cool",
+            "sort": "bribery"
           },
           "concentration": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "will"
+            "linkedattribute": "will",
+            "sort": "concentration"
           },
           "conversation": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "emp"
+            "linkedattribute": "emp",
+            "sort": "conversation"
           },
           "cybertech": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "tech"
+            "linkedattribute": "tech",
+            "sort": "cybertech"
           },
           "driving": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "ref"
+            "linkedattribute": "ref",
+            "sort": "driving"
           },
           "education": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "int"
+            "linkedattribute": "int",
+            "sort": "education"
           },
           "evasion": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "dex"
+            "linkedattribute": "dex",
+            "sort": "evasion"
           },
           "firstaid": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "tech"
+            "linkedattribute": "tech",
+            "sort": "firstaid"
           },
           "humanperception": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "emp"
+            "linkedattribute": "emp",
+            "sort": "humanperception"
           },
           "interrogation": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "cool"
+            "linkedattribute": "cool",
+            "sort": "interrogation"
           },
           "localexpert": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "int"
+            "linkedattribute": "int",
+            "sort": "localexpert"
           },
           "marksmanship": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "ref"
+            "linkedattribute": "ref",
+            "sort": "marksmanship"
           },
           "meleeweapon": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "dex"
+            "linkedattribute": "dex",
+            "sort": "meleeweapon"
           },
           "perception": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "int"
+            "linkedattribute": "int",
+            "sort": "perception"
           },
           "persuasion": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "cool"
+            "linkedattribute": "cool",
+            "sort": "persuasion"
           },
           "playinstrument": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "emp"
+            "linkedattribute": "emp",
+            "sort": "playinstrument"
           },
           "stealth": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "dex"
+            "linkedattribute": "dex",
+            "sort": "stealth"
           },
           "tracking": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "linkedattribute": "int"
+            "linkedattribute": "int",
+            "sort": "tracking"
           }
         }
       },
