@@ -571,6 +571,9 @@
         },
         "skill": {
           "value": "marksmanship"
+        },
+        "rof": {
+          "value": 1
         }
       },
       "modlist": {
