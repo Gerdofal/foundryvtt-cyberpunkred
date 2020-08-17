@@ -28,7 +28,7 @@
           },
           "init": {
             "mod": 0,
-            "roll": 5
+            "roll": 0
           },
           "deathsave": {
             "penalty": 0
@@ -135,61 +135,61 @@
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           },
           "ref": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           },
           "dex": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           },
           "tech": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           },
           "cool": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           },
           "will": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           },
           "luck": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           },
           "move": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           },
           "body": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           },
           "emp": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0
           }
         }
       },
@@ -200,147 +200,147 @@
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "dex"
           },
           "basictech": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "tech"
           },
           "brawling": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "dex"
           },
           "bribery": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "cool"
           },
           "concentration": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "will"
           },
           "conversation": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "emp"
           },
           "cybertech": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "tech"
           },
           "driving": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "ref"
           },
           "education": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "int"
           },
           "evasion": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "dex"
           },
           "firstaid": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "tech"
           },
           "humanperception": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "emp"
           },
           "interrogation": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "cool"
           },
           "localexpert": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "int"
           },
           "marksmanship": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "ref"
           },
           "meleeweapon": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "dex"
           },
           "perception": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "int"
           },
           "persuasion": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "cool"
           },
           "playinstrument": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "emp"
           },
           "tracking": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "int"
           },
           "stealth": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
+            "roll": 0,
             "linkedattribute": "dex"
           }
         }
