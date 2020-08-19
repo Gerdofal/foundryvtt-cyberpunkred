@@ -13,8 +13,12 @@
     <a class="item" data-tab="mods">Mods</a>
   </nav>
   {{!-- Sheet Body --}}
-  <section class="sheet-body"> {{!-- Description Tab --}}
+  <section class="sheet-body">
+    
+    {{!-- Description Tab --}}
     <div class="tab roomtoedit" data-group="primary" data-tab="description"> {{editor content=data.description target="data.description" button=true owner=owner editable=editable}} </div>
+
+    
     {{!-- Attributes Tab --}}
 
     <div class="tab attributes" data-group="primary" data-tab="attributes">

@@ -19,13 +19,12 @@ Sections:
 ### In Development
 
 Current Focus: UI Improvements
-
   
 ### Release Notes
 
-- 0.33 - Released 8/18/2020 - Beta
+- 0.33 - Awaiting 0.7.x beta release
 
-IMPORTANT: This version requires FoundryVTT Version 7+
+IMPORTANT: This version requires FoundryVTT Version 0.7.1 which is an Alpha channel release.
 
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
   - Removed gm config setting for showing or hiding some portions of sheets
