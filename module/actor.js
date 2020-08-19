@@ -76,7 +76,6 @@ export class cyberpunkredActor extends Actor {
       data.skills[key]["sort"] = key;
     }
     
-    console.log(data);
     //####################
     //
     //Sorting

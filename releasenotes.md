@@ -20,10 +20,12 @@ Sections:
 
 Current Focus: UI Improvements
 
-- 0.33 - In Development / Not Yet Released
+  
+### Release Notes
+
+- 0.33 - Released 8/18/2020 - Beta
 
 IMPORTANT: This version requires FoundryVTT Version 7+
-TRANSITION NOTE: A transition is performed on Character records, but not on NPC records. 
 
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
   - Removed gm config setting for showing or hiding some portions of sheets
@@ -39,10 +41,7 @@ TRANSITION NOTE: A transition is performed on Character records, but not on NPC 
   - Added "settings" to NPCs. Not yet implemented in this version, but the data is there.
   - Fixed CSS typo for 6 column grids
   - Minor changes to UI of items, still awaiting a full re-write here
-  
-Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
-  
-### Release Notes
+  - Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
 
 - 0.32 - Released 8/4/2020 - Beta (Bugfix Release)
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
