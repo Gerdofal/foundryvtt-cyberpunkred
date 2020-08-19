@@ -5,7 +5,7 @@ Sections:
 
 ### Known Issues
 
-- NPC rolls are failing in version .32 due to an error in determining the die modifier for the NPC. Will be fixed in .33.
+- None
 
 ### Future Plans
 
