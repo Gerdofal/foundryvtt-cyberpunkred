@@ -289,7 +289,20 @@
 .cyberpunkred .attrnskill-content {
   font-weight: normal;
 }
-
+.cyberpunkred .atrnskill-grid {
+  display: grid;
+  gap: 0px;
+  margin: 0px;
+  padding: 0px;
+  /*grid-column: span 4 / span 4;*/
+  grid-template-columns: max-content 50px 50px 50px 50px;
+  align-items: left;
+  justify-items: left;
+  font-size: var(--cpr-default-text-size);
+}
+.cyberpunkred .atrnskill-grid input {
+  text-align: center;
+}
 
 /* Combat Setup Tab */
 .cyberpunkred .combatsetup-head {

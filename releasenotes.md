@@ -20,8 +20,6 @@ Sections:
 
 Current Focus: UI Improvements
   
-### Release Notes
-
 - 0.33 - Awaiting 0.7.x beta release
 
 IMPORTANT: This version requires FoundryVTT Version 0.7.1 which is an Alpha channel release.
@@ -40,7 +38,13 @@ IMPORTANT: This version requires FoundryVTT Version 0.7.1 which is an Alpha chan
   - Added "settings" to NPCs. Not yet implemented in this version, but the data is there.
   - Fixed CSS typo for 6 column grids
   - Minor changes to UI of items, still awaiting a full re-write here
+  - Adjusted column widths on Stat Setup tab to make it easier to read
+  
+  
+  
   - Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
+  
+### Release Notes
 
 - 0.32 - Released 8/4/2020 - Beta (Bugfix Release)
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
