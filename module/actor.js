@@ -24,6 +24,7 @@ export class cyberpunkredActor extends Actor {
     data.GMAlwaysWhisper = game.settings.get("cyberpunkred", "GMAlwaysWhisper");
     //data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
     //data.showInventory = game.settings.get("cyberpunkred", "showInventory");
+    
     if (!data.settings.prefs.showInventory) {
       data.settings.prefs.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
     }
@@ -52,19 +53,30 @@ export class cyberpunkredActor extends Actor {
     //TODO - put all these transitions into their own module
 
     //NOTE: ui.notifications accepts info, warn, and error
-    //DEV - Make some updates to data that may need a fix without updating system.json
+    //Make some updates to data that may need a fix without updating system.json
     if (data.modifiers.modfulldam.penalty != -2) {
       data.modifiers.modfulldam.penalty = -2;
       console.warn(".28 Update - Changing penalty for modfulldam to -2.");
       delete data.roleskills.interface;
     } //Default changed in 0.28
-    //DEV - Interim solution for transition to .30
+    //Interim solution for transition to .30
     if (data.roleskills.hasOwnProperty('interface')) {
       data.roleskills.hacking.interface = data.roleskills.interface;
       console.warn(".30 Update - Found old hacking data template and fixed.");
       delete data.roleskills.interface;
     }
-
+    //Add sorting to old actors for .32 to .33 transition
+    //Attributes
+    for (let [key, attr] of Object.entries(data.attributes)) {
+      data.attributes[key]["sort"] = key;
+    }
+    
+    //Skills
+    for (let [key, attr] of Object.entries(data.skills)) {
+      data.skills[key]["sort"] = key;
+    }
+    
+    console.log(data);
     //####################
     //
     //Sorting

@@ -553,7 +553,7 @@
       "templates": ["description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
     },
     "npc": {
-      "templates": ["description", "combatstats", "npc"]
+      "templates": ["description", "combatstats", "npc","settings"]
     }
   },
   "Item": {
