@@ -38,6 +38,7 @@ TRANSITION NOTE: A transition is performed on Character records, but not on NPC 
   - Tweaked formatting of various UI elements to make them easier to read
   - Added "settings" to NPCs. Not yet implemented in this version, but the data is there.
   - Fixed CSS typo for 6 column grids
+  - Minor changes to UI of items, still awaiting a full re-write here
   
 Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
   
