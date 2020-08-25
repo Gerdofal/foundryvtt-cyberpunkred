@@ -1,31 +1,43 @@
 Sections: 
-- [Alpha Alert](#alpha-alert)
 - [Future Plans](#future-plans)
 - [In Development](#in-development)
 - [Release Notes](#release-notes)
 
-### Alpha Alert
+### Known Issues
 
-- Development and live versions are not currently functional in Alpha 7.0
+- None
 
 ### Future Plans
 
-- 0.33 - UI cleanup and usability improvements
+- UI cleanup and usability improvements
+  - Remove some columns on the stat setup tab and only show that info on click
 
-- 0.34 - Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
+- Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
 
-- 0.35 - Token bar actions
+- Token bar actions
   
 ### In Development
 
 Current Focus: UI Improvements
+  
+- 0.33 - ready for release
 
-- 0.33 - In Development / Not Yet Released
-  - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
   - Removed gm config setting for showing or hiding some portions of sheets
   - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
+  - Added rate of fire to the item sheet
+  - Added Melee Weapon choice to the drop-down for item type
+  - Changed background of main ui from black to a light gray, darkened the red text
+  - Improved appearance of checkboxes on settings tab
+  - Fixed bug causing NPC rolls to fail
+  - Sorted the skill list and attributes list alphabetically (On core rulebook release, the skill list will be categorized.)
+  - Tweaked formatting of various UI elements to make them easier to read
+  - Added "settings" to NPCs. Not yet implemented in this version, but the data is there.
+  - Fixed CSS typo for 6 column grids
+  - Minor changes to UI of items, still awaiting a full re-write here
+  - Adjusted column widths on Stat Setup tab to make it easier to read
   
-
+  - Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
+  
 ### Release Notes
 
 - 0.32 - Released 8/4/2020 - Beta (Bugfix Release)

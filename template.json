@@ -28,7 +28,7 @@
           },
           "init": {
             "mod": 0,
-            "roll": 5
+            "roll": 0
           },
           "deathsave": {
             "penalty": 0
@@ -132,216 +132,247 @@
       "attributes": {
         "attributes": {
           "int": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "int"
           },
           "ref": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "ref"
           },
           "dex": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "dex"
           },
           "tech": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "tech"
           },
           "cool": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "cool"
           },
           "will": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "will"
           },
           "luck": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "luck"
           },
           "move": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "move"
           },
           "body": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "body"
           },
           "emp": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5
+            "roll": 0,
+            "sort": "emp"
           }
         }
       },
 
       "skills": {
         "skills": {
-          "brawling": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "dex"
-          },
-          "evasion": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "dex"
-          },
-          "meleeweapon": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "dex"
-          },
-          "marksmanship": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "ref"
-          },
-          "concentration": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "will"
-          },
-          "perception": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "int"
-          },
-          "tracking": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "int"
-          },
-          "driving": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "ref"
-          },
           "athletics": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "dex"
-          },
-          "stealth": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "dex"
-          },
-          "bribery": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "cool"
-          },
-          "conversation": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "emp"
-          },
-          "humanperception": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "emp"
-          },
-          "interrogation": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "cool"
-          },
-          "persuasion": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "cool"
+            "roll": 0,
+            "linkedattribute": "dex",
+            "sort": "athletics"
           },
           "basictech": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "tech"
+            "roll": 0,
+            "linkedattribute": "tech",
+            "sort": "basictech"
+          },
+          "brawling": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "dex",
+            "sort": "brawling"
+          },
+          "bribery": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "cool",
+            "sort": "bribery"
+          },
+          "concentration": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "will",
+            "sort": "concentration"
+          },
+          "conversation": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "emp",
+            "sort": "conversation"
           },
           "cybertech": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "tech"
+            "roll": 0,
+            "linkedattribute": "tech",
+            "sort": "cybertech"
           },
-          "firstaid": {
-            "value": 5,
+          "driving": {
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "tech"
-          },
-          "playinstrument": {
-            "value": 5,
-            "mod": 0,
-            "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "emp"
+            "roll": 0,
+            "linkedattribute": "ref",
+            "sort": "driving"
           },
           "education": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "int"
+            "roll": 0,
+            "linkedattribute": "int",
+            "sort": "education"
+          },
+          "evasion": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "dex",
+            "sort": "evasion"
+          },
+          "firstaid": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "tech",
+            "sort": "firstaid"
+          },
+          "humanperception": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "emp",
+            "sort": "humanperception"
+          },
+          "interrogation": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "cool",
+            "sort": "interrogation"
           },
           "localexpert": {
-            "value": 5,
+            "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 5,
-            "linkedattribute": "int"
+            "roll": 0,
+            "linkedattribute": "int",
+            "sort": "localexpert"
+          },
+          "marksmanship": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "ref",
+            "sort": "marksmanship"
+          },
+          "meleeweapon": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "dex",
+            "sort": "meleeweapon"
+          },
+          "perception": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "int",
+            "sort": "perception"
+          },
+          "persuasion": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "cool",
+            "sort": "persuasion"
+          },
+          "playinstrument": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "emp",
+            "sort": "playinstrument"
+          },
+          "stealth": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "dex",
+            "sort": "stealth"
+          },
+          "tracking": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0,
+            "linkedattribute": "int",
+            "sort": "tracking"
           }
         }
       },
@@ -407,10 +438,12 @@
             "penalty": -3,
             "checked": false
           },
+
           "modfulldam": {
             "penalty": -2,
             "checked": false
           },
+
           "modfacedown": {
             "penalty": -3,
             "checked": false
@@ -483,10 +516,10 @@
             "rolename": "No role set yet"
           },
           "showtabs": {
-            "hacking": true
+            "hacking": false
           },
           "prefs": {
-            "simpleCombatSetup" : true,
+            "simpleCombatSetup" : false,
             "itemCombatSetup" : true,
             "showInventory" : true
           }
@@ -520,7 +553,7 @@
       "templates": ["description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
     },
     "npc": {
-      "templates": ["description", "combatstats", "npc"]
+      "templates": ["description", "combatstats", "npc","settings"]
     }
   },
   "Item": {
@@ -569,6 +602,9 @@
         },
         "skill": {
           "value": "marksmanship"
+        },
+        "rof": {
+          "value": 1
         }
       },
       "modlist": {

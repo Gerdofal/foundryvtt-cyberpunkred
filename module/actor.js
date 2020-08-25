@@ -24,6 +24,7 @@ export class cyberpunkredActor extends Actor {
     data.GMAlwaysWhisper = game.settings.get("cyberpunkred", "GMAlwaysWhisper");
     //data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
     //data.showInventory = game.settings.get("cyberpunkred", "showInventory");
+    
     if (!data.settings.prefs.showInventory) {
       data.settings.prefs.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
     }
@@ -40,26 +41,76 @@ export class cyberpunkredActor extends Actor {
     _cprLog("Preparing character data for: " + actorData.name);
     const data = actorData.data;
     //console.log(data);
-    
+
     //Generally helpful variables
     var x = 0; //Our for loop counter
-    
-    
+
+    //####################
+    //
+    //Transitions
+    //
+    //####################
     //TODO - put all these transitions into their own module
 
     //NOTE: ui.notifications accepts info, warn, and error
-    //DEV - Make some updates to data that may need a fix without updating system.json
+    //Make some updates to data that may need a fix without updating system.json
     if (data.modifiers.modfulldam.penalty != -2) {
       data.modifiers.modfulldam.penalty = -2;
       console.warn(".28 Update - Changing penalty for modfulldam to -2.");
       delete data.roleskills.interface;
     } //Default changed in 0.28
-    //DEV - Interim solution for transition to .30
+    //Interim solution for transition to .30
     if (data.roleskills.hasOwnProperty('interface')) {
       data.roleskills.hacking.interface = data.roleskills.interface;
       console.warn(".30 Update - Found old hacking data template and fixed.");
       delete data.roleskills.interface;
     }
+    //Add sorting to old actors for .32 to .33 transition
+    //Attributes
+    for (let [key, attr] of Object.entries(data.attributes)) {
+      data.attributes[key]["sort"] = key;
+    }
+    
+    //Skills
+    for (let [key, attr] of Object.entries(data.skills)) {
+      data.skills[key]["sort"] = key;
+    }
+    
+    //####################
+    //
+    //Sorting
+    //
+    //####################
+
+    //Sort the skills and attributes
+
+    let sortAttributesBy = 'sort';
+    let sortSkillsBy = 'sort';
+
+    let compareAttributes = (k, kk) => +(data.attributes[k][sortAttributesBy] > data.attributes[kk][sortAttributesBy]) || -(data.attributes[kk][sortAttributesBy] > data.attributes[k][sortAttributesBy]) ;
+    let sortedAttributes = Object.keys(data.attributes).sort(compareAttributes).reduce((a, d) => ({
+      ...a,
+      ...{
+        [d]: data.attributes[d]
+      }
+    }), {});
+    data.attributes = sortedAttributes;
+    
+     let compareSkills = (k, kk) => +(data.skills[k][sortSkillsBy] > data.skills[kk][sortSkillsBy]) || -(data.skills[kk][sortSkillsBy] > data.skills[k][sortSkillsBy]) ;
+    let sortedSkills = Object.keys(data.skills).sort(compareSkills).reduce((a, d) => ({
+      ...a,
+      ...{
+        [d]: data.skills[d]
+      }
+    }), {});
+    data.skills = sortedSkills;   
+    
+
+    //####################
+    //
+    //Inventory Items
+    //
+    //####################
 
     //Calculate itemmod values based on inventory
     //Setup modlog
@@ -85,7 +136,7 @@ export class cyberpunkredActor extends Actor {
       for (let [key, mod] of Object.entries(itemData.modlist)) {
         //data.modlog.push(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:" + mod.modactive + ")");  
         //_cprLog(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
-        if (key.substr(0,3)=="mod"&&mod.modcat.toLowerCase != "none" && mod.moditem.toLowerCase != "none" && (mod.modvalue*1) != 0) {
+        if (key.substr(0, 3) == "mod" && mod.modcat.toLowerCase != "none" && mod.moditem.toLowerCase != "none" && (mod.modvalue * 1) != 0) {
           switch (mod.modcat.toLowerCase()) {
             //Modcat is the type of mod this is
             //Attributes - Permanently modifies an attribute
@@ -101,9 +152,9 @@ export class cyberpunkredActor extends Actor {
               data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
               data.skills[mod.moditem].itemmod += mod.modvalue * 1;
               break;
-              
+
             default:
-             _cprLog("WARNING: Badly formed mod command (not processed): " + mod.moditem + " + " + mod.modvalue * 1);
+              _cprLog("WARNING: Badly formed mod command (not processed): " + mod.moditem + " + " + mod.modvalue * 1);
           }
         }
       }
@@ -113,6 +164,14 @@ export class cyberpunkredActor extends Actor {
       attr.roll = attr.value + attr.mod + attr.itemmod;
     }
 
+
+    //####################
+    //
+    //Armor
+    //
+    //####################
+    //TODO: armor should be an inventory item too
+
     //Calculate armor
     var finalArmor = 0;
     var armorArray = [];
@@ -120,67 +179,75 @@ export class cyberpunkredActor extends Actor {
       armorArray.push(item.value);
     }
     finalArmor = armorArray[0];
-    
+
     var currentArmor = 0;
     var armorDiff = 0;
     var largerArmor = 0;
-    
-    for(x = 1;x<=armorArray.length;x++) {
-      currentArmor=armorArray[x] * 1;
-      if(finalArmor<currentArmor) {
-        armorDiff = (currentArmor * 1) - (finalArmor * 1); 
+
+    for (x = 1; x <= armorArray.length; x++) {
+      currentArmor = armorArray[x] * 1;
+      if (finalArmor < currentArmor) {
+        armorDiff = (currentArmor * 1) - (finalArmor * 1);
         largerArmor = currentArmor;
       } else {
         armorDiff = (finalArmor * 1) - (currentArmor * 1);
         largerArmor = finalArmor;
       }
-      if(armorDiff>0) {
+      if (armorDiff > 0) {
         _cprLog("Checking armorDiff of " + armorDiff + " current armor = " + finalArmor);
         //If the armorDiff isn't positive, we don't change finalArmor here
-        switch(armorDiff) {
+        switch (armorDiff) {
           case 0:
           case 1:
           case 2:
           case 3:
           case 4:
-              finalArmor = (largerArmor * 1) + 5 * 1;
-              break;
+            finalArmor = (largerArmor * 1) + 5 * 1;
+            break;
           case 5:
           case 6:
           case 7:
           case 8:
-              finalArmor = (largerArmor * 1)+4 * 1;
-              break;            
+            finalArmor = (largerArmor * 1) + 4 * 1;
+            break;
           case 9:
           case 10:
           case 11:
           case 12:
           case 13:
           case 14:
-              finalArmor = (largerArmor * 1)+3 * 1;
-              break;            
+            finalArmor = (largerArmor * 1) + 3 * 1;
+            break;
           case 15:
           case 16:
           case 17:
           case 18:
           case 19:
           case 20:
-              finalArmor = (largerArmor * 1)+2 * 1;
-              break;            
+            finalArmor = (largerArmor * 1) + 2 * 1;
+            break;
           case 21:
           case 22:
           case 23:
           case 24:
           case 25:
           case 26:
-              finalArmor = (largerArmor * 1)+1 * 1;
-              break;
+            finalArmor = (largerArmor * 1) + 1 * 1;
+            break;
         }
         _cprLog("finalArmor now " + finalArmor);
       }
     }
     data.combatstats.armor.value = finalArmor;
-            
+
+
+    //####################
+    //
+    //Cultural Familiarity
+    //
+    //####################
+
+
     //Calculate Cultural Familiarity
     //TODO - Try to figure out if I should include mod in this?
     data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
@@ -194,19 +261,35 @@ export class cyberpunkredActor extends Actor {
       }
     }
 
-    //ROLESKILLS
+    //####################
+    //
+    //Roleskills
+    //
+    //####################
+
     //HACKING
     data.roleskills.hacking.interface.roll = data.roleskills.hacking.interface.value + data.roleskills.hacking.interface.mod;
     data.roleskills.hacking.spd.roll = data.roleskills.hacking.spd.value + data.roleskills.hacking.spd.mod;
-
 
     //Compute roll attribute for roleskills
     for (let [key, attr] of Object.entries(data.roleskills)) {
       attr.roll = attr.value + attr.mod;
     }
 
+    //####################
+    //
+    //Initiative
+    //
+    //####################
+
     //TODO - Need to add a field to edit init.mod
     data.combatstats.init.roll = data.attributes.ref.roll + data.combatstats.init.mod;
+
+    //####################
+    //
+    //Base Pools
+    //
+    //####################
 
     // Calculate health and luck
     data.combatstats.healthpool.max = data.attributes.body.roll * 5;
@@ -217,6 +300,13 @@ export class cyberpunkredActor extends Actor {
     if (data.combatstats.luckpool.value > data.combatstats.luckpool.max) {
       data.combatstats.luckpool.value = data.combatstats.luckpool.max;
     }
+
+
+    //####################
+    //
+    //Roll Penalty
+    //
+    //####################
 
     var tempHealthPenalty = 0;
     //Check wound penalties for half damage
@@ -253,10 +343,8 @@ export class cyberpunkredActor extends Actor {
 
   } //End Prepare Character Data
 
-  //Various special functions for modifying skills and stats
-
-
-  //Various Special Functions for Rolls
+  //Various Special Functions for Rolls.
+  //Change with extreme care!
 
   rollMod(rollObject) {
     //Compute current total mod
@@ -295,6 +383,19 @@ export class cyberpunkredActor extends Actor {
     //Attribute Roll Value
     rollArray.push(data.attributes[root[skill].linkedattribute].roll);
     tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);
+
+    return {
+      rollArray: rollArray,
+      tags: tags
+    }
+  }
+
+  rollNPC(command) {
+    var rollArray = new Array();
+    var tags = new Array();
+
+    rollArray.push(command * 1);
+    tags.push("NPC Value: " + command);
 
     return {
       rollArray: rollArray,
@@ -414,13 +515,18 @@ export class cyberpunkredActor extends Actor {
         rollObject.tags.push("Damage Formula");
         needsMods = false;
         break;
+      case '_RollNPC':
+        rollObject = this.rollNPC(cmdId);
+        needsMods = false;
+        break;
       default:
         rollObject[0] = roll;
         console.error("CyberpunkRED | Incoming roll command not recognized, attempting default.");
     }
 
     //Everything past here is the same for all rolls.
-
+    console.log("CyberpunkRED | Incoming Roll: " + cmdCmd + " : " + cmdId);
+    //console.log(rollObject);
 
     //Compute the formula
     if (rollObject.rollArray) {
