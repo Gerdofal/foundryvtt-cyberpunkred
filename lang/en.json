@@ -1,7 +1,7 @@
 {
   "CPRED.notlocalized": "This section is not yet localized.",
   "CPRED.dierollcommandname": "Die roll command for rolls.",
-  "CPRED.dierollcommandhint": "Defaults to d10xo10. Adjust to d10x10 if you want infinitely exploding, or to d10 to remove exploding completely. Use other options with caution.",
+  "CPRED.dierollcommandhint": "Defaults to d10x10 (infinitely exploding). Adjust to d10xo10 if you are using FVTT 7.x and want only one explosion, or to d10 to remove exploding completely. Use other options with caution.",
   "CPRED.gmalwayswhispername": "Always whisper NPC Rolls?",
   "CPRED.gmalwayswhisperhint": "If checked, any roll made on a NPC character sheet is always hidden.",
   "CPRED.usesimplecombatname": "Enable weapon entry on the Combat Setup tab?",
