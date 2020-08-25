@@ -20,27 +20,21 @@ Sections:
 
 Current Focus: UI Improvements
   
-- 0.33 - Awaiting 0.7.x beta release
+- 0.33 - ready for release
 
-IMPORTANT: This version requires FoundryVTT Version 0.7.1 which is an Alpha channel release.
-
-  - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
   - Removed gm config setting for showing or hiding some portions of sheets
   - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
   - Added rate of fire to the item sheet
   - Added Melee Weapon choice to the drop-down for item type
   - Changed background of main ui from black to a light gray, darkened the red text
   - Improved appearance of checkboxes on settings tab
-  - Changed default die roll to d10xo10, noted that this requires FVTT ver 7.0+
   - Fixed bug causing NPC rolls to fail
-  - Sorted the skill list and attributes list alphabetically (On release the skill list will be categorized.)
+  - Sorted the skill list and attributes list alphabetically (On core rulebook release, the skill list will be categorized.)
   - Tweaked formatting of various UI elements to make them easier to read
   - Added "settings" to NPCs. Not yet implemented in this version, but the data is there.
   - Fixed CSS typo for 6 column grids
   - Minor changes to UI of items, still awaiting a full re-write here
   - Adjusted column widths on Stat Setup tab to make it easier to read
-  
-  
   
   - Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
   
