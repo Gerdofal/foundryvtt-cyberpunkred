@@ -18,9 +18,11 @@ Sections:
   
 ### In Development
 
-Current Focus: UI Improvements
-  
-- 0.33 - ready for release
+Current Focus: UI Improvements and introduction of drag and drop functionality  
+
+### Release Notes
+
+- 0.33 - Released 8/25/2020 - Beta
 
   - Removed gm config setting for showing or hiding some portions of sheets
   - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
@@ -38,8 +40,6 @@ Current Focus: UI Improvements
   
   - Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
   
-### Release Notes
-
 - 0.32 - Released 8/4/2020 - Beta (Bugfix Release)
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
   - Removed gm config setting for showing or hiding some portions of sheets
