@@ -40,7 +40,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     this._prepareCharacterItems(data);
-    //_cprLog("Returning sheet data");
+    _cprLog("Loading getData in actor-sheet.js");
     //console.log(data);
     return data;
   }

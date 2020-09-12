@@ -3,5 +3,3 @@
 export const _cprLog = function(msg) {
 console.log('CyberpunkRED | ' + msg);
 };
-
-// JavaScript Document

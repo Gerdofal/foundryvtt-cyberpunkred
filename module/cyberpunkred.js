@@ -20,7 +20,9 @@ import {
 import {
   _getInitiativeFormula
 } from "./combat.js";
-
+import {
+  checkAndMigrate
+} from "./migration.js";
 
 Hooks.once('init', async function () {
   
@@ -217,18 +219,9 @@ Hooks.once('init', async function () {
 
 
 });
-/**
- * Re-define the dice roll click event to also unhide the formula
- */
 
 
-/*
-	event.preventDefault();
-    let roll = $(event.currentTarget),
-        tip = roll.find(".dice-tooltip");
-    if ( !tip.is(":visible") ) tip.slideDown(200);
-    else tip.slideUp(200);
-	  	formula = roll.find(".dice-formula");
-    if ( !formula.is(":visible") ) formula.slideDown(200);
-    else formula.slideUp(200);
-	*/
+Hooks.once("ready", function() {
+//Once FoundryVTT is loaded, perform a migration check on all actors
+checkAndMigrate();
+});

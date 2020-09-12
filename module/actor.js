@@ -2,6 +2,11 @@ import {
   _cprLog
 } from "./tools.js";
 
+import {
+  listsModifiers
+} from "../lists/modifiers.js"
+
+
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -39,18 +44,19 @@ export class cyberpunkredActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     _cprLog("Preparing character data for: " + actorData.name);
+    console.log(actorData);
     const data = actorData.data;
-    //console.log(data);
+    
 
     //Generally helpful variables
     var x = 0; //Our for loop counter
 
     //####################
     //
-    //Transitions
+    //Migrations
     //
     //####################
-    //TODO - put all these transitions into their own module
+    //TODO - put all these migrations into their own module
 
     //NOTE: ui.notifications accepts info, warn, and error
     //Make some updates to data that may need a fix without updating system.json
@@ -70,17 +76,23 @@ export class cyberpunkredActor extends Actor {
     for (let [key, attr] of Object.entries(data.attributes)) {
       data.attributes[key]["sort"] = key;
     }
+        
     
-    //Skills
-    for (let [key, attr] of Object.entries(data.skills)) {
-      data.skills[key]["sort"] = key;
-    }
+    
+    
     
     //####################
     //
     //Sorting
     //
     //####################
+
+    //Skills default sorting
+    //TODO - Make this a category as well
+    for (let [key, attr] of Object.entries(data.skills)) {
+      //_cprLog("Setting sort for " + key);
+      data.skills[key]["sort"] = key;
+    }
 
     //Sort the skills and attributes
 
@@ -340,7 +352,8 @@ export class cyberpunkredActor extends Actor {
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
 
-
+    //_cprLog("DATA PREPARATION COMPLETE");
+    //console.log(actorData);
   } //End Prepare Character Data
 
   //Various Special Functions for Rolls.

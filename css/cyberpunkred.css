@@ -294,7 +294,7 @@
   grid-row-gap: 5px;
   margin: 0px;
   padding: 0px;
-  grid-template-columns: max-content 50px 50px 50px 50px;
+  grid-template-columns: 50px max-content 50px 50px 50px 50px;
   align-items: center;
   justify-items: left;
   font-size: var(--cpr-default-text-size);
