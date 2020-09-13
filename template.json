@@ -210,170 +210,412 @@
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "dex",
-            "sort": "athletics"
+            "roll": 0
           },
           "basictech": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "tech",
-            "sort": "basictech"
+            "roll": 0
           },
           "brawling": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "dex",
-            "sort": "brawling"
+            "roll": 0
           },
           "bribery": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "cool",
-            "sort": "bribery"
+            "roll": 0
           },
           "concentration": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "will",
-            "sort": "concentration"
+            "roll": 0
           },
           "conversation": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "emp",
-            "sort": "conversation"
+            "roll": 0
           },
           "cybertech": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "tech",
-            "sort": "cybertech"
+            "roll": 0
           },
           "driving": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "ref",
-            "sort": "driving"
+            "roll": 0
           },
           "education": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "int",
-            "sort": "education"
+            "roll": 0
           },
           "evasion": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "dex",
-            "sort": "evasion"
+            "roll": 0
           },
           "firstaid": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "tech",
-            "sort": "firstaid"
+            "roll": 0
           },
           "humanperception": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "emp",
-            "sort": "humanperception"
+            "roll": 0
           },
           "interrogation": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "cool",
-            "sort": "interrogation"
+            "roll": 0
           },
           "localexpert": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "int",
-            "sort": "localexpert"
+            "roll": 0
           },
           "marksmanship": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "ref",
-            "sort": "marksmanship"
+            "roll": 0
           },
           "meleeweapon": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "dex",
-            "sort": "meleeweapon"
+            "roll": 0
           },
           "perception": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "int",
-            "sort": "perception"
+            "roll": 0
           },
           "persuasion": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "cool",
-            "sort": "persuasion"
+            "roll": 0
           },
           "playinstrument": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "emp",
-            "sort": "playinstrument"
+            "roll": 0
           },
           "stealth": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "dex",
-            "sort": "stealth"
+            "roll": 0
           },
           "tracking": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
-            "roll": 0,
-            "linkedattribute": "int",
-            "sort": "tracking"
+            "roll": 0
+          },
+          "accounting": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "acting": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "airvehicletech": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "animalhandling": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "archery": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "autofire": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "bureaucracy": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "business": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "composition": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "concealorrevealobject": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "contortionist": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "criminology": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "cryptography": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "dance": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "deduction": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "demolitions": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "drivelandvehicle": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "electronicsandsecuritytech": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "endurance": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "forgery": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "gamble": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "handgun": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "heavyweapons": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "landvehicletech": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "language": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "librarysearch": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "lipreading": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "martialarts": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "paintordraworsculpt": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "paramedic": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "personalgrooming": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "photographyandfilm": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "picklock": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "pickpocket": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "pilotairvehicle": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "pilotseavehicle": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "resisttortureordrugs": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "riding": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "science": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "seavehicletech": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "shoulderarms": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "streetwise": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "tactics": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "trading": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "wardrobeandstyle": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "weaponstech": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
+          },
+          "wildernesssurvival": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
           }
+
+
         }
       },
 
@@ -519,9 +761,9 @@
             "hacking": false
           },
           "prefs": {
-            "simpleCombatSetup" : false,
-            "itemCombatSetup" : true,
-            "showInventory" : true
+            "simpleCombatSetup": false,
+            "itemCombatSetup": true,
+            "showInventory": true
           }
         }
       },
@@ -553,7 +795,7 @@
       "templates": ["description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
     },
     "npc": {
-      "templates": ["description", "combatstats", "npc","settings"]
+      "templates": ["description", "combatstats", "npc", "settings"]
     }
   },
   "Item": {

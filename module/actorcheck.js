@@ -11,33 +11,40 @@ import {
 } from "../lists/skillsproperties.js"
 
 
-export const checkAndMigrate = async function () {
-  _cprLog("Checking for data migration");
+export const actorCheck = async function (passedObject = null) {
+  _cprLog("Loading actorCheck");
+  console.log(passedObject);
 
-  // Migrate World Actors
-  for (let a of game.actors.entities) {
-    const updateData = migrateActorData(a.data);
-    //_cprLog("MIGRATION: UPDATEDATA");
-    //console.log(updateData);
-    //_cprLog("MIGRATION: ACTOR WAS");
-    //console.log(a);
+  if (passedObject === null) {
+    // Migrate All World Actors
+    _cprLog("Checking for data migration of ALL world actors");
+    for (let a of game.actors.entities) {
+      const updateData = migrateActorData(a.data);
+      if (!isObjectEmpty(updateData)) {
+        _cprLog(`Migrating Actor entity ${a.name}`);
+        await a.update(updateData, {
+          enforceTypes: false
+        });
+      }
+    }
+  } else {
+    //Migrate Passed Actor Only
+    _cprLog(`Checking for data migration of passed actor: ${passedObject.name}`);
+    const updateData = migrateActorData(passedObject.data);
     if (!isObjectEmpty(updateData)) {
-      _cprLog(`Migrating Actor entity ${a.name}`);
-      await a.update(updateData, {
+      _cprLog(`Migrating Actor entity ${passedObject.name}`);
+      await passedObject.update(updateData, {
         enforceTypes: false
       });
     }
-    //_cprLog("MIGRATION: ACTOR IS NOW");
-    //console.log(a);
   }
 
   _cprLog("Done checking for data migration");
-}; //End checkAndMigrate
+}; //End actorCheck
 
 export const migrateActorData = function (actor) {
   const updateData = {};
   _updateSkills(actor, updateData);
-
   return updateData;
 }; //End migrateActorData
 

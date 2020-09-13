@@ -8,7 +8,6 @@ import {
 
 export class cyberpunkredActorSheet extends ActorSheet {
 
-
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -27,11 +26,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   /** @override */
   get template() {
     const path = "systems/cyberpunkred/templates/actor";
-    // Return a single sheet for all actor types.
-    //return `${path}/actor-sheet.html`;
-
-    // Alternatively, you could use the following return statement to do a
-    // unique actpr sheet by type, like `character-sheet.html`.
+    // Unique actpr sheet by type, like `character-sheet.html`.
     return `${path}/actor-${this.actor.data.type}-sheet.html`;
   }
   /* -------------------------------------------- */
@@ -126,27 +121,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
         "data.modifiers": modData.modifiers
       });
     });
-
-    /*
-    // Reset all modifiers that are checked
-    html.find('.resetallmods').click(ev => {
-      const actor = this.actor;
-      var tempStr = "";
-      for (const property in actor.data.data.modifiers) {
-        if (actor.data.data.modifiers[property].hasOwnProperty("checked")) {
-          if (actor.data.data.modifiers[property].checked) {
-            actor.update({
-              [`data.modifiers.` + property + `.checked`] : false
-            });
-          }
-        }
-      }
-      //Reset manual modifier
-      actor.update({
-          "data.modifiers.modmanualmod.penalty": 0
-      });
-    });
-    */
 
     //Set current health based on click on dot
     html.find('.setcurrenthealth').click(ev => {
@@ -268,7 +242,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   _onRoll(event) {
 
     //This function calls rollCPR with whatever was sent to the command. 
-    //All special roll logic happens in rollCPR
+    //All special roll logic happens in rollCPR which is in actor.js
 
     event.preventDefault();
     const element = event.currentTarget;

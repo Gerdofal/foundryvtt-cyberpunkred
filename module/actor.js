@@ -8,7 +8,7 @@ import {
 
 
 /**
- * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
+ * Reconfiguration of the base actor to work for CyberpunkRED
  * @extends {Actor}
  */
 export class cyberpunkredActor extends Actor {
@@ -18,7 +18,6 @@ export class cyberpunkredActor extends Actor {
    */
   prepareData() {
     super.prepareData();
-
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
@@ -44,7 +43,8 @@ export class cyberpunkredActor extends Actor {
    */
   _prepareCharacterData(actorData) {
     _cprLog("Preparing character data for: " + actorData.name);
-    console.log(actorData);
+
+    //console.log(actorData);
     const data = actorData.data;
     
 
@@ -138,10 +138,14 @@ export class cyberpunkredActor extends Actor {
     }
 
     var itemName = "None";
+    var totalPsychosis = 0;
     // Iterate through items, finding modifiers
     for (let i of actorData.items) {
       const itemData = i.data;
       itemName = i.name;
+      //Count psychosis
+      totalPsychosis += itemData.psychosis.value;
+      
       _cprLog("Now finding itemmods on " + itemName);
       //console.log(i.data);
       //console.log(Object.entries(itemData.modlist));
@@ -206,7 +210,7 @@ export class cyberpunkredActor extends Actor {
         largerArmor = finalArmor;
       }
       if (armorDiff > 0) {
-        _cprLog("Checking armorDiff of " + armorDiff + " current armor = " + finalArmor);
+        //_cprLog("Checking armorDiff of " + armorDiff + " current armor = " + finalArmor);
         //If the armorDiff isn't positive, we don't change finalArmor here
         switch (armorDiff) {
           case 0:
@@ -251,7 +255,6 @@ export class cyberpunkredActor extends Actor {
       }
     }
     data.combatstats.armor.value = finalArmor;
-
 
     //####################
     //

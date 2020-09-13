@@ -21,8 +21,9 @@ import {
   _getInitiativeFormula
 } from "./combat.js";
 import {
-  checkAndMigrate
-} from "./migration.js";
+  actorCheck
+} from "./actorcheck.js"
+
 
 Hooks.once('init', async function () {
   
@@ -223,5 +224,6 @@ Hooks.once('init', async function () {
 
 Hooks.once("ready", function() {
 //Once FoundryVTT is loaded, perform a migration check on all actors
-checkAndMigrate();
+actorCheck(); //TODO - Figure a way to avoid calling this with every update
+ui.notifications.info("CyberpunkRED Fully Loaded");
 });
