@@ -2,6 +2,12 @@
   "Actor": {
     "types": ["character", "npc"],
     "templates": {
+      "backend": {
+        "backend": {
+          "createdversion" : null,
+          "upgradedversion" : null
+        }
+      },
       "description": {
         "description": {
           "role": "Character role",
@@ -792,10 +798,10 @@
 
     },
     "character": {
-      "templates": ["description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
+      "templates": ["backend","description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
     },
     "npc": {
-      "templates": ["description", "combatstats", "npc", "settings"]
+      "templates": ["backend","description", "combatstats", "npc", "settings"]
     }
   },
   "Item": {

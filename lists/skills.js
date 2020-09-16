@@ -5,7 +5,7 @@ export const listsSkills = { // Here begins the object
   //Below are the constants for all existing skills
 
   "athletics": {
-    "linkedattribute": "dexty",
+    "linkedattribute": "dex",
     "sort": "athletics",
     "category": "tbd",
     "jsk": true,

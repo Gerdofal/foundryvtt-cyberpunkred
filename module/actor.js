@@ -6,6 +6,13 @@ import {
   listsModifiers
 } from "../lists/modifiers.js"
 
+import {
+  listsSkills
+} from "../lists/skills.js"
+
+import {
+  environmentSettings
+} from "../environment.js"
 
 /**
  * Reconfiguration of the base actor to work for CyberpunkRED
@@ -28,7 +35,7 @@ export class cyberpunkredActor extends Actor {
     data.GMAlwaysWhisper = game.settings.get("cyberpunkred", "GMAlwaysWhisper");
     //data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
     //data.showInventory = game.settings.get("cyberpunkred", "showInventory");
-    
+
     if (!data.settings.prefs.showInventory) {
       data.settings.prefs.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
     }
@@ -46,14 +53,13 @@ export class cyberpunkredActor extends Actor {
 
     //console.log(actorData);
     const data = actorData.data;
-    
 
     //Generally helpful variables
     var x = 0; //Our for loop counter
 
     //####################
     //
-    //Migrations
+    //Temporary Migrations
     //
     //####################
     //TODO - put all these migrations into their own module
@@ -76,11 +82,52 @@ export class cyberpunkredActor extends Actor {
     for (let [key, attr] of Object.entries(data.attributes)) {
       data.attributes[key]["sort"] = key;
     }
-        
+
+
+    //######################
+    //
+    //Determine Environment
+    //
+    //######################
+    //This is a temporary measure to allow use of core rules in "Actual Play" groups.
+
+    var allowJSK = environmentSettings.jsk;
+    var allowCore = environmentSettings.core;
+
+    //######################
+    //
+    //Load Skill Constants
+    //
+    //######################
+
+    for (let [key, val] of Object.entries(listsSkills)) {
+      //For each skill in the list, add constants to the data model
+      if (data.skills.hasOwnProperty(key)) {
+        for (let [propkey, constval] of Object.entries(listsSkills[key])) {
+          data.skills[key][propkey] = constval;
+        }
+      }
+    }
     
-    
-    
-    
+    console.log(data.skills);
+
+    //######################
+    //
+    //Show or hide skills based on environment
+    //(Note they are hidden, not deleted.)
+    //
+    //######################
+
+    for (let [key, val] of Object.entries(data.skills)) {
+      if (allowJSK & data.skills[key]["jsk"]) {
+        data.skills[key]["show"] = true;
+      } else if (allowCore & data.skills[key]["core"]) {
+        data.skills[key]["show"] = true;        
+      } else {
+        data.skills[key]["show"] = false;
+      }
+    }
+
     //####################
     //
     //Sorting
@@ -99,7 +146,7 @@ export class cyberpunkredActor extends Actor {
     let sortAttributesBy = 'sort';
     let sortSkillsBy = 'sort';
 
-    let compareAttributes = (k, kk) => +(data.attributes[k][sortAttributesBy] > data.attributes[kk][sortAttributesBy]) || -(data.attributes[kk][sortAttributesBy] > data.attributes[k][sortAttributesBy]) ;
+    let compareAttributes = (k, kk) => +(data.attributes[k][sortAttributesBy] > data.attributes[kk][sortAttributesBy]) || -(data.attributes[kk][sortAttributesBy] > data.attributes[k][sortAttributesBy]);
     let sortedAttributes = Object.keys(data.attributes).sort(compareAttributes).reduce((a, d) => ({
       ...a,
       ...{
@@ -107,16 +154,16 @@ export class cyberpunkredActor extends Actor {
       }
     }), {});
     data.attributes = sortedAttributes;
-    
-     let compareSkills = (k, kk) => +(data.skills[k][sortSkillsBy] > data.skills[kk][sortSkillsBy]) || -(data.skills[kk][sortSkillsBy] > data.skills[k][sortSkillsBy]) ;
+
+    let compareSkills = (k, kk) => +(data.skills[k][sortSkillsBy] > data.skills[kk][sortSkillsBy]) || -(data.skills[kk][sortSkillsBy] > data.skills[k][sortSkillsBy]);
     let sortedSkills = Object.keys(data.skills).sort(compareSkills).reduce((a, d) => ({
       ...a,
       ...{
         [d]: data.skills[d]
       }
     }), {});
-    data.skills = sortedSkills;   
-    
+    data.skills = sortedSkills;
+
 
     //####################
     //
@@ -145,7 +192,7 @@ export class cyberpunkredActor extends Actor {
       itemName = i.name;
       //Count psychosis
       totalPsychosis += itemData.psychosis.value;
-      
+
       _cprLog("Now finding itemmods on " + itemName);
       //console.log(i.data);
       //console.log(Object.entries(itemData.modlist));
@@ -355,8 +402,8 @@ export class cyberpunkredActor extends Actor {
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
 
-    //_cprLog("DATA PREPARATION COMPLETE");
-    //console.log(actorData);
+    _cprLog("DATA PREPARATION COMPLETE");
+    console.log(actorData);
   } //End Prepare Character Data
 
   //Various Special Functions for Rolls.
