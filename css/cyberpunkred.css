@@ -282,6 +282,9 @@
 
 
 /* Attributes and Skills Tab */
+.cyberpunkred .width50 {
+  width: 50px;
+}
 .cyberpunkred .attrnskill-label {
   font-weight: bold;
   text-transform: uppercase;

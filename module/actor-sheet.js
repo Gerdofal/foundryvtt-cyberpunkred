@@ -176,35 +176,31 @@ export class cyberpunkredActorSheet extends ActorSheet {
         "data.combatstats.luckpool.value": newLuck
       });
     });
-    
+
     //Set current ammo based on click on modifier number
     html.find('.alterammo').click(ev => {
       const actor = this.actor;
       var weaponID = $(ev.currentTarget).attr("data-weaponid");
+      const item = actor.data.items.find(i => i._id === weaponID);
+
       var ammoChange = $(ev.currentTarget).attr("data-change") * 1;
-      var itemArray = actor.data.items;
-      _cprLog("Adjusting ammo for " + weaponID);
-      itemArray.forEach(element => {
-        _cprLog("Checking " + weaponID + " vs array " + element._id);
-        if(element._id == weaponID) {    
-          element.data.ammo.value -= ammoChange;
-           _cprLog("Setting " + weaponID + " ammo remaining to " + element.data.ammo.value);
-        }
+      var newAmmo = (item.data.ammo.value * 1) + (ammoChange * 1);
+      actor.updateOwnedItem({
+        _id: weaponID,
+        "data.ammo.value" : newAmmo
       });
     });
-    
+
     //Reload weapon
     html.find('.reloadammo').click(ev => {
-      const actor = this.actor;
+     const actor = this.actor;
       var weaponID = $(ev.currentTarget).attr("data-weaponid");
-      var itemArray = actor.data.items;
-      _cprLog("Reloading ammo for " + weaponID);
-      itemArray.forEach(element => {
-        _cprLog("Checking " + weaponID + " vs array " + element._id);
-        if(element._id == weaponID) {    
-          element.data.ammo.value = element.data.ammo.max;
-           _cprLog("Setting " + weaponID + " ammo remaining to " + element.data.ammo.value);
-        }
+      const item = actor.data.items.find(i => i._id === weaponID);
+
+      var newAmmo = (item.data.ammo.max * 1);
+      actor.updateOwnedItem({
+        _id: weaponID,
+        "data.ammo.value" : newAmmo
       });
     });
 

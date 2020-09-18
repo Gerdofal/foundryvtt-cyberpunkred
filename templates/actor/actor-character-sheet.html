@@ -57,10 +57,14 @@
         <div class="cprgraphics">
           <h3>{{localize "CPRED.specialstats"}}</h3>
           {{localize "CPRED.underconstruction"}}<hr>
-            <li class="flexrow">
+            <li class="atrnskill-grid">
               {{localize "CPRED.humanity"}}
-              <input type="number" name="data.combatstats.humanity.base" value="{{data.combatstats.humanity.base}}">
-              <input type="number" name="data.combatstats.humanity.current" value="{{data.combatstats.humanity.current}}" readonly>
+              <input class="width50" type="number" name="data.combatstats.humanity.base" value="{{data.combatstats.humanity.base}}">
+              <input class="width50" type="number" name="data.combatstats.humanity.current" value="{{data.combatstats.humanity.current}}" readonly>
+            </li>
+            <li class="atrnskill-grid">
+              {{localize "CPRED.reputation"}}
+              <input class="width50" type="number" name="data.combatstats.reputation.value" value="{{data.combatstats.reputation.value}}">
             </li>
         </div>
         <div class="atrnskill-grid">
@@ -172,9 +176,12 @@
         <h3>{{localize "CPRED.itemcombatsection"}}</h3>
           {{#each actor.weapons as |item id|}}
           <li class="flexrow" data-item-id="{{id}}">
-            <label class="cpr-weaponinlinebox">{{item.name}}({{id}})<br>({{localize "CPRED.ammo"}} {{item.data.ammo.value}}/{{item.data.ammo.max}})
-            <i class="grid reloadammo clickable" data-weaponid="{{item._id}}" >{{localize "CPRED.full"}}</i>
-            <i class="grid alterammo clickable" data-weaponid="{{item._id}}" data-change="+1">+1</i></label>
+            <label class="cpr-weaponinlinebox">{{item.name}}<br>({{localize "CPRED.ammo"}} {{item.data.ammo.value}}/{{item.data.ammo.max}})
+            &nbsp;
+              <i class="reloadammo clickable" data-weaponid="{{item._id}}" >{{localize "CPRED.full"}}</i>
+            &nbsp;
+            <i class="alterammo clickable" data-weaponid="{{item._id}}" data-change="-1">-1</i>
+            </label>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollSkill item.data.skill.value}}">{{localize "CPRED.attack"}}</div>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollDamage item.data.damage.value}}">{{localize "CPRED.damage"}}</div>
           </li>
