@@ -49,8 +49,6 @@ export class cyberpunkredActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    _cprLog("Preparing character data for: " + actorData.name);
-
     //console.log(actorData);
     const data = actorData.data;
 
@@ -119,12 +117,15 @@ export class cyberpunkredActor extends Actor {
     //######################
 
     for (let [key, val] of Object.entries(data.skills)) {
-      if (allowJSK & data.skills[key]["jsk"]) {
+      if (allowJSK && data.skills[key]["jsk"]) {
         data.skills[key]["show"] = true;
-      } else if (allowCore & data.skills[key]["core"]) {
-        data.skills[key]["show"] = true;        
+        //_cprLog(key + " set to SHOW");
+      } else if (allowCore && data.skills[key]["core"]) {
+        data.skills[key]["show"] = true;
+        //_cprLog(key + " set to SHOW");
       } else {
         data.skills[key]["show"] = false;
+        //_cprLog(key + " set to HIDE");
       }
     }
 
@@ -174,6 +175,7 @@ export class cyberpunkredActor extends Actor {
     //Calculate itemmod values based on inventory
     //Setup modlog
     data.modlog = [];
+
     //All itemmod values must start at 0 because we have to add mods to them
     //Attributes
     for (let [key, attr] of Object.entries(data.attributes)) {
@@ -190,9 +192,13 @@ export class cyberpunkredActor extends Actor {
     for (let i of actorData.items) {
       const itemData = i.data;
       itemName = i.name;
+      
       //Count psychosis
-      totalPsychosis += itemData.psychosis.value;
-
+      if ( itemData.hasOwnProperty('psychosis')) {
+        totalPsychosis += itemData.psychosis.value;
+      }
+      
+      
       _cprLog("Now finding itemmods on " + itemName);
       //console.log(i.data);
       //console.log(Object.entries(itemData.modlist));
@@ -226,7 +232,9 @@ export class cyberpunkredActor extends Actor {
     for (let [key, attr] of Object.entries(data.attributes)) {
       attr.roll = attr.value + attr.mod + attr.itemmod;
     }
-
+    
+    //Computer humanity TODO-guessing at formula may need to fix this for final rule release
+    data.combatstats.humanity.current = data.combatstats.humanity.base-totalPsychosis;
 
     //####################
     //
@@ -401,9 +409,7 @@ export class cyberpunkredActor extends Actor {
     tempmod += data.modifiers.modmanualmod.penalty;
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
-
-    _cprLog("DATA PREPARATION COMPLETE");
-    console.log(actorData);
+    console.log(this);
   } //End Prepare Character Data
 
   //Various Special Functions for Rolls.

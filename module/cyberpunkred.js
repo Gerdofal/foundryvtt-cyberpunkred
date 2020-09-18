@@ -224,7 +224,7 @@ Hooks.once('init', async function () {
 
 Hooks.once("ready", function() {
 //Once FoundryVTT is loaded, perform a migration check on all actors
-ui.notifications.info("CyberpunkRED Checking Data Migration Needs");  
-migrateWorld(); //TODO - Figure a way to avoid calling this with every update
+//ui.notifications.info("CyberpunkRED Checking Data Migration Needs");  
+//migrateWorld(); //TODO - Figure a way to avoid calling this with every update
 ui.notifications.info("CyberpunkRED Fully Loaded");
 });

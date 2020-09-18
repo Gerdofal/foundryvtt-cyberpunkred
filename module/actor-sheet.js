@@ -176,6 +176,37 @@ export class cyberpunkredActorSheet extends ActorSheet {
         "data.combatstats.luckpool.value": newLuck
       });
     });
+    
+    //Set current ammo based on click on modifier number
+    html.find('.alterammo').click(ev => {
+      const actor = this.actor;
+      var weaponID = $(ev.currentTarget).attr("data-weaponid");
+      var ammoChange = $(ev.currentTarget).attr("data-change") * 1;
+      var itemArray = actor.data.items;
+      _cprLog("Adjusting ammo for " + weaponID);
+      itemArray.forEach(element => {
+        _cprLog("Checking " + weaponID + " vs array " + element._id);
+        if(element._id == weaponID) {    
+          element.data.ammo.value -= ammoChange;
+           _cprLog("Setting " + weaponID + " ammo remaining to " + element.data.ammo.value);
+        }
+      });
+    });
+    
+    //Reload weapon
+    html.find('.reloadammo').click(ev => {
+      const actor = this.actor;
+      var weaponID = $(ev.currentTarget).attr("data-weaponid");
+      var itemArray = actor.data.items;
+      _cprLog("Reloading ammo for " + weaponID);
+      itemArray.forEach(element => {
+        _cprLog("Checking " + weaponID + " vs array " + element._id);
+        if(element._id == weaponID) {    
+          element.data.ammo.value = element.data.ammo.max;
+           _cprLog("Setting " + weaponID + " ammo remaining to " + element.data.ammo.value);
+        }
+      });
+    });
 
     //Set the deathsave counter
     html.find('.alterdeathsave').click(ev => {

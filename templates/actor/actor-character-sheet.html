@@ -54,6 +54,15 @@
       
       {{!-- Attributes and Skills Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
+        <div class="cprgraphics">
+          <h3>{{localize "CPRED.specialstats"}}</h3>
+          {{localize "CPRED.underconstruction"}}<hr>
+            <li class="flexrow">
+              {{localize "CPRED.humanity"}}
+              <input type="number" name="data.combatstats.humanity.base" value="{{data.combatstats.humanity.base}}">
+              <input type="number" name="data.combatstats.humanity.current" value="{{data.combatstats.humanity.current}}" readonly>
+            </li>
+        </div>
         <div class="atrnskill-grid">
           <label>{{localize "CPRED.attribute"}}</label>
           <label>{{localize "CPRED.base"}}</label>
@@ -163,7 +172,9 @@
         <h3>{{localize "CPRED.itemcombatsection"}}</h3>
           {{#each actor.weapons as |item id|}}
           <li class="flexrow" data-item-id="{{id}}">
-            <label class="cpr-weaponinlinebox">{{item.name}}</label>
+            <label class="cpr-weaponinlinebox">{{item.name}}({{id}})<br>({{localize "CPRED.ammo"}} {{item.data.ammo.value}}/{{item.data.ammo.max}})
+            <i class="grid reloadammo clickable" data-weaponid="{{item._id}}" >{{localize "CPRED.full"}}</i>
+            <i class="grid alterammo clickable" data-weaponid="{{item._id}}" data-change="+1">+1</i></label>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollSkill item.data.skill.value}}">{{localize "CPRED.attack"}}</div>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollDamage item.data.damage.value}}">{{localize "CPRED.damage"}}</div>
           </li>

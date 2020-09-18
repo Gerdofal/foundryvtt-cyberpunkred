@@ -1,6 +1,10 @@
 Record of translation changes
 
 ### In Development
+.34
+added: "CPRED.specialstats"
+added: "CPRED.humanity"
+added: "CPRED.ammo"
 
 .33
   - CHANGED:
