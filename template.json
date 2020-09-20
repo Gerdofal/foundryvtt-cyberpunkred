@@ -4,7 +4,6 @@
     "templates": {
       "backend": {
         "backend": {
-          "createdversion" : null,
           "upgradedversion" : null
         }
       },
@@ -142,7 +141,7 @@
 
       "attributes": {
         "attributes": {
-          "int": {
+          "intx": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,

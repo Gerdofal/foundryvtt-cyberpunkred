@@ -5,7 +5,7 @@ Sections:
 
 ### Known Issues
 
-- None
+- If a system migration is run, players may need to press F5 after migration complete to fully render all skills. (If you notice the skill list is empty, press F5);
 
 ### Future Plans
 
@@ -24,6 +24,7 @@ Current Focus: UI Improvements and introduction of drag and drop functionality
   - Added ammo tracking to weapons in inventory
   - Added ability to edit "humanity" and automatically subtract total of item "psychosis" stat from humanity
   - Added ability to edit "reputation"
+  - Added a migration function to handle template changes
 
 ### Release Notes
 

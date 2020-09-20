@@ -49,7 +49,7 @@ export class cyberpunkredActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    //console.log(actorData);
+    _cprLog("Loading _prepareCharacterData in actor.js for " + actorData.name);
     const data = actorData.data;
 
     //Generally helpful variables
@@ -66,13 +66,13 @@ export class cyberpunkredActor extends Actor {
     //Make some updates to data that may need a fix without updating system.json
     if (data.modifiers.modfulldam.penalty != -2) {
       data.modifiers.modfulldam.penalty = -2;
-      console.warn(".28 Update - Changing penalty for modfulldam to -2.");
+      _cprLog(".28 Update - Changing penalty for modfulldam to -2.");
       delete data.roleskills.interface;
     } //Default changed in 0.28
     //Interim solution for transition to .30
     if (data.roleskills.hasOwnProperty('interface')) {
       data.roleskills.hacking.interface = data.roleskills.interface;
-      console.warn(".30 Update - Found old hacking data template and fixed.");
+      _cprLog(".30 Update - Found old hacking data template and fixed.");
       delete data.roleskills.interface;
     }
     //Add sorting to old actors for .32 to .33 transition
@@ -89,8 +89,18 @@ export class cyberpunkredActor extends Actor {
     //######################
     //This is a temporary measure to allow use of core rules in "Actual Play" groups.
 
-    var allowJSK = environmentSettings.jsk;
-    var allowCore = environmentSettings.core;
+    var allowJSK = false;
+    var allowCore = false;
+    
+    if(! typeof environmentSettings === "object") {
+      _cprLog("ERROR: environmentSettings doesn't appear to have loaded.");
+      allowJSK = true;
+      allowCore = true;
+    } else {
+      _cprLog("Setting environment variables");
+      var allowJSK = environmentSettings.jsk;
+      var allowCore = environmentSettings.core;      
+    }
 
     //######################
     //
@@ -107,7 +117,6 @@ export class cyberpunkredActor extends Actor {
       }
     }
     
-    console.log(data.skills);
 
     //######################
     //
@@ -168,7 +177,7 @@ export class cyberpunkredActor extends Actor {
 
     //####################
     //
-    //Inventory Items
+    //Parse Inventory Items
     //
     //####################
 
@@ -199,9 +208,7 @@ export class cyberpunkredActor extends Actor {
       }
       
       
-      _cprLog("Now finding itemmods on " + itemName);
-      //console.log(i.data);
-      //console.log(Object.entries(itemData.modlist));
+      //_cprLog("Now finding itemmods on " + itemName);
       for (let [key, mod] of Object.entries(itemData.modlist)) {
         //data.modlog.push(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:" + mod.modactive + ")");  
         //_cprLog(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
@@ -211,13 +218,13 @@ export class cyberpunkredActor extends Actor {
             //Attributes - Permanently modifies an attribute
             //Skills - Permanently modifies a skill
             case "attributes":
-              _cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
+              //_cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
               data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
               data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
               break;
 
             case "skills":
-              _cprLog("ITEMMOD: Skill " + mod.moditem + " + " + mod.modvalue * 1);
+              //_cprLog("ITEMMOD: Skill " + mod.moditem + " + " + mod.modvalue * 1);
               data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
               data.skills[mod.moditem].itemmod += mod.modvalue * 1;
               break;
@@ -234,6 +241,7 @@ export class cyberpunkredActor extends Actor {
     }
     
     //Computer humanity TODO-guessing at formula may need to fix this for final rule release
+    data.combatstats.humanity.itemmod = totalPsychosis;
     data.combatstats.humanity.current = data.combatstats.humanity.base-totalPsychosis;
 
     //####################
@@ -409,7 +417,6 @@ export class cyberpunkredActor extends Actor {
     tempmod += data.modifiers.modmanualmod.penalty;
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
-    console.log(this);
   } //End Prepare Character Data
 
   //Various Special Functions for Rolls.
@@ -517,7 +524,7 @@ export class cyberpunkredActor extends Actor {
         rollArray.push(4);
         break;
       default:
-        console.error("Hacking command not recognized in rollHacking: command=" + command);
+        _cprLog("Hacking command not recognized in rollHacking: command=" + command);
     }
 
     return {
@@ -590,12 +597,11 @@ export class cyberpunkredActor extends Actor {
         break;
       default:
         rollObject[0] = roll;
-        console.error("CyberpunkRED | Incoming roll command not recognized, attempting default.");
+        _cprLog("Incoming roll command not recognized, attempting default.");
     }
 
     //Everything past here is the same for all rolls.
-    console.log("CyberpunkRED | Incoming Roll: " + cmdCmd + " : " + cmdId);
-    //console.log(rollObject);
+    _cprLog("Incoming Roll: " + cmdCmd + " : " + cmdId);
 
     //Compute the formula
     if (rollObject.rollArray) {
@@ -618,8 +624,6 @@ export class cyberpunkredActor extends Actor {
         actor: this.actor
       })
     };
-
-    //console.log(rollObject);
 
     //Setup the output tags
     var tempTags = templateData.tags;

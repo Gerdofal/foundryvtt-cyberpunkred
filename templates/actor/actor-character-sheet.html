@@ -54,25 +54,22 @@
       
       {{!-- Attributes and Skills Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
-        <div class="cprgraphics">
-          <h3>{{localize "CPRED.specialstats"}}</h3>
-          {{localize "CPRED.underconstruction"}}<hr>
-            <li class="atrnskill-grid">
-              {{localize "CPRED.humanity"}}
-              <input class="width50" type="number" name="data.combatstats.humanity.base" value="{{data.combatstats.humanity.base}}">
-              <input class="width50" type="number" name="data.combatstats.humanity.current" value="{{data.combatstats.humanity.current}}" readonly>
-            </li>
-            <li class="atrnskill-grid">
-              {{localize "CPRED.reputation"}}
-              <input class="width50" type="number" name="data.combatstats.reputation.value" value="{{data.combatstats.reputation.value}}">
-            </li>
-        </div>
         <div class="atrnskill-grid">
           <label>{{localize "CPRED.attribute"}}</label>
           <label>{{localize "CPRED.base"}}</label>
           <label>{{localize "CPRED.mod"}}</label>
           <label>{{localize "CPRED.itemmod"}}</label>
           <label>{{localize "CPRED.totalroll"}}</label>
+          <label>{{localize "CPRED.humanity"}}</label>
+          <input type="text" name="data.combatstats.humanity.base" value="{{data.combatstats.humanity.base}}"/>
+          <input type="text" value="-" readonly>
+          <input type="text" name="data.combatstats.humanity.itemmod" value="{{data.combatstats.humanity.itemmod}}" readonly/>
+          <input type="text" name="data.combatstats.humanity.current" value="{{data.combatstats.humanity.current}}" readonly/>
+          <label>{{localize "CPRED.reputation"}}</label>
+          <input type="text" value="-" readonly>
+          <input type="text" value="-" readonly>
+          <input type="text" value="-" readonly>
+          <input type="text" name="data.combatstats.reputation.value" value="{{data.combatstats.reputation.value}}"/>
           {{#each data.attributes as |attr key|}}
           <label for="data.attributes.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
@@ -204,7 +201,7 @@
         </div>
         {{/if}}
           
-        {{!-- TODO: Add a way to edit reputation --}}
+
         <div class="cprgraphics">
         <h3>{{localize "CPRED.specialrolls"}}</h3>
           <ol class="specialroll-grid">
@@ -231,7 +228,9 @@
         <h3>{{localize "CPRED.skills"}}</h3>
         <ol class="skilllist-grid cpr-center">
           {{#each data.skills as |skill key|}}
+          {{#if skill.show}}
           <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
+          {{/if}}
           {{/each}}
         </ol>
         </div>        
