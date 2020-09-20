@@ -5,7 +5,7 @@ Sections:
 
 ### Known Issues
 
-- If a system migration is run, players may need to press F5 after migration complete to fully render all skills. (If you notice the skill list is empty, press F5);
+- If a system migration is run, players may need to press F5 after migration complete to fully render all skills. (If you notice the skill list is empty, press F5)
   
 ### In Development
 
