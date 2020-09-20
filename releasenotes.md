@@ -12,6 +12,7 @@ Sections:
 Current Focus: UI Improvements and introduction of drag and drop functionality  
 
 - 0.35 - In Development
+  - Working on categorization of skills to make them easier to find and use
 
 ### Future Plans
 
