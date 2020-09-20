@@ -1,11 +1,17 @@
 Sections: 
-- [Future Plans](#future-plans)
 - [In Development](#in-development)
+- [Future Plans](#future-plans)
 - [Release Notes](#release-notes)
 
 ### Known Issues
 
-- None
+- If a system migration is run, players may need to press F5 after migration complete to fully render all skills. (If you notice the skill list is empty, press F5);
+  
+### In Development
+
+Current Focus: UI Improvements and introduction of drag and drop functionality  
+
+- 0.35 - In Development
 
 ### Future Plans
 
@@ -15,12 +21,16 @@ Sections:
 - Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
 
 - Token bar actions
-  
-### In Development
 
-Current Focus: UI Improvements
-  
-- 0.33 - ready for release
+### Release Notes
+
+- 0.34 - In Development
+  - Added ammo tracking to weapons in inventory
+  - Added ability to edit "humanity" and automatically subtract total of item "psychosis" stat from humanity
+  - Added ability to edit "reputation"
+  - Added a migration function to handle template changes
+
+- 0.33 - Released 8/25/2020 - Beta
 
   - Removed gm config setting for showing or hiding some portions of sheets
   - Added sheet prefs so the players can show and hide inventory and other options on a per-sheet basis
@@ -38,8 +48,6 @@ Current Focus: UI Improvements
   
   - Note: This version includes changes to language strings. Details are available in: https://github.com/Gerdofal/foundryvtt-cyberpunkred/blob/development/translation_changes.md
   
-### Release Notes
-
 - 0.32 - Released 8/4/2020 - Beta (Bugfix Release)
   - Added language support for Simplified Chinese (Thanks Ztt1996#7972)
   - Removed gm config setting for showing or hiding some portions of sheets

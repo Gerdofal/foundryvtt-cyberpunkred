@@ -8,7 +8,6 @@ import {
 
 export class cyberpunkredActorSheet extends ActorSheet {
 
-
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -27,11 +26,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   /** @override */
   get template() {
     const path = "systems/cyberpunkred/templates/actor";
-    // Return a single sheet for all actor types.
-    //return `${path}/actor-sheet.html`;
-
-    // Alternatively, you could use the following return statement to do a
-    // unique actpr sheet by type, like `character-sheet.html`.
+    // Unique actpr sheet by type, like `character-sheet.html`.
     return `${path}/actor-${this.actor.data.type}-sheet.html`;
   }
   /* -------------------------------------------- */
@@ -40,8 +35,8 @@ export class cyberpunkredActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     this._prepareCharacterItems(data);
-    //_cprLog("Returning sheet data");
-    //console.log(data);
+    _cprLog("Loading getData in actor-sheet.js");
+    console.log(data);
     return data;
   }
 
@@ -55,7 +50,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
-    _cprLog("Categorizing Item List for Actor Sheet");
+    //_cprLog("Categorizing Item List for Actor Sheet");
     // Initialize containers.
     const cyberware = [];
     const weapons = [];
@@ -127,27 +122,6 @@ export class cyberpunkredActorSheet extends ActorSheet {
       });
     });
 
-    /*
-    // Reset all modifiers that are checked
-    html.find('.resetallmods').click(ev => {
-      const actor = this.actor;
-      var tempStr = "";
-      for (const property in actor.data.data.modifiers) {
-        if (actor.data.data.modifiers[property].hasOwnProperty("checked")) {
-          if (actor.data.data.modifiers[property].checked) {
-            actor.update({
-              [`data.modifiers.` + property + `.checked`] : false
-            });
-          }
-        }
-      }
-      //Reset manual modifier
-      actor.update({
-          "data.modifiers.modmanualmod.penalty": 0
-      });
-    });
-    */
-
     //Set current health based on click on dot
     html.find('.setcurrenthealth').click(ev => {
       const actor = this.actor;
@@ -200,6 +174,33 @@ export class cyberpunkredActorSheet extends ActorSheet {
       }
       actor.update({
         "data.combatstats.luckpool.value": newLuck
+      });
+    });
+
+    //Set current ammo based on click on modifier number
+    html.find('.alterammo').click(ev => {
+      const actor = this.actor;
+      var weaponID = $(ev.currentTarget).attr("data-weaponid");
+      const item = actor.data.items.find(i => i._id === weaponID);
+
+      var ammoChange = $(ev.currentTarget).attr("data-change") * 1;
+      var newAmmo = (item.data.ammo.value * 1) + (ammoChange * 1);
+      actor.updateOwnedItem({
+        _id: weaponID,
+        "data.ammo.value" : newAmmo
+      });
+    });
+
+    //Reload weapon
+    html.find('.reloadammo').click(ev => {
+     const actor = this.actor;
+      var weaponID = $(ev.currentTarget).attr("data-weaponid");
+      const item = actor.data.items.find(i => i._id === weaponID);
+
+      var newAmmo = (item.data.ammo.max * 1);
+      actor.updateOwnedItem({
+        _id: weaponID,
+        "data.ammo.value" : newAmmo
       });
     });
 
@@ -268,7 +269,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   _onRoll(event) {
 
     //This function calls rollCPR with whatever was sent to the command. 
-    //All special roll logic happens in rollCPR
+    //All special roll logic happens in rollCPR which is in actor.js
 
     event.preventDefault();
     const element = event.currentTarget;
