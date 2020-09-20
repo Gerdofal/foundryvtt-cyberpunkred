@@ -1,10 +1,8 @@
 Record of translation changes
 
-### In Development
+
 .34
-added: "CPRED.specialstats"
-added: "CPRED.humanity"
-added: "CPRED.ammo"
+    MAJOR CHANGE: Added many skills to the language file.
 
 .33
   - CHANGED:
@@ -29,9 +27,6 @@ added: "CPRED.ammo"
     - CPRED.usesimplecombathint
     - CPRED.useitembasedcombathint
     - CPRED.showinventoryhint
-
-
-### Live
 
 .32 - 8/4/2020
   - Initial translation release of ZH

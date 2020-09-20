@@ -1,11 +1,17 @@
 Sections: 
-- [Future Plans](#future-plans)
 - [In Development](#in-development)
+- [Future Plans](#future-plans)
 - [Release Notes](#release-notes)
 
 ### Known Issues
 
 - If a system migration is run, players may need to press F5 after migration complete to fully render all skills. (If you notice the skill list is empty, press F5);
+  
+### In Development
+
+Current Focus: UI Improvements and introduction of drag and drop functionality  
+
+- 0.35 - In Development
 
 ### Future Plans
 
@@ -15,18 +21,14 @@ Sections:
 - Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
 
 - Token bar actions
-  
-### In Development
 
-Current Focus: UI Improvements and introduction of drag and drop functionality  
+### Release Notes
 
 - 0.34 - In Development
   - Added ammo tracking to weapons in inventory
   - Added ability to edit "humanity" and automatically subtract total of item "psychosis" stat from humanity
   - Added ability to edit "reputation"
   - Added a migration function to handle template changes
-
-### Release Notes
 
 - 0.33 - Released 8/25/2020 - Beta
 
