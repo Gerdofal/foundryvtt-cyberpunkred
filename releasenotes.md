@@ -25,7 +25,7 @@ Current Focus: UI Improvements and introduction of drag and drop functionality
 
 ### Release Notes
 
-- 0.34 - In Development
+- 0.34 - Released 9/20/2020 - Beta
   - Added ammo tracking to weapons in inventory
   - Added ability to edit "humanity" and automatically subtract total of item "psychosis" stat from humanity
   - Added ability to edit "reputation"
