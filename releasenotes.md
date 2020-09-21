@@ -11,7 +11,7 @@ Sections:
 
 Current Focus: UI Improvements and introduction of drag and drop functionality  
 
-- 0.35 - In Development
+- 0.36 - In Development
   - Working on categorization of skills to make them easier to find and use
 
 ### Future Plans
@@ -24,6 +24,10 @@ Current Focus: UI Improvements and introduction of drag and drop functionality
 - Token bar actions
 
 ### Release Notes
+
+- 0.35 - Released 9/21/2020 - Bugfix
+  - Minor bugfixes
+  - Removed some testing code from .34
 
 - 0.34 - Released 9/20/2020 - Beta
   - Added ammo tracking to weapons in inventory
