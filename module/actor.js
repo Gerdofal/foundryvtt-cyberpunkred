@@ -91,15 +91,15 @@ export class cyberpunkredActor extends Actor {
 
     var allowJSK = false;
     var allowCore = false;
-    
-    if(! typeof environmentSettings === "object") {
+
+    if (!typeof environmentSettings === "object") {
       _cprLog("ERROR: environmentSettings doesn't appear to have loaded.");
       allowJSK = true;
       allowCore = true;
     } else {
       _cprLog("Setting environment variables");
       var allowJSK = environmentSettings.jsk;
-      var allowCore = environmentSettings.core;      
+      var allowCore = environmentSettings.core;
     }
 
     //######################
@@ -116,7 +116,7 @@ export class cyberpunkredActor extends Actor {
         }
       }
     }
-    
+
 
     //######################
     //
@@ -201,13 +201,13 @@ export class cyberpunkredActor extends Actor {
     for (let i of actorData.items) {
       const itemData = i.data;
       itemName = i.name;
-      
+
       //Count psychosis
-      if ( itemData.hasOwnProperty('psychosis')) {
-        totalPsychosis += itemData.psychosis.value;
+      if (itemData.hasOwnProperty('psychosis')) {
+        totalPsychosis += (itemData.psychosis.value) * 1;
       }
-      
-      
+
+
       //_cprLog("Now finding itemmods on " + itemName);
       for (let [key, mod] of Object.entries(itemData.modlist)) {
         //data.modlog.push(itemName + ":" + key + ": " + mod.modcat+"-"+mod.moditem+": " + mod.modvalue + " (active:" + mod.modactive + ")");  
@@ -239,10 +239,10 @@ export class cyberpunkredActor extends Actor {
     for (let [key, attr] of Object.entries(data.attributes)) {
       attr.roll = attr.value + attr.mod + attr.itemmod;
     }
-    
+
     //Computer humanity TODO-guessing at formula may need to fix this for final rule release
-    data.combatstats.humanity.itemmod = totalPsychosis;
-    data.combatstats.humanity.current = data.combatstats.humanity.base-totalPsychosis;
+    data.combatstats.humanity.itemmod = totalPsychosis * 1;
+    data.combatstats.humanity.current = (data.combatstats.humanity.base * 1) - (totalPsychosis * 1);
 
     //####################
     //

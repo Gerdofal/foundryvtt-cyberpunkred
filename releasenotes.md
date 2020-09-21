@@ -5,13 +5,14 @@ Sections:
 
 ### Known Issues
 
-- If a system migration is run, players may need to press F5 after migration complete to fully render all skills. (If you notice the skill list is empty, press F5);
+- If a system migration is run, players may need to press F5 after migration complete to fully render all skills. (If you notice the skill list is empty, press F5)
   
 ### In Development
 
 Current Focus: UI Improvements and introduction of drag and drop functionality  
 
 - 0.35 - In Development
+  - Working on categorization of skills to make them easier to find and use
 
 ### Future Plans
 
@@ -24,7 +25,7 @@ Current Focus: UI Improvements and introduction of drag and drop functionality
 
 ### Release Notes
 
-- 0.34 - In Development
+- 0.34 - Released 9/20/2020 - Beta
   - Added ammo tracking to weapons in inventory
   - Added ability to edit "humanity" and automatically subtract total of item "psychosis" stat from humanity
   - Added ability to edit "reputation"

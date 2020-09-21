@@ -141,7 +141,7 @@
 
       "attributes": {
         "attributes": {
-          "intx": {
+          "int": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,

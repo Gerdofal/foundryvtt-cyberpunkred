@@ -23,6 +23,9 @@ import {
 import {
   migrateWorld
 } from "./migration.js"
+import {
+  environmentSettings
+} from "../environment.js"
 
 
 Hooks.once('init', async function () {
@@ -226,7 +229,7 @@ Hooks.once("ready", function() {
 //Once FoundryVTT is loaded, perform a migration check
 const worldDataVersion = game.settings.get("cyberpunkred", "systemMigrationVersion");
 const systemDataVersion = game.system.data.version;
-if(worldDataVersion!=systemDataVersion) {
+if(worldDataVersion!=systemDataVersion || environmentSettings.forcemigrate) {
   ui.notifications.info("Performing data update from " + worldDataVersion + " to " + systemDataVersion);
   migrateWorld();
 }  
