@@ -417,6 +417,9 @@ export class cyberpunkredActor extends Actor {
     tempmod += data.modifiers.modmanualmod.penalty;
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
+    
+    //After a migration, preparedata sometimes fails to run as expected. This variable will track that.
+    data.backend.dataprepcomplete = true;
   } //End Prepare Character Data
 
   //Various Special Functions for Rolls.
