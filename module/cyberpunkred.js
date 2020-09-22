@@ -230,7 +230,11 @@ Hooks.once("ready", function() {
 const worldDataVersion = game.settings.get("cyberpunkred", "systemMigrationVersion");
 const systemDataVersion = game.system.data.version;
 if(worldDataVersion!=systemDataVersion || environmentSettings.forcemigrate) {
-  ui.notifications.info("Performing data update from " + worldDataVersion + " to " + systemDataVersion);
+  if(environmentSettings.forcemigrate) {
+    ui.notifications.info("Environment settings have forced migrate of data.");
+  } else {
+    ui.notifications.info("Performing data update from " + worldDataVersion + " to " + systemDataVersion);
+  }
   migrateWorld();
 }  
 game.settings.set("cyberpunkred", "systemMigrationVersion", game.system.data.version);

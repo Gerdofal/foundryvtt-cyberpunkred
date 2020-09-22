@@ -1,10 +1,13 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   
-  {{!-- After a migration, data may not be prepared. This handles that case.}}
+  {{!-- After a migration, data may not be prepared. This handles that case. --}}
+  
   {{#unless data.backend.dataprepcomplete}}
-    {{localize "CPRED.simpletoggleex"}}
-    <input class="settings" type="checkbox" id="set_simpletoggle" name="data.backend.simpletoggle" {{checked data.backend.simpletoggle}}>
-    <label class="cpr-center settings-item settings clickable" for="set_simpletoggle">{{localize "CPRED.simpletoggle"}}</label>
+  
+    {{localize "CPRED.simpletoggleex"}}<br><br>
+      <input class="settings" type="checkbox" id="set_simpletoggle" name="data.backend.simpletoggle" {{checked data.backend.simpletoggle}}>
+      <label class="cpr-center settings-item settings clickable" for="set_simpletoggle">{{localize "CPRED.simpletoggle"}}</label>
+  </form>
   {{/unless}}
   
   {{#if data.backend.dataprepcomplete}}
@@ -421,6 +424,6 @@
     </div> {{!-- Here ends main content --}}
   </div> {{!-- Here ends grid definition --}}
 
-  {{/if}} {{!-- Here ends the main if data.dataprepcomplete}}
+  {{/if}} {{!-- Here ends the main if data.dataprepcomplete --}}
 
 </form> {{!-- Here ends the main form --}}

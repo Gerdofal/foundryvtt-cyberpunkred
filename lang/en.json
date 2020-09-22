@@ -8,7 +8,7 @@
     "CPRED.useitembasedcombatname": "Show weapon roll buttons on the Combat tab for weapons in inventory? (Requires 'Show Inventory Tabs?' to be on.)",
     "CPRED.showinventoryname": "Show Inventory Tabs?",
     "CPRED.simpletoggle": "Please Click Here to Refresh",
-    "CPRED.simpletoggleex": "Due to a recent migration, the data for this actor does not appear to be in the proper format. Please click the button below to refresh the character.",
+    "CPRED.simpletoggleex": "Due to a recent data template migration, the data for this actor does not appear to be in the proper format. Please click the button below to refresh the character.",
     "CPRED.actions": "Actions",
     "CPRED.ammomax": "Max Ammo",
     "CPRED.appearance": "Appearance",
