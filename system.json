@@ -20,6 +20,11 @@
 		"lang": "zh",
 		"name": "Simplifed Chinese",
 		"path": "lang/zh.json"		  
+	  },
+	  {
+		"lang": "es",
+		"name": "Spanish",
+		"path": "lang/es.json"		  
 	  }
   ],
   "gridDistance": 1,
