@@ -7,476 +7,476 @@ export const listsSkills = { // Here begins the object
   "athletics": {
     "linkedattribute": "dex",
     "sort": "athletics",
-    "category": "tbd",
+    "category": "catbody",
     "jsk": true,
     "core": true
   },
   "basictech": {
     "linkedattribute": "tech",
     "sort": "basictech",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": true,
     "core": true
   },
   "brawling": {
     "linkedattribute": "dex",
     "sort": "brawling",
-    "category": "tbd",
+    "category": "catfighting",
     "jsk": true,
     "core": true
   },
   "bribery": {
     "linkedattribute": "cool",
     "sort": "bribery",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": true,
     "core": true
   },
   "concentration": {
     "linkedattribute": "will",
     "sort": "concentration",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": true,
     "core": true
   },
   "conversation": {
     "linkedattribute": "emp",
     "sort": "conversation",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": true,
     "core": true
   },
   "cybertech": {
     "linkedattribute": "tech",
-    "sort": "cybertech",
-    "category": "tbd",
+    "sort": "tech",
+    "category": "cattech",
     "jsk": true,
     "core": true
   },
   "driving": {
     "linkedattribute": "ref",
     "sort": "driving",
-    "category": "tbd",
+    "category": "catcontrol",
     "jsk": true,
     "core": false
   },
   "education": {
     "linkedattribute": "int",
     "sort": "education",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": true,
     "core": true
   },
   "evasion": {
     "linkedattribute": "dex",
     "sort": "evasion",
-    "category": "tbd",
+    "category": "catfighting",
     "jsk": true,
     "core": true
   },
   "firstaid": {
     "linkedattribute": "tech",
     "sort": "firstaid",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": true,
     "core": true
   },
   "humanperception": {
     "linkedattribute": "emp",
     "sort": "humanperception",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": true,
     "core": true
   },
   "interrogation": {
     "linkedattribute": "cool",
     "sort": "interrogation",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": true,
     "core": true
   },
   "localexpert": {
     "linkedattribute": "int",
     "sort": "localexpert",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": true,
     "core": true
   },
   "marksmanship": {
     "linkedattribute": "ref",
     "sort": "marksmanship",
-    "category": "tbd",
+    "category": "catrangedweapon",
     "jsk": true,
     "core": false
   },
   "meleeweapon": {
     "linkedattribute": "dex",
     "sort": "meleeweapon",
-    "category": "tbd",
+    "category": "catfighting",
     "jsk": true,
     "core": true
   },
   "perception": {
     "linkedattribute": "int",
     "sort": "perception",
-    "category": "tbd",
+    "category": "catawareness",
     "jsk": true,
     "core": true
   },
   "persuasion": {
     "linkedattribute": "cool",
     "sort": "persuasion",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": true,
     "core": true
   },
   "playinstrument": {
     "linkedattribute": "emp",
     "sort": "playinstrument",
-    "category": "tbd",
+    "category": "catperformance",
     "jsk": true,
     "core": true
   },
   "stealth": {
     "linkedattribute": "dex",
     "sort": "stealth",
-    "category": "tbd",
+    "category": "catbody",
     "jsk": true,
     "core": true
   },
   "tracking": {
     "linkedattribute": "int",
     "sort": "tracking",
-    "category": "tbd",
+    "category": "catawareness",
     "jsk": true,
     "core": true
   },
   "accounting": {
     "linkedattribute": "int",
     "sort": "accounting",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "acting": {
     "linkedattribute": "cool",
     "sort": "acting",
-    "category": "tbd",
+    "category": "catperformance",
     "jsk": false,
     "core": true
   },
   "airvehicletech": {
     "linkedattribute": "tech",
     "sort": "airvehicletech",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "animalhandling": {
     "linkedattribute": "int",
     "sort": "animalhandling",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "archery": {
     "linkedattribute": "ref",
     "sort": "archery",
-    "category": "tbd",
+    "category": "catrangedweapon",
     "jsk": false,
     "core": true
   },
   "autofire": {
     "linkedattribute": "ref",
     "sort": "autofire",
-    "category": "tbd",
+    "category": "catrangedweapon",
     "jsk": false,
     "core": true
   },
   "bureaucracy": {
     "linkedattribute": "int",
     "sort": "bureaucracy",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "business": {
     "linkedattribute": "int",
     "sort": "business",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "composition": {
     "linkedattribute": "int",
     "sort": "composition",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "concealorrevealobject": {
     "linkedattribute": "int",
     "sort": "concealorrevealobject",
-    "category": "tbd",
+    "category": "catawareness",
     "jsk": false,
     "core": true
   },
   "contortionist": {
     "linkedattribute": "dex",
     "sort": "contortionist",
-    "category": "tbd",
+    "category": "catbody",
     "jsk": false,
     "core": true
   },
   "criminology": {
     "linkedattribute": "int",
     "sort": "criminology",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "cryptography": {
     "linkedattribute": "int",
     "sort": "cryptography",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "dance": {
     "linkedattribute": "dex",
     "sort": "dance",
-    "category": "tbd",
+    "category": "catbody",
     "jsk": false,
     "core": true
   },
   "deduction": {
     "linkedattribute": "int",
     "sort": "deduction",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "demolitions": {
     "linkedattribute": "tech",
     "sort": "demolitions",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "drivelandvehicle": {
     "linkedattribute": "ref",
     "sort": "drivelandvehicle",
-    "category": "tbd",
+    "category": "catcontrol",
     "jsk": false,
     "core": true
   },
   "electronicsandsecuritytech": {
     "linkedattribute": "tech",
     "sort": "electronicsandsecuritytech",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "endurance": {
     "linkedattribute": "will",
     "sort": "endurance",
-    "category": "tbd",
+    "category": "catbody",
     "jsk": false,
     "core": true
   },
   "forgery": {
     "linkedattribute": "tech",
     "sort": "forgery",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "gamble": {
     "linkedattribute": "int",
     "sort": "gamble",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "handgun": {
     "linkedattribute": "ref",
     "sort": "handgun",
-    "category": "tbd",
+    "category": "catrangedweapon",
     "jsk": false,
     "core": true
   },
   "heavyweapons": {
     "linkedattribute": "ref",
     "sort": "heavyweapons",
-    "category": "tbd",
+    "category": "catrangedweapon",
     "jsk": false,
     "core": true
   },
   "landvehicletech": {
     "linkedattribute": "tech",
     "sort": "landvehicletech",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "language": {
     "linkedattribute": "int",
     "sort": "language",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "librarysearch": {
     "linkedattribute": "int",
     "sort": "librarysearch",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "lipreading": {
     "linkedattribute": "int",
     "sort": "lipreading",
-    "category": "tbd",
+    "category": "catawareness",
     "jsk": false,
     "core": true
   },
   "martialarts": {
     "linkedattribute": "dex",
     "sort": "martialarts",
-    "category": "tbd",
+    "category": "catfighting",
     "jsk": false,
     "core": true
   },
   "paintordraworsculpt": {
     "linkedattribute": "tech",
     "sort": "paintordraworsculpt",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "paramedic": {
     "linkedattribute": "tech",
     "sort": "paramedic",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "personalgrooming": {
     "linkedattribute": "cool",
     "sort": "personalgrooming",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": false,
     "core": true
   },
   "photographyandfilm": {
     "linkedattribute": "tech",
     "sort": "photographyandfilm",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "picklock": {
     "linkedattribute": "tech",
     "sort": "picklock",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "pickpocket": {
     "linkedattribute": "tech",
     "sort": "pickpocket",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "pilotairvehicle": {
     "linkedattribute": "ref",
     "sort": "pilotairvehicle",
-    "category": "tbd",
+    "category": "catcontrol",
     "jsk": false,
     "core": true
   },
   "pilotseavehicle": {
     "linkedattribute": "ref",
     "sort": "pilotseavehicle",
-    "category": "tbd",
+    "category": "catcontrol",
     "jsk": false,
     "core": true
   },
   "resisttortureordrugs": {
     "linkedattribute": "will",
     "sort": "resisttortureordrugs",
-    "category": "tbd",
+    "category": "catbody",
     "jsk": false,
     "core": true
   },
   "riding": {
     "linkedattribute": "ref",
     "sort": "riding",
-    "category": "tbd",
+    "category": "catcontrol",
     "jsk": false,
     "core": true
   },
   "science": {
     "linkedattribute": "int",
     "sort": "science",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "seavehicletech": {
     "linkedattribute": "tech",
     "sort": "seavehicletech",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "shoulderarms": {
     "linkedattribute": "ref",
     "sort": "shoulderarms",
-    "category": "tbd",
+    "category": "catrangedweapon",
     "jsk": false,
     "core": true
   },
   "streetwise": {
     "linkedattribute": "cool",
     "sort": "streetwise",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": false,
     "core": true
   },
   "tactics": {
     "linkedattribute": "int",
     "sort": "tactics",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   },
   "trading": {
     "linkedattribute": "cool",
     "sort": "trading",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": false,
     "core": true
   },
   "wardrobeandstyle": {
     "linkedattribute": "cool",
     "sort": "wardrobeandstyle",
-    "category": "tbd",
+    "category": "catsocial",
     "jsk": false,
     "core": true
   },
   "weaponstech": {
     "linkedattribute": "tech",
     "sort": "weaponstech",
-    "category": "tbd",
+    "category": "cattech",
     "jsk": false,
     "core": true
   },
   "wildernesssurvival": {
     "linkedattribute": "int",
     "sort": "wildernesssurvival",
-    "category": "tbd",
+    "category": "cateducation",
     "jsk": false,
     "core": true
   }

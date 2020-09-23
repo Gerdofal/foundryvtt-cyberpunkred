@@ -13,7 +13,7 @@ Current Focus: UI Improvements and introduction of drag and drop functionality
 
 - 0.36 - In Development
   - There is now an alert shown if the actor isn't prepared after migration, offering a link to fix.
-  - Working on categorization of skills to make them easier to find and use
+  - Skills are now grouped into categories
 
 ### Future Plans
 

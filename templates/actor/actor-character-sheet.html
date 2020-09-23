@@ -88,17 +88,24 @@
           <input type="text" name="data.attributes.{{key}}.itemmod" value="{{attr.itemmod}}" data-dtype="Number" readonly/>
           <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
-          {{#each data.skills as |skill key|}}
+          </div>
+          {{#each data.backend.skillcategories as |item thiscategory|}}
+          <h3>{{localize (concat "CPRED." thiscategory)}}</h3>
+          <div class="atrnskill-grid">  
+          {{#each ../data.skills as |skill key|}}
           {{#if skill.show}}
+          {{#if_eq skill.category thiscategory}}
           <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="rollable">{{localize (concat "CPRED." key)}} ({{localize (concat "CPRED." skill.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.itemmod" value="{{skill.itemmod}}" data-dtype="Number" readonly/>
           <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
+          {{/if_eq}}
           {{/if}}
           {{/each}}
+          </div>
+          {{/each}}
         </div>
-      </div>
       
       
       
@@ -237,13 +244,19 @@
         
         <div class="cprgraphics">
         <h3>{{localize "CPRED.skills"}}</h3>
-        <ol class="skilllist-grid cpr-center">
-          {{#each data.skills as |skill key|}}
+          
+        {{#each data.backend.skillcategories as |item thiscategory|}}
+        <h3>{{localize (concat "CPRED." thiscategory)}}</h3> 
+          <ol class="skilllist-grid cpr-center">
+          {{#each ../data.skills as |skill key|}}
           {{#if skill.show}}
+          {{#if_eq skill.category thiscategory}}  
           <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
+          {{/if_eq}}
           {{/if}}
           {{/each}}
-        </ol>
+          </ol>
+        {{/each}}
         </div>        
           
         <div class="cprgraphics">
