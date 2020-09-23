@@ -9,7 +9,7 @@ Sections:
   
 ### In Development
 
-Current Focus: UI Improvements and introduction of drag and drop functionality  
+Current Focus: UI Improvements
 
 - 0.36 - In Development
   - There is now an alert shown if the actor isn't prepared after migration, offering a link to fix.
@@ -19,8 +19,6 @@ Current Focus: UI Improvements and introduction of drag and drop functionality
 
 - UI cleanup and usability improvements
   - Remove some columns on the stat setup tab and only show that info on click
-
-- Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
 
 - Token bar actions
 
