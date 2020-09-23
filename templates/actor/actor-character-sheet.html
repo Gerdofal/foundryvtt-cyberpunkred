@@ -65,6 +65,7 @@
       
       {{!-- Attributes and Skills Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
+        <h3>{{localize "CPRED.specialattributes"}}</h3>
         <div class="atrnskill-grid">
           <label>{{localize "CPRED.attribute"}}</label>
           <label>{{localize "CPRED.base"}}</label>
@@ -81,6 +82,9 @@
           <input type="text" value="-" readonly>
           <input type="text" value="-" readonly>
           <input type="text" name="data.combatstats.reputation.value" value="{{data.combatstats.reputation.value}}"/>
+        </div>
+        <h3>{{localize "CPRED.attributes"}}</h3>
+        <div class="atrnskill-grid">
           {{#each data.attributes as |attr key|}}
           <label for="data.attributes.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
@@ -88,10 +92,11 @@
           <input type="text" name="data.attributes.{{key}}.itemmod" value="{{attr.itemmod}}" data-dtype="Number" readonly/>
           <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
-          </div>
-          {{#each data.backend.skillcategories as |item thiscategory|}}
-          <h3>{{localize (concat "CPRED." thiscategory)}}</h3>
-          <div class="atrnskill-grid">  
+        </div>
+        <h3>{{localize "CPRED.skills"}}</h3>
+        {{#each data.backend.skillcategories as |item thiscategory|}}
+        <h5>{{localize (concat "CPRED." thiscategory)}}</h5>
+        <div class="atrnskill-grid">  
           {{#each ../data.skills as |skill key|}}
           {{#if skill.show}}
           {{#if_eq skill.category thiscategory}}
@@ -103,9 +108,9 @@
           {{/if_eq}}
           {{/if}}
           {{/each}}
-          </div>
-          {{/each}}
         </div>
+          {{/each}}
+      </div>
       
       
       
@@ -246,7 +251,7 @@
         <h3>{{localize "CPRED.skills"}}</h3>
           
         {{#each data.backend.skillcategories as |item thiscategory|}}
-        <h3>{{localize (concat "CPRED." thiscategory)}}</h3> 
+        <h5>{{localize (concat "CPRED." thiscategory)}}</h5> 
           <ol class="skilllist-grid cpr-center">
           {{#each ../data.skills as |skill key|}}
           {{#if skill.show}}
