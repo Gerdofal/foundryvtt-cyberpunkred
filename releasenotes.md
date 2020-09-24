@@ -11,10 +11,8 @@ Sections:
 
 Current Focus: UI Improvements
 
-- 0.36 - In Development
-  - There is now an alert shown if the actor isn't prepared after migration, offering a link to fix.
-  - Skills are now grouped into categories
-  - Made improvements to CSS to make headers easier to read while taking less space
+- 0.37
+
 
 ### Future Plans
 
@@ -24,6 +22,11 @@ Current Focus: UI Improvements
 - Token bar actions
 
 ### Release Notes
+
+- 0.36 - Released 9/24/2020 - Beta
+  - There is now an alert shown if the actor isn't prepared after migration, offering a link to fix.
+  - Skills are now grouped into categories
+  - Made improvements to CSS to make headers easier to read while taking less space
 
 - 0.35 - Released 9/21/2020 - Bugfix
   - Minor bugfixes
