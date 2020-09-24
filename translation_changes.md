@@ -1,8 +1,22 @@
 Record of translation changes
 
+.36 Added categories:
+    "CPRED.catrangedweapon": "Ranged Weapon Skills",
+    "CPRED.cateducation": "Education Skills",
+    "CPRED.catsocial": "Social Skills",
+    "CPRED.cattech" : "Tech Skills",
+    "CPRED.catbody" : "Body Skills",
+    "CPRED.catfighting" : "Fighting Skills",
+    "CPRED.catperformance" : "Performance Skills",
+    "CPRED.catawareness" : "Awareness Skills",
+    "CPRED.catcontrol" : "Control Skills",
+    
+    Also re-sorted the language file alphabetically
+    
 
 .34
     MAJOR CHANGE: Added many skills to the language file.
+    Added Ammo and Reload
 
 .33
   - CHANGED:

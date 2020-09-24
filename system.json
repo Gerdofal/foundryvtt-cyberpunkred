@@ -1,5 +1,5 @@
 {
-  "version": 0.35,
+  "version": 0.36,
   "name": "cyberpunkred",
   "title": "Cyberpunk RED",
   "description": "An in-progress game system for CyberpunkRED. Still very much in development as all we have are the jumpstart rules and the core rulebook isn't even out yet. (Based on the boilerplate system by asacolips)",
@@ -20,6 +20,11 @@
 		"lang": "zh",
 		"name": "Simplifed Chinese",
 		"path": "lang/zh.json"		  
+	  },
+	  {
+		"lang": "es",
+		"name": "Spanish",
+		"path": "lang/es.json"		  
 	  }
   ],
   "gridDistance": 1,

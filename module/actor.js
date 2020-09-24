@@ -118,19 +118,26 @@ export class cyberpunkredActor extends Actor {
     }
 
 
+    
+    
     //######################
     //
     //Show or hide skills based on environment
     //(Note they are hidden, not deleted.)
     //
+    //Also sets skill categories
+    //
     //######################
 
+    data.backend.skillcategories = {};
     for (let [key, val] of Object.entries(data.skills)) {
       if (allowJSK && data.skills[key]["jsk"]) {
         data.skills[key]["show"] = true;
+        data.backend.skillcategories[val.category]=true;
         //_cprLog(key + " set to SHOW");
       } else if (allowCore && data.skills[key]["core"]) {
         data.skills[key]["show"] = true;
+        data.backend.skillcategories[val.category]=true;
         //_cprLog(key + " set to SHOW");
       } else {
         data.skills[key]["show"] = false;
@@ -143,13 +150,6 @@ export class cyberpunkredActor extends Actor {
     //Sorting
     //
     //####################
-
-    //Skills default sorting
-    //TODO - Make this a category as well
-    for (let [key, attr] of Object.entries(data.skills)) {
-      //_cprLog("Setting sort for " + key);
-      data.skills[key]["sort"] = key;
-    }
 
     //Sort the skills and attributes
 
@@ -417,6 +417,9 @@ export class cyberpunkredActor extends Actor {
     tempmod += data.modifiers.modmanualmod.penalty;
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
+    
+    //After a migration, preparedata sometimes fails to run as expected. This variable will track that.
+    data.backend.dataprepcomplete = true;
   } //End Prepare Character Data
 
   //Various Special Functions for Rolls.

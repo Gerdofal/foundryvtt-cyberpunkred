@@ -4,7 +4,7 @@
     "templates": {
       "backend": {
         "backend": {
-          "currentlynotused" : null
+          "simpletoggle" : false
         }
       },
       

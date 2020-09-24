@@ -9,17 +9,17 @@ Sections:
   
 ### In Development
 
-Current Focus: UI Improvements and introduction of drag and drop functionality  
+Current Focus: UI Improvements
 
 - 0.36 - In Development
-  - Working on categorization of skills to make them easier to find and use
+  - There is now an alert shown if the actor isn't prepared after migration, offering a link to fix.
+  - Skills are now grouped into categories
+  - Made improvements to CSS to make headers easier to read while taking less space
 
 ### Future Plans
 
 - UI cleanup and usability improvements
   - Remove some columns on the stat setup tab and only show that info on click
-
-- Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
 
 - Token bar actions
 
