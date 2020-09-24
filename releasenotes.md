@@ -27,6 +27,7 @@ Current Focus: UI Improvements
   - There is now an alert shown if the actor isn't prepared after migration, offering a link to fix.
   - Skills are now grouped into categories
   - Made improvements to CSS to make headers easier to read while taking less space
+  - Added categories to skill displays
 
 - 0.35 - Released 9/21/2020 - Bugfix
   - Minor bugfixes
