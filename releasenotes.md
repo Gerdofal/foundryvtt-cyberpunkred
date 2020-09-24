@@ -1,26 +1,39 @@
 Sections: 
-- [Future Plans](#future-plans)
 - [In Development](#in-development)
+- [Future Plans](#future-plans)
 - [Release Notes](#release-notes)
 
 ### Known Issues
 
-- None
+- If a system migration is run, players may need to press F5 after migration complete to fully render all skills. (If you notice the skill list is empty, press F5)
+  
+### In Development
+
+Current Focus: UI Improvements
+
+- 0.36 - In Development
+  - There is now an alert shown if the actor isn't prepared after migration, offering a link to fix.
+  - Skills are now grouped into categories
+  - Made improvements to CSS to make headers easier to read while taking less space
 
 ### Future Plans
 
 - UI cleanup and usability improvements
   - Remove some columns on the stat setup tab and only show that info on click
 
-- Add any missing stats to the sheet and provide ui (reputation, psychosis, etc)
-
 - Token bar actions
-  
-### In Development
-
-Current Focus: UI Improvements and introduction of drag and drop functionality  
 
 ### Release Notes
+
+- 0.35 - Released 9/21/2020 - Bugfix
+  - Minor bugfixes
+  - Removed some testing code from .34
+
+- 0.34 - Released 9/20/2020 - Beta
+  - Added ammo tracking to weapons in inventory
+  - Added ability to edit "humanity" and automatically subtract total of item "psychosis" stat from humanity
+  - Added ability to edit "reputation"
+  - Added a migration function to handle template changes
 
 - 0.33 - Released 8/25/2020 - Beta
 

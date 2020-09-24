@@ -36,7 +36,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
     const data = super.getData();
     this._prepareCharacterItems(data);
     _cprLog("Loading getData in actor-sheet.js");
-    //console.log(data);
+    console.log(data);
     return data;
   }
 
@@ -50,7 +50,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
-    _cprLog("Categorizing Item List for Actor Sheet");
+    //_cprLog("Categorizing Item List for Actor Sheet");
     // Initialize containers.
     const cyberware = [];
     const weapons = [];
@@ -174,6 +174,33 @@ export class cyberpunkredActorSheet extends ActorSheet {
       }
       actor.update({
         "data.combatstats.luckpool.value": newLuck
+      });
+    });
+
+    //Set current ammo based on click on modifier number
+    html.find('.alterammo').click(ev => {
+      const actor = this.actor;
+      var weaponID = $(ev.currentTarget).attr("data-weaponid");
+      const item = actor.data.items.find(i => i._id === weaponID);
+
+      var ammoChange = $(ev.currentTarget).attr("data-change") * 1;
+      var newAmmo = (item.data.ammo.value * 1) + (ammoChange * 1);
+      actor.updateOwnedItem({
+        _id: weaponID,
+        "data.ammo.value" : newAmmo
+      });
+    });
+
+    //Reload weapon
+    html.find('.reloadammo').click(ev => {
+     const actor = this.actor;
+      var weaponID = $(ev.currentTarget).attr("data-weaponid");
+      const item = actor.data.items.find(i => i._id === weaponID);
+
+      var newAmmo = (item.data.ammo.max * 1);
+      actor.updateOwnedItem({
+        _id: weaponID,
+        "data.ammo.value" : newAmmo
       });
     });
 

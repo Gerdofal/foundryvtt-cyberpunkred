@@ -23,6 +23,9 @@ import {
 import {
   migrateWorld
 } from "./migration.js"
+import {
+  environmentSettings
+} from "../environment.js"
 
 
 Hooks.once('init', async function () {
@@ -223,8 +226,17 @@ Hooks.once('init', async function () {
 
 
 Hooks.once("ready", function() {
-//Once FoundryVTT is loaded, perform a migration check on all actors
-ui.notifications.info("CyberpunkRED Checking Data Migration Needs");  
-migrateWorld(); //TODO - Figure a way to avoid calling this with every update
-ui.notifications.info("CyberpunkRED Fully Loaded");
+//Once FoundryVTT is loaded, perform a migration check
+const worldDataVersion = game.settings.get("cyberpunkred", "systemMigrationVersion");
+const systemDataVersion = game.system.data.version;
+if(worldDataVersion!=systemDataVersion || environmentSettings.forcemigrate) {
+  if(environmentSettings.forcemigrate) {
+    ui.notifications.info("Environment settings have forced migrate of data.");
+  } else {
+    ui.notifications.info("Performing data update from " + worldDataVersion + " to " + systemDataVersion);
+  }
+  migrateWorld();
+}  
+game.settings.set("cyberpunkred", "systemMigrationVersion", game.system.data.version);
+ui.notifications.info("CyberpunkRED " + systemDataVersion + " Fully Loaded");
 });

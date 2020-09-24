@@ -19,5 +19,13 @@ export const registerSystemSettings = function() {
     default: true,
     type: Boolean
   });
+  
+  game.settings.register("cyberpunkred", "systemMigrationVersion", {
+    name: "Ver",
+    scope: "world",
+    config: false,
+    default: 0,
+    type: Number
+  });
 	
 }

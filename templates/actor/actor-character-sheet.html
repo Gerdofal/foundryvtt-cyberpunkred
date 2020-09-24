@@ -1,5 +1,16 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   
+  {{!-- After a migration, data may not be prepared. This handles that case. --}}
+  
+  {{#unless data.backend.dataprepcomplete}}
+  
+    {{localize "CPRED.simpletoggleex"}}<br><br>
+      <input class="settings" type="checkbox" id="set_simpletoggle" name="data.backend.simpletoggle" {{checked data.backend.simpletoggle}}>
+      <label class="cpr-center settings-item settings clickable" for="set_simpletoggle">{{localize "CPRED.simpletoggle"}}</label>
+  </form>
+  {{/unless}}
+  
+  {{#if data.backend.dataprepcomplete}}
   
   {{!-- Main Grid --}}
   <div class="cpr-grid cprgraphics">
@@ -54,12 +65,26 @@
       
       {{!-- Attributes and Skills Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
+        <h3>{{localize "CPRED.specialattributes"}}</h3>
         <div class="atrnskill-grid">
           <label>{{localize "CPRED.attribute"}}</label>
           <label>{{localize "CPRED.base"}}</label>
           <label>{{localize "CPRED.mod"}}</label>
           <label>{{localize "CPRED.itemmod"}}</label>
           <label>{{localize "CPRED.totalroll"}}</label>
+          <label>{{localize "CPRED.humanity"}}</label>
+          <input type="text" name="data.combatstats.humanity.base" value="{{data.combatstats.humanity.base}}"/>
+          <input type="text" value="-" readonly>
+          <input type="text" name="data.combatstats.humanity.itemmod" value="{{data.combatstats.humanity.itemmod}}" readonly/>
+          <input type="text" name="data.combatstats.humanity.current" value="{{data.combatstats.humanity.current}}" readonly/>
+          <label>{{localize "CPRED.reputation"}}</label>
+          <input type="text" value="-" readonly>
+          <input type="text" value="-" readonly>
+          <input type="text" value="-" readonly>
+          <input type="text" name="data.combatstats.reputation.value" value="{{data.combatstats.reputation.value}}"/>
+        </div>
+        <h3>{{localize "CPRED.attributes"}}</h3>
+        <div class="atrnskill-grid">
           {{#each data.attributes as |attr key|}}
           <label for="data.attributes.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
@@ -67,16 +92,24 @@
           <input type="text" name="data.attributes.{{key}}.itemmod" value="{{attr.itemmod}}" data-dtype="Number" readonly/>
           <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
           {{/each}}
-          {{#each data.skills as |skill key|}}
+        </div>
+        <h3>{{localize "CPRED.skills"}}</h3>
+        {{#each data.backend.skillcategories as |item thiscategory|}}
+        <h5>{{localize (concat "CPRED." thiscategory)}}</h5>
+        <div class="atrnskill-grid">  
+          {{#each ../data.skills as |skill key|}}
           {{#if skill.show}}
+          {{#if_eq skill.category thiscategory}}
           <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="rollable">{{localize (concat "CPRED." key)}} ({{localize (concat "CPRED." skill.linkedattribute)}})</label>
           <input class="skill-value" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.mod" value="{{skill.mod}}" data-dtype="Number"/>
           <input type="text" name="data.skills.{{key}}.itemmod" value="{{skill.itemmod}}" data-dtype="Number" readonly/>
           <input type="text" name="data.skills.{{key}}.roll" value="{{skill.roll}}" data-dtype="Number" readonly/>
+          {{/if_eq}}
           {{/if}}
           {{/each}}
         </div>
+          {{/each}}
       </div>
       
       
@@ -163,7 +196,12 @@
         <h3>{{localize "CPRED.itemcombatsection"}}</h3>
           {{#each actor.weapons as |item id|}}
           <li class="flexrow" data-item-id="{{id}}">
-            <label class="cpr-weaponinlinebox">{{item.name}}</label>
+            <label class="cpr-weaponinlinebox">{{item.name}}<br>({{localize "CPRED.ammo"}} {{item.data.ammo.value}}/{{item.data.ammo.max}})
+            &nbsp;
+              <i class="reloadammo clickable" data-weaponid="{{item._id}}" >{{localize "CPRED.full"}}</i>
+            &nbsp;
+            <i class="alterammo clickable" data-weaponid="{{item._id}}" data-change="-1">-1</i>
+            </label>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollSkill item.data.skill.value}}">{{localize "CPRED.attack"}}</div>
             <div class="rollable cpr-weaponinlinebox" data-label="{{item.name}}" data-roll="{{rollDamage item.data.damage.value}}">{{localize "CPRED.damage"}}</div>
           </li>
@@ -186,7 +224,7 @@
         </div>
         {{/if}}
           
-        {{!-- TODO: Add a way to edit reputation --}}
+
         <div class="cprgraphics">
         <h3>{{localize "CPRED.specialrolls"}}</h3>
           <ol class="specialroll-grid">
@@ -211,11 +249,19 @@
         
         <div class="cprgraphics">
         <h3>{{localize "CPRED.skills"}}</h3>
-        <ol class="skilllist-grid cpr-center">
-          {{#each data.skills as |skill key|}}
+          
+        {{#each data.backend.skillcategories as |item thiscategory|}}
+        <h5>{{localize (concat "CPRED." thiscategory)}}</h5> 
+          <ol class="skilllist-grid cpr-center">
+          {{#each ../data.skills as |skill key|}}
+          {{#if skill.show}}
+          {{#if_eq skill.category thiscategory}}  
           <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
+          {{/if_eq}}
+          {{/if}}
           {{/each}}
-        </ol>
+          </ol>
+        {{/each}}
         </div>        
           
         <div class="cprgraphics">
@@ -395,4 +441,7 @@
       
     </div> {{!-- Here ends main content --}}
   </div> {{!-- Here ends grid definition --}}
+
+  {{/if}} {{!-- Here ends the main if data.dataprepcomplete --}}
+
 </form> {{!-- Here ends the main form --}}

@@ -4,8 +4,7 @@
     "templates": {
       "backend": {
         "backend": {
-          "createdversion" : null,
-          "upgradedversion" : null
+          "simpletoggle" : false
         }
       },
       
@@ -45,6 +44,10 @@
           },
           "armor": {
             "value": 0
+          },
+          "humanity": {
+            "base": 0,
+            "current": 0
           }
         }
       },
