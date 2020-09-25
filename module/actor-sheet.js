@@ -1,6 +1,12 @@
 import {
   _cprLog
 } from "./tools.js";
+
+import {
+  environmentSettings
+} from "../environment.js"
+
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet} 
@@ -187,20 +193,20 @@ export class cyberpunkredActorSheet extends ActorSheet {
       var newAmmo = (item.data.ammo.value * 1) + (ammoChange * 1);
       actor.updateOwnedItem({
         _id: weaponID,
-        "data.ammo.value" : newAmmo
+        "data.ammo.value": newAmmo
       });
     });
 
     //Reload weapon
     html.find('.reloadammo').click(ev => {
-     const actor = this.actor;
+      const actor = this.actor;
       var weaponID = $(ev.currentTarget).attr("data-weaponid");
       const item = actor.data.items.find(i => i._id === weaponID);
 
       var newAmmo = (item.data.ammo.max * 1);
       actor.updateOwnedItem({
         _id: weaponID,
-        "data.ammo.value" : newAmmo
+        "data.ammo.value": newAmmo
       });
     });
 
@@ -287,6 +293,5 @@ export class cyberpunkredActorSheet extends ActorSheet {
     this.actor.rollCPR(dataset.roll, this.actor.data, templateData);
 
   } // end OnRoll
-
 
 } //End class cyberpunkredactorsheet

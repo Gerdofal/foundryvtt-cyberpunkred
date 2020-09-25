@@ -10,22 +10,21 @@
   "esmodules": ["module/cyberpunkred.js"],
   "styles": ["css/cyberpunkred.css"],
   "packs": [],
-  "languages": [
-	  {
-		"lang": "en",
-		"name": "English",
-		"path": "lang/en.json"		  
-	  },
-	  {
-		"lang": "zh",
-		"name": "Simplifed Chinese",
-		"path": "lang/zh.json"		  
-	  },
-	  {
-		"lang": "es",
-		"name": "Spanish",
-		"path": "lang/es.json"		  
-	  }
+  "languages": [{
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "zh",
+      "name": "Simplifed Chinese",
+      "path": "lang/zh.json"
+    },
+    {
+      "lang": "es",
+      "name": "Spanish",
+      "path": "lang/es.json"
+    }
   ],
   "gridDistance": 1,
   "gridUnits": "m",

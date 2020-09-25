@@ -256,7 +256,7 @@
           {{#each ../data.skills as |skill key|}}
           {{#if skill.show}}
           {{#if_eq skill.category thiscategory}}  
-          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="skilllist-item rollable candrag">{{localize (concat "CPRED." key)}}</label>
           {{/if_eq}}
           {{/if}}
           {{/each}}

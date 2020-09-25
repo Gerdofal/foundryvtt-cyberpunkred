@@ -118,8 +118,6 @@ export class cyberpunkredActor extends Actor {
     }
 
 
-    
-    
     //######################
     //
     //Show or hide skills based on environment
@@ -133,11 +131,11 @@ export class cyberpunkredActor extends Actor {
     for (let [key, val] of Object.entries(data.skills)) {
       if (allowJSK && data.skills[key]["jsk"]) {
         data.skills[key]["show"] = true;
-        data.backend.skillcategories[val.category]=true;
+        data.backend.skillcategories[val.category] = true;
         //_cprLog(key + " set to SHOW");
       } else if (allowCore && data.skills[key]["core"]) {
         data.skills[key]["show"] = true;
-        data.backend.skillcategories[val.category]=true;
+        data.backend.skillcategories[val.category] = true;
         //_cprLog(key + " set to SHOW");
       } else {
         data.skills[key]["show"] = false;
@@ -417,7 +415,7 @@ export class cyberpunkredActor extends Actor {
     tempmod += data.modifiers.modmanualmod.penalty;
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
-    
+
     //After a migration, preparedata sometimes fails to run as expected. This variable will track that.
     data.backend.dataprepcomplete = true;
   } //End Prepare Character Data
