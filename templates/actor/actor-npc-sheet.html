@@ -47,6 +47,11 @@
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollsetup">
         <h3>{{localize "CPRED.attributes"}}</h3>
         <div class="atrnskill-grid">
+          <label>{{localize "CPRED.attribute"}}</label>
+          <label>{{localize "CPRED.base"}}</label>
+          <label>{{localize "CPRED.mod"}}</label>
+          <label>{{localize "CPRED.itemmod"}}</label>
+          <label>{{localize "CPRED.totalroll"}}</label>
           {{#each data.attributes as |attr key|}}
           <label for="data.attributes.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
           <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
@@ -92,7 +97,8 @@
       
       {{!-- Rolls Buttons Tab --}}
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollbuttons"> {{!-- Basic Rolls --}}
-        <div class="npc-basic-box">
+
+        <div class="cprgraphics">
           <button data-roll="{{rollInitiative}}" class="npcrollable">{{localize "CPRED.initiative"}}</button>
         </div>
         
