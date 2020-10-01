@@ -12,6 +12,8 @@ Sections:
 Current Focus: UI Improvements
 
 - 0.37
+  - Added DE translation (thanks to KarstenW)
+  
 
 
 ### Future Plans
