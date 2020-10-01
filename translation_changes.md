@@ -1,6 +1,10 @@
 Record of translation changes
 
-.36 Added categories:
+.37
+  - Added DE Translations
+
+.36
+  - Added categories:
     - "CPRED.catrangedweapon": "Ranged Weapon Skills",
     - "CPRED.cateducation": "Education Skills",
     - "CPRED.catsocial": "Social Skills",
@@ -9,9 +13,8 @@ Record of translation changes
     - "CPRED.catfighting" : "Fighting Skills",
     - "CPRED.catperformance" : "Performance Skills",
     - "CPRED.catawareness" : "Awareness Skills",
-    - "CPRED.catcontrol" : "Control Skills",
-    
-    - Also re-sorted the language file alphabetically
+    - "CPRED.catcontrol" : "Control Skills",  
+  - Also re-sorted the language file alphabetically
     
 
 .34
