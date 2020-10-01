@@ -69,7 +69,9 @@
       </div>
       {{!-- Rolls Buttons Tab --}}
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollbuttons"> {{!-- Basic Rolls --}}
-        <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="npcrollable">{{localize "CPRED.initiative"}}</label>
+        <div class="npc-basic-box">
+          <button data-roll="{{rollInitiative}}" class="npcrollable">{{localize "CPRED.initiative"}}</button>
+        </div>
         
         <div class="npc-basic-box">
 		  <div class="npc-button-array">
