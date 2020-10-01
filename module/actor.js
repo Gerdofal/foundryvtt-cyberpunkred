@@ -100,6 +100,8 @@ export class cyberpunkredActor extends Actor {
       _cprLog("Setting environment variables");
       var allowJSK = environmentSettings.jsk;
       var allowCore = environmentSettings.core;
+      data.backend.core = environmentSettings.core;
+      data.backend.jsk = environmentSettings.jsk;
     }
 
     //######################

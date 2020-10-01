@@ -13,8 +13,7 @@ Current Focus: UI Improvements
 
 - 0.37
   - Added DE translation (thanks to KarstenW)
-  
-
+  - Tweaked code for drop-down of weapon skills so it always shows the correct options on items and combat setup tab
 
 ### Future Plans
 

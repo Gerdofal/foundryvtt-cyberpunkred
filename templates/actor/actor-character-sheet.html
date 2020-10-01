@@ -131,9 +131,19 @@
             <div>
               <select name="data.weaponsetup.{{key}}.skill">
               {{#select item.skill}}
-              <option value="hidden">{{localize "CPRED.hidden"}}</option>
-              <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>
-              <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
+                {{#if data.backend.jsk}}
+                  <option value="hidden">{{localize "CPRED.hidden"}}</option>
+                  <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>  
+                  <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
+                {{/if}}
+                {{#if data.backend.core}}
+                  <option value="hidden">{{localize "CPRED.hidden"}}</option>
+                  <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
+                  <option value="archery">{{localize "CPRED.archery"}}</option>
+                  <option value="handgun">{{localize "CPRED.handgun"}}</option>
+                  <option value="shoulderarms">{{localize "CPRED.shoulderarms"}}</option>
+                  <option value="heavyweapons">{{localize "CPRED.heavyweapons"}}</option>
+                {{/if}}
               {{/select}}
               </select>
             </div>
