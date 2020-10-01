@@ -1,4 +1,17 @@
 <form class="{{cssClass}} flexcol cprgraphics" autocomplete="off">
+  
+  {{!-- After a migration, data may not be prepared. This handles that case. --}}
+  
+  {{#unless data.backend.dataprepcomplete}}
+  
+    {{localize "CPRED.simpletoggleex"}}<br><br>
+      <input class="settings" type="checkbox" id="set_simpletoggle" name="data.backend.simpletoggle" {{checked data.backend.simpletoggle}}>
+      <label class="cpr-center settings-item settings clickable" for="set_simpletoggle">{{localize "CPRED.simpletoggle"}}</label>
+  </form>
+  {{/unless}}
+  
+  {{#if data.backend.dataprepcomplete}}
+
   <div class="cpr-grid"> {{!--Top Header --}}
     <div class="cpr-header">
       <div class="grid grid-2col">
@@ -56,6 +69,8 @@
       </div>
       {{!-- Rolls Buttons Tab --}}
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollbuttons"> {{!-- Basic Rolls --}}
+        <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="npcrollable">{{localize "CPRED.initiative"}}</label>
+        
         <div class="npc-basic-box">
 		  <div class="npc-button-array">
             <button style="width:131px;" data-roll="{{rollNPC 0}}" class="npcrollable" disabled>0</button>
@@ -128,4 +143,5 @@
       </div>
     </div>
   </div>
+{{/if}}
 </form>
