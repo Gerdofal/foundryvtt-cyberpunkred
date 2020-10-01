@@ -16,6 +16,7 @@ Current Focus: UI Improvements
   - Tweaked code for drop-down of weapon skills so it always shows the correct options on items and on the combat setup tab
   - Added attributes to NPCs
   - Normalized the data structure of NPCs and Characters (Though some items are not shown on the NPC sheet, they actually store everything the character does. NPCs actually have a few extra fields.)
+  - Added initiative button to NPC sheet
 
 ### Future Plans
 
