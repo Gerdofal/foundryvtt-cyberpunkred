@@ -40,9 +40,18 @@ export class cyberpunkredActor extends Actor {
       data.settings.prefs.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
     }
 
-    // Make separate methods for each Actor type (character, npc, etc.) to keep
+    // TODO: Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    if (actorData.type === 'character') this._prepareCharacterData(actorData);
+    //if (actorData.type === 'character') 
+    
+    // CURRENTLY: This option always calls preparedata for all types of actors
+    // Note: npcs have all the stats and everything that actors do, but not all of them show on the sheet, nor are they editable
+    
+    this._prepareCharacterData(actorData);
+    
+    //After a migration, preparedata sometimes fails to run as expected. This variable will track that.
+    _cprLog("Data prep is complete for " + this.name);
+    this.data.data.backend.dataprepcomplete = true;
   }
 
   /**
@@ -418,8 +427,6 @@ export class cyberpunkredActor extends Actor {
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
 
-    //After a migration, preparedata sometimes fails to run as expected. This variable will track that.
-    data.backend.dataprepcomplete = true;
   } //End Prepare Character Data
 
   //Various Special Functions for Rolls.

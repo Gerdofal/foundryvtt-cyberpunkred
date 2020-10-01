@@ -29,12 +29,32 @@
       <br>
       <div class="cpr-nav-item"><a class="item" data-tab="rollbuttons">{{localize "CPRED.rollbuttons"}}</a></div>
     </div>
-    <div class="cpr-content cprgraphics"> {{!-- Biography Tab --}}
+    <div class="cpr-content cprgraphics">
+      
+      
+      
+      {{!-- Biography Tab --}}
       <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
+      
+      
+      
       {{!-- Appearance Tab --}}
       <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} </div>
+
+      
+      
       {{!-- Rolls Setup Tab --}}
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollsetup">
+        <h3>{{localize "CPRED.attributes"}}</h3>
+        <div class="atrnskill-grid">
+          {{#each data.attributes as |attr key|}}
+          <label for="data.attributes.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
+          <input type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
+          <input type="text" name="data.attributes.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
+          <input type="text" name="data.attributes.{{key}}.itemmod" value="{{attr.itemmod}}" data-dtype="Number" readonly/>
+          <input type="text" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
+          {{/each}}
+        </div>
         <div class="combatstats grid grid-2col">
           <div class="resource flex-group-center">
             <label for="data.combatstats.healthpool.value" class="resource-label">{{localize "CPRED.healthpool"}}</label>
@@ -67,6 +87,9 @@
           </div>
           {{/each}} </div>
       </div>
+      
+      
+      
       {{!-- Rolls Buttons Tab --}}
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollbuttons"> {{!-- Basic Rolls --}}
         <div class="npc-basic-box">
