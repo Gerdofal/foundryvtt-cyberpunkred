@@ -10,7 +10,8 @@
   "esmodules": ["module/cyberpunkred.js"],
   "styles": ["css/cyberpunkred.css"],
   "packs": [],
-  "languages": [{
+  "languages": [
+    {
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
@@ -29,8 +30,7 @@
       "lang": "de",
       "name": "German",
       "path": "lang/de.json"
-    },
-                
+    }           
   ],
   "gridDistance": 1,
   "gridUnits": "m",

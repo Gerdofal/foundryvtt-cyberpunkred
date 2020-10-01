@@ -771,7 +771,7 @@
             "hacking": false
           },
           "prefs": {
-            "simpleCombatSetup": false,
+            "simpleCombatSetup": true,
             "itemCombatSetup": true,
             "showInventory": true
           }

@@ -131,12 +131,12 @@
             <div>
               <select name="data.weaponsetup.{{key}}.skill">
               {{#select item.skill}}
-                {{#if data.backend.jsk}}
+                {{#if ../data.backend.jsk}}
                   <option value="hidden">{{localize "CPRED.hidden"}}</option>
                   <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>  
                   <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
                 {{/if}}
-                {{#if data.backend.core}}
+                {{#if ../data.backend.core}}
                   <option value="hidden">{{localize "CPRED.hidden"}}</option>
                   <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
                   <option value="archery">{{localize "CPRED.archery"}}</option>
