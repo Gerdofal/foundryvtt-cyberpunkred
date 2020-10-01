@@ -9,14 +9,9 @@ Sections:
   
 ### In Development
 
-Current Focus: UI Improvements
+Current Focus: UI Improvements, especially on NPC sheet
 
-- 0.37
-  - Added DE translation (thanks to KarstenW)
-  - Tweaked code for drop-down of weapon skills so it always shows the correct options on items and on the combat setup tab
-  - Added attributes to NPCs
-  - Normalized the data structure of NPCs and Characters (Though some items are not shown on the NPC sheet, they actually store everything the character does. NPCs actually have a few extra fields.)
-  - Added initiative button to NPC sheet
+
 
 ### Future Plans
 
@@ -27,6 +22,13 @@ Current Focus: UI Improvements
 
 ### Release Notes
 
+- 0.37 - Released 10/1/2020 - Beta
+  - Added DE translation (thanks to KarstenW)
+  - Tweaked code for drop-down of weapon skills so it always shows the correct options on items and on the combat setup tab
+  - Added attributes to NPCs
+  - Normalized the data structure of NPCs and Characters (Though some items are not shown on the NPC sheet, they actually store everything the character does. NPCs actually have a few extra fields.)
+  - Added initiative button to NPC sheet
+  
 - 0.36 - Released 9/24/2020 - Beta
   - There is now an alert shown if the actor isn't prepared after migration, offering a link to fix.
   - Skills are now grouped into categories
