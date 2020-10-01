@@ -131,9 +131,19 @@
             <div>
               <select name="data.weaponsetup.{{key}}.skill">
               {{#select item.skill}}
-              <option value="hidden">{{localize "CPRED.hidden"}}</option>
-              <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>
-              <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
+                {{#if ../data.backend.jsk}}
+                  <option value="hidden">{{localize "CPRED.hidden"}}</option>
+                  <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>  
+                  <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
+                {{/if}}
+                {{#if ../data.backend.core}}
+                  <option value="hidden">{{localize "CPRED.hidden"}}</option>
+                  <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
+                  <option value="archery">{{localize "CPRED.archery"}}</option>
+                  <option value="handgun">{{localize "CPRED.handgun"}}</option>
+                  <option value="shoulderarms">{{localize "CPRED.shoulderarms"}}</option>
+                  <option value="heavyweapons">{{localize "CPRED.heavyweapons"}}</option>
+                {{/if}}
               {{/select}}
               </select>
             </div>
@@ -256,7 +266,7 @@
           {{#each ../data.skills as |skill key|}}
           {{#if skill.show}}
           {{#if_eq skill.category thiscategory}}  
-          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="skilllist-item rollable">{{localize (concat "CPRED." key)}}</label>
+          <label for="data.skills.{{key}}.value" data-label="{{localize (concat 'CPRED.' key)}}" data-roll="{{rollSkill key}}" class="skilllist-item rollable candrag">{{localize (concat "CPRED." key)}}</label>
           {{/if_eq}}
           {{/if}}
           {{/each}}

@@ -40,9 +40,18 @@ export class cyberpunkredActor extends Actor {
       data.settings.prefs.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
     }
 
-    // Make separate methods for each Actor type (character, npc, etc.) to keep
+    // TODO: Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    if (actorData.type === 'character') this._prepareCharacterData(actorData);
+    //if (actorData.type === 'character') 
+    
+    // CURRENTLY: This option always calls preparedata for all types of actors
+    // Note: npcs have all the stats and everything that actors do, but not all of them show on the sheet, nor are they editable
+    
+    this._prepareCharacterData(actorData);
+    
+    //After a migration, preparedata sometimes fails to run as expected. This variable will track that.
+    _cprLog("Data prep is complete for " + this.name);
+    this.data.data.backend.dataprepcomplete = true;
   }
 
   /**
@@ -100,6 +109,8 @@ export class cyberpunkredActor extends Actor {
       _cprLog("Setting environment variables");
       var allowJSK = environmentSettings.jsk;
       var allowCore = environmentSettings.core;
+      data.backend.core = environmentSettings.core;
+      data.backend.jsk = environmentSettings.jsk;
     }
 
     //######################
@@ -118,8 +129,6 @@ export class cyberpunkredActor extends Actor {
     }
 
 
-    
-    
     //######################
     //
     //Show or hide skills based on environment
@@ -133,11 +142,11 @@ export class cyberpunkredActor extends Actor {
     for (let [key, val] of Object.entries(data.skills)) {
       if (allowJSK && data.skills[key]["jsk"]) {
         data.skills[key]["show"] = true;
-        data.backend.skillcategories[val.category]=true;
+        data.backend.skillcategories[val.category] = true;
         //_cprLog(key + " set to SHOW");
       } else if (allowCore && data.skills[key]["core"]) {
         data.skills[key]["show"] = true;
-        data.backend.skillcategories[val.category]=true;
+        data.backend.skillcategories[val.category] = true;
         //_cprLog(key + " set to SHOW");
       } else {
         data.skills[key]["show"] = false;
@@ -417,9 +426,7 @@ export class cyberpunkredActor extends Actor {
     tempmod += data.modifiers.modmanualmod.penalty;
     data.modifiers.modfinalmod.totalpenalty = tempmod;
     data.modifiers.modfinalmod.healthpenalty = tempHealthPenalty;
-    
-    //After a migration, preparedata sometimes fails to run as expected. This variable will track that.
-    data.backend.dataprepcomplete = true;
+
   } //End Prepare Character Data
 
   //Various Special Functions for Rolls.

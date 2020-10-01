@@ -29,9 +29,9 @@ import {
 
 
 Hooks.once('init', async function () {
-  
+
   _cprLog(`Initializing CyberpunkRED System`);
-  
+
   // Register System Settings
   _cprLog(`Register System Settings`);
   registerSystemSettings();
@@ -72,41 +72,38 @@ Hooks.once('init', async function () {
     makeDefault: true
   });
 
-  
 
-    
-    
   _cprLog(`Register Handlebars`);
 
   //Setup helper for roll info
   Handlebars.registerHelper('rollSkill', function (skill) {
-      return "_RollSkill " + skill;
-  });
-  
-  Handlebars.registerHelper('rollInitiative', function() {
-      return "_RollInitiative";
+    return "_RollSkill " + skill;
   });
 
-  Handlebars.registerHelper('rollHacking', function(command) {
-      return "_RollHacking " + command;
-  });
-  
-  Handlebars.registerHelper('rollNPC', function(command) {
-      return "_RollNPC " + command;
-  });
-  
-  Handlebars.registerHelper('RollWithMods', function(formula) {
-      return "_RollWithMods " + formula;
-  });
-  
-  Handlebars.registerHelper('RollWithoutMods', function(formula) {
-      return "_RollWithoutMods " + formula;
+  Handlebars.registerHelper('rollInitiative', function () {
+    return "_RollInitiative";
   });
 
-  Handlebars.registerHelper('rollDamage', function(formula) {
-      return "_RollDamage " + formula;
+  Handlebars.registerHelper('rollHacking', function (command) {
+    return "_RollHacking " + command;
   });
-  
+
+  Handlebars.registerHelper('rollNPC', function (command) {
+    return "_RollNPC " + command;
+  });
+
+  Handlebars.registerHelper('RollWithMods', function (formula) {
+    return "_RollWithMods " + formula;
+  });
+
+  Handlebars.registerHelper('RollWithoutMods', function (formula) {
+    return "_RollWithoutMods " + formula;
+  });
+
+  Handlebars.registerHelper('rollDamage', function (formula) {
+    return "_RollDamage " + formula;
+  });
+
   //Setup helper for damage track
   Handlebars.registerHelper('buildDamageTrack', function (current, max) {
     var x = 1;
@@ -120,13 +117,13 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 25 == 0 && x!=max) {
+      if (x % 25 == 0 && x != max) {
         outStr += "<br>";
       }
     }
     return outStr;
   });
-  
+
 
   //Setup helper for luck track
   Handlebars.registerHelper('buildLuckTrack', function (current, max) {
@@ -141,21 +138,21 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 25 == 0 && x!=max) {
+      if (x % 25 == 0 && x != max) {
         outStr += "<br>";
       }
     }
     return outStr;
   });
 
-  Handlebars.registerHelper('cprTags', function(tagsInput) { 
-      let output = '<div class="tags">';
-      tagsInput.forEach(element => {
-        output += `<div class="tag">${element}</div>`;
-      });
-      output += '</div>';
-      return output;
+  Handlebars.registerHelper('cprTags', function (tagsInput) {
+    let output = '<div class="tags">';
+    tagsInput.forEach(element => {
+      output += `<div class="tag">${element}</div>`;
     });
+    output += '</div>';
+    return output;
+  });
 
   //Return concatination of all arguments - Used for localizing sometimes
   Handlebars.registerHelper('concat', function () {
@@ -176,7 +173,7 @@ Hooks.once('init', async function () {
       return opts.inverse(this);
     }
   });
-  
+
   //Display block only if a and b are not equal
   Handlebars.registerHelper('if_not_eq', function (a, b, opts) {
     if (a != b) {
@@ -209,7 +206,7 @@ Hooks.once('init', async function () {
   Handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
   });
- 
+
   //Indicate selected option in select list
   Handlebars.registerHelper("select", function (value, options) {
     return options.fn(this)
@@ -225,18 +222,20 @@ Hooks.once('init', async function () {
 });
 
 
-Hooks.once("ready", function() {
-//Once FoundryVTT is loaded, perform a migration check
-const worldDataVersion = game.settings.get("cyberpunkred", "systemMigrationVersion");
-const systemDataVersion = game.system.data.version;
-if(worldDataVersion!=systemDataVersion || environmentSettings.forcemigrate) {
-  if(environmentSettings.forcemigrate) {
-    ui.notifications.info("Environment settings have forced migrate of data.");
-  } else {
-    ui.notifications.info("Performing data update from " + worldDataVersion + " to " + systemDataVersion);
+Hooks.once("ready", function () {
+  //Once FoundryVTT is loaded, perform a migration check
+  const worldDataVersion = game.settings.get("cyberpunkred", "systemMigrationVersion");
+  const systemDataVersion = game.system.data.version;
+  if (worldDataVersion != systemDataVersion || environmentSettings.forcemigrate) {
+    if (environmentSettings.forcemigrate) {
+      ui.notifications.info("Environment settings have forced migrate of data.");
+    } else {
+      ui.notifications.info("Performing data update from " + worldDataVersion + " to " + systemDataVersion);
+    }
+    migrateWorld();
   }
-  migrateWorld();
-}  
-game.settings.set("cyberpunkred", "systemMigrationVersion", game.system.data.version);
-ui.notifications.info("CyberpunkRED " + systemDataVersion + " Fully Loaded");
+  game.settings.set("cyberpunkred", "systemMigrationVersion", game.system.data.version);
+
+  ui.notifications.info("CyberpunkRED " + systemDataVersion + " Fully Loaded");
+
 });

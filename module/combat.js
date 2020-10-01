@@ -26,12 +26,13 @@ export const _getInitiativeFormula = function(incomingObject) {
   }
   
   //We only take off damage penalties here, other modifiers don't impact initiative
-  const initadd = intData.combatstats.init.roll + intData.modifiers.modfinalmod.healthpenalty;
+  const initadd = intData.combatstats.init.roll;
+  const initpen = intData.modifiers.modfinalmod.healthpenalty
   
   //Reflex added as a tie
   const reftie = intData.attributes.ref.roll / 100;
   
   //Final die roll
-  const dieconfig = [rollPrefix, initadd, reftie];
+  const dieconfig = [rollPrefix, initadd, initpen, reftie];
   return dieconfig.filter(p => p !== null).join(" + ");
 };

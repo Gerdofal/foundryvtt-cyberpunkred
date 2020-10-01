@@ -771,7 +771,7 @@
             "hacking": false
           },
           "prefs": {
-            "simpleCombatSetup": false,
+            "simpleCombatSetup": true,
             "itemCombatSetup": true,
             "showInventory": true
           }
@@ -805,7 +805,7 @@
       "templates": ["backend","description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
     },
     "npc": {
-      "templates": ["backend","description", "combatstats", "npc", "settings"]
+      "templates": ["backend","description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills", "npc"]
     }
   },
   "Item": {
