@@ -22,10 +22,13 @@ import {
 } from "./combat.js";
 import {
   migrateWorld
-} from "./migration.js"
+} from "./migration.js";
+
 import {
   environmentSettings
-} from "../environment.js"
+} from "../environment.js";
+
+import * as macros from "./macros.js";
 
 
 Hooks.once('init', async function () {
@@ -236,6 +239,17 @@ Hooks.once("ready", function () {
   }
   game.settings.set("cyberpunkred", "systemMigrationVersion", game.system.data.version);
 
+  
+  // Hotbar handler should be loaded last, once everything is ready
+  /*
+  In progress:
+  happens in core code, in ActorSheet._onDragStart
+  have to override or monkey patch that to get the data you want, then use event.dataTransfer.setData("text/plain", JSON.stringify(myData))
+  then in the "hotbarDrop" hook, use that data to create the appropriate macro
+  */
+  Hooks.on("hotbarDrop", (bar, data, slot) => macros.createCPRRollMacro(data, slot));
+
+  
   ui.notifications.info("CyberpunkRED " + systemDataVersion + " Fully Loaded");
 
 });

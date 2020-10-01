@@ -247,7 +247,7 @@
               </li>
             </ol>
             <ol class="specialroll-item">
-                <label for="Facedown" data-label='{{localize "CPRED.facedown"}}' data-roll="{{RollWithoutMods (concat data.dieRollCommand '+' data.attributes.cool.roll '+' data.combatstats.reputation.value) }}" class="rollable">{{localize "CPRED.facedown"}}</label>
+                <label draggable=true for="Facedown" data-label='{{localize "CPRED.facedown"}}' data-roll="{{RollWithoutMods (concat data.dieRollCommand '+' data.attributes.cool.roll '+' data.combatstats.reputation.value) }}" class="rollable">{{localize "CPRED.facedown"}}</label>
             </ol>
             <ol class="specialroll-item"><label for="Suppressivefire" data-label='{{localize "CPRED.suppressivefire"}}' data-roll="{{rollSkill 'marksmanship'}}" class="rollable">{{localize "CPRED.suppressivefire"}}</label></ol>
             <ol class="specialroll-item"><label for="reputationcheck" data-label='{{localize "CPRED.reputationchecklabela"}}{{data.combatstats.reputation.value}}{{localize "CPRED.reputationchecklabelb"}}' data-roll="{{RollWithoutMods '1d10'}}" class="rollable">{{localize "CPRED.reputationcheck"}}</label></ol>
