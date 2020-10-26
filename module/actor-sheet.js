@@ -61,7 +61,9 @@ export class cyberpunkredActorSheet extends ActorSheet {
         if (this.actor.isToken) dragData.tokenId = this.actor.token.id;
         event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
       } else {
-        // here we pull the command from the event item
+        // here we pull the command from the html
+        //var rollCommand = $(event.currentTarget).attr("data-roll");
+        
 
       }
 

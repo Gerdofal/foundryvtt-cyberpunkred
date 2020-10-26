@@ -1,11 +1,10 @@
 export async function createCPRRollMacro(data=false, slot=false) {
 
-  console.log("MACRO 1");
-  console.log(data);
-  return false;
+  if(!data || !slot) {
+    return ui.notifications.warn("Create macro failed because data or slot were unknown.");
+  }
   // Create the macro command
   const command = `game.dnd5e.rollItemMacro("${item.name}");`;
-
 
   let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
 
