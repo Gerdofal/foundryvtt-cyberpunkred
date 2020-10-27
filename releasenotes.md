@@ -9,7 +9,10 @@ Sections:
   
 ### In Development
 
-Current Focus: UI Improvements, especially on NPC sheet
+- 0.38 - In Development
+  - Added ability to edit initiative on the character sheet
+  - Added brawling as a potential skill choice for weapons on simple combat setup and on items
+  - Tested system with FVTT 7.5 and updated system.json
 
 
 

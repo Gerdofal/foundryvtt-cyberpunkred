@@ -72,11 +72,19 @@
           <label>{{localize "CPRED.mod"}}</label>
           <label>{{localize "CPRED.itemmod"}}</label>
           <label>{{localize "CPRED.totalroll"}}</label>
+          
           <label>{{localize "CPRED.humanity"}}</label>
           <input type="text" name="data.combatstats.humanity.base" value="{{data.combatstats.humanity.base}}"/>
           <input type="text" value="-" readonly>
           <input type="text" name="data.combatstats.humanity.itemmod" value="{{data.combatstats.humanity.itemmod}}" readonly/>
           <input type="text" name="data.combatstats.humanity.current" value="{{data.combatstats.humanity.current}}" readonly/>
+          
+          <label>{{localize "CPRED.initiative"}}</label>
+          <input type="text" value="-" readonly>
+          <input type="text" name="data.combatstats.init.mod" value="{{data.combatstats.init.mod}}">
+          <input type="text" value="-" readonly>
+          <input type="text" name="data.combatstats.init.roll" value="{{data.combatstats.init.roll}}" readonly/>
+          
           <label>{{localize "CPRED.reputation"}}</label>
           <input type="text" value="-" readonly>
           <input type="text" value="-" readonly>
@@ -133,11 +141,13 @@
               {{#select item.skill}}
                 {{#if ../data.backend.jsk}}
                   <option value="hidden">{{localize "CPRED.hidden"}}</option>
+                  <option value="brawling">{{localize "CPRED.brawling"}}</option>
                   <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>  
                   <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
                 {{/if}}
                 {{#if ../data.backend.core}}
                   <option value="hidden">{{localize "CPRED.hidden"}}</option>
+                  <option value="brawling">{{localize "CPRED.brawling"}}</option>
                   <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
                   <option value="archery">{{localize "CPRED.archery"}}</option>
                   <option value="handgun">{{localize "CPRED.handgun"}}</option>
