@@ -369,8 +369,7 @@ export class cyberpunkredActor extends Actor {
     //
     //####################
 
-    //TODO - Need to add a field to edit init.mod
-    data.combatstats.init.roll = data.attributes.ref.roll + data.combatstats.init.mod;
+    data.combatstats.init.roll = (data.attributes.ref.roll*1) + (data.combatstats.init.mod*1);
 
     //####################
     //

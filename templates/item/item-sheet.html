@@ -62,10 +62,12 @@
         <select name="data.skill.value">
         {{#select data.skill.value}}
         {{#if data.backend.jsk}}
+          <option value="brawling">{{localize "CPRED.brawling"}}</option>
           <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>  
           <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
         {{/if}}
         {{#if data.backend.core}}
+          <option value="brawling">{{localize "CPRED.brawling"}}</option>
           <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
           <option value="archery">{{localize "CPRED.archery"}}</option>
           <option value="handgun">{{localize "CPRED.handgun"}}</option>

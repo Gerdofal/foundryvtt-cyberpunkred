@@ -46,6 +46,25 @@ export class cyberpunkredActorSheet extends ActorSheet {
     return data;
   }
 
+  /** @override */
+  //Override the drag handler so it will allow dragging of non-items
+  _onDragStart(event) {
+    const target = $(event.currentTarget);
+    if (target.hasClass("item")) {
+      const li = event.currentTarget;
+      const item = this.actor.getOwnedItem(li.dataset.itemId);
+      const dragData = {
+        type: "Item",
+        actorId: this.actor.id,
+        data: item.data
+      };
+      if (this.actor.isToken) dragData.tokenId = this.actor.token.id;
+      event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+    } else {
+      // TODO - This is for non-item dragging
+    }
+  }
+
 
   /**
    * Organize and classify Items for Character sheets.
