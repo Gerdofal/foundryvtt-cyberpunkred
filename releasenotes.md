@@ -9,12 +9,7 @@ Sections:
   
 ### In Development
 
-- 0.38 - In Development
-  - Added ability to edit initiative on the character sheet
-  - Added brawling as a potential skill choice for weapons on simple combat setup and on items
-  - Tested system with FVTT 7.5 and updated system.json
-
-
+- 0.39
 
 ### Future Plans
 
@@ -24,6 +19,11 @@ Sections:
 - Token bar actions
 
 ### Release Notes
+
+- 0.38 - Released 10/27/2020 - Beta
+  - Added ability to edit initiative on the character sheet
+  - Added brawling as a potential skill choice for weapons on simple combat setup and on items
+  - Tested system with FVTT 7.5 and updated system.json
 
 - 0.37 - Released 10/1/2020 - Beta
   - Added DE translation (thanks to KarstenW)
