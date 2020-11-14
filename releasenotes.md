@@ -26,7 +26,7 @@ Sections:
 ### Release Notes
 
 - 0.39 - Released 11/14/2020 - Beta
-  - Preparing system for release of core rulebook.
+  - Initial support of core rulebook.
 	- Added setting option for GM to change ruleset between core rulebook and jumostart kit.
 	- Added all new skills and skill categories as per the core rulebook.
 	- Many small tweaks and cleanups.
