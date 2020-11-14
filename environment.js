@@ -7,10 +7,7 @@ export const environmentSettings = { // Here begins the object
 
   //Note: The settings below are only reloaded when F5 is pressed
 
-  "jsk": true, //Show skills and rules from the jumpstart kit
-  "core": false, //Show skills and rules from the core rulebook for actual play
-  "forcemigrate": false //Force a migration of player data. Use with caution.
-
+  "forcemigrate": false //Force a migration of player data. Use with caution! May require players to press F5 to reload.
 
   //Don't change anything below this line
 

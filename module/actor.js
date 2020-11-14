@@ -29,12 +29,14 @@ export class cyberpunkredActor extends Actor {
     const data = actorData.data;
     const flags = actorData.flags;
 
-    //All sheets need setup variables
+    //######################
+    //
+    //Determine GM Settings
+    //
+    //######################
+
     data.dieRollCommand = game.settings.get("cyberpunkred", "dieRollCommand");
-    //data.simpleCombatSetup = game.settings.get("cyberpunkred", "simpleCombatSetup");
     data.GMAlwaysWhisper = game.settings.get("cyberpunkred", "GMAlwaysWhisper");
-    //data.itemCombatSetup = game.settings.get("cyberpunkred", "itemCombatSetup");
-    //data.showInventory = game.settings.get("cyberpunkred", "showInventory");
 
     if (!data.settings.prefs.showInventory) {
       data.settings.prefs.itemCombatSetup = false; //If we don't have inventory management, we can't do item combat setup
@@ -64,6 +66,36 @@ export class cyberpunkredActor extends Actor {
     //Generally helpful variables
     var x = 0; //Our for loop counter
 
+    //######################
+    //
+    //Determine Game System
+    //
+    //######################
+
+    var allowJSK = false;
+    var allowCore = false;
+    var settingGameSystem = "core";
+    
+    settingGameSystem = game.settings.get("cyberpunkred", "gameSystem");
+
+    switch (settingGameSystem) {
+      case "core":
+        _cprLog("Game is running in Core Rulebook mode.")
+        allowJSK = false;
+        allowCore= true;
+        break;
+      case "jsk":
+        _cprLog("Game is running in Jumpstart Kit mode.")
+        allowJSK = true;
+        allowCore = false;
+        break;
+      default:
+        _cprLog("ERROR: Game setting not found for environment. Setting default to core.")
+        allowJSK = false;
+        allowCore= true;          
+    }
+
+    
     //####################
     //
     //Temporary Migrations
@@ -91,27 +123,6 @@ export class cyberpunkredActor extends Actor {
     }
 
 
-    //######################
-    //
-    //Determine Environment
-    //
-    //######################
-    //This is a temporary measure to allow use of core rules in "Actual Play" groups.
-
-    var allowJSK = false;
-    var allowCore = false;
-
-    if (!typeof environmentSettings === "object") {
-      _cprLog("ERROR: environmentSettings doesn't appear to have loaded.");
-      allowJSK = true;
-      allowCore = true;
-    } else {
-      _cprLog("Setting environment variables");
-      var allowJSK = environmentSettings.jsk;
-      var allowCore = environmentSettings.core;
-      data.backend.core = environmentSettings.core;
-      data.backend.jsk = environmentSettings.jsk;
-    }
 
     //######################
     //
