@@ -35,7 +35,7 @@ export const listsSkills = { // Here begins the object
   "concentration": {
     "linkedattribute": "will",
     "sort": "concentration",
-    "category": "catsocial",
+    "category": "catawareness",
     "jsk": true,
     "core": true
   },
@@ -48,7 +48,7 @@ export const listsSkills = { // Here begins the object
   },
   "cybertech": {
     "linkedattribute": "tech",
-    "sort": "tech",
+    "sort": "cybertech",
     "category": "cattech",
     "jsk": true,
     "core": true

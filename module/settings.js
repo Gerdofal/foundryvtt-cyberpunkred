@@ -2,12 +2,25 @@ import {_cprLog} from "./tools.js";
 
 export const registerSystemSettings = function() {
 
+  	game.settings.register("cyberpunkred", "gameSystem", {
+    name: "CPRED.gamesystemname",
+    hint: "CPRED.gamesystemhint",
+    scope: "world",
+    config: true,
+    default: "core",
+    choices: {
+      "core": "Core Rulebook",
+      "jsk": "Jumpstart Kit"
+    },
+    type: String
+  });
+
 	game.settings.register("cyberpunkred", "dieRollCommand", {
     name: "CPRED.dierollcommandname",
     hint: "CPRED.dierollcommandhint",
     scope: "world",
     config: true,
-    default: "d10x10",
+    default: "d10xo10",
     type: String
   });
 	

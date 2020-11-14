@@ -4,22 +4,33 @@ Sections:
 - [Release Notes](#release-notes)
 
 ### Known Issues
-
-- If a system migration is run, players may need to press F5 after migration complete to fully render all skills. (If you notice the skill list is empty, press F5)
+- 0.39
+	- This is an initial release with basic support for new skills in the core rulebook. It will take a little time to go through the entire book and implment all changes.
+		- Some skills (play instrument, language, etc...) which should have multiple options do not currently provide those options
+		- Role skills are not yet implemented
+		- Rules for melee and martial arts are only partially implemented
   
 ### In Development
 
-- 0.39
+- 0.40
+	- Continued work implementing changes in the core rulebook
+
 
 ### Future Plans
 
 - UI cleanup and usability improvements
   - Remove some columns on the stat setup tab and only show that info on click
 
-- Token bar actions
+- Token bar actions/macros
 
 ### Release Notes
 
+- 0.39 - Released 11/14/2020 - Beta
+  - Preparing system for release of core rulebook.
+	- Added setting option for GM to change ruleset between core rulebook and jumostart kit.
+	- Added all new skills and skill categories as per the core rulebook.
+	- Many small tweaks and cleanups.
+	
 - 0.38 - Released 10/27/2020 - Beta
   - Added ability to edit initiative on the character sheet
   - Added brawling as a potential skill choice for weapons on simple combat setup and on items
