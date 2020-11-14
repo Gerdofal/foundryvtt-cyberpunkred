@@ -83,16 +83,22 @@ export class cyberpunkredActor extends Actor {
         _cprLog("Game is running in Core Rulebook mode.")
         allowJSK = false;
         allowCore= true;
+				data.backend.core = true;
+				data.backend.jsk = false;
         break;
       case "jsk":
         _cprLog("Game is running in Jumpstart Kit mode.")
         allowJSK = true;
         allowCore = false;
+				data.backend.core=false;
+				data.backend.jsk=true;
         break;
       default:
         _cprLog("ERROR: Game setting not found for environment. Setting default to core.")
         allowJSK = false;
-        allowCore= true;          
+        allowCore= true;
+				data.backend.core = true;
+				data.backend.jsk = false;
     }
 
     
