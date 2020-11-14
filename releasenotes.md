@@ -5,7 +5,7 @@ Sections:
 
 ### Known Issues
 - 0.39
-	- This is an initial release with basic support for new skills in the core rulebook. It will take a litle time to go through the entire book and implment all changes.
+	- This is an initial release with basic support for new skills in the core rulebook. It will take a little time to go through the entire book and implment all changes.
 		- Some skills (play instrument, language, etc...) which should have multiple options do not currently provide those options
 		- Role skills are not yet implemented
 		- Rules for melee and martial arts are only partially implemented
@@ -21,7 +21,7 @@ Sections:
 - UI cleanup and usability improvements
   - Remove some columns on the stat setup tab and only show that info on click
 
-- Token bar actions
+- Token bar actions/macros
 
 ### Release Notes
 
