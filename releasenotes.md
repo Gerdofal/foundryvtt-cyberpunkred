@@ -10,6 +10,7 @@ Sections:
 ### In Development
 
 - 0.39
+  - Preparing system for release of core rulebook.
 
 ### Future Plans
 
