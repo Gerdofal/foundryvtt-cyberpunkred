@@ -77,7 +77,7 @@ export class cyberpunkredActor extends Actor {
     var settingGameSystem = "core";
     
     settingGameSystem = game.settings.get("cyberpunkred", "gameSystem");
-
+    data.gameSystem = game.settings.get("cyberpunkred", "gameSystem");
     switch (settingGameSystem) {
       case "core":
         _cprLog("Game is running in Core Rulebook mode.")

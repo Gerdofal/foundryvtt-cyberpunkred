@@ -3,8 +3,8 @@ import {_cprLog} from "./tools.js";
 export const registerSystemSettings = function() {
 
   	game.settings.register("cyberpunkred", "gameSystem", {
-    name: "Select Game System",
-    hint: "Which game system should be used for this game?",
+    name: "CPRED.gamesystemname",
+    hint: "CPRED.gamesystemhint",
     scope: "world",
     config: true,
     default: "core",

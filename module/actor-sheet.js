@@ -24,7 +24,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
       tabs: [{
         navSelector: ".sheet-tabs",
         contentSelector: ".cpr-content",
-        initial: "attrnskills"
+        initial: "welcome"
       }]
     });
   }

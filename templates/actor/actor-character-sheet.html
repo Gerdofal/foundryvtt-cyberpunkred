@@ -53,19 +53,72 @@
       {{!-- Welcome Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="welcome">
         {{localize "CPRED.notlocalized"}}
-        <br>
-<br>        Welcome!
-<br>        
-<br>        This temporary tab tracks the migration of the existing system (Based on the Jumpstart Kit or "jsk") to the new system (Based on the release Core Rulebook or "core").  I don't actually have the rulebook yet, so some sections are pending completion.
-<br>
-<br>        
-<hr>        Skills: Partially complete
-<hr>        Friday Night Firefight: Current system based on JSK. Conversion not started.
-<hr>        Role Skills: Hacking based on JSK. No other role skills started
-<hr>        Cyberware: Basic cyberware template complete, may be missing some modifier options.
-<hr>        Weapons: Basic weapon template complete, may be missing some modifier options.    
+        <hr>
+        <h3>Welcome to the release of the CyberpunkRED Core Rulebook!</h3>
+        This temporary tab tracks the migration of the existing system (Based on the Jumpstart Kit or "jsk") to the new system (Based on the release Core Rulebook or "core").  While playable, please note that some sections are pending completion.
+        <hr>
+        <h3>The GM has activated the following game system: {{data.gameSystem}}</h3>
+        If this is in error, the GM can change it via: 'Game Settings' -&gt; 'Configure Settings' -&gt; 'System Settings' on the right. You will need to press F5 to reload once they change the setting.
+        <hr>
+        <h3>Conversion Status</h3>
+        <hr>
+        <div class="conversion-row">
+          <div class="conversion-section">
+            Skills
+          </div>
+          <div class="conversion-status">
+            Mostly complete. Skill list is a close match to skills in the core rulebook.
+          </div>
+        </div>
+        <hr>
+        <div class="conversion-row">
+          <div class="conversion-section">
+            Friday Night Firefight
+          </div>
+          <div class="conversion-status">
+            Current system uses JSK rules. Working on conversion to core rulebook rules. The most significant differences are in autofire.
+          </div>
+        </div>
+        <hr>
+        <div class="conversion-row">
+          <div class="conversion-section">
+            Role Skills
+          </div>
+          <div class="conversion-status">
+            Barely started. Hacking is based on JSK rules. No other role skills working yet. Currently working to implement them.
+          </div>
+        </div>
+        <hr>
+        <div class="conversion-row">
+          <div class="conversion-section">
+            Cyberware
+          </div>
+          <div class="conversion-status">
+            Basic cyberware template complete. Needs a few different modification options and improvement of the UI.
+          </div>
+        </div>
+        <hr>
+        <div class="conversion-row">
+          <div class="conversion-section">
+            Weapons
+          </div>
+          <div class="conversion-status">
+            Basic weapon template complete. Needs a few different modification options and improvement of the UI.
+          </div>
+        </div>
+        <hr>
+        <div class="conversion-row">
+          <div class="conversion-section">
+            Armor
+          </div>
+          <div class="conversion-status">
+            Armor needs a complete re-write to match core rulebook. Current setup is from the JSK with some elements of CP 2020.
+          </div>
+        </div>
       </div>
-      
+
+
+
       {{!-- Biography Tab --}}
       <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="biography">
         {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}}
@@ -433,6 +486,8 @@
       <div class="tab cprgraphics" data-group="primary" data-tab="settings">
         <h3>{{localize "CPRED.setbygm"}}</h3>
         {{localize "CPRED.dierollcommandname"}}: {{data.dieRollCommand}}
+        <br>
+        {{localize "CPRED.gamesystemname"}}: {{data.gameSystem}}
         <br>
         {{localize "CPRED.gmalwayswhispername"}}:
         {{#if data.GMAlwaysWhisper}}

@@ -1,5 +1,9 @@
 Record of translation changes
 
+.39
+  - Added gamesystemname and gamesystemhint
+  - Changed dierollcommandhint
+
 .37
   - Added DE Translations
 

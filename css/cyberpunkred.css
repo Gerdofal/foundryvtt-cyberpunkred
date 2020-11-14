@@ -66,7 +66,6 @@
   background: #FFFFAA;
   padding-left: 10px;
   padding-right: 10px;
-  display: block;
 }
 
 /* Damage Track and Luck Track */
@@ -320,6 +319,28 @@
     0 0 8px #f00;
 
 }
+
+/* Welcome and Conversion Status Grid */
+.cyberpunkred .conversion-row {
+  display: grid;
+  grid-template-columns: 100px auto;
+  grid-template-rows: auto;
+  padding: 3px;
+}
+.cyberpunkred .conversion-section {
+  grid-column: 1 / span 1;
+  grid-row: 1;
+  border:none;
+  padding: 3px;
+  font-weight: bolder;
+}
+.cyberpunkred .conversion-status {
+  grid-column: 2 / span 1;
+  grid-row: 1;
+  border: none;
+  padding: 3px;
+}
+
 
 /* Generic control classes */
 .cyberpunkred .cpr-nowrap {
