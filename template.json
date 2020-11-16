@@ -34,6 +34,7 @@
           },
           "init": {
             "mod": 0,
+						"itemmod": 0,
             "roll": 0
           },
           "deathsave": {

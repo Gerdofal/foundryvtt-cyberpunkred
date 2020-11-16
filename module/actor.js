@@ -255,6 +255,12 @@ export class cyberpunkredActor extends Actor {
               data.skills[mod.moditem].itemmod += mod.modvalue * 1;
               break;
 
+						case "combatstats":
+              //_cprLog("ITEMMOD: Skill " + mod.moditem + " + " + mod.modvalue * 1);
+              data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
+              data.combatstats[mod.moditem].itemmod += mod.modvalue * 1;
+              break;
+							
             default:
               _cprLog("WARNING: Badly formed mod command (not processed): " + mod.moditem + " + " + mod.modvalue * 1);
           }
