@@ -256,7 +256,7 @@ export class cyberpunkredActor extends Actor {
               break;
 
 						case "combatstats":
-              //_cprLog("ITEMMOD: Skill " + mod.moditem + " + " + mod.modvalue * 1);
+              //_cprLog("ITEMMOD: Combatstats " + mod.moditem + " + " + mod.modvalue * 1);
               data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
               data.combatstats[mod.moditem].itemmod += mod.modvalue * 1;
               break;
@@ -267,11 +267,43 @@ export class cyberpunkredActor extends Actor {
         }
       }
     }
+		
+		
+		//####################
+    //
+    //Attribute Roll Values
+    //
+    //####################
     //Compute all roll values to be equal to value + mod for attributes
     for (let [key, attr] of Object.entries(data.attributes)) {
-      attr.roll = attr.value + attr.mod + attr.itemmod;
+      attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
     }
 
+		for (let [key, attr] of Object.entries(data.combatstats)) {
+      attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
+    }
+		
+    //####################
+    //
+    //Skill Roll Values
+    //
+    //####################
+
+
+    //Calculate Cultural Familiarity
+    //TODO - Try to figure out if I should include mod in this?
+    data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
+
+    //Compute all roll values to be equal to value + mod for skills
+    for (let [key, attr] of Object.entries(data.skills)) {
+      if (attr.value >= data.culturalFamiliarity) {
+        attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
+      } else {
+        attr.roll = data.culturalFamiliarity + attr.mod + attr.itemmod;
+      }
+    }
+
+		
     //Computer humanity TODO-guessing at formula may need to fix this for final rule release
     data.combatstats.humanity.itemmod = totalPsychosis * 1;
     data.combatstats.humanity.current = (data.combatstats.humanity.base * 1) - (totalPsychosis * 1);
@@ -350,26 +382,6 @@ export class cyberpunkredActor extends Actor {
       }
     }
     data.combatstats.armor.value = finalArmor;
-
-    //####################
-    //
-    //Cultural Familiarity
-    //
-    //####################
-
-
-    //Calculate Cultural Familiarity
-    //TODO - Try to figure out if I should include mod in this?
-    data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
-
-    //Compute all roll values to be equal to value + mod for skills
-    for (let [key, attr] of Object.entries(data.skills)) {
-      if (attr.value >= data.culturalFamiliarity) {
-        attr.roll = attr.value + attr.mod + attr.itemmod;
-      } else {
-        attr.roll = data.culturalFamiliarity + attr.mod + attr.itemmod;
-      }
-    }
 
     //####################
     //

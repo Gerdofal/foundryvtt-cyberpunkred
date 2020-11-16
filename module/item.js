@@ -24,7 +24,7 @@ export class cyberpunkredItem extends Item {
     itemData.data.temp.attributes = this.actor ? this.actor.data.data.attributes : {};
     itemData.data.temp.skills = this.actor ? this.actor.data.data.skills : {};
 		
-		itemData.data.temp.combatstats = ["initiative"];
+		itemData.data.temp.combatstats = this.actor ? this.actor.data.data.combatstats : {};
     
 		itemData.data.temp.none = {};
     itemData.data.temp.type = this.data.type;

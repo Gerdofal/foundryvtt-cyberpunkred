@@ -23,30 +23,45 @@
       "combatstats": {
         "combatstats": {
           "healthpool": {
+						"itemmod": 0,
+						"mod": 0,
             "value": 25,
             "min": 0,
             "max": 25
           },
           "luckpool": {
             "value": 5,
+						"mod": 0,
+						"itemmod": 0,
             "min": 0,
             "max": 5
           },
           "init": {
+						"value": 0,
             "mod": 0,
 						"itemmod": 0,
             "roll": 0
           },
           "deathsave": {
+						"value": 0,
+            "mod": 0,
+						"itemmod": 0,
             "penalty": 0
           },
           "reputation": {
-            "value": 1
+						"itemmod": 0,
+            "value": 1,
+						"itemmod": 0,
+            "mod": 0,
           },
           "armor": {
+						"itemmod": 0,
+						"mod": 0,
             "value": 0
           },
           "humanity": {
+						"mod": 0,
+						"itemmod": 0,
             "base": 0,
             "current": 0
           }
