@@ -28,29 +28,23 @@ export class cyberpunkredItem extends Item {
     itemData.data.temp.type = this.data.type;
     itemData.data.backend = {};
 
-		settingGameSystem = game.settings.get("cyberpunkred", "gameSystem");
-    data.gameSystem = game.settings.get("cyberpunkred", "gameSystem");
+		var settingGameSystem = game.settings.get("cyberpunkred", "gameSystem");
+    itemData.data.gameSystem = game.settings.get("cyberpunkred", "gameSystem");
     switch (settingGameSystem) {
       case "core":
         _cprLog("Game is running in Core Rulebook mode.")
-        allowJSK = false;
-        allowCore= true;
-				data.backend.core = true;
-				data.backend.jsk = false;
+				itemData.data.backend.core = true;
+				itemData.data.backend.jsk = false;
         break;
       case "jsk":
         _cprLog("Game is running in Jumpstart Kit mode.")
-        allowJSK = true;
-        allowCore = false;
-				data.backend.core=false;
-				data.backend.jsk=true;
+				itemData.data.backend.core=false;
+				itemData.data.backend.jsk=true;
         break;
       default:
         _cprLog("ERROR: Game setting not found for environment. Setting default to core.")
-        allowJSK = false;
-        allowCore= true;
-				data.backend.core = true;
-				data.backend.jsk = false;
+				itemData.data.backend.core = true;
+				itemData.data.backend.jsk = false;
 		}
 				
     const data = itemData.data;
