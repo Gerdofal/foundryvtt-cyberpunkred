@@ -1,5 +1,8 @@
 Record of translation changes
 
+.40
+	- Added combatstats
+	
 .39
   - Added gamesystemname and gamesystemhint
   - Changed dierollcommandhint
