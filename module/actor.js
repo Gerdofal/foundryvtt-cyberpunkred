@@ -398,7 +398,7 @@ export class cyberpunkredActor extends Actor {
 		if(allowJSK) {
     data.combatstats.healthpool.max = data.attributes.body.roll * 5;
 		} else {
-		data.combatstats.healthpool.max = 10 + (5 * math.ceil((data.attributes.body.roll+data.attributes.will.roll)/2);	
+		data.combatstats.healthpool.max = 10 + (5 * math.ceil((data.attributes.body.roll+data.attributes.will.roll)/2));	
 		}
 		
     if (data.combatstats.healthpool.value > data.combatstats.healthpool.max) {
