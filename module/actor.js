@@ -278,10 +278,6 @@ export class cyberpunkredActor extends Actor {
     for (let [key, attr] of Object.entries(data.attributes)) {
       attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
     }
-
-		for (let [key, attr] of Object.entries(data.combatstats)) {
-      attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
-    }
 		
     //####################
     //
@@ -430,7 +426,15 @@ export class cyberpunkredActor extends Actor {
       data.combatstats.luckpool.value = data.combatstats.luckpool.max;
     }
 
-
+		//Now need to set roll for combatstats
+		//Some of these may be trouble. Not sure on rules for going over max yet.
+		
+		for (let [key, attr] of Object.entries(data.combatstats)) {
+			if(key=="init") {
+      attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;				
+			}
+    }
+		
     //####################
     //
     //Roll Penalty
