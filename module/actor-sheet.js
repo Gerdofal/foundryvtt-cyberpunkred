@@ -147,6 +147,21 @@ export class cyberpunkredActorSheet extends ActorSheet {
       });
     });
 
+    //Add a new humanity entry
+    html.find('.saveHumanityEntry').click(ev => {
+      const actor = this.actor;
+      var tempHumArr = this.actor.data.data.humanityarray;
+      var setArray = [];
+      setArray[0] = $(ev.currentTarget).attr("newHumanityValue") * 1;
+      setArray[1] = $(ev.currentTarget).attr("newHumanityDescription") * 1;
+      _cprLog("Saving new humanity entry " + setArray[0] + " for " + setArray[1]);
+      tempHumArr.push(setArray);
+      
+      actor.update({
+        "data.humanityarray": tempHumArr
+      });
+    });
+    
     //Set current health based on click on dot
     html.find('.setcurrenthealth').click(ev => {
       const actor = this.actor;

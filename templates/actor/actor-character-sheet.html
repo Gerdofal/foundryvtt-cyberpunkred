@@ -35,6 +35,7 @@
       <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-tab="modlog">{{localize "CPRED.modlog"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="humanityarray">{{localize "CPRED.humanity"}}</a></div>
       {{#if data.settings.showtabs.hacking}}
       <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
       {{/if}}
@@ -117,6 +118,22 @@
         </div>
       </div>
 
+      {{!-- Humanity Tab --}}
+      <div class="tab cprgraphics" data-group="primary" data-tab="humanityarray">
+        <div class="cprgraphics flexrow">
+          <input type="number" name="newHumanityValue" value="0">
+          <input type="text" name="newHumanityDescription" value="Description"/>
+          <input type="button" class="saveHumanityEntry" Value="Save New Entry">
+        </div>
+          {{#each data.humanityarray as |outerarray outerkey|}}
+            <div>
+            {{#each outerarray}}
+              {{this}} - 
+            {{/each}}
+              <input type="button" class="deleteHumanityEntry" Value="Delete{{outerkey}}" id="DeleteHumanity{{outerkey}}">
+            </div>
+          {{/each}}
+      </div>
 
 
       {{!-- Biography Tab --}}

@@ -180,7 +180,22 @@ export class cyberpunkredActor extends Actor {
       }
     }
 
+    //######################
+    //
+    //Humanity Array
+    //
+    //
+    //######################
 
+    var testArray = [];
+    testArray[0] = -6;
+    testArray[1] = "This is a description";
+    
+    data.humanityarray.push(testArray);
+    data.humanityarray.push(testArray);
+    data.humanityarray.push(testArray);
+    data.humanityarray.push(testArray);
+    
     //######################
     //
     //Show or hide skills based on environment

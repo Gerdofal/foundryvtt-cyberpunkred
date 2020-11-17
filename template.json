@@ -4,10 +4,10 @@
     "templates": {
       "backend": {
         "backend": {
-          "simpletoggle" : false
+          "simpletoggle": false
         }
       },
-      
+
       "description": {
         "description": {
           "role": "Character role",
@@ -23,8 +23,8 @@
       "combatstats": {
         "combatstats": {
           "healthpool": {
-						"value": 0,
-						"mod": 0,
+            "value": 0,
+            "mod": 0,
             "itemmod": 25,
             "min": 0,
             "max": 25,
@@ -32,39 +32,43 @@
           },
           "luckpool": {
             "value": 5,
-						"mod": 0,
-						"itemmod": 0,
+            "mod": 0,
+            "itemmod": 0,
             "min": 0,
             "max": 5,
             "roll": 0
           },
           "init": {
-						"value": 0,
+            "value": 0,
             "mod": 0,
-						"itemmod": 0,
+            "itemmod": 0,
             "roll": 0
           },
           "deathsave": {
-						"value": 0,
+            "value": 0,
             "mod": 0,
-						"itemmod": 0,
+            "itemmod": 0,
             "penalty": 0
           },
           "reputation": {
-						"value": 1,
+            "value": 1,
             "mod": 0,
-						"itemmod": 0,
+            "itemmod": 0,
             "roll": 0
           },
           "humanity": {
             "value": 0,
-						"mod": 0,
-						"itemmod": 0,
+            "mod": 0,
+            "itemmod": 0,
             "base": 0,
             "current": 0,
             "roll": 0
           }
         }
+      },
+
+      "humanityarray": {
+        "humanityarray": ["Start"]
       },
 
       "combatsetup": {
@@ -815,10 +819,10 @@
 
     },
     "character": {
-      "templates": ["backend","description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
+      "templates": ["humanityarray", "backend", "description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
     },
     "npc": {
-      "templates": ["backend","description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills", "npc"]
+      "templates": ["humanityarray", "backend", "description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills", "npc"]
     }
   },
   "Item": {
