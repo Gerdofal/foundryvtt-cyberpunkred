@@ -68,6 +68,7 @@
         {{/if}}
         {{#if data.backend.core}}
           <option value="brawling">{{localize "CPRED.brawling"}}</option>
+          <option value="autofire">{{localize "CPRED.autofire"}}</option>
           <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
           <option value="archery">{{localize "CPRED.archery"}}</option>
           <option value="handgun">{{localize "CPRED.handgun"}}</option>
@@ -104,6 +105,7 @@
             <option value="none">{{localize "CPRED.hidden"}}</option>
             <option value="attributes">{{localize "CPRED.attribute"}}</option>
             <option value="skills">{{localize "CPRED.skill"}}</option>
+						<option value="combatstats">{{localize "CPRED.combatstats"}}</option>
           {{/select}}
           </select>
         </div>
@@ -116,7 +118,7 @@
           {{/select}}
           </select>
         </div>
-        <div><input type="text" name="data.modlist.{{eachkey}}.modvalue" value="{{eachitem.modvalue}}"/></div>
+        <div><input type="number" name="data.modlist.{{eachkey}}.modvalue" value="{{eachitem.modvalue}}"/></div>
         <div><input type="text" name="data.modlist.{{eachkey}}.modactive" value="{{eachitem.modactive}}" readonly/></div>
       </div>
         {{/each}}

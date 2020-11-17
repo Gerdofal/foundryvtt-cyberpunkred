@@ -1,5 +1,6 @@
 import {_cprLog} from "./tools.js";
 
+
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}

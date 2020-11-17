@@ -14,6 +14,12 @@ import {
   environmentSettings
 } from "../environment.js"
 
+import {
+  itemmodJSK,
+  itemmodCore
+} from "../lists/itemmods.js"
+
+
 /**
  * Reconfiguration of the base actor to work for CyberpunkRED
  * @extends {Actor}
@@ -45,12 +51,12 @@ export class cyberpunkredActor extends Actor {
     // TODO: Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     //if (actorData.type === 'character') 
-    
+
     // CURRENTLY: This option always calls preparedata for all types of actors
     // Note: npcs have all the stats and everything that actors do, but not all of them show on the sheet, nor are they editable
-    
+
     this._prepareCharacterData(actorData);
-    
+
     //After a migration, preparedata sometimes fails to run as expected. This variable will track that.
     _cprLog("Data prep is complete for " + this.name);
     this.data.data.backend.dataprepcomplete = true;
@@ -75,33 +81,33 @@ export class cyberpunkredActor extends Actor {
     var allowJSK = false;
     var allowCore = false;
     var settingGameSystem = "core";
-    
+
     settingGameSystem = game.settings.get("cyberpunkred", "gameSystem");
     data.gameSystem = game.settings.get("cyberpunkred", "gameSystem");
     switch (settingGameSystem) {
       case "core":
         _cprLog("Game is running in Core Rulebook mode.")
         allowJSK = false;
-        allowCore= true;
-				data.backend.core = true;
-				data.backend.jsk = false;
+        allowCore = true;
+        data.backend.core = true;
+        data.backend.jsk = false;
         break;
       case "jsk":
         _cprLog("Game is running in Jumpstart Kit mode.")
         allowJSK = true;
         allowCore = false;
-				data.backend.core=false;
-				data.backend.jsk=true;
+        data.backend.core = false;
+        data.backend.jsk = true;
         break;
       default:
         _cprLog("ERROR: Game setting not found for environment. Setting default to core.")
         allowJSK = false;
-        allowCore= true;
-				data.backend.core = true;
-				data.backend.jsk = false;
+        allowCore = true;
+        data.backend.core = true;
+        data.backend.jsk = false;
     }
 
-    
+
     //####################
     //
     //Temporary Migrations
@@ -129,7 +135,6 @@ export class cyberpunkredActor extends Actor {
     }
 
 
-
     //######################
     //
     //Load Skill Constants
@@ -145,7 +150,66 @@ export class cyberpunkredActor extends Actor {
       }
     }
 
+    //######################
+    //
+    //Cleanup non-numeric entries
+    //
+    //######################
 
+    for (let [key, val] of Object.entries(data.skills)) {
+      for (let [innerkey, innerval] of Object.entries(data.skills[key])) {
+        if (!isNaN(data.skills[key][innerkey])) {
+          data.skills[key][innerkey] = Number(data.skills[key][innerkey]);
+        }
+      }
+    }
+
+    for (let [key, val] of Object.entries(data.attributes)) {
+      for (let [innerkey, innerval] of Object.entries(data.attributes[key])) {
+        if (!isNaN(data.attributes[key][innerkey])) {
+          data.attributes[key][innerkey] = Number(data.attributes[key][innerkey]);
+        }
+      }
+    }
+
+    for (let [key, val] of Object.entries(data.combatstats)) {
+      for (let [innerkey, innerval] of Object.entries(data.combatstats[key])) {
+        if (!isNaN(data.combatstats[key][innerkey])) {
+          data.combatstats[key][innerkey] = Number(data.combatstats[key][innerkey]);
+        }
+      }
+    }
+
+    //######################
+    //
+    //Humanity Array
+    //
+    //
+    //######################
+    
+    data.backend.humanityTotal = 0;
+    data.backend.humanityPositive = 0;
+    data.backend.humanityNegative = 0;
+    var tempNum = 0;
+    data.humanityarray.forEach(function(arr) {
+      tempNum = Number(arr[0]);
+      _cprLog("Humanity Change " + tempNum);
+      data.backend.humanityTotal += tempNum;
+      if(tempNum>0) {
+        data.backend.humanityPositive += tempNum;
+      }
+      if(tempNum<0) {
+        data.backend.humanityNegative += tempNum;
+      }
+    });
+    
+    _cprLog("Humanity Total " + data.backend.humanityTotal);
+    _cprLog("Humanity Positive " + data.backend.humanityPositive);
+    _cprLog("Humanity Negative " + data.backend.humanityNegative);
+    //Computer humanity TODO-guessing at formula may need to fix this for final rule release
+    data.combatstats.humanity.itemmod = 0;
+    data.combatstats.humanity.current = 0;
+    
     //######################
     //
     //Show or hide skills based on environment
@@ -244,15 +308,33 @@ export class cyberpunkredActor extends Actor {
             //Attributes - Permanently modifies an attribute
             //Skills - Permanently modifies a skill
             case "attributes":
-              //_cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
-              data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
-              data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
+              try {
+                //_cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
+                data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
+                data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
+              } catch (err) {
+                _cprLog("Tried to do an itemmod but it isn't properly formatted. Maybe in the middle of setting it up.");
+              }
               break;
 
             case "skills":
-              //_cprLog("ITEMMOD: Skill " + mod.moditem + " + " + mod.modvalue * 1);
-              data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
-              data.skills[mod.moditem].itemmod += mod.modvalue * 1;
+              try {
+                //_cprLog("ITEMMOD: Skill " + mod.moditem + " + " + mod.modvalue * 1);
+                data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
+                data.skills[mod.moditem].itemmod += mod.modvalue * 1;
+              } catch (err) {
+                _cprLog("Tried to do an itemmod but it isn't properly formatted. Maybe in the middle of setting it up.");
+              }
+              break;
+
+            case "combatstats":
+              try {
+                //_cprLog("ITEMMOD: Combatstats " + mod.moditem + " + " + mod.modvalue * 1);
+                data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
+                data.combatstats[mod.moditem].itemmod += mod.modvalue * 1;
+              } catch (err) {
+                _cprLog("Tried to do an itemmod but it isn't properly formatted. Maybe in the middle of setting it up.");
+              }
               break;
 
             default:
@@ -261,93 +343,21 @@ export class cyberpunkredActor extends Actor {
         }
       }
     }
+
+
+    //####################
+    //
+    //Attribute Roll Values
+    //
+    //####################
     //Compute all roll values to be equal to value + mod for attributes
     for (let [key, attr] of Object.entries(data.attributes)) {
-      attr.roll = attr.value + attr.mod + attr.itemmod;
+      attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
     }
-
-    //Computer humanity TODO-guessing at formula may need to fix this for final rule release
-    data.combatstats.humanity.itemmod = totalPsychosis * 1;
-    data.combatstats.humanity.current = (data.combatstats.humanity.base * 1) - (totalPsychosis * 1);
 
     //####################
     //
-    //Armor
-    //
-    //####################
-    //TODO: armor should be an inventory item too
-
-    //Calculate armor
-    var finalArmor = 0;
-    var armorArray = [];
-    for (let [key, item] of Object.entries(data.armorsetup)) {
-      armorArray.push(item.value);
-    }
-    finalArmor = armorArray[0];
-
-    var currentArmor = 0;
-    var armorDiff = 0;
-    var largerArmor = 0;
-
-    for (x = 1; x <= armorArray.length; x++) {
-      currentArmor = armorArray[x] * 1;
-      if (finalArmor < currentArmor) {
-        armorDiff = (currentArmor * 1) - (finalArmor * 1);
-        largerArmor = currentArmor;
-      } else {
-        armorDiff = (finalArmor * 1) - (currentArmor * 1);
-        largerArmor = finalArmor;
-      }
-      if (armorDiff > 0) {
-        //_cprLog("Checking armorDiff of " + armorDiff + " current armor = " + finalArmor);
-        //If the armorDiff isn't positive, we don't change finalArmor here
-        switch (armorDiff) {
-          case 0:
-          case 1:
-          case 2:
-          case 3:
-          case 4:
-            finalArmor = (largerArmor * 1) + 5 * 1;
-            break;
-          case 5:
-          case 6:
-          case 7:
-          case 8:
-            finalArmor = (largerArmor * 1) + 4 * 1;
-            break;
-          case 9:
-          case 10:
-          case 11:
-          case 12:
-          case 13:
-          case 14:
-            finalArmor = (largerArmor * 1) + 3 * 1;
-            break;
-          case 15:
-          case 16:
-          case 17:
-          case 18:
-          case 19:
-          case 20:
-            finalArmor = (largerArmor * 1) + 2 * 1;
-            break;
-          case 21:
-          case 22:
-          case 23:
-          case 24:
-          case 25:
-          case 26:
-            finalArmor = (largerArmor * 1) + 1 * 1;
-            break;
-        }
-        _cprLog("finalArmor now " + finalArmor);
-      }
-    }
-    data.combatstats.armor.value = finalArmor;
-
-    //####################
-    //
-    //Cultural Familiarity
+    //Skill Roll Values
     //
     //####################
 
@@ -359,11 +369,27 @@ export class cyberpunkredActor extends Actor {
     //Compute all roll values to be equal to value + mod for skills
     for (let [key, attr] of Object.entries(data.skills)) {
       if (attr.value >= data.culturalFamiliarity) {
-        attr.roll = attr.value + attr.mod + attr.itemmod;
+        attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
       } else {
         attr.roll = data.culturalFamiliarity + attr.mod + attr.itemmod;
       }
     }
+
+
+
+
+    //####################
+    //
+    //Armor
+    //
+    //####################
+    //TODO: armor should be an inventory item too
+
+    //Calculate armor
+
+    data.armorsetup.armorhead.remain = Number(data.armorsetup.armorhead.value) - Number(data.armorsetup.armorhead.degrade);
+    data.armorsetup.armorbody.remain = Number(data.armorsetup.armorbody.value) - Number(data.armorsetup.armorbody.degrade);
+    data.armorsetup.armorshield.remain = Number(data.armorsetup.armorshield.value) - Number(data.armorsetup.armorshield.degrade);
 
     //####################
     //
@@ -386,7 +412,7 @@ export class cyberpunkredActor extends Actor {
     //
     //####################
 
-    data.combatstats.init.roll = (data.attributes.ref.roll*1) + (data.combatstats.init.mod*1);
+    data.combatstats.init.value = (data.attributes.ref.roll * 1) + (data.combatstats.init.mod * 1);
 
     //####################
     //
@@ -395,15 +421,30 @@ export class cyberpunkredActor extends Actor {
     //####################
 
     // Calculate health and luck
-    data.combatstats.healthpool.max = data.attributes.body.roll * 5;
+    if (allowJSK) {
+      data.combatstats.healthpool.max = data.attributes.body.roll * 5;
+    } else {
+      data.combatstats.healthpool.max = 10 + (5 * Math.ceil((data.attributes.body.roll + data.attributes.will.roll) / 2));
+    }
+
     if (data.combatstats.healthpool.value > data.combatstats.healthpool.max) {
       data.combatstats.healthpool.value = data.combatstats.healthpool.max;
     }
+
+
     data.combatstats.luckpool.max = data.attributes.luck.roll;
     if (data.combatstats.luckpool.value > data.combatstats.luckpool.max) {
       data.combatstats.luckpool.value = data.combatstats.luckpool.max;
     }
 
+    //Now need to set roll for combatstats
+    //Some of these may be trouble. Not sure on rules for going over max yet.
+
+    for (let [key, attr] of Object.entries(data.combatstats)) {
+      if (key == "init") {
+        attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
+      }
+    }
 
     //####################
     //

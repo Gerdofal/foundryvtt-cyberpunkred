@@ -4,10 +4,10 @@
     "templates": {
       "backend": {
         "backend": {
-          "simpletoggle" : false
+          "simpletoggle": false
         }
       },
-      
+
       "description": {
         "description": {
           "role": "Character role",
@@ -23,33 +23,52 @@
       "combatstats": {
         "combatstats": {
           "healthpool": {
-            "value": 25,
+            "value": 0,
+            "mod": 0,
+            "itemmod": 25,
             "min": 0,
-            "max": 25
+            "max": 25,
+            "roll": 0
           },
           "luckpool": {
             "value": 5,
+            "mod": 0,
+            "itemmod": 0,
             "min": 0,
-            "max": 5
+            "max": 5,
+            "roll": 0
           },
           "init": {
+            "value": 0,
             "mod": 0,
+            "itemmod": 0,
             "roll": 0
           },
           "deathsave": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
             "penalty": 0
           },
           "reputation": {
-            "value": 1
-          },
-          "armor": {
-            "value": 0
+            "value": 1,
+            "mod": 0,
+            "itemmod": 0,
+            "roll": 0
           },
           "humanity": {
+            "value": 0,
+            "mod": 0,
+            "itemmod": 0,
             "base": 0,
-            "current": 0
+            "current": 0,
+            "roll": 0
           }
         }
+      },
+
+      "humanityarray": {
+        "humanityarray": [0,"Start"]
       },
 
       "combatsetup": {
@@ -116,25 +135,23 @@
           }
         },
         "armorsetup": {
-          "armor1": {
+          "armorhead": {
             "name": "Armor Type...",
-            "value": 0
+            "value": 0,
+            "degrade": 0,
+            "remain": 0
           },
-          "armor2": {
+          "armorbody": {
             "name": "Armor Type...",
-            "value": 0
+            "value": 0,
+            "degrade": 0,
+            "remain": 0
           },
-          "armor3": {
+          "armorshield": {
             "name": "Armor Type...",
-            "value": 0
-          },
-          "armor4": {
-            "name": "Armor Type...",
-            "value": 0
-          },
-          "armor5": {
-            "name": "Armor Type...",
-            "value": 0
+            "value": 0,
+            "degrade": 0,
+            "remain": 0
           }
         }
       },
@@ -802,10 +819,10 @@
 
     },
     "character": {
-      "templates": ["backend","description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
+      "templates": ["humanityarray", "backend", "description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]
     },
     "npc": {
-      "templates": ["backend","description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills", "npc"]
+      "templates": ["humanityarray", "backend", "description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills", "npc"]
     }
   },
   "Item": {
