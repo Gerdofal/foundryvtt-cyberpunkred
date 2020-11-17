@@ -194,7 +194,7 @@
 "CPRED.totalroll": "Total",
 "CPRED.tracking": "Tracking",
 "CPRED.trading": "Trading",
-"CPRED.underconstruction": "This area is functional but under construction and may not look or behave as expected.",
+"CPRED.underconstruction": "This area is functional but under construction and does not yet have a final user interface. Please pardon our dust.",
 "CPRED.useitembasedcombatname": "Show weapon roll buttons on the Combat tab for weapons in inventory? (Requires 'Show Inventory Tabs?' to be on.)",
 "CPRED.usesimplecombatname": "Enable weapon entry on the Combat Setup tab?",
 "CPRED.value": "Value",

@@ -186,7 +186,29 @@ export class cyberpunkredActor extends Actor {
     //
     //
     //######################
-
+    
+    data.backend.humanityTotal = 0;
+    data.backend.humanityPositive = 0;
+    data.backend.humanityNegative = 0;
+    var tempNum = 0;
+    data.humanityarray.forEach(function(arr) {
+      tempNum = Number(arr[0]);
+      _cprLog("Humanity Change " + tempNum);
+      data.backend.humanityTotal += tempNum;
+      if(tempNum>0) {
+        data.backend.humanityPositive += tempNum;
+      }
+      if(tempNum<0) {
+        data.backend.humanityNegative += tempNum;
+      }
+    });
+    
+    _cprLog("Humanity Total " + data.backend.humanityTotal);
+    _cprLog("Humanity Positive " + data.backend.humanityPositive);
+    _cprLog("Humanity Negative " + data.backend.humanityNegative);
+    //Computer humanity TODO-guessing at formula may need to fix this for final rule release
+    data.combatstats.humanity.itemmod = 0;
+    data.combatstats.humanity.current = 0;
     
     //######################
     //
@@ -354,9 +376,7 @@ export class cyberpunkredActor extends Actor {
     }
 
 
-    //Computer humanity TODO-guessing at formula may need to fix this for final rule release
-    data.combatstats.humanity.itemmod = totalPsychosis * 1;
-    data.combatstats.humanity.current = (data.combatstats.humanity.base * 1) - (totalPsychosis * 1);
+
 
     //####################
     //

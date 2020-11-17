@@ -120,19 +120,26 @@
 
       {{!-- Humanity Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="humanityarray">
-        <div class="cprgraphics flexrow">
-          <input type="number" id="newHumanityValue" value="0">
-          <input type="text" id="newHumanityDescription" value="Description"/>
-          <input type="button" class="saveHumanityEntry" Value="Save New Entry">
+        {{localize "CPRED.underconstruction"}}
+        <div class="grid grid-3col">
+        <div class="grid">Total Humanity: {{data.backend.humanityTotal}}</div>
+        <div class="grid">Total Positive: {{data.backend.humanityPositive}}</div>
+        <div class="grid">Total Negative: {{data.backend.humanityNegative}}</div>
         </div>
+        <div class="cprgraphics humanity-grid">
+          <input type="number" id="newHumanityValue" value="">
+          <input type="text" id="newHumanityDescription" value=""/>
+          <input type="button" class="saveHumanityEntry humanityButton" Value="Save New Entry">
+        </div>
+        <div class="humanity-grid">
           {{#each data.humanityarray as |outerarray outerkey|}}
-            <div class="flexrow">
+            
             {{#each outerarray}}
-              {{this}} - 
+              <label>{{this}}</label>
             {{/each}}
-              <input type="button" class="deleteHumanityEntry" Value="Delete{{outerkey}}" humtodel="DeleteHumanity{{outerkey}}">
-            </div>
+              <input type="button" class="deleteHumanityEntry humanityButton" Value="Delete" humtodel="{{outerkey}}">
           {{/each}}
+          </div>
       </div>
 
 
@@ -210,6 +217,7 @@
       
       {{!-- Combat Setup Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup">
+        {{localize "CPRED.underconstruction"}}
         <h3>{{localize "CPRED.armorheading"}}</h3>
         <li class="flexrow">
           <div>{{localize "CPRED.name"}}</div>
@@ -261,6 +269,7 @@
                 {{/if}}
                 {{#if ../data.backend.core}}
                   <option value="hidden">{{localize "CPRED.hidden"}}</option>
+                  <option value="autofire">{{localize "CPRED.autofire"}}</option>
                   <option value="brawling">{{localize "CPRED.brawling"}}</option>
                   <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
                   <option value="archery">{{localize "CPRED.archery"}}</option>
