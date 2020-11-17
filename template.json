@@ -56,12 +56,6 @@
 						"itemmod": 0,
             "roll": 0
           },
-          "armor": {
-            "value": 0,
-						"mod": 0,
-						"itemmod": 0,
-            "roll": 0
-          },
           "humanity": {
             "value": 0,
 						"mod": 0,
@@ -137,25 +131,23 @@
           }
         },
         "armorsetup": {
-          "armor1": {
+          "armorhead": {
             "name": "Armor Type...",
-            "value": 0
+            "value": 0,
+            "degrade": 0,
+            "remain": 0
           },
-          "armor2": {
+          "armorbody": {
             "name": "Armor Type...",
-            "value": 0
+            "value": 0,
+            "degrade": 0,
+            "remain": 0
           },
-          "armor3": {
+          "armorshield": {
             "name": "Armor Type...",
-            "value": 0
-          },
-          "armor4": {
-            "name": "Armor Type...",
-            "value": 0
-          },
-          "armor5": {
-            "name": "Armor Type...",
-            "value": 0
+            "value": 0,
+            "degrade": 0,
+            "remain": 0
           }
         }
       },

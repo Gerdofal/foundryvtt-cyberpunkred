@@ -2,6 +2,10 @@ Record of translation changes
 
 .40
 	- Added combatstats
+  - Removed armorstacknote
+  - Changed armorheading
+  - Added degrade and remaining
+  - added weaponsheader
 	
 .39
   - Added gamesystemname and gamesystemhint
