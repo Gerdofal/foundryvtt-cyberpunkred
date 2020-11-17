@@ -13,7 +13,22 @@ Sections:
 ### In Development
 
 - 0.40
-	- Continued work implementing changes in the core rulebook
+  - Bug fixes
+    - The skill choice drop down on weapon items once again shows options for the core rulebook
+    - There is no longer a javascript error when changing a skill mod drop-down to an attribute mod drop-down
+    - Added routine to make sure all numerical data is actually saved as a number
+  - Continued work implementing changes in the core rulebook
+    - "autofire" is now an option to the skill drop-down for weapons. I will add a separate button in a future release.
+    - The health calculation now uses the new formula introduced in the core rulebook.
+    - Added a basic humanity tracking page to track humanity loss and gain. This does not yet subtrack from empathy, just keeps a log for you.
+    - The armor entries on the combat setup tab now match the entries on the character sheet from the core rulebook, with a space to track degradation
+  - Other Enhancements
+    - Initiative is now an option for an item modification
+    - Initiative is available on the NPC character sheet
+    - Changed the order of tabs so they make a little more sense
+    
+    
+    
 
 
 ### Future Plans

@@ -33,9 +33,10 @@
       <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-tab="humanityarray">{{localize "CPRED.humanitytrack"}}</a>      
       <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
       <div class="cpr-nav-item"><a class="item" data-tab="modlog">{{localize "CPRED.modlog"}}</a></div>
-      <div class="cpr-nav-item"><a class="item" data-tab="humanityarray">{{localize "CPRED.humanity"}}</a></div>
+</div>
       {{#if data.settings.showtabs.hacking}}
       <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "CPRED.hacking"}}</a></div>
       {{/if}}
@@ -56,6 +57,8 @@
         {{localize "CPRED.notlocalized"}}
         <hr>
         <h3>Welcome to the release of the CyberpunkRED Core Rulebook!</h3>
+        This FVTT System was originally written for the Jumpstart Kit. It's now being updated to the core rules. Please pardon our dust.
+        <hr>
         This temporary tab tracks the migration of the existing system (Based on the Jumpstart Kit or "jsk") to the new system (Based on the release Core Rulebook or "core").  While playable, please note that some sections are pending completion.
         <hr>
         <h3>The GM has activated the following game system: {{data.gameSystem}}</h3>
@@ -77,7 +80,7 @@
             Friday Night Firefight
           </div>
           <div class="conversion-status">
-            Current system uses JSK rules. Working on conversion to core rulebook rules. The most significant differences are in autofire.
+            Working on conversion to core rulebook rules. Have added autofire as a skill drop down, more work to come.
           </div>
         </div>
         <hr>
@@ -114,6 +117,32 @@
           </div>
           <div class="conversion-status">
             Armor needs a complete re-write to match core rulebook. Current setup is from the JSK with some elements of CP 2020.
+          </div>
+        </div>
+        <hr>
+        <div class="conversion-row">
+          <div class="conversion-section">
+            Update 0.40
+          </div>
+          <div class="conversion-status">
+            <ul>
+            <li>Bug fixes<ul>
+            <li>The skill choice drop down on weapon items once again shows options for the core rulebook</li>
+            <li>There is no longer a javascript error when changing a skill mod drop-down to an attribute mod drop-down</li>
+            </ul>
+            </li>
+            <li>Continued work implementing changes in the core rulebook<ul>
+            <li>&quot;autofire&quot; is now an option to the skill drop-down for weapons. I will add a separate button in a future release.</li>
+            <li>The health calculation now uses the new formula introduced in the core rulebook.</li>
+            <li>Added a basic humanity tracking page to track humanity loss and gain. This does not yet subtrack from empathy, just keeps a log for you.</li>
+            <li>The armor entries on the combat setup tab now match the entries on the character sheet from the core rulebook, with a space to track degradation</li>
+            </ul>
+            </li>
+            <li>Other Enhancements<ul>
+            <li>Initiative is now an option for an item modification</li>
+            </ul>
+            </li>
+            </ul>
           </div>
         </div>
       </div>
