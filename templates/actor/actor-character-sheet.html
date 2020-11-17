@@ -121,16 +121,16 @@
       {{!-- Humanity Tab --}}
       <div class="tab cprgraphics" data-group="primary" data-tab="humanityarray">
         <div class="cprgraphics flexrow">
-          <input type="number" name="newHumanityValue" value="0">
-          <input type="text" name="newHumanityDescription" value="Description"/>
+          <input type="number" id="newHumanityValue" value="0">
+          <input type="text" id="newHumanityDescription" value="Description"/>
           <input type="button" class="saveHumanityEntry" Value="Save New Entry">
         </div>
           {{#each data.humanityarray as |outerarray outerkey|}}
-            <div>
+            <div class="flexrow">
             {{#each outerarray}}
               {{this}} - 
             {{/each}}
-              <input type="button" class="deleteHumanityEntry" Value="Delete{{outerkey}}" id="DeleteHumanity{{outerkey}}">
+              <input type="button" class="deleteHumanityEntry" Value="Delete{{outerkey}}" humtodel="DeleteHumanity{{outerkey}}">
             </div>
           {{/each}}
       </div>

@@ -187,14 +187,6 @@ export class cyberpunkredActor extends Actor {
     //
     //######################
 
-    var testArray = [];
-    testArray[0] = -6;
-    testArray[1] = "This is a description";
-    
-    data.humanityarray.push(testArray);
-    data.humanityarray.push(testArray);
-    data.humanityarray.push(testArray);
-    data.humanityarray.push(testArray);
     
     //######################
     //

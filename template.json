@@ -68,7 +68,7 @@
       },
 
       "humanityarray": {
-        "humanityarray": ["Start"]
+        "humanityarray": [0,"Start"]
       },
 
       "combatsetup": {

@@ -152,8 +152,8 @@ export class cyberpunkredActorSheet extends ActorSheet {
       const actor = this.actor;
       var tempHumArr = this.actor.data.data.humanityarray;
       var setArray = [];
-      setArray[0] = $(ev.currentTarget).attr("newHumanityValue") * 1;
-      setArray[1] = $(ev.currentTarget).attr("newHumanityDescription") * 1;
+      setArray[0] = $('#newHumanityValue').val() * 1;
+      setArray[1] = $('#newHumanityDescription').val();
       _cprLog("Saving new humanity entry " + setArray[0] + " for " + setArray[1]);
       tempHumArr.push(setArray);
       
@@ -161,6 +161,19 @@ export class cyberpunkredActorSheet extends ActorSheet {
         "data.humanityarray": tempHumArr
       });
     });
+    
+    html.find('.deleteHumanityEntry').click(ev => {
+      const actor = this.actor;
+      var tempHumArr = this.actor.data.data.humanityarray;
+      var idxToDel = $(ev.currentTarget).attr("humtodel") * 1;
+      _cprLog("Deleting humanity entry " + idxToDel);
+      tempHumArr.splice(idxToDel,1);
+      
+      actor.update({
+        "data.humanityarray": tempHumArr
+      });
+    });
+    
     
     //Set current health based on click on dot
     html.find('.setcurrenthealth').click(ev => {
