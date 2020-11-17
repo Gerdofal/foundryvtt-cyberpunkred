@@ -12,7 +12,18 @@ Sections:
   
 ### In Development
 
-- 0.40
+- 0.41
+
+### Future Plans
+
+- UI cleanup and usability improvements
+  - Remove some columns on the stat setup tab and only show that info on click
+
+- Token bar actions/macros
+
+### Release Notes
+
+- 0.40 - Released 11/17/2020 - Beta
   - Bug fixes
     - The skill choice drop down on weapon items once again shows options for the core rulebook
     - There is no longer a javascript error when changing a skill mod drop-down to an attribute mod drop-down
@@ -26,19 +37,7 @@ Sections:
     - Initiative is now an option for an item modification
     - Initiative is available on the NPC character sheet
     - Changed the order of tabs so they make a little more sense
-    
-    
-    
-
-
-### Future Plans
-
-- UI cleanup and usability improvements
-  - Remove some columns on the stat setup tab and only show that info on click
-
-- Token bar actions/macros
-
-### Release Notes
+    - Initiative is now rollable on the stat setup tab
 
 - 0.39 - Released 11/14/2020 - Beta
   - Initial support of core rulebook.
