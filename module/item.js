@@ -6,6 +6,10 @@ import {
   environmentSettings
 } from "../environment.js"
 
+import {
+  itemmodJSK, itemmodCore
+} from "../lists/itemmods.js"
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -20,14 +24,6 @@ export class cyberpunkredItem extends Item {
     // Get the Item's data
     const itemData = this.data;
     const actorData = this.actor ? this.actor.data : {};
-    itemData.data.temp = {};
-    itemData.data.temp.attributes = this.actor ? this.actor.data.data.attributes : {};
-    itemData.data.temp.skills = this.actor ? this.actor.data.data.skills : {};
-		
-		itemData.data.temp.combatstats = this.actor ? this.actor.data.data.combatstats : {};
-    
-		itemData.data.temp.none = {};
-    itemData.data.temp.type = this.data.type;
     itemData.data.backend = {};
 
 		var settingGameSystem = game.settings.get("cyberpunkred", "gameSystem");
@@ -48,7 +44,25 @@ export class cyberpunkredItem extends Item {
 				itemData.data.backend.core = true;
 				itemData.data.backend.jsk = false;
 		}
-				
+		
+    
+    //Setup the dropdowns for mods
+    
+    itemData.data.temp = {};
+    if (settingGameSystem=="jsk") {
+      itemData.data.temp.attributes = itemmodJSK.attributes;
+      itemData.data.temp.skills = itemmodJSK.skills;
+      itemData.data.temp.combatstats = itemmodJSK.combatstats;
+    } else {
+      itemData.data.temp.attributes = itemmodCore.attributes;
+      itemData.data.temp.skills = itemmodCore.skills;
+      itemData.data.temp.combatstats = itemmodCore.combatstats;      
+    }
+    
+		itemData.data.temp.none = {};
+
+    itemData.data.temp.type = this.data.type;
+
     const data = itemData.data;
   }
 }

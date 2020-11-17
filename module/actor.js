@@ -14,6 +14,12 @@ import {
   environmentSettings
 } from "../environment.js"
 
+import {
+  itemmodJSK,
+  itemmodCore
+} from "../lists/itemmods.js"
+
+
 /**
  * Reconfiguration of the base actor to work for CyberpunkRED
  * @extends {Actor}
@@ -45,12 +51,12 @@ export class cyberpunkredActor extends Actor {
     // TODO: Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     //if (actorData.type === 'character') 
-    
+
     // CURRENTLY: This option always calls preparedata for all types of actors
     // Note: npcs have all the stats and everything that actors do, but not all of them show on the sheet, nor are they editable
-    
+
     this._prepareCharacterData(actorData);
-    
+
     //After a migration, preparedata sometimes fails to run as expected. This variable will track that.
     _cprLog("Data prep is complete for " + this.name);
     this.data.data.backend.dataprepcomplete = true;
@@ -75,33 +81,33 @@ export class cyberpunkredActor extends Actor {
     var allowJSK = false;
     var allowCore = false;
     var settingGameSystem = "core";
-    
+
     settingGameSystem = game.settings.get("cyberpunkred", "gameSystem");
     data.gameSystem = game.settings.get("cyberpunkred", "gameSystem");
     switch (settingGameSystem) {
       case "core":
         _cprLog("Game is running in Core Rulebook mode.")
         allowJSK = false;
-        allowCore= true;
-				data.backend.core = true;
-				data.backend.jsk = false;
+        allowCore = true;
+        data.backend.core = true;
+        data.backend.jsk = false;
         break;
       case "jsk":
         _cprLog("Game is running in Jumpstart Kit mode.")
         allowJSK = true;
         allowCore = false;
-				data.backend.core=false;
-				data.backend.jsk=true;
+        data.backend.core = false;
+        data.backend.jsk = true;
         break;
       default:
         _cprLog("ERROR: Game setting not found for environment. Setting default to core.")
         allowJSK = false;
-        allowCore= true;
-				data.backend.core = true;
-				data.backend.jsk = false;
+        allowCore = true;
+        data.backend.core = true;
+        data.backend.jsk = false;
     }
 
-    
+
     //####################
     //
     //Temporary Migrations
@@ -129,7 +135,6 @@ export class cyberpunkredActor extends Actor {
     }
 
 
-
     //######################
     //
     //Load Skill Constants
@@ -141,6 +146,36 @@ export class cyberpunkredActor extends Actor {
       if (data.skills.hasOwnProperty(key)) {
         for (let [propkey, constval] of Object.entries(listsSkills[key])) {
           data.skills[key][propkey] = constval;
+        }
+      }
+    }
+
+    //######################
+    //
+    //Cleanup non-numeric entries
+    //
+    //######################
+
+    for (let [key, val] of Object.entries(data.skills)) {
+      for (let [innerkey, innerval] of Object.entries(data.skills[key])) {
+        if (!isNaN(data.skills[key][innerkey])) {
+          data.skills[key][innerkey] = Number(data.skills[key][innerkey]);
+        }
+      }
+    }
+
+    for (let [key, val] of Object.entries(data.attributes)) {
+      for (let [innerkey, innerval] of Object.entries(data.attributes[key])) {
+        if (!isNaN(data.attributes[key][innerkey])) {
+          data.attributes[key][innerkey] = Number(data.attributes[key][innerkey]);
+        }
+      }
+    }
+
+    for (let [key, val] of Object.entries(data.combatstats)) {
+      for (let [innerkey, innerval] of Object.entries(data.combatstats[key])) {
+        if (!isNaN(data.combatstats[key][innerkey])) {
+          data.combatstats[key][innerkey] = Number(data.combatstats[key][innerkey]);
         }
       }
     }
@@ -244,32 +279,44 @@ export class cyberpunkredActor extends Actor {
             //Attributes - Permanently modifies an attribute
             //Skills - Permanently modifies a skill
             case "attributes":
-              //_cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
-              data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
-              data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
+              try {
+                //_cprLog("ITEMMOD: Attribute " + mod.moditem + " + " + mod.modvalue * 1);
+                data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
+                data.attributes[mod.moditem].itemmod += mod.modvalue * 1;
+              } catch (err) {
+                _cprLog("Tried to do an itemmod but it isn't properly formatted. Maybe in the middle of setting it up.");
+              }
               break;
 
             case "skills":
-              //_cprLog("ITEMMOD: Skill " + mod.moditem + " + " + mod.modvalue * 1);
-              data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
-              data.skills[mod.moditem].itemmod += mod.modvalue * 1;
+              try {
+                //_cprLog("ITEMMOD: Skill " + mod.moditem + " + " + mod.modvalue * 1);
+                data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
+                data.skills[mod.moditem].itemmod += mod.modvalue * 1;
+              } catch (err) {
+                _cprLog("Tried to do an itemmod but it isn't properly formatted. Maybe in the middle of setting it up.");
+              }
               break;
 
-						case "combatstats":
-              //_cprLog("ITEMMOD: Combatstats " + mod.moditem + " + " + mod.modvalue * 1);
-              data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
-              data.combatstats[mod.moditem].itemmod += mod.modvalue * 1;
+            case "combatstats":
+              try {
+                //_cprLog("ITEMMOD: Combatstats " + mod.moditem + " + " + mod.modvalue * 1);
+                data.modlog.push(itemName + ":" + key + ": " + mod.modcat + "-" + mod.moditem + ": " + mod.modvalue + " (on:" + mod.modactive + ")");
+                data.combatstats[mod.moditem].itemmod += mod.modvalue * 1;
+              } catch (err) {
+                _cprLog("Tried to do an itemmod but it isn't properly formatted. Maybe in the middle of setting it up.");
+              }
               break;
-							
+
             default:
               _cprLog("WARNING: Badly formed mod command (not processed): " + mod.moditem + " + " + mod.modvalue * 1);
           }
         }
       }
     }
-		
-		
-		//####################
+
+
+    //####################
     //
     //Attribute Roll Values
     //
@@ -278,7 +325,7 @@ export class cyberpunkredActor extends Actor {
     for (let [key, attr] of Object.entries(data.attributes)) {
       attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
     }
-		
+
     //####################
     //
     //Skill Roll Values
@@ -299,7 +346,7 @@ export class cyberpunkredActor extends Actor {
       }
     }
 
-		
+
     //Computer humanity TODO-guessing at formula may need to fix this for final rule release
     data.combatstats.humanity.itemmod = totalPsychosis * 1;
     data.combatstats.humanity.current = (data.combatstats.humanity.base * 1) - (totalPsychosis * 1);
@@ -400,7 +447,7 @@ export class cyberpunkredActor extends Actor {
     //
     //####################
 
-    data.combatstats.init.roll = (data.attributes.ref.roll*1) + (data.combatstats.init.mod*1);
+    data.combatstats.init.value = (data.attributes.ref.roll * 1) + (data.combatstats.init.mod * 1);
 
     //####################
     //
@@ -409,32 +456,31 @@ export class cyberpunkredActor extends Actor {
     //####################
 
     // Calculate health and luck
-		if(allowJSK) {
-    data.combatstats.healthpool.max = data.attributes.body.roll * 5;
-		} else {
-		data.combatstats.healthpool.max = 10 + (5 * Math.ceil((data.attributes.body.roll+data.attributes.will.roll)/2));	
-		}
-		
+    if (allowJSK) {
+      data.combatstats.healthpool.max = data.attributes.body.roll * 5;
+    } else {
+      data.combatstats.healthpool.max = 10 + (5 * Math.ceil((data.attributes.body.roll + data.attributes.will.roll) / 2));
+    }
+
     if (data.combatstats.healthpool.value > data.combatstats.healthpool.max) {
       data.combatstats.healthpool.value = data.combatstats.healthpool.max;
     }
-		
-				
-		
+
+
     data.combatstats.luckpool.max = data.attributes.luck.roll;
     if (data.combatstats.luckpool.value > data.combatstats.luckpool.max) {
       data.combatstats.luckpool.value = data.combatstats.luckpool.max;
     }
 
-		//Now need to set roll for combatstats
-		//Some of these may be trouble. Not sure on rules for going over max yet.
-		
-		for (let [key, attr] of Object.entries(data.combatstats)) {
-			if(key=="init") {
-      attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;				
-			}
+    //Now need to set roll for combatstats
+    //Some of these may be trouble. Not sure on rules for going over max yet.
+
+    for (let [key, attr] of Object.entries(data.combatstats)) {
+      if (key == "init") {
+        attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
+      }
     }
-		
+
     //####################
     //
     //Roll Penalty

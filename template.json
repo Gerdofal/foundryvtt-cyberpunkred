@@ -23,18 +23,20 @@
       "combatstats": {
         "combatstats": {
           "healthpool": {
-						"itemmod": 0,
+						"value": 0,
 						"mod": 0,
-            "value": 25,
+            "itemmod": 25,
             "min": 0,
-            "max": 25
+            "max": 25,
+            "roll": 0
           },
           "luckpool": {
             "value": 5,
 						"mod": 0,
 						"itemmod": 0,
             "min": 0,
-            "max": 5
+            "max": 5,
+            "roll": 0
           },
           "init": {
 						"value": 0,
@@ -49,21 +51,24 @@
             "penalty": 0
           },
           "reputation": {
-						"itemmod": 0,
-            "value": 1,
-						"itemmod": 0,
+						"value": 1,
             "mod": 0,
+						"itemmod": 0,
+            "roll": 0
           },
           "armor": {
-						"itemmod": 0,
+            "value": 0,
 						"mod": 0,
-            "value": 0
+						"itemmod": 0,
+            "roll": 0
           },
           "humanity": {
+            "value": 0,
 						"mod": 0,
 						"itemmod": 0,
             "base": 0,
-            "current": 0
+            "current": 0,
+            "roll": 0
           }
         }
       },
