@@ -4,15 +4,14 @@ Sections:
 - [Release Notes](#release-notes)
 
 ### Known Issues
-- 0.39
-	- This is an initial release with basic support for new skills in the core rulebook. It will take a little time to go through the entire book and implment all changes.
-		- Some skills (play instrument, language, etc...) which should have multiple options do not currently provide those options
-		- Role skills are not yet implemented
-		- Rules for melee and martial arts are only partially implemented
+- 0.40
+	- The settings tab is not working (not displayed). This has the impact of making it impossible to turn the hacking tab on in settings.
   
 ### In Development
 
 - 0.41
+	- Fixed bug causing settings tab to not appear
+	- 
 
 ### Future Plans
 
