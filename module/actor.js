@@ -115,31 +115,12 @@ export class cyberpunkredActor extends Actor {
     //####################
     //TODO - put all these migrations into their own module
 
-    //NOTE: ui.notifications accepts info, warn, and error
-    //Make some updates to data that may need a fix without updating system.json
-    if (data.modifiers.modfulldam.penalty != -2) {
-      data.modifiers.modfulldam.penalty = -2;
-      _cprLog(".28 Update - Changing penalty for modfulldam to -2.");
-      delete data.roleskills.interface;
-    } //Default changed in 0.28
-    //Interim solution for transition to .30
-    if (data.roleskills.hasOwnProperty('interface')) {
-      data.roleskills.netrunner.interface = data.roleskills.interface;
-      _cprLog(".30 Update - Found old hacking data template and fixed.");
-      delete data.roleskills.interface;
-    }
     
     if (data.settings.showtabs.hasOwnProperty('hacking')) {
       _cprLog(".41 Update - Found old hacking showtab and deleted.");
       delete data.settings.showtabs.hacking;
     }
     
-    //Add sorting to old actors for .32 to .33 transition
-    //Attributes
-    for (let [key, attr] of Object.entries(data.attributes)) {
-      data.attributes[key]["sort"] = key;
-    }
-
 
     //######################
     //
@@ -404,13 +385,9 @@ export class cyberpunkredActor extends Actor {
     //####################
 
     //NETRUNNER
-    data.roleskills.netrunner.interface.roll = data.roleskills.netrunner.interface.value + data.roleskills.netrunner.interface.mod + data.roleskills.netrunner.interface.itemmod;
-    data.roleskills.netrunner.spd.roll = data.roleskills.netrunner.spd.value + data.roleskills.netrunner.spd.mod + data.roleskills.netrunner.spd.itemmod;
+    data.roleskills.netrunner.interface.roll = Number(data.roleskills.netrunner.interface.value) + Number(data.roleskills.netrunner.interface.mod) + Number(data.roleskills.netrunner.interface.itemmod);
+    data.roleskills.netrunner.spd.roll = Number(data.roleskills.netrunner.spd.value) + Number(data.roleskills.netrunner.spd.mod) + Number(data.roleskills.netrunner.spd.itemmod);
 
-    //Compute roll attribute for roleskills
-    for (let [key, attr] of Object.entries(data.roleskills)) {
-      attr.roll = attr.value + attr.mod;
-    }
 
     //####################
     //

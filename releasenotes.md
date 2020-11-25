@@ -13,12 +13,17 @@ Sections:
 
 - 0.41
 	- IMPORTANT NOTES FOR MODULE DEVS:
-    - I've made a name change to the template.json so it makes more sense as new role skills are added:
-      - roleskill.hacking has become roleskill.netrunner
-    - All methods and properties which used to be "hacking" are now "netrunner"
-	- Renamed the hacking tab to Netrunning
-	- Fixed the typo causing the settings tab to not display
-  - Added basic entries for all roleskills on the stat setup tab (More role skill functionality to come in ver 0.42)
+      - I've made a name change to the template.json so it makes more sense as new role skills are added:
+        - roleskill.hacking has become roleskill.netrunner
+      - All methods and properties which used to be "hacking" are now "netrunner"
+  - BUG FIXES
+    - Fixed the typo causing the settings tab to not display
+      - Also fixes the issue that the netrunning tab cannot be seen
+  - OTHER CHANGES
+    - Added basic entries for all roleskills on the stat setup tab (More role skill functionality to come in ver 0.42)
+      - You can activate your role (or more than one) on the settings tab
+    - Renamed the hacking tab to Netrunning
+    - Tweaked the appearance of the stat setup tab so it is a little easier to read
   
 
 ### Future Plans
