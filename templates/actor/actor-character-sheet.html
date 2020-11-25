@@ -47,12 +47,16 @@
     <div class="tab cprgraphics" data-group="primary" data-tab="welcome"> {{localize "CPRED.notlocalized"}}
       <hr>
       <h3>Welcome to the release of the CyberpunkRED Core Rulebook!</h3>
+      <br>
       This FVTT System was originally written for the Jumpstart Kit. It's now being updated to the core rules. Please pardon our dust.
-      <hr>
+      <br>
       This temporary tab tracks the migration of the existing system (Based on the Jumpstart Kit or "jsk") to the new system (Based on the release Core Rulebook or "core").  While playable, please note that some sections are pending completion.
       <hr>
+      <br>
       <h3>The GM has activated the following game system: {{data.gameSystem}}</h3>
+      <br>
       If this is in error, the GM can change it via: 'Game Settings' -&gt; 'Configure Settings' -&gt; 'System Settings' on the right. You will need to press F5 to reload once they change the setting.
+      <br>
       <hr>
       <h3>Conversion Status</h3>
       <hr>
@@ -88,35 +92,40 @@
       <hr>
       <div class="conversion-row">
         <div class="conversion-section"> Update 0.41 </div>
-        <ul>
-          <li>IMPORTANT NOTES FOR MODULE DEVS:
-            <ul>
-              <li>I&#39;ve made a name change to the template.json so it makes more sense as new role skills are added:
-                <ul>
-                  <li>roleskill.hacking has become roleskill.netrunner</li>
-                </ul>
-              </li>
-              <li>All methods and properties which used to be &quot;hacking&quot; are now &quot;netrunner&quot;</li>
-              <li>BUG FIXES</li>
-            </ul>
-          </li>
-          <li>Fixed the typo causing the settings tab to not display
-            <ul>
-              <li>Also fixes the issue that the netrunning tab cannot be seen</li>
-              <li>OTHER CHANGES</li>
-            </ul>
-          </li>
-          <li>Added basic entries for all roleskills on the stat setup tab (More role skill functionality to come in ver 0.42)
-            <ul>
-              <li>You can activate your role (or more than one) on the settings tab</li>
-            </ul>
-          </li>
-          <li>Renamed the hacking tab to Netrunning</li>
-          <li>Tweaked the appearance of the stat setup tab so it is a little easier to read</li>
-          <li>Added a player notes tab</li>
-        </ul>
-        </li>
-        </ul>
+        <div class="conversion-status">
+          <ul>
+            <li>IMPORTANT NOTES FOR MODULE DEVS:
+              <ul>
+                <li>I&#39;ve made a name change to the template.json so it makes more sense as new role skills are added:
+                  <ul>
+                    <li>roleskill.hacking has become roleskill.netrunner</li>
+                    <li>All methods and properties which used to be &quot;hacking&quot; are now &quot;netrunner&quot;</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>BUG FIXES
+              <ul>
+                <li>Fixed the typo causing the settings tab to not display
+                  <ul>
+                    <li>Also fixes the issue that the netrunning tab cannot be seen</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>OTHER CHANGES
+              <ul>
+                <li>Added basic entries for all roleskills on the stat setup tab (More role skill functionality to come in ver 0.42)</li>
+                <li>You can activate your role (or more than one) on the settings tab</li>
+                <li>Renamed the hacking tab to Netrunning</li>
+                <li>Tweaked the appearance of the stat setup tab so it is a little easier to read</li>
+                <li>Added a player notes tab</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="conversion-row">
         <div class="conversion-section"> Update 0.40 </div>
         <div class="conversion-status">
           <ul>
@@ -419,6 +428,9 @@
         <div>
           <select name="data.weaponsetup.{{key}}.skill">
             
+          
+            
+            
             
             
           
@@ -430,10 +442,16 @@
           
             
             
+            
+            
+          
             <option value="hidden">{{localize "CPRED.hidden"}}</option>
             <option value="brawling">{{localize "CPRED.brawling"}}</option>
             <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>
             <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
+            
+          
+            
             
             
             
@@ -446,6 +464,9 @@
           
             
             
+            
+            
+          
             <option value="hidden">{{localize "CPRED.hidden"}}</option>
             <option value="autofire">{{localize "CPRED.autofire"}}</option>
             <option value="brawling">{{localize "CPRED.brawling"}}</option>
@@ -454,6 +475,9 @@
             <option value="handgun">{{localize "CPRED.handgun"}}</option>
             <option value="shoulderarms">{{localize "CPRED.shoulderarms"}}</option>
             <option value="heavyweapons">{{localize "CPRED.heavyweapons"}}</option>
+            
+          
+            
             
             
             
@@ -466,6 +490,9 @@
         
           
           
+          
+          
+        
           </select>
         </div>
       </li>
