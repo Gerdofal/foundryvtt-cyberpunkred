@@ -128,6 +128,12 @@ export class cyberpunkredActor extends Actor {
       _cprLog(".30 Update - Found old hacking data template and fixed.");
       delete data.roleskills.interface;
     }
+    
+    if (data.settings.showtabs.hasOwnProperty('hacking')) {
+      _cprLog(".41 Update - Found old hacking showtab and deleted.");
+      delete data.settings.showtabs.hacking;
+    }
+    
     //Add sorting to old actors for .32 to .33 transition
     //Attributes
     for (let [key, attr] of Object.entries(data.attributes)) {
@@ -397,7 +403,7 @@ export class cyberpunkredActor extends Actor {
     //
     //####################
 
-    //HACKING
+    //NETRUNNER
     data.roleskills.netrunner.interface.roll = data.roleskills.netrunner.interface.value + data.roleskills.netrunner.interface.mod;
     data.roleskills.netrunner.spd.roll = data.roleskills.netrunner.spd.value + data.roleskills.netrunner.spd.mod;
 
@@ -512,7 +518,7 @@ export class cyberpunkredActor extends Actor {
 
     //rootstr identifies the root skill location to be used
     switch (rootstr) {
-      case "hacking":
+      case "netrunner":
         var root = data.roleskills.netrunner;
         break;
       default:
@@ -546,7 +552,7 @@ export class cyberpunkredActor extends Actor {
     }
   }
 
-  rollHacking(command) {
+  rollNetrunner(command) {
     var rollArray = new Array();
     var tags = new Array();
     var data = this.data.data;
@@ -554,19 +560,19 @@ export class cyberpunkredActor extends Actor {
     switch (command) {
       case 'interfacecheck':
         //TODO: This needs customization in the future
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
         break;
       case 'attack':
         //TODO: This needs customization in the future
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
         break;
       case 'banhammerattack':
         //TODO: This needs customization in the future
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
         tags.push(game.i18n.localize("CPRED.banhammer") + ": 2");
@@ -574,7 +580,7 @@ export class cyberpunkredActor extends Actor {
         break;
       case 'encounterblackice':
         //TODO: Needs details
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
         tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.netrunner.spd.value + " + " + data.roleskills.netrunner.spd.mod + " = " + data.roleskills.netrunner.spd.roll);
@@ -582,7 +588,7 @@ export class cyberpunkredActor extends Actor {
         break;
       case 'encounterblackicewithspeedy':
         //TODO: Needs details
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
         tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.netrunner.spd.value + " + " + data.roleskills.netrunner.spd.mod + " = " + data.roleskills.netrunner.spd.roll);
@@ -591,7 +597,7 @@ export class cyberpunkredActor extends Actor {
         rollArray.push(4);
         break;
       default:
-        _cprLog("Hacking command not recognized in rollHacking: command=" + command);
+        _cprLog("Netrunner command not recognized in rollNetrunner: command=" + command);
     }
 
     return {
@@ -638,8 +644,8 @@ export class cyberpunkredActor extends Actor {
         rollObject = this.rollInitiative();
         needsMods = false;
         break;
-      case '_RollHacking':
-        rollObject = this.rollHacking(cmdId);
+      case '_RollNetrunner':
+        rollObject = this.rollNetrunner(cmdId);
         break;
       case '_RollWithMods':
         rollObject.rollFormula = roll.replace('_RollWithMods', '');

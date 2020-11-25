@@ -786,7 +786,16 @@
             "rolename": "No role set yet"
           },
           "showtabs": {
-            "netrunning": false
+            "netrunner": false,
+            "rockerboy": false,
+            "solo": false,
+            "tech": false,
+            "medtech": false,
+            "media": false,
+            "exec": false,
+            "lawman": false,
+            "fixer": false,
+            "nomad": false
           },
           "prefs": {
             "simpleCombatSetup": true,
@@ -802,7 +811,7 @@
             "interface": {
               "value": 0,
               "mod": 0,
-							"itemmod": 0,
+              "itemmod": 0,
               "roll": 0,
               "linkedattribute": "int"
             },

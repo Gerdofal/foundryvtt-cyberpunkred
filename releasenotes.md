@@ -6,11 +6,16 @@ Sections:
 ### Known Issues
 - 0.40
 	- The settings tab is not working (not displayed). This has the impact of making it impossible to turn the hacking tab on in settings.
+- 0.41
+  - Pre-existing characters may show both a role of "hacking" and a role of "netrunner" on the settings tab. (The "hacking" button has no impact when clicked). This is a display issue only and will not impact new characters. Will be fixed in a future release.
   
 ### In Development
 
 - 0.41
-	- IMPORTANT NOTE FOR MODULE DEVS: In order to match the core rules, I've made a name change to the template.json: roleskill.hacking has become roleskill.netrunner
+	- IMPORTANT NOTES FOR MODULE DEVS:
+    - I've made a name change to the template.json so it makes more sense as new role skills are added:
+      - roleskill.hacking has become roleskill.netrunner
+    - All methods and properties which used to be "hacking" are now "netrunner"
 	- Renamed the hacking tab to Netrunning
 	- Fixed the typo causing the settings tab to not display
 
