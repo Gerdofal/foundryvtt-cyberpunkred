@@ -4,11 +4,8 @@ Sections:
 - [Release Notes](#release-notes)
 
 ### Known Issues
-- 0.40
-	- The settings tab is not working (not displayed). This has the impact of making it impossible to turn the hacking tab on in settings.
-- 0.41
-  - The rolls for netrunning still use the system from JSK (INT is added to the roll) instead of the system from the core rulebook (Don't add INT). This will be fixed in a future update.
-  
+- None at the current time
+
 ### In Development
 
 - 0.41
