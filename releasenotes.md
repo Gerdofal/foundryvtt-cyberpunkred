@@ -7,7 +7,7 @@ Sections:
 - 0.40
 	- The settings tab is not working (not displayed). This has the impact of making it impossible to turn the hacking tab on in settings.
 - 0.41
-  - Pre-existing characters may show both a role of "hacking" and a role of "netrunner" on the settings tab. (The "hacking" button has no impact when clicked). This is a display issue only and will not impact new characters. Will be fixed in a future release.
+  - The rolls for netrunning still use the system from JSK (INT is added to the roll) instead of the system from the core rulebook (Don't add INT). This will be fixed in a future update.
   
 ### In Development
 
@@ -24,6 +24,8 @@ Sections:
       - You can activate your role (or more than one) on the settings tab
     - Renamed the hacking tab to Netrunning
     - Tweaked the appearance of the stat setup tab so it is a little easier to read
+    - Added a player notes tab
+    - Changed hacking rolls to not include INT when in core rulebook mode
   
 
 ### Future Plans

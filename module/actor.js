@@ -497,18 +497,28 @@ export class cyberpunkredActor extends Actor {
     switch (rootstr) {
       case "netrunner":
         var root = data.roleskills.netrunner;
+        //Skill Roll Value
+        rollArray.push(root[skill].roll);
+        tags.push(game.i18n.localize("CPRED." + skill) + ": " + root[skill].value + " + " + root[skill].mod + " + " + root[skill].itemmod + " = " + root[skill].roll);
+        
+        if(data.backend.jsk) {
+        //Attribute Roll Value
+        rollArray.push(data.attributes[root[skill].linkedattribute].roll);
+        tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);          
+        }
+        
         break;
       default:
         var root = data.skills;
+        //Skill Roll Value
+        rollArray.push(root[skill].roll);
+        tags.push(game.i18n.localize("CPRED." + skill) + ": " + root[skill].value + " + " + root[skill].mod + " + " + root[skill].itemmod + " = " + root[skill].roll);
+
+        //Attribute Roll Value
+        rollArray.push(data.attributes[root[skill].linkedattribute].roll);
+        tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);
     }
 
-    //Skill Roll Value
-    rollArray.push(root[skill].roll);
-    tags.push(game.i18n.localize("CPRED." + skill) + ": " + root[skill].value + " + " + root[skill].mod + " + " + root[skill].itemmod + " = " + root[skill].roll);
-
-    //Attribute Roll Value
-    rollArray.push(data.attributes[root[skill].linkedattribute].roll);
-    tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);
 
     return {
       rollArray: rollArray,
