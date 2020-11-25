@@ -68,7 +68,7 @@
       },
 
       "humanityarray": {
-        "humanityarray": [0,"Start"]
+        "humanityarray": [0, "Start"]
       },
 
       "combatsetup": {
@@ -134,6 +134,7 @@
             "type": "Pistol"
           }
         },
+
         "armorsetup": {
           "armorhead": {
             "name": "Armor Type...",
@@ -785,7 +786,7 @@
             "rolename": "No role set yet"
           },
           "showtabs": {
-            "hacking": false
+            "netrunning": false
           },
           "prefs": {
             "simpleCombatSetup": true,
@@ -797,26 +798,97 @@
 
       "roleskills": {
         "roleskills": {
-          "hacking": {
+          "netrunner": {
             "interface": {
               "value": 0,
               "mod": 0,
-              "itemmod": 0,
+							"itemmod": 0,
               "roll": 0,
               "linkedattribute": "int"
             },
             "spd": {
               "value": 0,
               "mod": 0,
-              "itemmod": 0,
               "roll": 0,
               "linkedattribute": "int"
+            }
+          },
+          "rockerboy": {
+            "charismaticimpact": {
+              "value": 0,
+              "mod": 0,
+              "roll": 0
+            }
+          },
+          "solo": {
+            "combatawareness": {
+              "max": 0,
+              "current": 0
+            }
+          },
+          "tech": {
+            "maker": {
+              "value": 0
+            },
+            "fieldexpertise": {
+              "value": 0
+            },
+            "upgradeexpertise": {
+              "value": 0
+            },
+            "fabricationexpertise": {
+              "value": 0
+            },
+            "inventionexpertise": {
+              "value": 0
+            }
+          },
+          "medtech": {
+            "medicine": {
+              "value": 0
+            },
+            "surgery": {
+              "value": 0
+            },
+            "medtechpharma": {
+              "value": 0
+            },
+            "medtechcryo": {
+              "value": 0
+            },
+            "medicaltech": {
+              "value": 0,
+              "mod": 0,
+              "roll": 0
+            }
+          },
+          "media": {
+            "credibility": {
+              "value": 0
+            }
+          },
+          "exec": {
+            "teamwork": {
+              "value": 0
+            }
+          },
+          "lawman": {
+            "backup": {
+              "value": 0
+            }
+          },
+          "fixer": {
+            "operator": {
+              "value": 0
+            }
+          },
+          "nomad": {
+            "moto": {
+              "value": 0
             }
           }
         }
       }
-
-
     },
     "character": {
       "templates": ["humanityarray", "backend", "description", "combatstats", "attributes", "skills", "combatsetup", "modifiers", "settings", "roleskills"]

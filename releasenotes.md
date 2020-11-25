@@ -10,8 +10,9 @@ Sections:
 ### In Development
 
 - 0.41
-	- Fixed bug causing settings tab to not appear
-	- 
+	- IMPORTANT NOTE FOR MODULE DEVS: In order to match the core rules, I've made a name change to the template.json: roleskill.hacking has become roleskill.netrunner
+	- Renamed the hacking tab to Netrunning
+	- Fixed the typo causing the settings tab to not display
 
 ### Future Plans
 
