@@ -8,7 +8,22 @@ Sections:
 
 ### In Development
 
-- 0.41
+- 0.42
+
+
+
+### Future Plans
+
+- Continued implementation of core rulebook rules
+
+- UI cleanup and usability improvements
+  - Remove some columns on the stat setup tab and only show that info on click
+
+- Token bar actions/macros
+
+### Release Notes
+
+- 0.41 - Released 11/25/2020 - Beta
 	- IMPORTANT NOTES FOR MODULE DEVS:
       - I've made a name change to the template.json so it makes more sense as new role skills are added:
         - roleskill.hacking has become roleskill.netrunner
@@ -23,16 +38,6 @@ Sections:
     - Tweaked the appearance of the stat setup tab so it is a little easier to read
     - Added a player notes tab
     - Changed hacking rolls to not include INT when in core rulebook mode
-  
-
-### Future Plans
-
-- UI cleanup and usability improvements
-  - Remove some columns on the stat setup tab and only show that info on click
-
-- Token bar actions/macros
-
-### Release Notes
 
 - 0.40 - Released 11/17/2020 - Beta
   - Bug fixes
