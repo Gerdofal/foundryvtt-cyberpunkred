@@ -20,11 +20,14 @@ export const migrateWorld = async function () {
   // Migrate World Actors
   for (let a of game.actors.entities) {
     var lowestOkVersion = 15;
-    var needsMigration = false;
+    var needsMigration = true;
+
+    /* Logic to determine if migration is needed is performed before call of this function.
     if (a.data.data.backend.upgradedversion < lowestOkVersion || a.data.data.backend.upgradedversion==null) {
       needsMigration = true;
       _cprLog(`Migrating Actor entity ${a.name} because upgradedversion was too low (${a.data.data.backend.upgradedversion})`);
     }
+    */
 
     if (needsMigration) {
       try {

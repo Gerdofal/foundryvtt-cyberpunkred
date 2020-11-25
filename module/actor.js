@@ -37,7 +37,7 @@ export class cyberpunkredActor extends Actor {
 
     //######################
     //
-    //Determine GM Settings
+    //Determine Settings
     //
     //######################
 
@@ -115,25 +115,12 @@ export class cyberpunkredActor extends Actor {
     //####################
     //TODO - put all these migrations into their own module
 
-    //NOTE: ui.notifications accepts info, warn, and error
-    //Make some updates to data that may need a fix without updating system.json
-    if (data.modifiers.modfulldam.penalty != -2) {
-      data.modifiers.modfulldam.penalty = -2;
-      _cprLog(".28 Update - Changing penalty for modfulldam to -2.");
-      delete data.roleskills.interface;
-    } //Default changed in 0.28
-    //Interim solution for transition to .30
-    if (data.roleskills.hasOwnProperty('interface')) {
-      data.roleskills.hacking.interface = data.roleskills.interface;
-      _cprLog(".30 Update - Found old hacking data template and fixed.");
-      delete data.roleskills.interface;
+    
+    if (data.settings.showtabs.hasOwnProperty('hacking')) {
+      _cprLog(".41 Update - Found old hacking showtab and deleted.");
+      delete data.settings.showtabs.hacking;
     }
-    //Add sorting to old actors for .32 to .33 transition
-    //Attributes
-    for (let [key, attr] of Object.entries(data.attributes)) {
-      data.attributes[key]["sort"] = key;
-    }
-
+    
 
     //######################
     //
@@ -397,14 +384,10 @@ export class cyberpunkredActor extends Actor {
     //
     //####################
 
-    //HACKING
-    data.roleskills.hacking.interface.roll = data.roleskills.hacking.interface.value + data.roleskills.hacking.interface.mod;
-    data.roleskills.hacking.spd.roll = data.roleskills.hacking.spd.value + data.roleskills.hacking.spd.mod;
+    //NETRUNNER
+    data.roleskills.netrunner.interface.roll = Number(data.roleskills.netrunner.interface.value) + Number(data.roleskills.netrunner.interface.mod) + Number(data.roleskills.netrunner.interface.itemmod);
+    data.roleskills.netrunner.spd.roll = Number(data.roleskills.netrunner.spd.value) + Number(data.roleskills.netrunner.spd.mod) + Number(data.roleskills.netrunner.spd.itemmod);
 
-    //Compute roll attribute for roleskills
-    for (let [key, attr] of Object.entries(data.roleskills)) {
-      attr.roll = attr.value + attr.mod;
-    }
 
     //####################
     //
@@ -512,20 +495,30 @@ export class cyberpunkredActor extends Actor {
 
     //rootstr identifies the root skill location to be used
     switch (rootstr) {
-      case "hacking":
-        var root = data.roleskills.hacking;
+      case "netrunner":
+        var root = data.roleskills.netrunner;
+        //Skill Roll Value
+        rollArray.push(root[skill].roll);
+        tags.push(game.i18n.localize("CPRED." + skill) + ": " + root[skill].value + " + " + root[skill].mod + " + " + root[skill].itemmod + " = " + root[skill].roll);
+        
+        if(data.backend.jsk) {
+        //Attribute Roll Value
+        rollArray.push(data.attributes[root[skill].linkedattribute].roll);
+        tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);          
+        }
+        
         break;
       default:
         var root = data.skills;
+        //Skill Roll Value
+        rollArray.push(root[skill].roll);
+        tags.push(game.i18n.localize("CPRED." + skill) + ": " + root[skill].value + " + " + root[skill].mod + " + " + root[skill].itemmod + " = " + root[skill].roll);
+
+        //Attribute Roll Value
+        rollArray.push(data.attributes[root[skill].linkedattribute].roll);
+        tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);
     }
 
-    //Skill Roll Value
-    rollArray.push(root[skill].roll);
-    tags.push(game.i18n.localize("CPRED." + skill) + ": " + root[skill].value + " + " + root[skill].mod + " + " + root[skill].itemmod + " = " + root[skill].roll);
-
-    //Attribute Roll Value
-    rollArray.push(data.attributes[root[skill].linkedattribute].roll);
-    tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);
 
     return {
       rollArray: rollArray,
@@ -546,7 +539,7 @@ export class cyberpunkredActor extends Actor {
     }
   }
 
-  rollHacking(command) {
+  rollNetrunner(command) {
     var rollArray = new Array();
     var tags = new Array();
     var data = this.data.data;
@@ -554,19 +547,19 @@ export class cyberpunkredActor extends Actor {
     switch (command) {
       case 'interfacecheck':
         //TODO: This needs customization in the future
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
         break;
       case 'attack':
         //TODO: This needs customization in the future
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
         break;
       case 'banhammerattack':
         //TODO: This needs customization in the future
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
         tags.push(game.i18n.localize("CPRED.banhammer") + ": 2");
@@ -574,24 +567,24 @@ export class cyberpunkredActor extends Actor {
         break;
       case 'encounterblackice':
         //TODO: Needs details
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
-        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.hacking.spd.value + " + " + data.roleskills.hacking.spd.mod + " = " + data.roleskills.hacking.spd.roll);
-        rollArray.push(data.roleskills.hacking.spd.roll);
+        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.netrunner.spd.value + " + " + data.roleskills.netrunner.spd.mod + " = " + data.roleskills.netrunner.spd.roll);
+        rollArray.push(data.roleskills.netrunner.spd.roll);
         break;
       case 'encounterblackicewithspeedy':
         //TODO: Needs details
-        var tempObject = this.rollSkill("interface", "hacking");
+        var tempObject = this.rollSkill("interface", "netrunner");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
-        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.hacking.spd.value + " + " + data.roleskills.hacking.spd.mod + " = " + data.roleskills.hacking.spd.roll);
-        rollArray.push(data.roleskills.hacking.spd.roll);
+        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.netrunner.spd.value + " + " + data.roleskills.netrunner.spd.mod + " = " + data.roleskills.netrunner.spd.roll);
+        rollArray.push(data.roleskills.netrunner.spd.roll);
         tags.push(game.i18n.localize("CPRED.speedygonzalez") + ": 4");
         rollArray.push(4);
         break;
       default:
-        _cprLog("Hacking command not recognized in rollHacking: command=" + command);
+        _cprLog("Netrunner command not recognized in rollNetrunner: command=" + command);
     }
 
     return {
@@ -638,8 +631,8 @@ export class cyberpunkredActor extends Actor {
         rollObject = this.rollInitiative();
         needsMods = false;
         break;
-      case '_RollHacking':
-        rollObject = this.rollHacking(cmdId);
+      case '_RollNetrunner':
+        rollObject = this.rollNetrunner(cmdId);
         break;
       case '_RollWithMods':
         rollObject.rollFormula = roll.replace('_RollWithMods', '');

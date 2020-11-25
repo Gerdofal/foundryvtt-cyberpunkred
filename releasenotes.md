@@ -4,15 +4,42 @@ Sections:
 - [Release Notes](#release-notes)
 
 ### Known Issues
-- 0.39
-	- This is an initial release with basic support for new skills in the core rulebook. It will take a little time to go through the entire book and implment all changes.
-		- Some skills (play instrument, language, etc...) which should have multiple options do not currently provide those options
-		- Role skills are not yet implemented
-		- Rules for melee and martial arts are only partially implemented
-  
+- None at the current time
+
 ### In Development
 
-- 0.40
+- 0.42
+
+
+
+### Future Plans
+
+- Continued implementation of core rulebook rules
+
+- UI cleanup and usability improvements
+  - Remove some columns on the stat setup tab and only show that info on click
+
+- Token bar actions/macros
+
+### Release Notes
+
+- 0.41 - Released 11/25/2020 - Beta
+	- IMPORTANT NOTES FOR MODULE DEVS:
+      - I've made a name change to the template.json so it makes more sense as new role skills are added:
+        - roleskill.hacking has become roleskill.netrunner
+      - All methods and properties which used to be "hacking" are now "netrunner"
+  - BUG FIXES
+    - Fixed the typo causing the settings tab to not display
+      - Also fixes the issue that the netrunning tab cannot be seen
+  - OTHER CHANGES
+    - Added basic entries for all roleskills on the stat setup tab (More role skill functionality to come in ver 0.42)
+      - You can activate your role (or more than one) on the settings tab
+    - Renamed the hacking tab to Netrunning
+    - Tweaked the appearance of the stat setup tab so it is a little easier to read
+    - Added a player notes tab
+    - Changed hacking rolls to not include INT when in core rulebook mode
+
+- 0.40 - Released 11/17/2020 - Beta
   - Bug fixes
     - The skill choice drop down on weapon items once again shows options for the core rulebook
     - There is no longer a javascript error when changing a skill mod drop-down to an attribute mod drop-down
@@ -26,19 +53,7 @@ Sections:
     - Initiative is now an option for an item modification
     - Initiative is available on the NPC character sheet
     - Changed the order of tabs so they make a little more sense
-    
-    
-    
-
-
-### Future Plans
-
-- UI cleanup and usability improvements
-  - Remove some columns on the stat setup tab and only show that info on click
-
-- Token bar actions/macros
-
-### Release Notes
+    - Initiative is now rollable on the stat setup tab
 
 - 0.39 - Released 11/14/2020 - Beta
   - Initial support of core rulebook.

@@ -87,8 +87,8 @@ Hooks.once('init', async function () {
     return "_RollInitiative";
   });
 
-  Handlebars.registerHelper('rollHacking', function (command) {
-    return "_RollHacking " + command;
+  Handlebars.registerHelper('rollNetrunner', function (command) {
+    return "_RollNetrunner " + command;
   });
 
   Handlebars.registerHelper('rollNPC', function (command) {
