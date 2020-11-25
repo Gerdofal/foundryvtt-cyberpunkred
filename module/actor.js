@@ -37,7 +37,7 @@ export class cyberpunkredActor extends Actor {
 
     //######################
     //
-    //Determine GM Settings
+    //Determine Settings
     //
     //######################
 
@@ -124,7 +124,7 @@ export class cyberpunkredActor extends Actor {
     } //Default changed in 0.28
     //Interim solution for transition to .30
     if (data.roleskills.hasOwnProperty('interface')) {
-      data.roleskills.hacking.interface = data.roleskills.interface;
+      data.roleskills.netrunner.interface = data.roleskills.interface;
       _cprLog(".30 Update - Found old hacking data template and fixed.");
       delete data.roleskills.interface;
     }
@@ -398,8 +398,8 @@ export class cyberpunkredActor extends Actor {
     //####################
 
     //HACKING
-    data.roleskills.hacking.interface.roll = data.roleskills.hacking.interface.value + data.roleskills.hacking.interface.mod;
-    data.roleskills.hacking.spd.roll = data.roleskills.hacking.spd.value + data.roleskills.hacking.spd.mod;
+    data.roleskills.netrunner.interface.roll = data.roleskills.netrunner.interface.value + data.roleskills.netrunner.interface.mod;
+    data.roleskills.netrunner.spd.roll = data.roleskills.netrunner.spd.value + data.roleskills.netrunner.spd.mod;
 
     //Compute roll attribute for roleskills
     for (let [key, attr] of Object.entries(data.roleskills)) {
@@ -513,7 +513,7 @@ export class cyberpunkredActor extends Actor {
     //rootstr identifies the root skill location to be used
     switch (rootstr) {
       case "hacking":
-        var root = data.roleskills.hacking;
+        var root = data.roleskills.netrunner;
         break;
       default:
         var root = data.skills;
@@ -577,16 +577,16 @@ export class cyberpunkredActor extends Actor {
         var tempObject = this.rollSkill("interface", "hacking");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
-        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.hacking.spd.value + " + " + data.roleskills.hacking.spd.mod + " = " + data.roleskills.hacking.spd.roll);
-        rollArray.push(data.roleskills.hacking.spd.roll);
+        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.netrunner.spd.value + " + " + data.roleskills.netrunner.spd.mod + " = " + data.roleskills.netrunner.spd.roll);
+        rollArray.push(data.roleskills.netrunner.spd.roll);
         break;
       case 'encounterblackicewithspeedy':
         //TODO: Needs details
         var tempObject = this.rollSkill("interface", "hacking");
         rollArray = tempObject.rollArray;
         tags = tempObject.tags;
-        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.hacking.spd.value + " + " + data.roleskills.hacking.spd.mod + " = " + data.roleskills.hacking.spd.roll);
-        rollArray.push(data.roleskills.hacking.spd.roll);
+        tags.push(game.i18n.localize("CPRED.spd") + ": " + data.roleskills.netrunner.spd.value + " + " + data.roleskills.netrunner.spd.mod + " = " + data.roleskills.netrunner.spd.roll);
+        rollArray.push(data.roleskills.netrunner.spd.roll);
         tags.push(game.i18n.localize("CPRED.speedygonzalez") + ": 4");
         rollArray.push(4);
         break;
