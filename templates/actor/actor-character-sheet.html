@@ -39,7 +39,9 @@
     <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
     <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
     <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
-    {{/if}} </div>
+    {{/if}}
+    <div class="cpr-nav-item"><a class="item" data-tab="playernotes">{{localize "CPRED.playernotes"}}</a></div>
+  </div>
   {{!-- Start Content --}}
   <div class="cpr-content cprgraphics"> {{!-- Welcome Tab --}}
     <div class="tab cprgraphics" data-group="primary" data-tab="welcome"> {{localize "CPRED.notlocalized"}}
@@ -61,12 +63,12 @@
       <hr>
       <div class="conversion-row">
         <div class="conversion-section"> Friday Night Firefight </div>
-        <div class="conversion-status"> Working on conversion to core rulebook rules. Have added autofire as a skill drop down, more work to come. </div>
+        <div class="conversion-status"> Working on conversion to core rulebook rules, more work to come. </div>
       </div>
       <hr>
       <div class="conversion-row">
         <div class="conversion-section"> Role Skills </div>
-        <div class="conversion-status"> Barely started. Hacking is based on JSK rules. No other role skills working yet. Currently working to implement them. </div>
+        <div class="conversion-status"> Basic entry of role skills is available. Working on special tabs for each skill.</div>
       </div>
       <hr>
       <div class="conversion-row">
@@ -85,6 +87,36 @@
       </div>
       <hr>
       <div class="conversion-row">
+        <div class="conversion-section"> Update 0.41 </div>
+        <ul>
+          <li>IMPORTANT NOTES FOR MODULE DEVS:
+            <ul>
+              <li>I&#39;ve made a name change to the template.json so it makes more sense as new role skills are added:
+                <ul>
+                  <li>roleskill.hacking has become roleskill.netrunner</li>
+                </ul>
+              </li>
+              <li>All methods and properties which used to be &quot;hacking&quot; are now &quot;netrunner&quot;</li>
+              <li>BUG FIXES</li>
+            </ul>
+          </li>
+          <li>Fixed the typo causing the settings tab to not display
+            <ul>
+              <li>Also fixes the issue that the netrunning tab cannot be seen</li>
+              <li>OTHER CHANGES</li>
+            </ul>
+          </li>
+          <li>Added basic entries for all roleskills on the stat setup tab (More role skill functionality to come in ver 0.42)
+            <ul>
+              <li>You can activate your role (or more than one) on the settings tab</li>
+            </ul>
+          </li>
+          <li>Renamed the hacking tab to Netrunning</li>
+          <li>Tweaked the appearance of the stat setup tab so it is a little easier to read</li>
+          <li>Added a player notes tab</li>
+        </ul>
+        </li>
+        </ul>
         <div class="conversion-section"> Update 0.40 </div>
         <div class="conversion-status">
           <ul>
@@ -388,6 +420,7 @@
           <select name="data.weaponsetup.{{key}}.skill">
             
             
+            
           
             
               {{#select item.skill}}
@@ -396,10 +429,12 @@
             
           
             
+            
             <option value="hidden">{{localize "CPRED.hidden"}}</option>
             <option value="brawling">{{localize "CPRED.brawling"}}</option>
             <option value="marksmanship">{{localize "CPRED.marksmanship"}}</option>
             <option value="meleeweapon">{{localize "CPRED.meleeweapon"}}</option>
+            
             
             
           
@@ -409,6 +444,7 @@
                   
             
           
+            
             
             <option value="hidden">{{localize "CPRED.hidden"}}</option>
             <option value="autofire">{{localize "CPRED.autofire"}}</option>
@@ -420,6 +456,7 @@
             <option value="heavyweapons">{{localize "CPRED.heavyweapons"}}</option>
             
             
+            
           
             
                 {{/if}}
@@ -427,6 +464,7 @@
               
           
         
+          
           
           </select>
         </div>
@@ -540,9 +578,7 @@
     </div>
     {{#if data.settings.showtabs.netrunner}}
     {{!-- Hacking Tab --}}
-    <div class="tab cprgraphics" data-group="primary" data-tab="hacking">
-
-      <br>
+    <div class="tab cprgraphics" data-group="primary" data-tab="hacking"> <br>
       {{localize "CPRED.underconstruction"}} <br>
       <hr>
       <h3>{{localize "CPRED.actions"}}</h3>
@@ -625,6 +661,8 @@
     
     {{!-- Text Inventory Tab --}}
     <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="textinventory"> {{editor content=data.description.textinventory target="data.description.textinventory" button=true owner=owner editable=editable}} </div>
+    {{!-- Player Notes Tab --}}
+    <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="playernotes"> {{editor content=data.description.playernotes target="data.description.playernotes" button=true owner=owner editable=editable}} </div>
     {{!-- SETTINGS TAB --}}
     <div class="tab cprgraphics" data-group="primary" data-tab="settings">
       <h3>{{localize "CPRED.setbygm"}}</h3>
