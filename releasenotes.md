@@ -18,6 +18,8 @@ Sections:
     - All methods and properties which used to be "hacking" are now "netrunner"
 	- Renamed the hacking tab to Netrunning
 	- Fixed the typo causing the settings tab to not display
+  - Added basic entries for all roleskills on the stat setup tab (More role skill functionality to come in ver 0.42)
+  
 
 ### Future Plans
 

@@ -818,6 +818,7 @@
             "spd": {
               "value": 0,
               "mod": 0,
+              "itemmod": 0,
               "roll": 0,
               "linkedattribute": "int"
             }
@@ -826,7 +827,9 @@
             "charismaticimpact": {
               "value": 0,
               "mod": 0,
-              "roll": 0
+              "itemmod": 0,
+              "roll": 0,
+              "linkedattribute": "cha"
             }
           },
           "solo": {

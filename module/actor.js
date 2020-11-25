@@ -404,8 +404,8 @@ export class cyberpunkredActor extends Actor {
     //####################
 
     //NETRUNNER
-    data.roleskills.netrunner.interface.roll = data.roleskills.netrunner.interface.value + data.roleskills.netrunner.interface.mod;
-    data.roleskills.netrunner.spd.roll = data.roleskills.netrunner.spd.value + data.roleskills.netrunner.spd.mod;
+    data.roleskills.netrunner.interface.roll = data.roleskills.netrunner.interface.value + data.roleskills.netrunner.interface.mod + data.roleskills.netrunner.interface.itemmod;
+    data.roleskills.netrunner.spd.roll = data.roleskills.netrunner.spd.value + data.roleskills.netrunner.spd.mod + data.roleskills.netrunner.spd.itemmod;
 
     //Compute roll attribute for roleskills
     for (let [key, attr] of Object.entries(data.roleskills)) {

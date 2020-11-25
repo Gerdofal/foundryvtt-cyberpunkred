@@ -137,6 +137,149 @@
     <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} </div>
     {{!-- Attributes and Skills Tab --}}
     <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
+      <h3>{{localize "CPRED.roleskills"}}</h3>
+      <div class="atrnskill-grid">
+        <label>{{localize "CPRED.attribute"}}</label>
+        <label>{{localize "CPRED.base"}}</label>
+        <label>{{localize "CPRED.mod"}}</label>
+        <label>{{localize "CPRED.itemmod"}}</label>
+        <label>{{localize "CPRED.totalroll"}}</label>
+        
+        {{#if data.settings.showtabs.netrunner}}
+          <label>{{localize "CPRED.interface"}}</label>
+          <input type="number" name="data.roleskills.netrunner.interface.value" value="{{data.roleskills.netrunner.interface.value}}"/>
+          <input type="number" name="data.roleskills.netrunner.interface.mod" value="{{data.roleskills.netrunner.interface.mod}}"/>
+          <input type="number" name="data.roleskills.netrunner.interface.itemmod" value="{{data.roleskills.netrunner.interface.itemmod}}" readonly/>
+          <input type="number" name="data.roleskills.netrunner.interface.roll" value="{{data.roleskills.netrunner.interface.roll}}" readonly/>
+          <label>{{localize "CPRED.spd"}}</label>
+          <input type="number" name="data.roleskills.netrunner.spd.value" value="{{data.roleskills.netrunner.spd.value}}"/>
+          <input type="number" name="data.roleskills.netrunner.spd.mod" value="{{data.roleskills.netrunner.spd.mod}}"/>
+          <input type="number" name="data.roleskills.netrunner.spd.itemmod" value="{{data.roleskills.netrunner.spd.itemmod}}" readonly/>
+          <input type="number" name="data.roleskills.netrunner.spd.roll" value="{{data.roleskills.netrunner.spd.roll}}" readonly/>
+        {{/if}}
+          
+        {{#if data.settings.showtabs.rockerboy}}
+          <label>{{localize "CPRED.charismaticimpact"}}</label>
+          <input type="number" name="data.roleskills.rockerboy.charismaticimpact.value" value="{{data.roleskills.rockerboy.charismaticimpact.value}}"/>
+          <input type="number" name="data.roleskills.rockerboy.charismaticimpact.mod" value="{{data.roleskills.rockerboy.charismaticimpact.mod}}"/>
+          <input type="number" name="data.roleskills.rockerboy.charismaticimpact.itemmod" value="{{data.roleskills.rockerboy.charismaticimpact.itemmod}}" readonly/>
+          <input type="number" name="data.roleskills.rockerboy.charismaticimpact.roll" value="{{data.roleskills.rockerboy.charismaticimpact.roll}}" readonly/>
+        {{/if}}
+        
+        {{#if data.settings.showtabs.solo}}
+          <label>{{localize "CPRED.combatawareness"}}</label>
+          <input type="number" name="data.roleskills.solo.combatawareness.max" value="{{data.roleskills.solo.combatawareness.max}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+        {{/if}}
+        
+        {{#if data.settings.showtabs.tech}}
+          <label>{{localize "CPRED.maker"}}</label>
+          <input type="number" name="data.roleskills.tech.maker.value" value="{{data.roleskills.tech.maker.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+
+          <label>{{localize "CPRED.fieldexpertise"}}</label>
+          <input type="number" name="data.roleskills.tech.fieldexpertise.value" value="{{data.roleskills.tech.fieldexpertise.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+
+          <label>{{localize "CPRED.upgradeexpertise"}}</label>
+          <input type="number" name="data.roleskills.tech.upgradeexpertise.value" value="{{data.roleskills.tech.upgradeexpertise.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+
+          <label>{{localize "CPRED.fabricationexpertise"}}</label>
+          <input type="number" name="data.roleskills.tech.fabricationexpertise.value" value="{{data.roleskills.tech.fabricationexpertise.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+
+          <label>{{localize "CPRED.inventionexpertise"}}</label>
+          <input type="number" name="data.roleskills.tech.inventionexpertise.value" value="{{data.roleskills.tech.inventionexpertise.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+        {{/if}}
+        
+        {{#if data.settings.showtabs.medtech}}
+          <label>{{localize "CPRED.medicine"}}</label>
+          <input type="number" name="data.roleskills.medtech.medicine.value" value="{{data.roleskills.medtech.medicine.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+
+          <label>{{localize "CPRED.surgery"}}</label>
+          <input type="number" name="data.roleskills.medtech.surgery.value" value="{{data.roleskills.medtech.surgery.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+
+          <label>{{localize "CPRED.medtechpharma"}}</label>
+          <input type="number" name="data.roleskills.medtech.medtechpharma.value" value="{{data.roleskills.medtech.medtechpharma.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+
+          <label>{{localize "CPRED.medtechcryo"}}</label>
+          <input type="number" name="data.roleskills.medtech.medtechcryo.value" value="{{data.roleskills.medtech.medtechcryo.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+
+          <label>{{localize "CPRED.medicaltech"}}</label>
+          <input type="number" name="data.roleskills.medtech.medicaltech.value" value="{{data.roleskills.medtech.medicaltech.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+        {{/if}}
+        
+        {{#if data.settings.showtabs.media}}
+          <label>{{localize "CPRED.credibility"}}</label>
+          <input type="number" name="data.roleskills.media.credibility.value" value="{{data.roleskills.media.credibility.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+        {{/if}}
+        
+        {{#if data.settings.showtabs.exec}}
+          <label>{{localize "CPRED.teamwork"}}</label>
+          <input type="number" name="data.roleskills.exec.teamwork.value" value="{{data.roleskills.exec.teamwork.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>        
+        {{/if}}
+        
+        {{#if data.settings.showtabs.lawman}}
+          <label>{{localize "CPRED.backup"}}</label>
+          <input type="number" name="data.roleskills.lawman.backup.value" value="{{data.roleskills.lawman.backup.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>                
+        {{/if}}
+        
+        {{#if data.settings.showtabs.fixer}}
+          <label>{{localize "CPRED.operator"}}</label>
+          <input type="number" name="data.roleskills.fixer.operator.value" value="{{data.roleskills.fixer.operator.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>                        
+        {{/if}}
+        
+        {{#if data.settings.showtabs.nomad}}
+          <label>{{localize "CPRED.moto"}}</label>
+          <input type="number" name="data.roleskills.nomad.moto.value" value="{{data.roleskills.nomad.moto.value}}"/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>
+          <input type="text" value="-" readonly/>                                
+        {{/if}}
+        
+        
+      </div>  
       <h3>{{localize "CPRED.specialattributes"}}</h3>
       <div class="atrnskill-grid">
         <label>{{localize "CPRED.attribute"}}</label>
@@ -521,7 +664,7 @@
       <ol class="settings-grid cpr-center">
         {{#each data.settings.showtabs as |attr key|}}
         <input class="settings" type="checkbox" id="set_{{key}}" name="data.settings.showtabs.{{key}}" {{checked attr}}>
-        <label class="cpr-center settings-item settings clickable" for="set_{{key}}">{{key}}</label>
+        <label class="cpr-center settings-item settings clickable" for="set_{{key}}">{{localize (concat "CPRED." key)}}</label>
         {{/each}}
       </ol>
     </div>
