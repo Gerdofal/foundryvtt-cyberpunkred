@@ -46,7 +46,7 @@ If you wish to make suggestions, please submit issues on the Github issue tracke
 
 Since playstyles vary greatly, this sheet is designed with the following in mind:
 
-1. Everything important about a character or NPC should work just fine without using tokens, maps, action bars, or anyting else.
+1. Everything important about a character or NPC should work just fine without using tokens, maps, action bars, or anything else.
    - Some people just want to play the game using their mind and their own internal vision, we want to support that style of play. If all the players and GM want to use is the character sheet, this should not limit the usefullness of the system in any way.
 2. Everything should be efficient and quick during play. Nothing should require multiple clicks or pop-ups if we can find a way to do it with just one click.
 3. The character sheet should be as small as possible, with extra features able to be hidden or shown as per player/gm preference, so that the character sheet will always work on small screens or for players with only one monitor.
