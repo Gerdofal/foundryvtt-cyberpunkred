@@ -9,7 +9,8 @@ Sections:
 ### In Development
 
 - 0.42
-
+  - New die code by njfox which fits rules in core rulebook for negative exploding dice
+  - Death saves no longer have die explosion (As per RTG)
 
 
 ### Future Plans
