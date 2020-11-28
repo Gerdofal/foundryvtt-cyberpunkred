@@ -749,6 +749,16 @@ export class cyberpunkredActor extends Actor {
       // Do the roll.
       let roll = new Roll(`${formula}`);
       roll.roll();
+      if (cmdCmd === "_RollDamage") { // check for critical injuries
+        let sixes = 0;
+        let results = roll.dice[0].results;
+        for (var i = 0; i < results.length; i++) {
+          if (results[i]['result'] === 6) {
+            sixes++;
+          }
+        }
+        // notify user of critical injury somehow
+      }
       // Render it.
       roll.render().then(r => {
         templateData.rollcpr = r;
