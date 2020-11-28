@@ -18,7 +18,6 @@ Sections:
 - Continued implementation of core rulebook rules
 
 - UI cleanup and usability improvements
-  - Remove some columns on the stat setup tab and only show that info on click
 
 - Token bar actions/macros
 
