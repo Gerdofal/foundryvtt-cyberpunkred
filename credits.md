@@ -8,4 +8,6 @@ The images used as borders are from @ELH#5618
 
 Simplified Chinese translations by @Ztt1996#7972
 
+The new die code was added by njfox (https://github.com/njfox)
+
 Many thanks to all those in the #system-development channel who have helped answer questions as this was created, especially to the moderators who make a huge difference every day!
