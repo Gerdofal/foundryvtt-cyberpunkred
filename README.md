@@ -15,7 +15,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 - You can also manually direct your FoundryVTT to the correct manifest. Use this as the manifest URL:
   - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
 
-- If you want to manually install the files from the dev branch, feel free. I don't recommend this.
+- If you want to manually install the files from the dev branch, feel free. Download the zip and install manually. I don't recommend this for anything other than testing as the development branch is sometimes non-functional.
 
 # Release Notes
 
@@ -37,9 +37,7 @@ If you wish to make suggestions, please submit issues on the Github issue tracke
   1. System to help make using large number of NPCs easier by automating actions from multiple NPCs when possible
 - Optional Rules
   1. Support for optional rules will be inclued wherever possible. For example:
-     - Base die roll will be tweaked to include common options for exploding dice (don't explode, explode once, explode with limt, explode infinitely )
-     - A few different ways of handling criticals will be included
-     - There will be options to use the CP 2020 health track system instead of the CP RED health track system
+     - Base die roll customization
      - Options to use inventory management or just a simple form field for tracking gear and such
 - Other
   1. Other design decisions about the table, dice rolling, etc... are still beging made
@@ -50,7 +48,7 @@ Since playstyles vary greatly, this sheet is designed with the following in mind
 
 1. Everything important about a character or NPC should work just fine without using tokens, maps, action bars, or anyting else.
    - Some people just want to play the game using their mind and their own internal vision, we want to support that style of play. If all the players and GM want to use is the character sheet, this should not limit the usefullness of the system in any way.
-2. Everything should be efficient and quick during play. Nothing should require multiple clicks if we can find a way to do it with just one.
+2. Everything should be efficient and quick during play. Nothing should require multiple clicks or pop-ups if we can find a way to do it with just one.
 3. Help text and tips should be available at the beginning, but hidable with a simple setting change.
 
 # License and Credits
