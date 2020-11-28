@@ -20,7 +20,7 @@ export const registerSystemSettings = function() {
     hint: "CPRED.dierollcommandhint",
     scope: "world",
     config: true,
-    default: "d10xo10",
+    default: "dpixo1xo10",
     type: String
   });
 	

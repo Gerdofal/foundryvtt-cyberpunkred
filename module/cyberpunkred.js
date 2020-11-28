@@ -15,6 +15,9 @@ import {
   cyberpunkredItemSheet
 } from "./item-sheet.js";
 import {
+  cyberpunkredDie
+} from "./die.js";
+import {
   registerSystemSettings
 } from "./settings.js";
 import {
@@ -75,6 +78,8 @@ Hooks.once('init', async function () {
     makeDefault: true
   });
 
+  _cprLog(`Register cyberpunkred die`);
+  CONFIG.Dice.terms["p"] = cyberpunkredDie;
 
   _cprLog(`Register Handlebars`);
 
