@@ -801,7 +801,8 @@
           "prefs": {
             "simpleCombatSetup": true,
             "itemCombatSetup": true,
-            "showInventory": true
+            "showInventory": true,
+            "automateDamageMod": true
           }
         }
       },

@@ -125,7 +125,7 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 25 == 0 && x != max) {
+      if (x % 10 == 0 && x != max) {
         outStr += "<br>";
       }
     }
@@ -146,7 +146,7 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 25 == 0 && x != max) {
+      if (x % 10 == 0 && x != max) {
         outStr += "<br>";
       }
     }
@@ -162,6 +162,19 @@ Hooks.once('init', async function () {
     return output;
   });
 
+  Handlebars.registerHelper("math", function(lvalue, operator, rvalue) {
+    lvalue = parseFloat(lvalue);
+    rvalue = parseFloat(rvalue);
+        
+    return {
+        "+": lvalue + rvalue,
+        "-": lvalue - rvalue,
+        "*": lvalue * rvalue,
+        "/": lvalue / rvalue,
+        "%": lvalue % rvalue
+    }[operator];
+  });
+  
   //Return concatination of all arguments - Used for localizing sometimes
   Handlebars.registerHelper('concat', function () {
     var outStr = '';

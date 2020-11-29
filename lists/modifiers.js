@@ -3,15 +3,19 @@ export const listsModifiers = { // Here begins the object
   //Don't change anything above this line  
   //The list below may be edited
   //Always use all lowercase for everything!
-
+  
+  //Do not change the top two, they are used in automation
   "modhalfdam": {
-    "penalty": -3
+    "penalty": -2
   },
 
   "modfulldam": {
     "penalty": -2
   },
 
+  
+  //These below can be changed
+  
   "modfacedown": {
     "penalty": -3
   },

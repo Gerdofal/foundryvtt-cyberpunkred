@@ -115,12 +115,12 @@ export class cyberpunkredActor extends Actor {
     //####################
     //TODO - put all these migrations into their own module
 
-    
+
     if (data.settings.showtabs.hasOwnProperty('hacking')) {
       _cprLog(".41 Update - Found old hacking showtab and deleted.");
       delete data.settings.showtabs.hacking;
     }
-    
+
 
     //######################
     //
@@ -173,30 +173,30 @@ export class cyberpunkredActor extends Actor {
     //
     //
     //######################
-    
+
     data.backend.humanityTotal = 0;
     data.backend.humanityPositive = 0;
     data.backend.humanityNegative = 0;
     var tempNum = 0;
-    data.humanityarray.forEach(function(arr) {
+    data.humanityarray.forEach(function (arr) {
       tempNum = Number(arr[0]);
       _cprLog("Humanity Change " + tempNum);
       data.backend.humanityTotal += tempNum;
-      if(tempNum>0) {
+      if (tempNum > 0) {
         data.backend.humanityPositive += tempNum;
       }
-      if(tempNum<0) {
+      if (tempNum < 0) {
         data.backend.humanityNegative += tempNum;
       }
     });
-    
+
     _cprLog("Humanity Total " + data.backend.humanityTotal);
     _cprLog("Humanity Positive " + data.backend.humanityPositive);
     _cprLog("Humanity Negative " + data.backend.humanityNegative);
     //Computer humanity TODO-guessing at formula may need to fix this for final rule release
     data.combatstats.humanity.itemmod = 0;
     data.combatstats.humanity.current = 0;
-    
+
     //######################
     //
     //Show or hide skills based on environment
@@ -351,18 +351,22 @@ export class cyberpunkredActor extends Actor {
 
     //Calculate Cultural Familiarity
     //TODO - Try to figure out if I should include mod in this?
-    data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
+    
+    if(allowJSK) {
+      data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
+    } else {
+      data.culturalFamiliarity = 0;
+    }
 
     //Compute all roll values to be equal to value + mod for skills
     for (let [key, attr] of Object.entries(data.skills)) {
       if (attr.value >= data.culturalFamiliarity) {
         attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
+        attr.totalpool = attr.roll + data.attributes[attr.linkedattribute].roll;
       } else {
         attr.roll = data.culturalFamiliarity + attr.mod + attr.itemmod;
       }
     }
-
-
 
 
     //####################
@@ -434,27 +438,51 @@ export class cyberpunkredActor extends Actor {
     //Roll Penalty
     //
     //####################
+    
+    //Adjust template stored modifiers to match list
+    
+    for (let [key, attr] of Object.entries(listsModifiers)) {
+      if (data.modifiers.hasOwnProperty(key)) {
+        data.modifiers[key].penalty = attr.penalty;
+      }
+    }
+    
+      var tempHealthPenalty = 0;
+    if (data.settings.prefs.automateDamageMod) {
+      //Players can turn off this automation
 
-    var tempHealthPenalty = 0;
-    //Check wound penalties for half damage
-    if (data.combatstats.healthpool.value < (data.combatstats.healthpool.max / 2)) {
-      data.modifiers.modhalfdam.checked = true;
-      tempHealthPenalty += data.modifiers.modhalfdam.penalty;
+      //Check wound penalties for half damage
+      if (data.combatstats.healthpool.value < (data.combatstats.healthpool.max / 2)) {
+        data.modifiers.modhalfdam.checked = true;
+        tempHealthPenalty += data.modifiers.modhalfdam.penalty;
+      } else {
+        data.modifiers.modhalfdam.checked = false;
+      }
+
+      //Check wound penalties for zero health
+      if (data.combatstats.healthpool.value <= 0) {
+        //_cprLog("Turning on full dam");
+        data.modifiers.modfulldam.checked = true;
+        tempHealthPenalty += data.modifiers.modfulldam.penalty;
+      } else {
+        //_cprLog("Turning off full dam");
+        data.modifiers.modfulldam.checked = false;
+      }
+
     } else {
-      data.modifiers.modhalfdam.checked = false;
+      //If the automation is off, we still need to set tempHealthPenalty based on what is clicked
+      if(data.modifiers.modhalfdam.checked) {
+        //Half damage is clicked
+        tempHealthPenalty += data.modifiers.modhalfdam.penalty;
+      } 
+      
+      if(data.modifiers.modfulldam.checked) {
+        //Full damage is clicked
+        tempHealthPenalty += data.modifiers.modfulldam.penalty;
+      } 
     }
 
-    //Check wound penalties for zero health
-    if (data.combatstats.healthpool.value <= 0) {
-      //_cprLog("Turning on full dam");
-      data.modifiers.modfulldam.checked = true;
-      tempHealthPenalty += data.modifiers.modfulldam.penalty;
-    } else {
-      //_cprLog("Turning off full dam");
-      data.modifiers.modfulldam.checked = false;
-    }
-
-    //Compute current total damage mod
+    //Compute current total mod
     var tempmod = 0;
     for (let [key, attr] of Object.entries(data.modifiers)) {
       if (attr.hasOwnProperty("checked")) {
@@ -500,13 +528,13 @@ export class cyberpunkredActor extends Actor {
         //Skill Roll Value
         rollArray.push(root[skill].roll);
         tags.push(game.i18n.localize("CPRED." + skill) + ": " + root[skill].value + " + " + root[skill].mod + " + " + root[skill].itemmod + " = " + root[skill].roll);
-        
-        if(data.backend.jsk) {
-        //Attribute Roll Value
-        rollArray.push(data.attributes[root[skill].linkedattribute].roll);
-        tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);          
+
+        if (data.backend.jsk) {
+          //Attribute Roll Value
+          rollArray.push(data.attributes[root[skill].linkedattribute].roll);
+          tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);
         }
-        
+
         break;
       default:
         var root = data.skills;

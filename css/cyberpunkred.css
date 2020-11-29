@@ -6,7 +6,7 @@
   --cpr-red-color: #700000; /* var(--cpr-red-color) */
   --cpr-light-bak-color: #FFFFFF; /* var(--cpr-light-bak-color) */
   --cpr-app-bak-color: rgba(200,200,200,1.00); /* var(--cpr-app-bak-color) */
-  --cpr-default-text-size: .85em;
+  --cpr-default-text-size: .90em;
   --cpr-default-small-text-size: .80em;
 }
 
@@ -470,7 +470,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
-  font-size: var(--cpr-default-small-text-size);
+  font-size: var(--cpr-default-text-size);
 }
 
 .cyberpunkred .skilllist-item {
@@ -486,7 +486,7 @@
   align-self: center;
   justify-self: center;
   text-align: left;
-  font-size: var(--cpr-default-small-text-size);
+  font-size: var(--cpr-default-text-size);
 }
 
 .cyberpunkred .specialroll-grid {

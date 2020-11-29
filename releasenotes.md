@@ -11,6 +11,15 @@ Sections:
 - 0.42
   - New die code by njfox which fits rules in core rulebook for negative exploding dice
   - Death saves no longer have die explosion (As per RTG)
+  - There is now a setting on the "Settings" tab to turn on or off automation of health penalties.
+  - Tweaked the combat tab UI a bit to save some space.
+  - Moved the roll modifiers block higher on the combat tab.
+  - As per core rules, "Cultural Familiarity" is no longer added while in that game mode
+  - The "Stat Setup" tab has been renamed "Stats & Skills"
+  - Skills on the "Stats & Skills" tab now show their total pool (including attribute) in the "Total" column
+  - Increased the font size of the skills on the combat tab
+  - The combat tab now only shows skills which have a value. (All skills are still shown on the Stats * Skills tab)
+  
 
 
 ### Future Plans
