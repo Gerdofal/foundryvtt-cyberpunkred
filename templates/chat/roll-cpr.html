@@ -10,6 +10,9 @@
       <input class="cpr-roll-showtagscheck" type="checkbox">
       <div class="cpr-roll-tags"><hr>{{{cprTags tags}}}</div>
     </label>
+    {{#if critinjury}}<div class="cpr-roll-crit-injury">{{{critinjury}}}</div>{{/if}}
+    {{#if critfail}}<div class="cpr-roll-crit-failure">{{{critfail}}}</div>{{/if}}
+    {{#if critsuccess}}<div class="cpr-roll-crit-success">{{{critsuccess}}}</div>{{/if}}
     {{/if}}
-    </div>
+  </div>
 </section>

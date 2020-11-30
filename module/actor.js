@@ -634,6 +634,25 @@ export class cyberpunkredActor extends Actor {
     }
   }
 
+  checkCritInjury(roll) {
+    let sixes = 0;
+    let results = roll.dice[0].results;
+    for (var i = 0; i < results.length; i++) {
+      if (results[i]["result"] === 6) {
+        sixes++;
+      }
+    }
+    return sixes >= 2;
+  }
+
+  checkCritFail(roll) {
+    return roll.dice[0].results[0]["result"] === 1;
+  }
+
+  checkCritSuccess(roll) {
+    return roll.dice[0].results[0]["result"] === 10;
+  }
+
   async rollCPR(roll, actorData, templateData = null) {
     _cprLog("rollCPR - Computing Roll");
 
@@ -749,6 +768,17 @@ export class cyberpunkredActor extends Actor {
       // Do the roll.
       let roll = new Roll(`${formula}`);
       roll.roll();
+      if (cmdCmd != "_RollDamage") {
+        // Don't check for critical success/failure on damage rolls
+        if (this.checkCritFail(roll)) {
+          templateData["critfail"] = "Critical Failure!";
+        } else if (this.checkCritSuccess(roll)) {
+          templateData["critsuccess"] = "Critical Success!";
+        }
+      }
+      if (cmdCmd === "_RollDamage" && this.checkCritInjury(roll)) {
+          templateData["critinjury"] = "Critical Injury!";
+      }
       // Render it.
       roll.render().then(r => {
         templateData.rollcpr = r;
