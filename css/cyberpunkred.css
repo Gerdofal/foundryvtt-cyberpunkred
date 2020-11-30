@@ -139,6 +139,11 @@
 .sidebar-tab .directory-list .entity {
   background: var(--cpr-app-bak-color);
 }
+
+#playlists li.playlist .sound-control {
+  color: var(--cpr-red-color);
+}
+
 /* Make sure this block has room to edit */
 .cyberpunkred .roomtoedit {
   height: 400px;
