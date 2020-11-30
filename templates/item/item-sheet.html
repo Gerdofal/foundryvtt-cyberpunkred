@@ -45,6 +45,19 @@
         {{localize "CPRED.damage"}}<input type="text" name="data.damage.value" value="{{data.damage.value}}">
         {{localize "CPRED.rof"}}<input type="number" name="data.rof.value" value="{{data.rof.value}}">
         {{localize "CPRED.ammomax"}}<input type="number" name="data.ammo.max" value="{{data.ammo.max}}">
+        {{localize "CPRED.ammotype"}}
+        <select name="data.ammotype.value">
+        {{#select data.ammotype.value}}
+          <option value="mpistol">{{localize "CPRED.mpistol"}}</option>
+          <option value="hpistol">{{localize "CPRED.hpistol"}}</option>
+          <option value="vhpistol">{{localize "CPRED.vhpistol"}}</option>
+          <option value="slug">{{localize "CPRED.slug"}}</option>
+          <option value="rifle">{{localize "CPRED.rifle"}}</option>
+          <option value="arrow">{{localize "CPRED.arrow"}}</option>
+          <option value="grenade">{{localize "CPRED.grenade"}}</option>
+          <option value="rocket">{{localize "CPRED.rocket"}}</option>
+        {{/select}}
+        </select>
         {{localize "CPRED.weapontype"}}
         <select name="data.weapontype.value">
         {{#select data.weapontype.value}}
