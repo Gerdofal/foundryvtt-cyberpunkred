@@ -721,7 +721,7 @@
           },
 
           "modheadshot": {
-            "penalty": -6,
+            "penalty": -8,
             "checked": false
           },
 
