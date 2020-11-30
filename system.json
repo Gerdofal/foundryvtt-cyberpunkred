@@ -32,7 +32,7 @@
       "path": "lang/de.json"
     }           
   ],
-  "gridDistance": 1,
+  "gridDistance": 2,
   "gridUnits": "m",
   "primaryTokenAttribute": "combatstats.healthpool",
   "secondaryTokenAttribute": "combatstats.luckpool",
