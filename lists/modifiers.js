@@ -21,7 +21,7 @@ export const listsModifiers = { // Here begins the object
   },
 
   "modheadshot": {
-    "penalty": -6
+    "penalty": -8
   },
 
   "modunfamiliarequipment": {
