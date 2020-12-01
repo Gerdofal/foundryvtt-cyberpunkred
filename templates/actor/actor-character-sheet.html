@@ -518,7 +518,7 @@
           <h3>{{localize "CPRED.specialrolls"}}</h3>
           <ol class="specialroll-grid">
             <ol class="specialroll-item">
-              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{RollWithoutMods (concat '1d10' '+' data.combatstats.deathsave.penalty) }}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label>
+              <label for="Death Save" data-label='{{localize "CPRED.deathsaverolllabela"}} {{data.attributes.body.roll}}{{localize "CPRED.deathsaverolllabelb"}}' data-roll="{{RollDeathSave (concat '1d10' '+' data.combatstats.deathsave.penalty) }}" class="rollable deathsave">{{localize "CPRED.deathsave"}} (+{{data.combatstats.deathsave.penalty}})</label>
               <br>
               <li class="flexrow" data-item-id="{{item.id}}"> <i class="alterdeathsave clickable" data-change="-9999">{{localize "CPRED.zero"}}</i> <i class="alterdeathsave clickable" data-change="-1">-1</i> <i class="alterdeathsave clickable" data-change="1">+1</i> </li>
             </ol>

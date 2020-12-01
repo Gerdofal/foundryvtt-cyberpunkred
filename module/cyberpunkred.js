@@ -108,6 +108,10 @@ Hooks.once('init', async function () {
     return "_RollWithoutMods " + formula;
   });
 
+  Handlebars.registerHelper('RollDeathSave', function (formula) {
+    return "_RollDeathSave " + formula;
+  });
+
   Handlebars.registerHelper('rollDamage', function (formula) {
     return "_RollDamage " + formula;
   });
