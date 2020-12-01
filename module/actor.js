@@ -692,6 +692,12 @@ export class cyberpunkredActor extends Actor {
         rollObject.tags.push("Manual Formula");
         needsMods = false;
         break;
+      case '_RollDeathSave':
+        rollObject.rollFormula = roll.replace('_RollDeathSave', '');
+        rollObject.tags = new Array();
+        rollObject.tags.push("Manual Formula");
+        needsMods = false;
+        break;
       case '_RollDamage':
         rollObject.rollFormula = roll.replace('_RollDamage', '');
         rollObject.tags = new Array();
@@ -768,8 +774,8 @@ export class cyberpunkredActor extends Actor {
       // Do the roll.
       let roll = new Roll(`${formula}`);
       roll.roll();
-      if (cmdCmd != "_RollDamage") {
-        // Don't check for critical success/failure on damage rolls
+      if (cmdCmd != "_RollDamage" && cmdCmd != "_RollDeathSave") {
+        // Don't check for critical success/failure on damage rolls and death saves
         if (this.checkCritFail(roll)) {
           templateData["critfail"] = "Critical Failure!";
         } else if (this.checkCritSuccess(roll)) {
