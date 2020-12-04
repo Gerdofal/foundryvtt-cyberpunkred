@@ -25,6 +25,8 @@ Sections:
 	- The penalty for headshots is now -8 as per core rules
 	- A basic check for critical injuries is now made when damage is rolled
 	- There is now an option to unlink NPC health from body to make it easier for GMs to make quick and dirty NPCs
+  - Adjusted die roll settings so they show as a drop-down
+  - The incredibly complex die formula is no longer shown in chat
 	
   
 
