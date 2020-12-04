@@ -12,6 +12,13 @@
 }
 
 /* Roll Template */
+
+/* Hide the overly complex formula */
+span.part-formula {
+  display: none;
+}
+
+
 .cpr-roll-title {
   font-size: 1.5em;
   border-bottom: 2px solid var(--cpr-red-color);
@@ -71,6 +78,7 @@
   background: #FFFFAA;
   padding-left: 10px;
   padding-right: 10px;
+  display: block;
 }
 
 /* Damage Track and Luck Track */
