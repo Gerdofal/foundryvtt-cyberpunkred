@@ -4,6 +4,12 @@ Sections:
 - [Release Notes](#release-notes)
 
 ### Known Issues
+
+Live:
+- 0.41
+  - Dice so Nice! crashes when trying to roll a NPC roll with "Always Whisper NPC Rolls" checked in settings
+
+Development
 - 0.42
   - In cases where a 1 is rolled, followed by a 10 (which should result in a roll of -9), the die roller is improperly exploding the 10 and adding the result.
 
