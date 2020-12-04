@@ -15,10 +15,10 @@ Sections:
   - Tweaked the combat tab UI a bit to save some space.
   - Moved the roll modifiers block higher on the combat tab.
   - As per core rules, "Cultural Familiarity" is no longer added while in that game mode
-  - The "Stat Setup" tab has been renamed "Stats & Skills"
-  - Skills on the "Stats & Skills" tab now show their total pool (including attribute) in the "Total" column
+  - The "Stat Setup" tab has been renamed "Char Setup"
+  - Skills on the "Char Setup" tab now show their total pool (including attribute) in the "Total" column
   - Increased the font size of the skills on the combat tab
-  - The combat tab now only shows skills which have a value. (All skills are still shown on the Stats * Skills tab)
+  - The combat tab now only shows skills which have a value. (All skills are still shown on the "Char Setup" tab)
   
 
 
