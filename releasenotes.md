@@ -4,7 +4,8 @@ Sections:
 - [Release Notes](#release-notes)
 
 ### Known Issues
-- None at the current time
+- 0.42
+  - In cases where a 1 is rolled, followed by a 10 (which should result in a roll of -9), the die roller is improperly exploding the 10 and adding the result.
 
 ### In Development
 
