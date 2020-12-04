@@ -19,6 +19,12 @@ Sections:
   - Skills on the "Char Setup" tab now show their total pool (including attribute) in the "Total" column
   - Increased the font size of the skills on the combat tab
   - The combat tab now only shows skills which have a value. (All skills are still shown on the "Char Setup" tab)
+	- Default grid distance is now 2m, as per core rules. Users of custom maps please take note you may need to change the default.
+	- CSS fixed so the playlist controls are now visible (changed their color)
+	- Ammo type is now an option in weapons
+	- The penalty for headshots is now -8 as per core rules
+	- A basic check for critical injuries is now made when damage is rolled
+	
   
 
 
