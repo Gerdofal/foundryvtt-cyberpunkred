@@ -802,7 +802,8 @@
             "simpleCombatSetup": true,
             "itemCombatSetup": true,
             "showInventory": true,
-            "automateDamageMod": true
+            "automateDamageMod": true,
+            "linkBodyToHealth": true
           }
         }
       },
