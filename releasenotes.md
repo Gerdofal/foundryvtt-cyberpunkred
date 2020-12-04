@@ -26,7 +26,9 @@ Sections:
 	- A basic check for critical injuries is now made when damage is rolled
 	- There is now an option to unlink NPC health from body to make it easier for GMs to make quick and dirty NPCs
   - Adjusted die roll settings so they show as a drop-down
-  - The incredibly complex die formula is no longer shown in chat
+  - Dice So Nice! no longer crashes when trying to roll an NPC roll with "Always Whisper NPC Rolls" checked in settings
+  
+  
 	
   
 
