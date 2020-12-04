@@ -20,7 +20,11 @@ export const registerSystemSettings = function() {
     hint: "CPRED.dierollcommandhint",
     scope: "world",
     config: true,
-    default: "dpixo1xo10",
+    default: "1dpixo1xo10",
+    choices: {
+      "1dpixo1xo10": "Explode 10s and subtract 1s",
+      "1d10xo10": "Only explode 10s"
+    },
     type: String
   });
 	

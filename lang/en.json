@@ -69,7 +69,7 @@
 "CPRED.degrade": "Degradation",
 "CPRED.demolitions": "Demolitions",
 "CPRED.dex": "DEX",
-"CPRED.dierollcommandhint": "Defaults to dpixo1xo10 (explode once). Adjust to dpix1x10 if you want infininte explosion or to d10 to remove exploding completely. Use other options with caution.",
+"CPRED.dierollcommandhint": "Explode (and subtract) each only happen one time.",
 "CPRED.dierollcommandname": "Die roll command for rolls.",
 "CPRED.disabled": "Disabled",
 "CPRED.drivelandvehicle": "Drive Land Vehicle",
