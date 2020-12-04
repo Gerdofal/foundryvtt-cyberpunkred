@@ -32,13 +32,9 @@ Development
 	- The penalty for headshots is now -8 as per core rules
 	- A basic check for critical injuries is now made when damage is rolled
 	- There is now an option to unlink NPC health from body to make it easier for GMs to make quick and dirty NPCs
-  - Adjusted die roll settings so they show as a drop-down
+  - Adjusted die roll settings so they show as a drop-down on the settings tab
   - Dice So Nice! no longer crashes when trying to roll an NPC roll with "Always Whisper NPC Rolls" checked in settings
   
-  
-	
-  
-
 
 ### Future Plans
 

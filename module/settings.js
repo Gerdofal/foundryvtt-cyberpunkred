@@ -22,8 +22,13 @@ export const registerSystemSettings = function() {
     config: true,
     default: "1dpixo1xo10",
     choices: {
-      "1dpixo1xo10": "Explode 10s and subtract 1s",
-      "1d10xo10": "Only explode 10s"
+      "1dpixo1xo10": "Explode 10s (once) and subtract 1s (once)",
+      "1dpixo1x10": "Explode 10s (infinitely) and subtract 1s (once)",
+      "1dpix1x10": "Explode 10s (infinitely) and subtract 1s (infinitely)",
+      "1d10xo10": "Explode 10s (once)",
+      "1d10x10": "Explode 10s (infinitely)",
+      "1dpixo1": "Subtract 1s (once)",
+      "1dp1x1": "Subtract 1s (infinitely)"
     },
     type: String
   });
