@@ -18,6 +18,9 @@ import {
   cyberpunkredDie
 } from "./die.js";
 import {
+  combinedCPREDDieHandler
+} from "./die-handler.js"
+import {
   registerSystemSettings
 } from "./settings.js";
 import {
@@ -80,6 +83,7 @@ Hooks.once('init', async function () {
 
   _cprLog(`Register cyberpunkred die`);
   CONFIG.Dice.terms["p"] = cyberpunkredDie;
+  CONFIG.Dice.terms["l"] = combinedCPREDDieHandler;
 
   _cprLog(`Register Handlebars`);
 

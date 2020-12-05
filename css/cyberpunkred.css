@@ -18,7 +18,9 @@ span.part-formula {
   display: none;
 }
 
-
+.discarded {
+  display: none;
+}
 
 .cpr-roll-title {
   font-size: 1.5em;
