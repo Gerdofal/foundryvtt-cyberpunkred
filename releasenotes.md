@@ -29,6 +29,7 @@ Development
 	- Default grid distance is now 2m, as per core rules. Users of custom maps please take note you may need to change the default.
 	- CSS fixed so the playlist controls are now visible (changed their color)
 	- Ammo type is now an option in weapons
+  - Ammo tracking is disabled for weapons with ammo type set to "None"
 	- The penalty for headshots is now -8 as per core rules
 	- A basic check for critical injuries is now made when damage is rolled
 	- There is now an option to unlink NPC health from body to make it easier for GMs to make quick and dirty NPCs
