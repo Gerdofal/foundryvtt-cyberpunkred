@@ -365,6 +365,7 @@ export class cyberpunkredActor extends Actor {
         attr.totalpool = attr.roll + data.attributes[attr.linkedattribute].roll;
       } else {
         attr.roll = data.culturalFamiliarity + attr.mod + attr.itemmod;
+        attr.totalpool = data.culturalFamiliarity + data.attributes[attr.linkedattribute].roll;
       }
     }
 
