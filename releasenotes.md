@@ -11,7 +11,9 @@ Live:
 
 Development
 - 0.42
-  - In cases where a 1 is rolled, followed by a 10 (which should result in a roll of -9), the die roller is improperly exploding the 10 and adding the result.
+  - In cases where a 1 is rolled, followed by a 10 (which should result in a roll of -9), some of the settings die rollers are improperly exploding the 10 and add the result.
+  - The show/hide of the dice tooltip can result in poor chatlog formatting if an attempt is made to hide the dice
+
 
 ### In Development
 
