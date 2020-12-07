@@ -49,12 +49,32 @@ export class combinedCPREDDieHandler extends Die {
     let summed = 0;
     let totalSum = 0;
     let doneProcessing = false;
+    
+    //Dice so Nice Integration
+    let data = { };
+    
     for(summed=0;summed < this.results.length;summed++) {
       let r = this.results[summed];
       if (r.result>targetLow && r.result<targetHigh&&!doneProcessing) {
         _cprLog("Found result of "+r.result);
         totalSum += r.result;
         
+        //Dice so Nice Integration
+        data = {
+          throws: [{
+            dice: [{
+              result: r.result,
+              resultLabel: r.result,
+              type: "d10",
+              vectors:[],
+              options:{}
+            }]  
+          }]
+        };
+        
+        if (game.dice3d) {
+          game.dice3d.show(data);
+        }
         //As soon as we have a non-exploded value, we are done.
         doneProcessing=true; 
         
@@ -64,12 +84,48 @@ export class combinedCPREDDieHandler extends Die {
         _cprLog("Found result of "+r.result);
         //Done processing this value
         r.active = true; 
-        
+
+        //Dice so Nice Integration
+        data = {
+          throws: [{
+            dice: [{
+              result: r.result,
+              resultLabel: r.result,
+              type: "d10",
+              vectors:[],
+              options:{}
+            }]  
+          }]
+        };
+
+        if (game.dice3d) {
+          game.dice3d.show(data);
+        }
+
         //Skip to next value
         summed++; 
         r = this.results[summed];
+        
+        //Dice so Nice Integration
+        data = {
+          throws: [{
+            dice: [{
+              result: r.result,
+              resultLabel: r.result,
+              type: "d10",
+              vectors:[],
+              options:{}
+            }]  
+          }]
+        };
+
+        if (game.dice3d) {
+          game.dice3d.show(data);
+        }
+
         _cprLog("Subtracting result of "+r.result+" from "+targetLow);
         totalSum = targetLow - r.result;
+        
         r.result = parseInt(r.result) * -1;
         //We have exploded and subtracted a result so we are done.
         doneProcessing=true; 
@@ -82,9 +138,44 @@ export class combinedCPREDDieHandler extends Die {
         //Done processing this value
         r.active = true; 
         
+        //Dice so Nice Integration
+        data = {
+          throws: [{
+            dice: [{
+              result: r.result,
+              resultLabel: r.result,
+              type: "d10",
+              vectors:[],
+              options:{}
+            }]  
+          }]
+        };
+
+        if (game.dice3d) {
+          game.dice3d.show(data);
+        }
+
         //Skip to next value
         summed++; 
         r = this.results[summed];
+
+        //Dice so Nice Integration
+        data = {
+          throws: [{
+            dice: [{
+              result: r.result,
+              resultLabel: r.result,
+              type: "d10",
+              vectors:[],
+              options:{}
+            }]  
+          }]
+        };
+
+        if (game.dice3d) {
+          game.dice3d.show(data);
+        }
+        
         _cprLog("Adding result of "+r.result+" to "+targetHigh);
         totalSum = targetHigh + r.result;
         

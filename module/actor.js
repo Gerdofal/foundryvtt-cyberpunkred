@@ -793,12 +793,12 @@ export class cyberpunkredActor extends Actor {
         templateData.rollcpr = r;
         renderTemplate(template, templateData).then(content => {
           chatData.content = content;
-          if (game.dice3d&&!(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
-            game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-          } else {
+        //  if (game.dice3d&&!(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
+//            game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+//          } else {
             chatData.sound = CONFIG.sounds.dice;
             ChatMessage.create(chatData);
-          }
+  //        }
         });
       }); //End Roll Render
     } // End if formula != null
