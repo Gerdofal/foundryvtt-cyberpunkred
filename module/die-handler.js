@@ -52,34 +52,64 @@ export class combinedCPREDDieHandler extends Die {
     for(summed=0;summed < this.results.length;summed++) {
       let r = this.results[summed];
       if (r.result>targetLow && r.result<targetHigh&&!doneProcessing) {
+        _cprLog("Found result of "+r.result);
         totalSum += r.result;
-        doneProcessing=true; //As soon as we have a non-exploded value, we are done.
-        r.active = true; //Done processing this value
+        
+        //As soon as we have a non-exploded value, we are done.
+        doneProcessing=true; 
+        
+        //Done processing this value
+        r.active = true; 
       } else if (r.result == targetLow&&!doneProcessing) {
-        r.active = true; //Done processing this value
-        summed++; //Skip to next value
+        _cprLog("Found result of "+r.result);
+        //Done processing this value
+        r.active = true; 
+        
+        //Skip to next value
+        summed++; 
         r = this.results[summed];
+        _cprLog("Subtracting result of "+r.result+" from "+targetLow);
         totalSum = targetLow - r.result;
-        doneProcessing=true; //We have exploded and subtracted a result so we are done.
-        r.active = true; //Done processing this value
+        r.result = parseInt(r.result) * -1;
+        //We have exploded and subtracted a result so we are done.
+        doneProcessing=true; 
+        
+        //Done processing this value
+        r.active = true; 
+        
       } else if (r.result == targetHigh&&!doneProcessing) {
-        r.active = true; //Done processing this value
-        summed++; //Skip to next value
+        _cprLog("Found result of "+r.result);
+        //Done processing this value
+        r.active = true; 
+        
+        //Skip to next value
+        summed++; 
         r = this.results[summed];
-        totalSum = targetHigh - r.result;
-        doneProcessing=true; //We have exploded and added a result so we are done.
-        r.active = true; //Done processing this value
+        _cprLog("Adding result of "+r.result+" to "+targetHigh);
+        totalSum = targetHigh + r.result;
+        
+        //We have exploded and added a result so we are done.
+        doneProcessing=true; 
+        
+        //Done processing this value
+        r.active = true; 
       } else {
-        //If we got this far, we do not want this result at all.
+        //If we got this far, we do not want this result at all. Set to discarded (hidden by CSS) and inactive (Won't be totaled)
         r.discarded = true;
         r.active = false;
       }
     }
+    
+    _cprLog("TotalSum is " + totalSum);
+    
+    //return totalSum;
+    /*
     return this.results.reduce((t, r) => {
       if ( !r.active ) return t;
       if ( r.count !== undefined ) return t + r.count;
       else return t + r.result;
     }, 0);
+    */
 
   }
 }
