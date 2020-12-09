@@ -5,6 +5,8 @@ Sections:
 
 ### Known Issues
 
+IMPORTANT: 0.7.8 has a small bug in the die rolling code. If you have updated to 0.7.8, choose the "CPRED Core Rulebook Handler" for die rolling. If you have updated to 0.7.8 and installed the hotfix available on Discord, choose the "CPRED Core Rulebook Handler (Choose this if you have the hotfix for 0.7.8)" These can be reached via "Configure Settings" -> "System Settings" on the gear tab in game
+
 Live:
 - 0.41
   - Dice so Nice! crashes when trying to roll a NPC roll with "Always Whisper NPC Rolls" checked in settings
@@ -37,6 +39,7 @@ Development
 	- There is now an option to unlink NPC health from body to make it easier for GMs to make quick and dirty NPCs
   - Adjusted die roll settings so they show as a drop-down on the settings tab
   - Dice So Nice! no longer crashes when trying to roll an NPC roll with "Always Whisper NPC Rolls" checked in settings
+  - Improved the display of dice and roll results in chat.
   
 
 ### Future Plans
