@@ -52,6 +52,7 @@ export class combinedCPREDDieHandler extends Die {
     
     //Dice so Nice Integration
     let data = { };
+        
     
     for(summed=0;summed < this.results.length;summed++) {
       let r = this.results[summed];
@@ -85,6 +86,7 @@ export class combinedCPREDDieHandler extends Die {
         //Done processing this value
         r.active = true; 
 
+        
         //Dice so Nice Integration
         data = {
           throws: [{
@@ -111,7 +113,7 @@ export class combinedCPREDDieHandler extends Die {
           throws: [{
             dice: [{
               result: r.result,
-              resultLabel: r.result,
+              resultLabel: r.result * -1,
               type: "d10",
               vectors:[],
               options:{}

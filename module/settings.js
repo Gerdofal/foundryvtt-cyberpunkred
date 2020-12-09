@@ -20,16 +20,10 @@ export const registerSystemSettings = function() {
     hint: "CPRED.dierollcommandhint",
     scope: "world",
     config: true,
-    default: "1dpixo1xo10",
+    default: "1dlcpred",
     choices: {
-      "1dpxo10ixo1": "Explode 10s (once) and subtract 1s (once)",
-      "1dpxo10ix1": "Explode 10s (infinitely) and subtract 1s (once)",
-      "1dpx10ix1": "Explode 10s (infinitely) and subtract 1s (infinitely)",
-      "1d10xo10": "Explode 10s (once)",
-      "1d10x10": "Explode 10s (infinitely)",
-      "1dpixo1": "Subtract 1s (once)",
-      "1dpix1": "Subtract 1s (infinitely)",
-      "1dlcpred": "CPRED Test Handler"
+      "1dlcpred": "CPRED Core Rulebook Handler",
+      "dlcpred": "CPRED Core Rulebook Handler (Choose this if you have the hotfix for 0.7.8)",
     },
     type: String
   });

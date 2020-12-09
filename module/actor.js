@@ -351,8 +351,8 @@ export class cyberpunkredActor extends Actor {
 
     //Calculate Cultural Familiarity
     //TODO - Try to figure out if I should include mod in this?
-    
-    if(allowJSK) {
+
+    if (allowJSK) {
       data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
     } else {
       data.culturalFamiliarity = 0;
@@ -441,16 +441,16 @@ export class cyberpunkredActor extends Actor {
     //Roll Penalty
     //
     //####################
-    
+
     //Adjust template stored modifiers to match list
-    
+
     for (let [key, attr] of Object.entries(listsModifiers)) {
       if (data.modifiers.hasOwnProperty(key)) {
         data.modifiers[key].penalty = attr.penalty;
       }
     }
-    
-      var tempHealthPenalty = 0;
+
+    var tempHealthPenalty = 0;
     if (data.settings.prefs.automateDamageMod) {
       //Players can turn off this automation
 
@@ -474,15 +474,15 @@ export class cyberpunkredActor extends Actor {
 
     } else {
       //If the automation is off, we still need to set tempHealthPenalty based on what is clicked
-      if(data.modifiers.modhalfdam.checked) {
+      if (data.modifiers.modhalfdam.checked) {
         //Half damage is clicked
         tempHealthPenalty += data.modifiers.modhalfdam.penalty;
-      } 
-      
-      if(data.modifiers.modfulldam.checked) {
+      }
+
+      if (data.modifiers.modfulldam.checked) {
         //Full damage is clicked
         tempHealthPenalty += data.modifiers.modfulldam.penalty;
-      } 
+      }
     }
 
     //Compute current total mod
@@ -670,6 +670,7 @@ export class cyberpunkredActor extends Actor {
     var cmdId = cmdArray[1]; //ex marksmanship
     var needsMods = true;
     var rollObject = {};
+    var rollType = "Skill";
     //Expected Return:
     //retArray[0] will have an array of each forula element
     //retArray[1] will have an array additional tags
@@ -706,6 +707,7 @@ export class cyberpunkredActor extends Actor {
         rollObject.tags = new Array();
         rollObject.tags.push("Damage Formula");
         needsMods = false;
+        rollType = "Damage";
         break;
       case '_RollNPC':
         rollObject = this.rollNPC(cmdId);
@@ -786,19 +788,24 @@ export class cyberpunkredActor extends Actor {
         }
       }
       if (cmdCmd === "_RollDamage" && this.checkCritInjury(roll)) {
-          templateData["critinjury"] = "Critical Injury!";
+        templateData["critinjury"] = "Critical Injury!";
       }
       // Render it.
       roll.render().then(r => {
         templateData.rollcpr = r;
         renderTemplate(template, templateData).then(content => {
           chatData.content = content;
-        //  if (game.dice3d&&!(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
-//            game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
-//          } else {
+          //We use this call for dice3d if the roll is:
+          // Damage
+          // and the roll is not
+          // a NPC roll with GMAlwaysWhisper turned on
+          if (rollType == "Damage" && game.dice3d && !(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
+            game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+          } else {
+          // Dice3d is called by the skill roll handler in die-handler.js
             chatData.sound = CONFIG.sounds.dice;
             ChatMessage.create(chatData);
-  //        }
+          }
         });
       }); //End Roll Render
     } // End if formula != null
