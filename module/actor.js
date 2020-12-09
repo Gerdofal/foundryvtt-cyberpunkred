@@ -115,12 +115,12 @@ export class cyberpunkredActor extends Actor {
     //####################
     //TODO - put all these migrations into their own module
 
-    
+
     if (data.settings.showtabs.hasOwnProperty('hacking')) {
       _cprLog(".41 Update - Found old hacking showtab and deleted.");
       delete data.settings.showtabs.hacking;
     }
-    
+
 
     //######################
     //
@@ -173,30 +173,30 @@ export class cyberpunkredActor extends Actor {
     //
     //
     //######################
-    
+
     data.backend.humanityTotal = 0;
     data.backend.humanityPositive = 0;
     data.backend.humanityNegative = 0;
     var tempNum = 0;
-    data.humanityarray.forEach(function(arr) {
+    data.humanityarray.forEach(function (arr) {
       tempNum = Number(arr[0]);
       _cprLog("Humanity Change " + tempNum);
       data.backend.humanityTotal += tempNum;
-      if(tempNum>0) {
+      if (tempNum > 0) {
         data.backend.humanityPositive += tempNum;
       }
-      if(tempNum<0) {
+      if (tempNum < 0) {
         data.backend.humanityNegative += tempNum;
       }
     });
-    
+
     _cprLog("Humanity Total " + data.backend.humanityTotal);
     _cprLog("Humanity Positive " + data.backend.humanityPositive);
     _cprLog("Humanity Negative " + data.backend.humanityNegative);
     //Computer humanity TODO-guessing at formula may need to fix this for final rule release
     data.combatstats.humanity.itemmod = 0;
     data.combatstats.humanity.current = 0;
-    
+
     //######################
     //
     //Show or hide skills based on environment
@@ -351,18 +351,23 @@ export class cyberpunkredActor extends Actor {
 
     //Calculate Cultural Familiarity
     //TODO - Try to figure out if I should include mod in this?
-    data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
+
+    if (allowJSK) {
+      data.culturalFamiliarity = Math.floor((data.skills.education.value + data.skills.education.mod) / 3);
+    } else {
+      data.culturalFamiliarity = 0;
+    }
 
     //Compute all roll values to be equal to value + mod for skills
     for (let [key, attr] of Object.entries(data.skills)) {
       if (attr.value >= data.culturalFamiliarity) {
         attr.roll = ((attr.value * 1) + (attr.mod * 1) + (attr.itemmod * 1)) * 1;
+        attr.totalpool = attr.roll + data.attributes[attr.linkedattribute].roll;
       } else {
         attr.roll = data.culturalFamiliarity + attr.mod + attr.itemmod;
+        attr.totalpool = data.culturalFamiliarity + data.attributes[attr.linkedattribute].roll;
       }
     }
-
-
 
 
     //####################
@@ -404,10 +409,12 @@ export class cyberpunkredActor extends Actor {
     //####################
 
     // Calculate health and luck
-    if (allowJSK) {
-      data.combatstats.healthpool.max = data.attributes.body.roll * 5;
-    } else {
-      data.combatstats.healthpool.max = 10 + (5 * Math.ceil((data.attributes.body.roll + data.attributes.will.roll) / 2));
+    if (data.settings.prefs.linkBodyToHealth) {
+      if (allowJSK) {
+        data.combatstats.healthpool.max = data.attributes.body.roll * 5;
+      } else {
+        data.combatstats.healthpool.max = 10 + (5 * Math.ceil((data.attributes.body.roll + data.attributes.will.roll) / 2));
+      }
     }
 
     if (data.combatstats.healthpool.value > data.combatstats.healthpool.max) {
@@ -435,26 +442,50 @@ export class cyberpunkredActor extends Actor {
     //
     //####################
 
+    //Adjust template stored modifiers to match list
+
+    for (let [key, attr] of Object.entries(listsModifiers)) {
+      if (data.modifiers.hasOwnProperty(key)) {
+        data.modifiers[key].penalty = attr.penalty;
+      }
+    }
+
     var tempHealthPenalty = 0;
-    //Check wound penalties for half damage
-    if (data.combatstats.healthpool.value < (data.combatstats.healthpool.max / 2)) {
-      data.modifiers.modhalfdam.checked = true;
-      tempHealthPenalty += data.modifiers.modhalfdam.penalty;
+    if (data.settings.prefs.automateDamageMod) {
+      //Players can turn off this automation
+
+      //Check wound penalties for half damage
+      if (data.combatstats.healthpool.value < (data.combatstats.healthpool.max / 2)) {
+        data.modifiers.modhalfdam.checked = true;
+        tempHealthPenalty += data.modifiers.modhalfdam.penalty;
+      } else {
+        data.modifiers.modhalfdam.checked = false;
+      }
+
+      //Check wound penalties for zero health
+      if (data.combatstats.healthpool.value <= 0) {
+        //_cprLog("Turning on full dam");
+        data.modifiers.modfulldam.checked = true;
+        tempHealthPenalty += data.modifiers.modfulldam.penalty;
+      } else {
+        //_cprLog("Turning off full dam");
+        data.modifiers.modfulldam.checked = false;
+      }
+
     } else {
-      data.modifiers.modhalfdam.checked = false;
+      //If the automation is off, we still need to set tempHealthPenalty based on what is clicked
+      if (data.modifiers.modhalfdam.checked) {
+        //Half damage is clicked
+        tempHealthPenalty += data.modifiers.modhalfdam.penalty;
+      }
+
+      if (data.modifiers.modfulldam.checked) {
+        //Full damage is clicked
+        tempHealthPenalty += data.modifiers.modfulldam.penalty;
+      }
     }
 
-    //Check wound penalties for zero health
-    if (data.combatstats.healthpool.value <= 0) {
-      //_cprLog("Turning on full dam");
-      data.modifiers.modfulldam.checked = true;
-      tempHealthPenalty += data.modifiers.modfulldam.penalty;
-    } else {
-      //_cprLog("Turning off full dam");
-      data.modifiers.modfulldam.checked = false;
-    }
-
-    //Compute current total damage mod
+    //Compute current total mod
     var tempmod = 0;
     for (let [key, attr] of Object.entries(data.modifiers)) {
       if (attr.hasOwnProperty("checked")) {
@@ -500,13 +531,13 @@ export class cyberpunkredActor extends Actor {
         //Skill Roll Value
         rollArray.push(root[skill].roll);
         tags.push(game.i18n.localize("CPRED." + skill) + ": " + root[skill].value + " + " + root[skill].mod + " + " + root[skill].itemmod + " = " + root[skill].roll);
-        
-        if(data.backend.jsk) {
-        //Attribute Roll Value
-        rollArray.push(data.attributes[root[skill].linkedattribute].roll);
-        tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);          
+
+        if (data.backend.jsk) {
+          //Attribute Roll Value
+          rollArray.push(data.attributes[root[skill].linkedattribute].roll);
+          tags.push(game.i18n.localize("CPRED." + root[skill].linkedattribute) + ": " + data.attributes[root[skill].linkedattribute].value + " + " + data.attributes[root[skill].linkedattribute].mod + " + " + data.attributes[root[skill].linkedattribute].itemmod + " = " + data.attributes[root[skill].linkedattribute].roll);
         }
-        
+
         break;
       default:
         var root = data.skills;
@@ -606,6 +637,25 @@ export class cyberpunkredActor extends Actor {
     }
   }
 
+  checkCritInjury(roll) {
+    let sixes = 0;
+    let results = roll.dice[0].results;
+    for (var i = 0; i < results.length; i++) {
+      if (results[i]["result"] === 6) {
+        sixes++;
+      }
+    }
+    return sixes >= 2;
+  }
+
+  checkCritFail(roll) {
+    return roll.dice[0].results[0]["result"] === 1;
+  }
+
+  checkCritSuccess(roll) {
+    return roll.dice[0].results[0]["result"] === 10;
+  }
+
   async rollCPR(roll, actorData, templateData = null) {
     _cprLog("rollCPR - Computing Roll");
 
@@ -620,6 +670,7 @@ export class cyberpunkredActor extends Actor {
     var cmdId = cmdArray[1]; //ex marksmanship
     var needsMods = true;
     var rollObject = {};
+    var rollType = "Skill";
     //Expected Return:
     //retArray[0] will have an array of each forula element
     //retArray[1] will have an array additional tags
@@ -645,11 +696,18 @@ export class cyberpunkredActor extends Actor {
         rollObject.tags.push("Manual Formula");
         needsMods = false;
         break;
+      case '_RollDeathSave':
+        rollObject.rollFormula = roll.replace('_RollDeathSave', '');
+        rollObject.tags = new Array();
+        rollObject.tags.push("Manual Formula");
+        needsMods = false;
+        break;
       case '_RollDamage':
         rollObject.rollFormula = roll.replace('_RollDamage', '');
         rollObject.tags = new Array();
         rollObject.tags.push("Damage Formula");
         needsMods = false;
+        rollType = "Damage";
         break;
       case '_RollNPC':
         rollObject = this.rollNPC(cmdId);
@@ -721,14 +779,30 @@ export class cyberpunkredActor extends Actor {
       // Do the roll.
       let roll = new Roll(`${formula}`);
       roll.roll();
+      if (cmdCmd != "_RollDamage" && cmdCmd != "_RollDeathSave") {
+        // Don't check for critical success/failure on damage rolls and death saves
+        if (this.checkCritFail(roll)) {
+          templateData["critfail"] = "Critical Failure!";
+        } else if (this.checkCritSuccess(roll)) {
+          templateData["critsuccess"] = "Critical Success!";
+        }
+      }
+      if (cmdCmd === "_RollDamage" && this.checkCritInjury(roll)) {
+        templateData["critinjury"] = "Critical Injury!";
+      }
       // Render it.
       roll.render().then(r => {
         templateData.rollcpr = r;
         renderTemplate(template, templateData).then(content => {
           chatData.content = content;
-          if (game.dice3d) {
+          //We use this call for dice3d if the roll is:
+          // Damage
+          // and the roll is not
+          // a NPC roll with GMAlwaysWhisper turned on
+          if (rollType == "Damage" && game.dice3d && !(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
             game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
           } else {
+          // Dice3d is called by the skill roll handler in die-handler.js
             chatData.sound = CONFIG.sounds.dice;
             ChatMessage.create(chatData);
           }

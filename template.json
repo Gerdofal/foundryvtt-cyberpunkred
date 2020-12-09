@@ -721,7 +721,7 @@
           },
 
           "modheadshot": {
-            "penalty": -6,
+            "penalty": -8,
             "checked": false
           },
 
@@ -801,7 +801,9 @@
           "prefs": {
             "simpleCombatSetup": true,
             "itemCombatSetup": true,
-            "showInventory": true
+            "showInventory": true,
+            "automateDamageMod": true,
+            "linkBodyToHealth": true
           }
         }
       },
@@ -944,6 +946,9 @@
           "min": 0,
           "max": 16,
           "value": 0
+        },
+        "ammotype": {
+          "value": "none"
         },
         "weapontype": {
           "value": "pistol"

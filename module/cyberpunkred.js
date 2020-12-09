@@ -15,6 +15,12 @@ import {
   cyberpunkredItemSheet
 } from "./item-sheet.js";
 import {
+  cyberpunkredDie
+} from "./die.js";
+import {
+  combinedCPREDDieHandler
+} from "./die-handler.js"
+import {
   registerSystemSettings
 } from "./settings.js";
 import {
@@ -75,6 +81,9 @@ Hooks.once('init', async function () {
     makeDefault: true
   });
 
+  _cprLog(`Register cyberpunkred die`);
+  CONFIG.Dice.terms["p"] = cyberpunkredDie;
+  CONFIG.Dice.terms["l"] = combinedCPREDDieHandler;
 
   _cprLog(`Register Handlebars`);
 
@@ -103,6 +112,10 @@ Hooks.once('init', async function () {
     return "_RollWithoutMods " + formula;
   });
 
+  Handlebars.registerHelper('RollDeathSave', function (formula) {
+    return "_RollDeathSave " + formula;
+  });
+
   Handlebars.registerHelper('rollDamage', function (formula) {
     return "_RollDamage " + formula;
   });
@@ -120,7 +133,7 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 25 == 0 && x != max) {
+      if (x % 10 == 0 && x != max) {
         outStr += "<br>";
       }
     }
@@ -141,7 +154,7 @@ Hooks.once('init', async function () {
       if (x % 5 == 0) {
         outStr += " ";
       }
-      if (x % 25 == 0 && x != max) {
+      if (x % 10 == 0 && x != max) {
         outStr += "<br>";
       }
     }
@@ -157,6 +170,19 @@ Hooks.once('init', async function () {
     return output;
   });
 
+  Handlebars.registerHelper("math", function(lvalue, operator, rvalue) {
+    lvalue = parseFloat(lvalue);
+    rvalue = parseFloat(rvalue);
+        
+    return {
+        "+": lvalue + rvalue,
+        "-": lvalue - rvalue,
+        "*": lvalue * rvalue,
+        "/": lvalue / rvalue,
+        "%": lvalue % rvalue
+    }[operator];
+  });
+  
   //Return concatination of all arguments - Used for localizing sometimes
   Handlebars.registerHelper('concat', function () {
     var outStr = '';

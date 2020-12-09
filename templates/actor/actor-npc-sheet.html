@@ -63,6 +63,8 @@
         <div class="combatstats grid grid-2col">
           <div class="resource flex-group-center">
             <label for="data.combatstats.healthpool.value" class="resource-label">{{localize "CPRED.healthpool"}}</label>
+            <input class="settings" type="checkbox" id="set_linkbodytohealth" name="data.settings.prefs.linkBodyToHealth" {{checked data.settings.prefs.linkBodyToHealth}}>
+            <label class="cpr-center settings-item settings clickable" style="width: 75px;" for="set_linkbodytohealth">{{localize "CPRED.linktobod"}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="data.combatstats.healthpool.value" value="{{data.combatstats.healthpool.value}}" data-dtype="Number"/>
               <span> / </span>

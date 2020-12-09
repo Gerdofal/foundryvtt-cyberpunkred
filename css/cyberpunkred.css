@@ -6,11 +6,22 @@
   --cpr-red-color: #700000; /* var(--cpr-red-color) */
   --cpr-light-bak-color: #FFFFFF; /* var(--cpr-light-bak-color) */
   --cpr-app-bak-color: rgba(200,200,200,1.00); /* var(--cpr-app-bak-color) */
-  --cpr-default-text-size: .85em;
+  --cpr-green-color: #18520b; /* var(--cpr-green-color) */
+  --cpr-default-text-size: .90em;
   --cpr-default-small-text-size: .80em;
 }
 
 /* Roll Template */
+
+/* Hide the overly complex formula */
+span.part-formula {
+  display: none;
+}
+
+.discarded {
+  display: none;
+}
+
 .cpr-roll-title {
   font-size: 1.5em;
   border-bottom: 2px solid var(--cpr-red-color);
@@ -47,25 +58,50 @@
   font-size: .5em;
 }
 
+.cpr-roll-crit-success {
+  color: var(--cpr-green-color);
+}
+
 /* Rolls */
 .dice-roll .dice-formula {
   background: #FFFFFF;
-  display: inline-block;
+  display: block;
   padding-left: 10px;
   padding-right: 10px;
 }
 .dice-roll .dice-total {
   background: #FFAAAA;
   display: inline-block;
-  font-size: var(--cpr-default-text-size);
   font-weight: normal;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0px 10px 0px 10px;
+  margin: 0px;
+  height: 60px;
+  width: 60px;
+  font-size: 20px;
+  align-content: center;
+  text-align: center;
+  position:relative;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  line-height: 60px;
+  top: -23px;
 }
 .dice-roll .dice-tooltip {
-  background: #FFFFAA;
+  background: #FFEEEE;
   padding-left: 10px;
   padding-right: 10px;
+  display: inline-block;
+  width: 190px;
+  height: 60px;
+  margin: 0px;
+  line-height: 60px;
+  vertical-align: baseline;
+}
+
+.dice-roll .dice-result {
+  vertical-align: top;
 }
 
 /* Damage Track and Luck Track */
@@ -134,6 +170,11 @@
 .sidebar-tab .directory-list .entity {
   background: var(--cpr-app-bak-color);
 }
+
+#playlists li.playlist .sound-control {
+  color: var(--cpr-red-color);
+}
+
 /* Make sure this block has room to edit */
 .cyberpunkred .roomtoedit {
   height: 400px;
@@ -470,7 +511,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
-  font-size: var(--cpr-default-small-text-size);
+  font-size: var(--cpr-default-text-size);
 }
 
 .cyberpunkred .skilllist-item {
@@ -486,7 +527,7 @@
   align-self: center;
   justify-self: center;
   text-align: left;
-  font-size: var(--cpr-default-small-text-size);
+  font-size: var(--cpr-default-text-size);
 }
 
 .cyberpunkred .specialroll-grid {

@@ -1,10 +1,10 @@
 {
-  "version": 0.41,
+  "version": 0.42,
   "name": "cyberpunkred",
   "title": "Cyberpunk RED",
-  "description": "An in-progress game system for CyberpunkRED. Still very much in development as all we have are the jumpstart rules and the core rulebook isn't even out yet.",
-  "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "0.7.7",
+  "description": "CyberpunkRED. In development and in beta. Full working character sheet and rough draft of items and cyberware.",
+  "minimumCoreVersion": "0.7.8",
+  "compatibleCoreVersion": "0.7.8",
   "templateVersion": 2,
   "author": "Gerdofal",
   "esmodules": ["module/cyberpunkred.js"],
@@ -32,7 +32,7 @@
       "path": "lang/de.json"
     }           
   ],
-  "gridDistance": 1,
+  "gridDistance": 2,
   "gridUnits": "m",
   "primaryTokenAttribute": "combatstats.healthpool",
   "secondaryTokenAttribute": "combatstats.luckpool",
