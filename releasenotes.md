@@ -27,7 +27,7 @@ Live:
 
 ### Release Notes
 
-- 0.42 - Released 12/??/2020 - Beta
+- 0.42 - Released TBD 12/8 or 12/9 - Beta
   - New die code by njfox which fits rules in core rulebook for negative exploding dice
   - Death saves no longer have die explosion (As per RTG)
   - There is now a setting on the "Settings" tab to turn on or off automation of health penalties.
