@@ -5,41 +5,40 @@ Sections:
 
 ### Known Issues
 
-IMPORTANT: 0.7.8 has a small bug in the die rolling code. If you have updated to 0.7.8, choose the "CPRED Core Rulebook Handler" for die rolling. If you have updated to 0.7.8 and installed the hotfix available on Discord, choose the "CPRED Core Rulebook Handler (Choose this if you have the hotfix for 0.7.8)" These can be reached via "Configure Settings" -> "System Settings" on the gear tab in game
-
 Live:
 - 0.41
   - Dice so Nice! crashes when trying to roll a NPC roll with "Always Whisper NPC Rolls" checked in settings
 
 Development
 - 0.42
-  - In cases where a 1 is rolled, followed by a 10 (which should result in a roll of -9), some of the settings die rollers are improperly exploding the 10 and add the result.
-  - The show/hide of the dice tooltip can result in poor chatlog formatting if an attempt is made to hide the dice
+  - Rolling more than 6 damage dice results in a minor spacing issue in chat
+  - The same die code will not function with and without the hotfix for 0.7.8. If you have updated to 0.7.8, choose the "CPRED Core Rulebook Handler" for die rolling. If you have updated to 0.7.8 and installed the hotfix available on Discord, choose the "CPRED Core Rulebook Handler (Choose this if you have the hotfix for 0.7.8)" These can be reached via "Configure Settings" -> "System Settings" on the gear tab in game.
+  
 
 
 ### In Development
 
 - 0.42
-  - New die code by njfox which fits rules in core rulebook for negative exploding dice
-  - Death saves no longer have die explosion (As per RTG)
-  - There is now a setting on the "Settings" tab to turn on or off automation of health penalties.
-  - Tweaked the combat tab UI a bit to save some space.
-  - Moved the roll modifiers block higher on the combat tab.
-  - As per core rules, "Cultural Familiarity" is no longer added while in that game mode
-  - The "Stat Setup" tab has been renamed "Char Setup"
-  - Skills on the "Char Setup" tab now show their total pool (including attribute) in the "Total" column
-  - Increased the font size of the skills on the combat tab
-  - The combat tab now only shows skills which have a value. (All skills are still shown on the "Char Setup" tab)
-	- Default grid distance is now 2m, as per core rules. Users of custom maps please take note you may need to change the default.
-	- CSS fixed so the playlist controls are now visible (changed their color)
-	- Ammo type is now an option in weapons
-  - Ammo tracking is disabled for weapons with ammo type set to "None" (Existing weapons may need to have this changed then re-set before it will take effect)
-	- The penalty for headshots is now -8 as per core rules
-	- A basic check for critical injuries is now made when damage is rolled
-	- There is now an option to unlink NPC health from body to make it easier for GMs to make quick and dirty NPCs
-  - Adjusted die roll settings so they show as a drop-down on the settings tab
-  - Dice So Nice! no longer crashes when trying to roll an NPC roll with "Always Whisper NPC Rolls" checked in settings
-  - Improved the display of dice and roll results in chat.
+- New die code by njfox which fits rules in core rulebook for negative exploding dice
+- Death saves no longer have die explosion (As per RTG)
+- There is now a setting on the "Settings" tab to turn on or off automation of health penalties.
+- Tweaked the combat tab UI a bit to save some space.
+- Moved the roll modifiers block higher on the combat tab.
+- As per core rules, "Cultural Familiarity" is no longer added while in that game mode
+- The "Stat Setup" tab has been renamed "Char Setup"
+- Skills on the "Char Setup" tab now show their total pool (including attribute) in the "Total" column
+- Increased the font size of the skills on the combat tab
+- The combat tab now only shows skills which have a value. (All skills are still shown on the "Char Setup" tab)
+- Default grid distance is now 2m, as per core rules. Users of custom maps please take note you may need to change the default.
+- CSS fixed so the playlist controls are now visible (changed their color)
+- Ammo type is now an option in weapons
+- Ammo tracking is disabled for weapons with ammo type set to "None" (Existing weapons may need to have this changed then re-set before it will take effect)
+- The penalty for headshots is now -8 as per core rules
+- A basic check for critical injuries is now made when damage is rolled
+- There is now an option to unlink NPC health from body to make it easier for GMs to make quick and dirty NPCs
+- Adjusted die roll settings so they show as a drop-down on the settings tab
+- Dice So Nice! no longer crashes when trying to roll an NPC roll with "Always Whisper NPC Rolls" checked in settings
+- Improved the display of dice and roll results in chat.
   
 
 ### Future Plans
