@@ -277,5 +277,6 @@ Hooks.once("ready", function () {
 
   
   ui.notifications.info("CyberpunkRED " + systemDataVersion + " Fully Loaded");
+  ui.notifications.warn("GM - Please see known issues and make sure you set die roller in system settings as appropriate for 0.7.8. To do this, click the gear tab on the top right, then Configure Settings and then System Settings. Set the appropriate CPRED Core Rulebook Handler.", {permanent: true});
 
 });
