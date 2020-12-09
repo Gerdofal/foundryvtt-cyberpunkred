@@ -5,7 +5,7 @@ Sections:
 
 ### Known Issues
 
-Live:
+Development:
 - 0.42
   - Rolling more than 6 damage dice results in a minor spacing issue in chat
   - The same die code will not function with and without the hotfix for 0.7.8. If you have updated to 0.7.8, choose the "CPRED Core Rulebook Handler" for die rolling. If you have updated to 0.7.8 and installed the hotfix available on Discord, choose the "CPRED Core Rulebook Handler (Choose this if you have the hotfix for 0.7.8)" These can be reached via "Configure Settings" -> "System Settings" on the gear tab in game.
