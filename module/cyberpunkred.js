@@ -277,5 +277,5 @@ Hooks.once("ready", function () {
 
   
   ui.notifications.info("CyberpunkRED " + systemDataVersion + " Fully Loaded");
-
+  ui.notifications.info("GM - Please see known issues and make sure you set die roller in system settings as appropriate for 0.7.8");
 });
