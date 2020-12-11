@@ -11,7 +11,7 @@ export class combinedCPREDDieHandler extends Die {
     termData.faces = 10;
     super(termData);
   }
-
+  static DENOMINATION = "l";
   parseRolls() {
 
     // Determine threshold values

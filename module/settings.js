@@ -22,8 +22,7 @@ export const registerSystemSettings = function() {
     config: true,
     default: "1dlcpred",
     choices: {
-      "1dlcpred": "CPRED Core Rulebook Handler",
-      "dlcpred": "CPRED Core Rulebook Handler (Choose this if you have the hotfix for 0.7.8)",
+      "1dlcpred": "CPRED Core Rulebook Handler"
     },
     type: String
   });

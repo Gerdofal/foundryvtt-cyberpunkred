@@ -11,6 +11,7 @@ export class cyberpunkredDie extends Die {
         termData.faces=10;
         super(termData);
     }
+    static DENOMINATION = "p";
     invertExplode(modifier, { recursive = true } = {}) {
 
         // Match the explode or "explode once" modifier
