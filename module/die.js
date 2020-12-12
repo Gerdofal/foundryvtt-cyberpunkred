@@ -10,6 +10,7 @@ export class cyberpunkredDie extends Die {
     constructor(termData) {
         termData.faces=10;
         super(termData);
+        this.modifiers = ["ixo1", "xo10"];
     }
     invertExplode(modifier, { recursive = true } = {}) {
 
