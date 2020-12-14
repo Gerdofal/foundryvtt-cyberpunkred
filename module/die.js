@@ -12,7 +12,7 @@ export class cyberpunkredDie extends Die {
         super(termData);
         this.modifiers = ["ixo1", "xo10"];
     }
-    
+    static DENOMINATION = "p";
     invertExplode(modifier, { recursive = true } = {}) {
         // Match the explode or "explode once" modifier
         const rgx = /[iI][xX][oO]?([0-9]+)?([<>=]+)?([0-9]+)?/;
