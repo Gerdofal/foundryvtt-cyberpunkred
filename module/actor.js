@@ -795,14 +795,10 @@ export class cyberpunkredActor extends Actor {
         templateData.rollcpr = r;
         renderTemplate(template, templateData).then(content => {
           chatData.content = content;
-          //We use this call for dice3d if the roll is:
-          // Damage
-          // and the roll is not
-          // a NPC roll with GMAlwaysWhisper turned on
+          // Don't call dice-so-nice if this is an NPC roll with "Always Whisper NPC rolls on"
           if (game.dice3d && !(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
             game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
           } else {
-          // Dice3d is called by the skill roll handler in die-handler.js
             chatData.sound = CONFIG.sounds.dice;
             ChatMessage.create(chatData);
           }
