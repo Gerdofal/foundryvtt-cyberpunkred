@@ -799,7 +799,7 @@ export class cyberpunkredActor extends Actor {
           // Damage
           // and the roll is not
           // a NPC roll with GMAlwaysWhisper turned on
-          if (rollType == "Damage" && game.dice3d && !(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
+          if (game.dice3d && !(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
             game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
           } else {
           // Dice3d is called by the skill roll handler in die-handler.js
