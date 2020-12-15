@@ -20,9 +20,9 @@ export const registerSystemSettings = function() {
     hint: "CPRED.dierollcommandhint",
     scope: "world",
     config: true,
-    default: "1dlcpred",
+    default: "dp",
     choices: {
-      "1dlcpred": "CPRED Core Rulebook Handler"
+      "dp": "CPRED Core Rulebook Handler"
     },
     type: String
   });
