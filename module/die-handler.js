@@ -1,11 +1,9 @@
+/* Hack to make dice work in 0.7.8 - Removed from use in 0.43
+
 import {
   _cprLog
 } from "./tools.js";
 
-/**
- * Extend the Die to handle critical failures (implemented by @JDW on the foundryvtt discord)
- * @extends {Die}
- */
 export class combinedCPREDDieHandler extends Die {
   constructor(termData) {
     termData.faces = 10;
@@ -195,37 +193,9 @@ export class combinedCPREDDieHandler extends Die {
     
     _cprLog("TotalSum is " + totalSum);
     
-    //return totalSum;
-    /*
-    return this.results.reduce((t, r) => {
-      if ( !r.active ) return t;
-      if ( r.count !== undefined ) return t + r.count;
-      else return t + r.result;
-    }, 0);
-    */
-
   }
 }
 
-
-/* EXISTING MODIFIERS in FVTT
-Die.MODIFIERS = {
-  "r": "reroll",
-  "x": "explode",
-  "xo": "explodeOnce",
-  "k": "keep",
-  "kh": "keep",
-  "kl": "keep",
-  "d": "drop",
-  "dh": "drop",
-  "dl": "drop",
-  "cs": "countSuccess",
-  "cf": "countFailures",
-  "df": "deductFailures",
-  "sf": "subtractFailures",
-  "ms": "marginSuccess",
-};
-*/
-
 combinedCPREDDieHandler.MODIFIERS = Die.MODIFIERS;
 combinedCPREDDieHandler.MODIFIERS.cpred = "parseRolls";
+*/

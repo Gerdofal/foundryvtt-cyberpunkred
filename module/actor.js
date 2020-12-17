@@ -778,6 +778,9 @@ export class cyberpunkredActor extends Actor {
       _cprLog("rollCPR - Rendering roll using template")
       // Do the roll.
       let roll = new Roll(`${formula}`);
+      _cprLog("Formula is:" + formula);
+      _cprLog("Roll is:");
+      console.log(roll);
       roll.roll();
       if (cmdCmd != "_RollDamage" && cmdCmd != "_RollDeathSave") {
         // Don't check for critical success/failure on damage rolls and death saves
@@ -797,7 +800,7 @@ export class cyberpunkredActor extends Actor {
           chatData.content = content;
           // Don't call dice-so-nice if this is an NPC roll with "Always Whisper NPC rolls on"
           if (game.dice3d && !(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
-            game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+            game.dice3d.showForRoll(roll, game.user, false, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
           } else {
             chatData.sound = CONFIG.sounds.dice;
             ChatMessage.create(chatData);

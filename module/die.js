@@ -2,10 +2,8 @@ import {
     _cprLog
   } from "./tools.js";
 
-/**
- * Extend the Die to handle critical failures (implemented by @JDW on the foundryvtt discord)
- * @extends {Die}
- */
+
+
 export class cyberpunkredDie extends Die {
     constructor(termData) {
         termData.faces=10;
@@ -62,7 +60,7 @@ export class cyberpunkredDie extends Die {
         return this.invertExplode(modifier, { recursive: false });
     }
 
-    /** @override */
+   // @override 
     explode(modifier, {recursive=true}={}) {
         // Match the explode or "explode once" modifier
         const rgx = /[xX][oO]?([0-9]+)?([<>=]+)?([0-9]+)?/;
@@ -105,7 +103,7 @@ export class cyberpunkredDie extends Die {
         }
     }
 
-    /** @override */
+    // @override 
     roll({minimize=false, maximize=false}={}) {
         const rand = CONFIG.Dice.randomUniform();
         let result = Math.ceil(rand * this.faces);
