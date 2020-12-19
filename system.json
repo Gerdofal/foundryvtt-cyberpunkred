@@ -1,10 +1,10 @@
 {
-  "version": 0.42,
+  "version": 0.421,
   "name": "cyberpunkred",
   "title": "Cyberpunk RED",
   "description": "CyberpunkRED. In development and in beta. Full working character sheet and rough draft of items and cyberware.",
   "minimumCoreVersion": "0.7.8",
-  "compatibleCoreVersion": "0.7.8",
+  "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
   "author": "Gerdofal",
   "esmodules": ["module/cyberpunkred.js"],
@@ -30,7 +30,12 @@
       "lang": "de",
       "name": "German",
       "path": "lang/de.json"
-    }           
+    },
+    {
+      "lang": "fr",
+      "name": "French",
+      "path": "lang/fr.json"
+    }    
   ],
   "gridDistance": 2,
   "gridUnits": "m",

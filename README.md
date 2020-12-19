@@ -6,7 +6,17 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 
 # Branch Information
 
-- There are two branches for this project, development and stable_release. You should generally not use the development branch for games as it may have significant bugs. See below for download links.
+stable_release:
+  - This is the primary branch linked into the foundry and the only branch that can be installed automatically
+  - This branch is the branch that should be linked in the system.json for all branches, to make sure that innatentive users don't accidentally download another branch.
+  
+development:
+  - This is the branch undergoing active development. Issue fixes should be pushed here.
+  - You should generally not use the development branch for games as it may have significant bugs.
+  
+ui_and_data_update:
+  - This branch is intended for an upcoming UI and data model re-design.
+  - This branch should generally only be used for that project. Issue fixes do not go here.
 
 # Installing
 
@@ -15,7 +25,7 @@ An in-development system for Cyberpunk RED. Since the game is not yet released, 
 - You can also manually direct your FoundryVTT to the correct manifest. Use this as the manifest URL:
   - https://raw.githubusercontent.com/Gerdofal/foundryvtt-cyberpunkred/stable_release/system.json
 
-- If you want to manually install the files from the dev branch, feel free. Download the zip and install manually. I don't recommend this for anything other than testing as the development branch is sometimes non-functional.
+- If you want to manually install the files from the development branch, feel free. Just download the zip and install manually. I don't recommend this for anything other than testing as the development branch is sometimes non-functional.
 
 # Release Notes
 
