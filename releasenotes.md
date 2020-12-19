@@ -5,14 +5,12 @@ Sections:
 
 ### Known Issues
 
-Development:
-
-  
+Live: None
 
 ### In Development
 
 - 0.43
-  - 
+  - Back end changes
 
 ### Future Plans
 

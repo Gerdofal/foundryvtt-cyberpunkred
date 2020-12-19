@@ -191,7 +191,10 @@ export class cyberpunkredActor extends Actor {
       }
     });
     } catch (err) {
-      data.humanityarray = [];
+      data.humanityarray = [
+				[0,"The humanity array seems to have been corrupted and has been cleared of all data. This should not happen again. If it keeps happening, pleae let me know."],
+				[0,"It is safe to delete these two lines"]
+			];
     }
 
     _cprLog("Humanity Total " + data.backend.humanityTotal);
