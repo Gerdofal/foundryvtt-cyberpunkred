@@ -178,6 +178,7 @@ export class cyberpunkredActor extends Actor {
     data.backend.humanityPositive = 0;
     data.backend.humanityNegative = 0;
     var tempNum = 0;
+    try {
     data.humanityarray.forEach(function (arr) {
       tempNum = Number(arr[0]);
       _cprLog("Humanity Change " + tempNum);
@@ -189,6 +190,9 @@ export class cyberpunkredActor extends Actor {
         data.backend.humanityNegative += tempNum;
       }
     });
+    } catch (err) {
+      data.humanityarray = [];
+    }
 
     _cprLog("Humanity Total " + data.backend.humanityTotal);
     _cprLog("Humanity Positive " + data.backend.humanityPositive);

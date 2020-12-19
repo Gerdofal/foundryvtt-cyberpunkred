@@ -27,6 +27,7 @@ Development:
 - 0.421 - Release Pending
   - Minor patch to fix bug in die system integration with Dice so Nice module
   - Addition of French translations (Thanks Lightbringer!)
+  - Added a patch to fix characters from previous versions with invalid humanityarray
   
 - 0.42 - Released TBD 12/8 or 12/9 - Beta
   - New die code by njfox which fits rules in core rulebook for negative exploding dice
