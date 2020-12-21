@@ -178,6 +178,7 @@ export class cyberpunkredActor extends Actor {
     data.backend.humanityPositive = 0;
     data.backend.humanityNegative = 0;
     var tempNum = 0;
+    try {
     data.humanityarray.forEach(function (arr) {
       tempNum = Number(arr[0]);
       _cprLog("Humanity Change " + tempNum);
@@ -189,6 +190,12 @@ export class cyberpunkredActor extends Actor {
         data.backend.humanityNegative += tempNum;
       }
     });
+    } catch (err) {
+      data.humanityarray = [
+				[0,"The humanity array seems to have been corrupted and has been cleared of all data. This should not happen again. If it keeps happening, pleae let me know."],
+				[0,"It is safe to delete these two lines"]
+			];
+    }
 
     _cprLog("Humanity Total " + data.backend.humanityTotal);
     _cprLog("Humanity Positive " + data.backend.humanityPositive);
@@ -778,6 +785,9 @@ export class cyberpunkredActor extends Actor {
       _cprLog("rollCPR - Rendering roll using template")
       // Do the roll.
       let roll = new Roll(`${formula}`);
+      _cprLog("Formula is:" + formula);
+      _cprLog("Roll is:");
+      console.log(roll);
       roll.roll();
       if (cmdCmd != "_RollDamage" && cmdCmd != "_RollDeathSave") {
         // Don't check for critical success/failure on damage rolls and death saves
@@ -795,14 +805,10 @@ export class cyberpunkredActor extends Actor {
         templateData.rollcpr = r;
         renderTemplate(template, templateData).then(content => {
           chatData.content = content;
-          //We use this call for dice3d if the roll is:
-          // Damage
-          // and the roll is not
-          // a NPC roll with GMAlwaysWhisper turned on
-          if (rollType == "Damage" && game.dice3d && !(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
-            game.dice3d.showForRoll(roll, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
+          // Don't call dice-so-nice if this is an NPC roll with "Always Whisper NPC rolls on"
+          if (game.dice3d && !(game.settings.get("cyberpunkred", "GMAlwaysWhisper") && actorData.type == "npc")) {
+            game.dice3d.showForRoll(roll, game.user, false, chatData.whisper, chatData.blind).then(displayed => ChatMessage.create(chatData));
           } else {
-          // Dice3d is called by the skill roll handler in die-handler.js
             chatData.sound = CONFIG.sounds.dice;
             ChatMessage.create(chatData);
           }

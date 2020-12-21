@@ -5,17 +5,12 @@ Sections:
 
 ### Known Issues
 
-Development:
-- 0.42
-  - Rolling more than 6 damage dice results in a minor spacing issue in chat
-  - The same die code will not function with and without the hotfix for 0.7.8. If you have updated to 0.7.8, choose the "CPRED Core Rulebook Handler" for die rolling. If you have updated to 0.7.8 and installed the hotfix available on Discord, choose the "CPRED Core Rulebook Handler (Choose this if you have the hotfix for 0.7.8)" These can be reached via "Configure Settings" -> "System Settings" on the gear tab in game.
-  - When using Dice so Nice!, the chat message appears at the same time as the die is rolled (It does not wait for the result).
-  
+Live: None
 
 ### In Development
 
 - 0.43
-  - 
+  - Back end changes
 
 ### Future Plans
 
@@ -27,7 +22,12 @@ Development:
 
 ### Release Notes
 
-- 0.42 - Released TBD 12/8 or 12/9 - Beta
+- 0.421 - Released 12/19 - Bugfix release
+  - Minor patch to fix bug in die system integration with Dice so Nice module
+  - Addition of French translations (Thanks Lightbringer!)
+  - Added a patch to fix characters from previous versions with invalid humanityarray
+  
+- 0.42 - Released 12/9 - Beta
   - New die code by njfox which fits rules in core rulebook for negative exploding dice
   - Death saves no longer have die explosion (As per RTG)
   - There is now a setting on the "Settings" tab to turn on or off automation of health penalties.

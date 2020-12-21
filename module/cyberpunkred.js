@@ -17,9 +17,11 @@ import {
 import {
   cyberpunkredDie
 } from "./die.js";
+/* Removed in 0.43
 import {
   combinedCPREDDieHandler
 } from "./die-handler.js"
+*/
 import {
   registerSystemSettings
 } from "./settings.js";
@@ -83,8 +85,9 @@ Hooks.once('init', async function () {
 
   _cprLog(`Register cyberpunkred die`);
   CONFIG.Dice.terms["p"] = cyberpunkredDie;
+  /* REMOVED FROM USE in 0.43)
   CONFIG.Dice.terms["l"] = combinedCPREDDieHandler;
-
+  */
   _cprLog(`Register Handlebars`);
 
   //Setup helper for roll info
@@ -170,19 +173,19 @@ Hooks.once('init', async function () {
     return output;
   });
 
-  Handlebars.registerHelper("math", function(lvalue, operator, rvalue) {
+  Handlebars.registerHelper("math", function (lvalue, operator, rvalue) {
     lvalue = parseFloat(lvalue);
     rvalue = parseFloat(rvalue);
-        
+
     return {
-        "+": lvalue + rvalue,
-        "-": lvalue - rvalue,
-        "*": lvalue * rvalue,
-        "/": lvalue / rvalue,
-        "%": lvalue % rvalue
-    }[operator];
+      "+": lvalue + rvalue,
+      "-": lvalue - rvalue,
+      "*": lvalue * rvalue,
+      "/": lvalue / rvalue,
+      "%": lvalue % rvalue
+    } [operator];
   });
-  
+
   //Return concatination of all arguments - Used for localizing sometimes
   Handlebars.registerHelper('concat', function () {
     var outStr = '';
@@ -265,7 +268,29 @@ Hooks.once("ready", function () {
   }
   game.settings.set("cyberpunkred", "systemMigrationVersion", game.system.data.version);
 
+
+  //Check all system settings to make sure they are okay
+  var settingsOK = true;
+  _cprLog("Checking game settings");
   
+  switch (game.settings.get("cyberpunkred", "dieRollCommand")) {
+    //Allowed die rolls go here
+    case "dp":
+      _cprLog("Die command is ok");
+      settingsOK = true;
+      break;
+      //Nothing else allowed
+    default:
+      _cprLog("Die command is NOT ok");
+      settingsOK = false;
+  }
+
+  if (!settingsOK) {
+    ui.notifications.error("Your system settings are out of date and must be reset before you try to play. The GM must click the GEAR tab, then CONFIGURE SETTINGS, then SYSTEM SETTINGS then must click SAVE CHANGES. Die rolls will not function until that happens.", {
+      permanent: true
+    });
+  }
+
   // Hotbar handler should be loaded last, once everything is ready
   /*
   In progress:
@@ -275,8 +300,7 @@ Hooks.once("ready", function () {
   */
   Hooks.on("hotbarDrop", (bar, data, slot) => macros.createCPRRollMacro(data, slot));
 
-  
+
   ui.notifications.info("CyberpunkRED " + systemDataVersion + " Fully Loaded");
   ui.notifications.warn("GM - Please see known issues and make sure you set die roller in system settings as appropriate for 0.7.8. To do this, click the gear tab on the top right, then Configure Settings and then System Settings. Set the appropriate CPRED Core Rulebook Handler.", {permanent: true});
-
 });
