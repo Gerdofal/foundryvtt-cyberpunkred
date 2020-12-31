@@ -165,70 +165,70 @@
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "int"
+            "sort": "1"
           },
           "ref": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "ref"
+            "sort": "2"
           },
           "dex": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "dex"
+            "sort": "3"
           },
           "tech": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "tech"
+            "sort": "4"
           },
           "cool": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "cool"
+            "sort": "5"
           },
           "will": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "will"
+            "sort": "6"
           },
           "luck": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "luck"
+            "sort": "7"
           },
           "move": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "move"
+            "sort": "8"
           },
           "body": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "body"
+            "sort": "9"
           },
           "emp": {
             "value": 0,
             "mod": 0,
             "itemmod": 0,
             "roll": 0,
-            "sort": "emp"
+            "sort": "10"
           }
         }
       },

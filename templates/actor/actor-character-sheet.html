@@ -364,14 +364,19 @@
         <label>{{localize "CPRED.mod"}}</label>
         <label>{{localize "CPRED.itemmod"}}</label>
         <label>{{localize "CPRED.totalroll"}}</label>
+
         {{#each data.attributes as |attr key|}}
         <label for="data.attributes.{{key}}.value">{{localize (concat "CPRED." key)}}</label>
         <input type="number" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
         <input type="number" name="data.attributes.{{key}}.mod" value="{{attr.mod}}" data-dtype="Number"/>
         <input type="number" name="data.attributes.{{key}}.itemmod" value="{{attr.itemmod}}" data-dtype="Number" readonly/>
         <input type="number" name="data.attributes.{{key}}.roll" value="{{attr.roll}}" data-dtype="Number" readonly/>
-        {{/each}} </div>
-      <h3>{{localize "CPRED.skills"}}</h3>
+        {{/each}} 
+      
+      </div>
+      
+      
+        <h3>{{localize "CPRED.skills"}}</h3>
       {{#each data.backend.skillcategories as |item thiscategory|}}
       <h5>{{localize (concat "CPRED." thiscategory)}}</h5>
       <div class="atrnskill-grid cprgraphics">
@@ -580,7 +585,12 @@
             <label class="cpr-weaponinlinebox">{{item.name}}<br>
               {{#if_not_eq data.ammotype.value "none"}}
               ({{localize "CPRED.ammo"}} {{item.data.ammo.value}}/{{item.data.ammo.max}})
-              &nbsp; <i class="reloadammo clickable" data-weaponid="{{item._id}}" >{{localize "CPRED.full"}}</i> &nbsp; <i class="alterammo clickable" data-weaponid="{{item._id}}" data-change="-1">-1</i> 
+              &nbsp; 
+              <i class="reloadammo clickable" data-weaponid="{{item._id}}" >{{localize "CPRED.full"}}</i> 
+              &nbsp; 
+              <i class="alterammo clickable" data-weaponid="{{item._id}}" data-change="-1">-1</i> 
+              &nbsp;
+              <i class ="alterammo clickable" data-weaponid="{{item._id}}" data-change="-10">-10</i>
               {{/if_not_eq}}
             </label>
               
