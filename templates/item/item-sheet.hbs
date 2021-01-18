@@ -1,16 +1,17 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <header class="sheet-header"> <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+  <header class="sheet-header"> 
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
-      <h1 class="charname">
+      <h1 class="charname" data-augmented-ui="br-clip">
         <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
       </h1>
     </div>
   </header>
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
-    <a class="item" data-tab="mods">Mods</a>
+    <a class="item" data-augmented-ui="tr-clip-x br-clip" data-tab="description">Description</a>
+    <a class="item" data-augmented-ui="tr-clip-x br-clip" data-tab="attributes">Attributes</a>
+    <a class="item" data-augmented-ui="tr-clip-x br-clip" data-tab="mods">Mods</a>
   </nav>
   {{!-- Sheet Body --}}
   <section class="sheet-body">

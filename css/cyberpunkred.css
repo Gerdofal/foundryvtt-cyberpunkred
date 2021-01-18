@@ -1,11 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
 
+@font-face {
+  font-family: 'RussoOne';
+  src: url('/systems/cyberpunkred/fonts/RussoOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/systems/cyberpunkred/fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu-Medium';
+  src: url('/systems/cyberpunkred/fonts/Ubuntu-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu-Light';
+  src: url('/systems/cyberpunkred/fonts/Ubuntu-Light.ttf') format('truetype')
+}
+
 /* Primary Color Variables: */
 
 :root {
-  --cpr-red-color: #700000; /* var(--cpr-red-color) */
-  --cpr-light-bak-color: #FFFFFF; /* var(--cpr-light-bak-color) */
-  --cpr-app-bak-color: rgba(200,200,200,1.00); /* var(--cpr-app-bak-color) */
+  --cpr-red-color: #b00; /* var(--cpr-red-color) */
+  --cpr-red-highlight-color: #f00;
+  --cpr-red-dark-color: #800;
+  --cpr-cyan-color: #0ff;
+  --cpr-light-bak-color: rgba(45, 45, 45, 0.75); /* var(--cpr-light-bak-color) */
+  --cpr-app-bak-color: #000;
   --cpr-green-color: #18520b; /* var(--cpr-green-color) */
   --cpr-default-text-size: .90em;
   --cpr-default-small-text-size: .80em;
@@ -26,7 +49,6 @@ span.part-formula {
   font-size: 1.5em;
   border-bottom: 2px solid var(--cpr-red-color);
 }
-
 
 .cpr-roll-flavor {
   font-size: .8em;
@@ -121,7 +143,19 @@ span.part-formula {
 
 /* Set default font */
 .window-app {
-  font-family: "Roboto", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.window-app .window-resizable-handle {
+  background-color: var(--cpr-light-bak-color);
+  border-color: var(--cpr-red-color);
+  color: var(--cpr-red-color);
+}
+
+.window-app .window-content {
+  background: none;
+  background-color: var(--cpr-app-bak-color);
+  color: var(--cpr-red-highlight-color); 
 }
 
 /* Add graphical border around this block */
@@ -152,8 +186,10 @@ span.part-formula {
 }
 
 .app {
-  background: var(--cpr-app-bak-color);
-  color: var(--cpr-red-color);
+  background: none;
+  background-color: var(--cpr-app-bak-color);
+  color: var(--cpr-red-highlight-color);
+  box-shadow: 0 0 10px var(--cpr-red-color) inset;
 }
 
 #sidebar-tabs > .item.active, #sidebar-tabs > .item, #players {
@@ -738,7 +774,133 @@ span.part-formula {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
+/* Redefine general sheet styling with Augmented-UI */
+/* TODO: move this new stuff to more logical areas of the CSS */
 
+.window-title {
+  font-family: 'Ubuntu-Medium', sans-serif;
+}
+
+header.sheet-header {
+  color: var(--cpr-red-highlight-color);
+}
+
+.sheet nav.sheet-tabs {
+  border-top: none;
+  border-bottom: none;
+}
+
+.sheet input, .sheet select {
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--cpr-cyan-color);
+  background-color: var(--cpr-red-dark-color);
+  border-color: var(--cpr-red-highlight-color);
+  outline-color: var(--cpr-red-highlight-color);
+}
+
+/* .sheet input[type=checkbox] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: var(--cpr-red-dark-color);
+  height: 16px;
+  width: 16px;
+  border: 1px solid var(--cpr-red-highlight-color);
+}
+
+.sheet input[type=checkbox]:after {
+  content: '';
+  position: relative;
+  left: 40%;
+  top: 20%;
+  width: 15%;
+  height: 40%;
+  border: solid var(--cpr-red-highlight-color);
+  background-color: var(--cpr-red-dark-color);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: none;
+}
+
+.sheet input[type="checkbox"]:checked:after {
+  display: block;
+  border-color: var(--cpr-red-highlight-color);
+  background-color: var(--cpr-red-dark-color);
+}
+
+.sheet input[type="checkbox"]:disabled:after {
+  border-color: var(--cpr-light-bak-color);
+}
+
+.sheet input[type=checkbox]:checked {
+  content: "\2714";
+  border-color: var(--cpr-red-highlight-color);
+  background-color: var(--cpr-red-dark-color);
+  color: var(--cpr-cyan-color);
+} */
+
+.sheet h1 input {
+  font-family: 'RussoOne', sans-serif;
+}
+
+.editor-edit {
+  background: var(--cpr-light-bak-color);
+  border-color: var(--cpr-red-highlight-color);
+}
+
+.sheet input:focus {
+  background-color: black;
+}
+
+.sheet header {
+  padding-bottom: 1em;
+}
+
+.sheet header.sheet-header h1 {
+  --aug-border-bg: var(--cpr-red-highlight-color);
+  background-color: var(--cpr-red-color);
+  --aug-border-y: 1px;
+  --aug-border-right: 1px;
+  --aug-border-left: 5px;
+  --aug-border: initial;
+  --aug-inlay-all: 2px;
+  --aug-br: 10px; 
+}
+
+.sheet nav.sheet-tabs .item {
+  font-family: 'RussoOne', sans-serif;
+  color: var(--cpr-cyan-color);
+  text-align: left;
+  text-transform: uppercase;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 21px;
+  padding-top: 3px;
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-border-y: 1px;
+  --aug-border-right: 1px;
+  --aug-border-left: 5px;
+  --aug-border: initial;
+  --aug-inlay-all: 2px;
+  --aug-br1: 6px;
+  --aug-tr: 3px;
+  --aug-tr-inset2: 80%;
+}
+
+.sheet nav.sheet-tabs .item:hover, .sheet nav.sheet-tabs .item.active {
+  --aug-border-bg: var(--cpr-red-highlight-color);
+  background-color: var(--cpr-red-color);
+}
+
+.sheet nav.sheet-tabs .item:first-child {
+  margin-left: 0px;
+}
+
+.sheet nav.sheet-tabs .item:last-child {
+  margin-right: 0px;
+}
 
 /* NPC Sheet*/
 .cyberpunkred .npc-buttonlabel {
