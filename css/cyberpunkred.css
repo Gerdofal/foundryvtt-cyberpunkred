@@ -36,14 +36,14 @@
 /* Primary Color Variables: */
 
 :root {
-  --cpr-red-color: #b00; /* var(--cpr-red-color) */
-  --cpr-red-highlight-color: #f00;
-  --cpr-red-dark-color: #800;
-  --cpr-cyan-color: #0ff;
-  --cpr-white-color: #fff;
-  --cpr-light-bak-color: rgba(45, 45, 45, 1); /* var(--cpr-light-bak-color) */
-  --cpr-app-bak-color: #000;
-  --cpr-green-color: #18520b; /* var(--cpr-green-color) */
+  --cpr-red-color: #b00; 
+  --cpr-red-accent-color: #f00;
+  --cpr-red-dark-color: #700;
+  --cpr-text-color: #00d8d8;
+  --cpr-white-color: #ddd;
+  --cpr-light-bak-color: #242424; 
+  --cpr-app-bak-color: #181818;
+  --cpr-green-color: #18520b; 
   --cpr-default-text-size: .90em;
   --cpr-default-small-text-size: .80em;
 }
@@ -51,20 +51,20 @@
 /* General UI styling */
 form button, .dialog .dialog-buttons button {
   background-color: var(--cpr-red-dark-color);
-  border-color: var(--cpr-red-highlight-color);
-  color: var(--cpr-cyan-color);
+  border-color: var(--cpr-red-accent-color);
+  color: var(--cpr-text-color);
 }
 
 .dialog .dialog-buttons button.default {
   background-color: var(--cpr-red-dark-color);
-  border-color: var(--cpr-cyan-color);
-  color: var(--cpr-cyan-color);
+  border-color: var(--cpr-text-color);
+  color: var(--cpr-text-color);
 }
 
 select, input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"] {
   background-color: var(--cpr-red-dark-color);
-  border-color: var(--cpr-red-highlight-color);
-  color: var(--cpr-cyan-color);
+  border-color: var(--cpr-red-accent-color);
+  color: var(--cpr-text-color);
 }
  
 h2 {
@@ -74,13 +74,13 @@ h2 {
 
 #chat-controls select.roll-type-select {
   background: var(--cpr-light-bak-color);
-  color: var(--cpr-red-highlight-color);
+  color: var(--cpr-red-accent-color);
 }
 
 #chat-form #chat-message {
   background: var(--cpr-light-bak-color);
-  color: var(--cpr-red-highlight-color);
-  border-color: var(--cpr-red-highlight-color);
+  color: var(--cpr-red-accent-color);
+  border-color: var(--cpr-red-accent-color);
   box-shadow: none;
 }
 
@@ -205,7 +205,7 @@ span.part-formula {
 .window-app .window-content {
   background: none;
   background-color: var(--cpr-app-bak-color);
-  color: var(--cpr-red-highlight-color); 
+  color: var(--cpr-text-color); 
 }
 
 /* Add graphical border around this block */
@@ -214,31 +214,29 @@ span.part-formula {
   font-weight: lighter;
   border: none;
   background: var(--cpr-app-bak-color);
-  color: var(--cpr-cyan-color);
-  padding: 10px;
+  color: var(--cpr-text-color);
+  padding: 5px 10px 10px 10px;
 
-  --aug-border-bg: var(--cpr-red-highlight-color);
+  --aug-border-bg: var(--cpr-red-accent-color);
   --aug-border-y: 1px;
   --aug-border-left: 5px;
-  --aug-border-right: 5px;
+  --aug-border-right: 1px;
 
   --aug-inlay: initial;
   --aug-inlay-bg: var(--cpr-light-bak-color);
 
-  --aug-tl: 6px;
   --aug-br: 6px;
-  --aug-br-inset1: 25%;
-  --aug-tl-inset1: 75%;
+  --aug-br-inset1: 10%;
 }
 
 #chat-log .message-sender, #chat-log .message-timestamp {
   font-family: "Ubuntu";
-  color: var(--cpr-red-highlight-color);
+  color: var(--cpr-red-accent-color);
   font-weight: bold;
 }
 
 #chat-log i.fas.fa-trash::before {
-  color: var(--cpr-red-highlight-color);
+  color: var(--cpr-red-accent-color);
   background: var(--cpr-light-bak-color);
 }
 
@@ -255,8 +253,8 @@ span.part-formula {
 .app {
   background: none;
   background-color: var(--cpr-app-bak-color);
-  color: var(--cpr-red-highlight-color);
-  box-shadow: 0 0 10px var(--cpr-red-color) inset;
+  color: var(--cpr-red-accent-color);
+  box-shadow: none;
 }
 
 #sidebar-tabs > .item, #players {
@@ -266,8 +264,8 @@ span.part-formula {
 }
 
 #sidebar-tabs > .item.active {
-  color: var(--cpr-red-highlight-color);
-  border-color: var(--cpr-red-highlight-color);
+  color: var(--cpr-red-accent-color);
+  border-color: var(--cpr-red-accent-color);
   background-color: var(--cpr-light-bak-color);
 }
 
@@ -860,7 +858,7 @@ header.window-header {
 }
 
 header.sheet-header {
-  color: var(--cpr-red-highlight-color);
+  color: var(--cpr-red-accent-color);
 }
 
 .sheet nav.sheet-tabs {
@@ -870,10 +868,10 @@ header.sheet-header {
 
 .sheet input, .sheet select {
   font-family: 'Ubuntu', sans-serif;
-  color: var(--cpr-cyan-color);
+  color: var(--cpr-text-color);
   background-color: var(--cpr-red-dark-color);
-  border-color: var(--cpr-red-highlight-color);
-  outline-color: var(--cpr-red-highlight-color);
+  border-color: var(--cpr-red-accent-color);
+  outline-color: var(--cpr-red-accent-color);
 }
 
 .sheet h1 input {
@@ -882,7 +880,7 @@ header.sheet-header {
 
 .editor-edit {
   background: var(--cpr-light-bak-color);
-  border-color: var(--cpr-red-highlight-color);
+  border-color: var(--cpr-red-accent-color);
 }
 
 .sheet input:focus {
@@ -894,7 +892,7 @@ header.sheet-header {
 }
 
 .sheet header.sheet-header h1 {
-  --aug-border-bg: var(--cpr-red-highlight-color);
+  --aug-border-bg: var(--cpr-red-accent-color);
   background-color: var(--cpr-red-color);
   --aug-border-y: 1px;
   --aug-border-right: 1px;
@@ -906,7 +904,7 @@ header.sheet-header {
 
 .sheet nav.sheet-tabs .item {
   font-family: 'RussoOne', sans-serif;
-  color: var(--cpr-cyan-color);
+  color: var(--cpr-text-color);
   text-align: left;
   text-transform: uppercase;
   margin-left: 5px;
@@ -925,7 +923,7 @@ header.sheet-header {
 }
 
 .sheet nav.sheet-tabs .item:hover, .sheet nav.sheet-tabs .item.active {
-  --aug-border-bg: var(--cpr-red-highlight-color);
+  --aug-border-bg: var(--cpr-red-accent-color);
   background-color: var(--cpr-red-color);
 }
 
@@ -1008,9 +1006,11 @@ header.sheet-header {
 
 /* Legacy CSS left over from Boilerplate */
 .cyberpunkred .tox .tox-editor-container {
-  background: #fff;
+  background: var(--cpr-app-bak-color);
 }
+
 .cyberpunkred .tox .tox-edit-area {
+  color: var(--cpr-text-color);
   padding: 0 8px;
 }
 
