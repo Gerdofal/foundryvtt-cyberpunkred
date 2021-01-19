@@ -53,6 +53,8 @@ Hooks.once('init', async function () {
     cyberpunkredItem
   };
 
+  // Override the default chat message template
+  CONFIG.ChatMessage.template = 'systems/cyberpunkred/templates/sidebar/chat-message.hbs';
 
   /**
    * Set an initiative formula for the system
