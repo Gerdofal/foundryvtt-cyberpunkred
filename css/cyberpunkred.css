@@ -36,6 +36,7 @@
 /* Primary Color Variables: */
 
 :root {
+  /****** Save for dark theme later ******
   --cpr-red-color: #b00; 
   --cpr-red-accent-color: #f00;
   --cpr-red-dark-color: #700;
@@ -43,9 +44,19 @@
   --cpr-white-color: #ddd;
   --cpr-light-bak-color: #242424; 
   --cpr-app-bak-color: #181818;
-  --cpr-green-color: #18520b; 
+  --cpr-green-color: #18520b;  
+  */
   --cpr-default-text-size: .90em;
   --cpr-default-small-text-size: .80em;
+
+  --cpr-red-color: #b00; 
+  --cpr-red-accent-color: #f00;
+  --cpr-red-dark-color: #700;
+  --cpr-text-color: #222;
+  --cpr-white-color: #000;
+  --cpr-light-bak-color: #e8e8e8; 
+  --cpr-app-bak-color: #f0f0f0;
+  --cpr-green-color: #18520b; 
 }
 
 /* General UI styling */
@@ -74,12 +85,11 @@ h2 {
 
 #chat-controls select.roll-type-select {
   background: var(--cpr-light-bak-color);
-  color: var(--cpr-red-accent-color);
+  color: var(--cpr-text-color);
 }
 
 #chat-form #chat-message {
   background: var(--cpr-light-bak-color);
-  color: var(--cpr-red-accent-color);
   border-color: var(--cpr-red-accent-color);
   box-shadow: none;
 }
@@ -211,28 +221,45 @@ span.part-formula {
 /* Add graphical border around this block */
 .cyberpunkred .cprgraphics, #chat-log .message {
   font-family: "Ubuntu";
-  font-weight: lighter;
   border: none;
   background: var(--cpr-app-bak-color);
   color: var(--cpr-text-color);
   padding: 5px 10px 10px 10px;
 
-  --aug-border-bg: var(--cpr-red-accent-color);
+  --aug-border-bg: var(--cpr-red-color);
   --aug-border-y: 1px;
-  --aug-border-left: 5px;
+  --aug-border-left: 0px;
   --aug-border-right: 1px;
 
   --aug-inlay: initial;
   --aug-inlay-bg: var(--cpr-light-bak-color);
 
-  --aug-br: 6px;
-  --aug-br-inset1: 10%;
+  --aug-br: 5px;
+  --aug-br-inset1: 8%;
 }
 
-#chat-log .message-sender, #chat-log .message-timestamp {
+#chat-log .chat-message {
+  padding-left: 3px;
+  padding-right: 4px;
+  padding-top: 3px;
+}
+
+#chat-log .message-header {
+  background-color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#chat-log .message-sender, #chat-log .message-metadata {
   font-family: "Ubuntu";
-  color: var(--cpr-red-accent-color);
   font-weight: bold;
+}
+
+#chat-log .message-content {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 10px;
 }
 
 #chat-log i.fas.fa-trash::before {
