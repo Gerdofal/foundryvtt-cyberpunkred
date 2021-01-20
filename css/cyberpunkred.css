@@ -1,37 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
-
-@font-face {
-  font-family: 'RussoOne';
-  src: url('/systems/cyberpunkred/fonts/RussoOne-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/systems/cyberpunkred/fonts/Ubuntu-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/systems/cyberpunkred/fonts/Ubuntu-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/systems/cyberpunkred/fonts/Ubuntu-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('/systems/cyberpunkred/fonts/Ubuntu-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
 /* Primary Color Variables: */
 
@@ -79,7 +48,7 @@ select, input[type="text"], input[type="number"], input[type="password"], input[
 }
  
 h2 {
-  font-family: "RussoOne";
+  font-family: 'Russo One';
   font-size: 20pt;
 }
 
@@ -203,7 +172,7 @@ span.part-formula {
 
 /* Set default font */
 .window-app {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Hind", sans-serif;
 }
 
 .window-app .window-resizable-handle {
@@ -220,7 +189,7 @@ span.part-formula {
 
 /* Add graphical border around this block */
 .cyberpunkred .cprgraphics, #chat-log .message {
-  font-family: "Ubuntu";
+  font-family: "Hind";
   border: none;
   background: var(--cpr-app-bak-color);
   color: var(--cpr-text-color);
@@ -252,7 +221,7 @@ span.part-formula {
 }
 
 #chat-log .message-sender, #chat-log .message-metadata {
-  font-family: "Ubuntu";
+  font-family: "Hind";
   font-weight: bold;
 }
 
@@ -876,7 +845,7 @@ span.part-formula {
 /* TODO: move this new stuff to more logical areas of the CSS */
 
 .window-title {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Hind', sans-serif;
   font-weight: bold;
 }
 
@@ -894,7 +863,7 @@ header.sheet-header {
 }
 
 .sheet input, .sheet select {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Hind', sans-serif;
   color: var(--cpr-text-color);
   background-color: var(--cpr-red-dark-color);
   border-color: var(--cpr-red-accent-color);
@@ -902,7 +871,7 @@ header.sheet-header {
 }
 
 .sheet h1 input {
-  font-family: 'RussoOne', sans-serif;
+  font-family: 'Russo One', sans-serif;
 }
 
 .editor-edit {
@@ -930,7 +899,7 @@ header.sheet-header {
 }
 
 .sheet nav.sheet-tabs .item {
-  font-family: 'RussoOne', sans-serif;
+  font-family: 'Russo One', sans-serif;
   color: var(--cpr-text-color);
   text-align: left;
   text-transform: uppercase;

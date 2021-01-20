@@ -40,7 +40,6 @@ import * as macros from "./macros.js";
 
 
 Hooks.once('init', async function () {
-
   _cprLog(`Initializing CyberpunkRED System`);
 
   // Register System Settings
