@@ -38,6 +38,18 @@ import {
 
 import * as macros from "./macros.js";
 
+CONFIG.debug.hooks = true;
+
+Hooks.once('renderSidebar', function (sidebar) {
+  _cprLog('Adding Augemented-UI attributes to sidebar tabs');
+  let navChildren = sidebar.element[0].children[0].children;
+  _cprLog('Updating links');
+
+  for (var tabLink of navChildren) {
+    tabLink.setAttribute('data-augmented-ui', 'tl-clip tr-clip border');
+  };
+});
+
 
 Hooks.once('init', async function () {
   _cprLog(`Initializing CyberpunkRED System`);
@@ -253,7 +265,6 @@ Hooks.once('init', async function () {
 
 
 });
-
 
 Hooks.once("ready", function () {
   //Once FoundryVTT is loaded, perform a migration check
