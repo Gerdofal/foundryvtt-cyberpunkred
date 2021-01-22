@@ -1,6 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+@font-face {
+  /* Downloaded from https://www.futurafree.com/fonts/futura-medium-font-free-download/ */
+  font-family: 'Futura';
+  src: url('/systems/cyberpunkred/fonts/Futura Std Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  /* Downloaded from https://www.futurafree.com/fonts/futura-heavy-font-free-download/ */
+  font-family: 'Futura';
+  src: url('/systems/cyberpunkred/fonts/Futura Std Heavy.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 /* Primary Color Variables: */
 
@@ -15,8 +30,8 @@
   --cpr-app-bak-color: #181818;
   --cpr-green-color: #18520b;  
   */
-  --cpr-default-text-size: .90em;
-  --cpr-default-small-text-size: .80em;
+  --cpr-default-text-size: 1em;
+  --cpr-default-small-text-size: 0.9em;
 
   --cpr-red-color: #b00; 
   --cpr-red-accent-color: #f00;
@@ -30,7 +45,6 @@
 }
 
 /* General UI styling */
-
 button, form button, .dialog .dialog-buttons button {
   background-color: var(--cpr-light-bak-color);
   border-color: var(--cpr-red-color);
@@ -244,7 +258,8 @@ span.part-formula {
 
 /* Set default font */
 .window-app {
-  font-family: "Hind", sans-serif;
+  font-family: 'Futura', sans-serif;
+  font-size: var(--cpr-default-text-size);
 }
 
 .window-app .window-resizable-handle {
@@ -261,7 +276,7 @@ span.part-formula {
 
 /* Add graphical border around this block */
 .cyberpunkred .cprgraphics, #chat-log .message {
-  font-family: "Hind";
+  font-family: "Futura";
   border: none;
   background: var(--cpr-app-bak-color);
   color: var(--cpr-text-color);
@@ -293,7 +308,7 @@ span.part-formula {
 }
 
 #chat-log .message-sender, #chat-log .message-metadata {
-  font-family: "Hind";
+  font-family: "Futura";
   font-weight: bold;
 }
 
@@ -946,7 +961,7 @@ li.folder > .folder-header .create-entity {
 /* TODO: move this new stuff to more logical areas of the CSS */
 
 .window-title {
-  font-family: 'Hind', sans-serif;
+  font-family: 'Futura', sans-serif;
   font-weight: bold;
 }
 
@@ -964,7 +979,7 @@ header.sheet-header {
 }
 
 .sheet input, .sheet select {
-  font-family: 'Hind', sans-serif;
+  font-family: 'Futura', sans-serif;
   color: var(--cpr-text-color);
   background-color: var(--cpr-light-bak-color);
   border-color: var(--cpr-red-color);
@@ -972,7 +987,8 @@ header.sheet-header {
 }
 
 .sheet h1 input {
-  font-family: 'Russo One', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Russo One', sans-serif; */
 }
 
 .editor-edit {
