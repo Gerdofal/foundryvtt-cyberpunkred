@@ -38,7 +38,7 @@ import {
 
 import * as macros from "./macros.js";
 
-CONFIG.debug.hooks = true;
+// CONFIG.debug.hooks = true;
 
 Hooks.once('renderSidebar', function (sidebar) {
   _cprLog('Adding Augemented-UI attributes to sidebar tabs');

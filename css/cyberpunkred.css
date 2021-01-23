@@ -37,6 +37,7 @@
   --cpr-red-accent-color: #f00;
   --cpr-red-dark-color: #700;
   --cpr-text-color: #222;
+  --cpr-text-dark-color: #4b4b4b;
   --cpr-white-color: #000;
   --cpr-light-bak-color: #e4e4e4; 
   --cpr-accent-bak-color: #fdd;
@@ -45,10 +46,18 @@
 }
 
 /* General UI styling */
+form .notes, form .hint {
+  color: var(--cpr-text-dark-color);
+}
+
 button, form button, .dialog .dialog-buttons button {
   background-color: var(--cpr-light-bak-color);
   border-color: var(--cpr-red-color);
   color: var(--cpr-text-color);
+}
+
+button:hover, button:focus {
+  box-shadow: 0 0 3px var(--cpr-red-color);
 }
 
 .dialog .dialog-buttons button.default {
@@ -59,15 +68,20 @@ button, form button, .dialog .dialog-buttons button {
 
 select, input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"] {
   background-color: var(--cpr-light-bak-color);
-  border-color: var(--cpr-red-accent-color);
+  border-color: var(--cpr-red-color);
   color: var(--cpr-text-color);
 }
- 
-input:focus {
-  border-color: var(--cpr-text-color);
-  box-shadow: none;
-}
 
+select:focus, 
+input[type="text"]:focus, 
+input[type="number"]:focus, 
+input[type="password"]:focus,
+input[type="date"]:focus, 
+input[type="time"]:focus {
+  /* TODO: make shadow settings a variable */
+  box-shadow: 0 0 3px var(--cpr-red-color);
+}
+ 
 h2 {
   font-family: 'Russo One';
   font-size: 20pt;
@@ -87,7 +101,8 @@ h2 {
 
 #sidebar-tabs a {
   --aug-border-bg: var(--cpr-red-color);
-  --aug-border-all: 2px;
+  --aug-border-y: 2px;
+  --aug-border-x: 1px;
   --aug-tl: 5px;
   --aug-tr: 5px;
 }
@@ -95,6 +110,10 @@ h2 {
 #sidebar.collapsed #sidebar-tabs > .item.active {
   border-bottom: none;
   border-radius: none;
+}
+
+#sidebar.collapsed #sidebar-tabs {
+  flex-direction: column;
 }
 
 #sidebar.collapsed #sidebar-tabs a {
@@ -111,10 +130,16 @@ h2 {
   background-color: var(--cpr-red-color);
   color: var(--cpr-app-bak-color);
   border-radius: 0;
+  flex: 1;
+}
+
+#sidebar-tabs a.item:hover, #sidebar-tabs >.collapse:hover {
+  color: var(--cpr-red-accent-color);
 }
 
 #sidebar-tabs a.item:first-child {
   --aug-tl: 0px;
+  --aug-border-left: 2px;
 }
 
 #sidebar-tabs > .item.active {
@@ -128,6 +153,7 @@ h2 {
   --aug-border-bg: var(--cpr-red-color);
   --aug-border-all: 1px;
   --aug-tr: 0px;
+  --aug-border-right: 2px;
 }
 
 #sidebar .sidebar-tab {
@@ -140,6 +166,11 @@ h2 {
 #chat-controls select.roll-type-select {
   background: var(--cpr-light-bak-color);
   color: var(--cpr-text-color);
+}
+
+#chat-form > textarea:focus {
+  outline: none;
+  box-shadow: 0 0 3px var(--cpr-red-color) !important;
 }
 
 #chat-form #chat-message {
@@ -391,7 +422,7 @@ li.folder > .folder-header .create-entity {
 }
 
 #playlists li.playlist .sound-control {
-  color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
 }
 
 /* Make sure this block has room to edit */
