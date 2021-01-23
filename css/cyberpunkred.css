@@ -223,7 +223,8 @@ span.part-formula {
 }
 
 .cpr-roll-showtagslink {
-  font-size: .5em;
+  font-size: 0.8em;
+  text-decoration: underline;
 }
 
 .cpr-roll-crit-success {
@@ -306,7 +307,7 @@ span.part-formula {
 }
 
 /* Add graphical border around this block */
-.cyberpunkred .cprgraphics, #chat-log .message {
+.cyberpunkred .cprgraphics, #chat-log .message, #chat-log .message .whisper {
   font-family: "Futura";
   border: none;
   background: var(--cpr-app-bak-color);
@@ -329,6 +330,10 @@ span.part-formula {
   padding-left: 3px;
   padding-right: 4px;
   padding-top: 3px;
+}
+
+#chat-log .whisper {
+  --aug-inlay-bg: var(--cpr-accent-bak-color);
 }
 
 #chat-log .message-header {
