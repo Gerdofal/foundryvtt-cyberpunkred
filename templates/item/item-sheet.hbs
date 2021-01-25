@@ -1,6 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
   <header class="sheet-header"> 
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div data-augmented-ui="br-clip both" class="profile-img-container">
+      <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    </div>
     <div class="header-fields">
       <h1 class="charname" data-augmented-ui="br-clip">
         <input name="name" type="text" value="{{item.name}}" placeholder="Name"/>
@@ -9,9 +11,9 @@
   </header>
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-augmented-ui="tr-clip-x br-clip" data-tab="description">Description</a>
-    <a class="item" data-augmented-ui="tr-clip-x br-clip" data-tab="attributes">Attributes</a>
-    <a class="item" data-augmented-ui="tr-clip-x br-clip" data-tab="mods">Mods</a>
+    <a class="item" data-augmented-ui="tr-clip-x br-clip both" data-tab="description">Description</a>
+    <a class="item" data-augmented-ui="tr-clip-x br-clip both" data-tab="attributes">Attributes</a>
+    <a class="item" data-augmented-ui="tr-clip-x br-clip both" data-tab="mods">Mods</a>
   </nav>
   {{!-- Sheet Body --}}
   <section class="sheet-body">
@@ -25,7 +27,8 @@
     {{!-- Attributes Tab --}}
 
     <div class="tab attributes" data-group="primary" data-tab="attributes">
-    {{localize "CPRED.underconstruction"}}<br>
+      <div class="disclaimer">{{localize "CPRED.underconstruction"}}</div>
+      <hr>
       <div class="grid grid-6col">
         {{localize "CPRED.price"}}<input type="number" name="data.price.value" value="{{data.price.value}}">
         {{localize "CPRED.rarity"}}<input type="text" name="data.rarity.value" value="{{data.rarity.value}}">
@@ -116,7 +119,8 @@
     {{!-- Mods Tab --}}
 
     <div class="tab mods" data-group="primary" data-tab="mods">
-      {{localize "CPRED.underconstruction"}}<br>
+      <div class="disclaimer">{{localize "CPRED.underconstruction"}}</div>
+      <hr>
       <div class="grid grid-4col">
         <label>Category</label>
         <label>Item</label>

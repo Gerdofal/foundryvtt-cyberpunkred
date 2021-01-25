@@ -33,14 +33,14 @@
   --cpr-default-text-size: 1em;
   --cpr-default-small-text-size: 0.9em;
 
-  --cpr-red-color: #b00; 
+  --cpr-red-color: #d5230c; 
   --cpr-red-accent-color: #f00;
   --cpr-red-dark-color: #700;
   --cpr-text-color: #222;
   --cpr-text-dark-color: #4b4b4b;
   --cpr-white-color: #000;
-  --cpr-light-bak-color: #e4e4e4; 
-  --cpr-accent-bak-color: #fdd;
+  --cpr-light-bak-color: #e6e7e7; 
+  --cpr-accent-bak-color: #f0c7b8;
   --cpr-app-bak-color: #f0f0f0;
   --cpr-green-color: #18520b; 
 }
@@ -91,6 +91,7 @@ h2 {
   border-radius: 0;
   border: none;
   background: transparent;
+  box-shadow: none;
 }
 
 #sidebar-tabs {
@@ -134,7 +135,7 @@ h2 {
 }
 
 #sidebar-tabs a.item:hover, #sidebar-tabs >.collapse:hover {
-  color: var(--cpr-red-accent-color);
+  color: var(--cpr-accent-bak-color);
 }
 
 #sidebar-tabs a.item:first-child {
@@ -294,6 +295,11 @@ span.part-formula {
   font-size: var(--cpr-default-text-size);
 }
 
+.window-app .window-header {
+  border: none;
+  background-color: var(--cpr-light-bak-color);
+}
+
 .window-app .window-resizable-handle {
   background-color: var(--cpr-light-bak-color);
   border-color: var(--cpr-red-color);
@@ -304,6 +310,13 @@ span.part-formula {
   background: none;
   background-color: var(--cpr-app-bak-color);
   color: var(--cpr-text-color); 
+}
+
+.window-app .disclaimer {
+  font-size: 0.8em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
 }
 
 /* Add graphical border around this block */
@@ -373,7 +386,7 @@ span.part-formula {
   background: none;
   background-color: var(--cpr-app-bak-color);
   color: var(--cpr-red-color);
-  box-shadow: none;
+  box-shadow: 0 0 10px var(--cpr-red-color);
 }
 
 #sidebar-tabs > .item, #players {
@@ -1009,6 +1022,20 @@ header.sheet-header {
   color: var(--cpr-red-accent-color);
 }
 
+.sheet header.sheet-header img {
+  border: none;
+  background: none;
+}
+
+.sheet header.sheet-header .profile-img-container {
+  --aug-border-all: 1px;
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-inlay-bg: var(--cpr-accent-bak-color);
+  padding: 6px 1px 4px 4px;
+  flex: none;
+  --aug-br: 10px;
+}
+
 .sheet nav.sheet-tabs {
   border-top: none;
   border-bottom: none;
@@ -1022,9 +1049,15 @@ header.sheet-header {
   outline-color: var(--cpr-red-color);
 }
 
-.sheet h1 input {
-  font-family: 'Roboto', sans-serif;
-  /* font-family: 'Russo One', sans-serif; */
+.sheet header.sheet-header h1 input {
+  font-family: 'Russo One', sans-serif;
+  background-color: var(--cpr-app-bak-color);
+  border-color: var(--cpr-app-bak-color);
+  margin-left: 3px;
+}
+
+.sheet header.sheet-header h1 input:hover {
+  border: 1px solid var(--cpr-red-color)
 }
 
 .editor-edit {
@@ -1040,20 +1073,10 @@ header.sheet-header {
   padding-bottom: 1em;
 }
 
-.sheet header.sheet-header h1 {
-  --aug-border-bg: var(--cpr-red-accent-color);
-  background-color: var(--cpr-red-color);
-  --aug-border-y: 1px;
-  --aug-border-right: 1px;
-  --aug-border-left: 5px;
-  --aug-border: initial;
-  --aug-inlay-all: 2px;
-  --aug-br: 10px; 
-}
-
 .sheet nav.sheet-tabs .item {
   font-family: 'Russo One', sans-serif;
   color: var(--cpr-text-color);
+  font-size: 0.8em;
   text-align: left;
   text-transform: uppercase;
   margin-left: 5px;
@@ -1065,6 +1088,7 @@ header.sheet-header {
   --aug-border-right: 1px;
   --aug-border-left: 5px;
   --aug-border: initial;
+  --aug-inlay-bg: var(--cpr-light-bak-color);
   --aug-inlay-all: 2px;
   --aug-br1: 6px;
   --aug-tr: 3px;
@@ -1072,8 +1096,10 @@ header.sheet-header {
 }
 
 .sheet nav.sheet-tabs .item:hover, .sheet nav.sheet-tabs .item.active {
-  --aug-border-bg: var(--cpr-red-accent-color);
-  background-color: var(--cpr-red-color);
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-inlay-bg: var(--cpr-accent-bak-color);
+  text-shadow: none;
+  color: var(--cpr-red-color);
 }
 
 .sheet nav.sheet-tabs .item:first-child {
