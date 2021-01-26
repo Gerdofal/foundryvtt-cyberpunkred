@@ -297,14 +297,20 @@ span.part-formula {
 
 .window-app .window-header {
   border: none;
-  background-color: var(--cpr-light-bak-color);
+  background-color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
+  border-radius: 5px 5px 0 0;
 }
 
 .window-app .window-resizable-handle {
-  background-color: var(--cpr-light-bak-color);
-  border-color: var(--cpr-red-color);
-  color: var(--cpr-red-color);
+  background-color: var(--cpr-red-color);
+  border-color: var(--cpr-red-accent-color);
+  color: var(--cpr-app-bak-color);
 }
+
+.window-app .window-resizable-handle:hover {
+  color: var(--cpr-accent-bak-color); 
+} 
 
 .window-app .window-content {
   background: none;
@@ -320,7 +326,27 @@ span.part-formula {
 }
 
 /* Add graphical border around this block */
-.cyberpunkred .cprgraphics, #chat-log .message, #chat-log .message .whisper {
+.cyberpunkred .cprgraphics {
+  font-family: "Futura";
+  border: none;
+  background: var(--cpr-app-bak-color);
+  color: var(--cpr-text-color);
+  padding: 5px 10px 10px 10px;
+
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-border-y: 1px;
+  --aug-border-x: 1px;
+
+  --aug-inlay: initial;
+  --aug-inlay-bg: var(--cpr-light-bak-color);
+
+  --aug-tl: 5px;
+  --aug-tr: 5px;
+  --aug-bl: 5px;
+  --aug-br: 5px;
+}
+
+#chat-log .message, #chat-log .message .whisper {
   font-family: "Futura";
   border: none;
   background: var(--cpr-app-bak-color);
@@ -387,6 +413,7 @@ span.part-formula {
   background-color: var(--cpr-app-bak-color);
   color: var(--cpr-red-color);
   box-shadow: 0 0 10px var(--cpr-red-color);
+  padding: 0 !important;
 }
 
 #sidebar-tabs > .item, #players {
@@ -468,33 +495,33 @@ li.folder > .folder-header .create-entity {
 /* General Style Elements */
 
 .cyberpunkred h1 {
+  font-family: 'Russo One', sans-serif;
   display: block;
   font-size: 2.15em;
   margin-block-start: 5px;
   margin-block-end: 0px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
 }
 
 .cyberpunkred h2 {
+  font-family: 'Russo One', sans-serif;
   display: block;
   font-size: 1.75em;
-  margin-block-start: 5px;
-  margin-block-end: 0px;
+  margin-block-start: 1px;
+  margin-block-end: 4px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
 }
 
 .cyberpunkred h3 {
+  font-family: 'Russo One', sans-serif;
   display: block;
   font-size: 1.15em;
-  margin-block-start: 5px;
-  margin-block-end: 0px;
+  margin-block-start: 2px;
+  margin-block-end: 3px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
 }
 
 .cyberpunkred h4 {
@@ -528,7 +555,6 @@ li.folder > .folder-header .create-entity {
   grid-column: 1 / span 2;
   grid-row: 1;
   border: none;
-  border-bottom: 1px solid #AAA;
   padding: 3px;
 }
 .cyberpunkred .cpr-nav {
@@ -539,7 +565,6 @@ li.folder > .folder-header .create-entity {
   grid-template-columns: auto;
   grid-template-rows: auto;
   align-content: start;
-  border-right: 1px solid #AAA;
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
 }
@@ -554,44 +579,32 @@ li.folder > .folder-header .create-entity {
 
 /* Navigation grid styles */
 .cyberpunkred .cpr-nav .cpr-nav-item {
-  justify-self: start;
-  display: block;
-  height: 25px;
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-  overflow: visible;
-  white-space: nowrap;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
 }
+
 .cyberpunkred .cpr-nav .cpr-nav-item .item {
-  font-weight: normal;
-  display: block;
-  width: 100%;
-  padding: 5px 5px 5px 5px;
-  margin: 0px;
-  height: 25px;
-  background: var(--cpr-light-bak-color);
-  border-left: 1px solid var(--cpr-red-color);
-  border-top: 1px solid var(--cpr-red-color);
-  border-bottom: 1px solid var(--cpr-red-color);
-  border-radius: 10px 0px 0px 0px;
-  font-size: var(--cpr-default-text-size);
-  white-space: nowrap;
+  color: var(--cpr-text-color);
+  font-size: 0.9em;
+  padding: 4px 4px 4px 8px;
+  margin: 0 0 2px 0;
+  flex: 1;
+
+  --aug-br: 5px;
+  --aug-border-y: 1px;
+  --aug-border-left: 3px;
+  --aug-border-right: 1px;
+  --aug-border-bg: var(--cpr-red-color);
+
+  --aug-inlay-bg: var(--cpr-light-bak-color);
 }
-.cyberpunkred .cpr-nav .cpr-nav-item .item.active {
-  text-decoration: underline;
+
+.cyberpunkred .cpr-nav .cpr-nav-item .item.active, .cyberpunkred .cpr-nav .cpr-nav-item .item:hover {
+  color: var(--cpr-red-color);
   text-shadow: none;
-  font-weight: bold;
-  padding: 5px 5px 5px 5px;
-  margin: 0px;
-  height: 25px;
-  background: linear-gradient(#D0D0D0,#E0E0E0);
-  border-left: 1px solid var(--cpr-red-color);
-  border-top: 1px solid var(--cpr-red-color);
-  border-bottom: 1px solid var(--cpr-red-color);
-  border-radius: 10px 0px 0px 0px;
-  font-size: var(--cpr-default-text-size);
+  --aug-inlay-bg: var(--cpr-accent-bak-color);
 }
 
 /* General code for hover indications of rollable and clickable */
@@ -617,16 +630,6 @@ li.folder > .folder-header .create-entity {
 .cyberpunkred .npcrollable:hover, .cyberpunkred .npcrollable:focus, .cyberpunkred .rollable:hover, .cyberpunkred .rollable:focus, .cyberpunkred .clickable:focus, .cyberpunkred .clickable:hover, .cyberpunkred .cpr-nav .cpr-nav-item .item:hover, .cpr-roll-showtagslink:hover {
   color: var(--cpr-red-color);
   cursor: pointer;
-  text-shadow:
-    0 0 1px #fff,
-    0 0 2px #fff,
-    0 0 3px #fff,
-    0 0 4px #f00,
-    0 0 5px #f00,
-    0 0 6px #f00,
-    0 0 70px #f00,
-    0 0 8px #f00;
-
 }
 
 /* Welcome and Conversion Status Grid */
@@ -693,12 +696,18 @@ li.folder > .folder-header .create-entity {
 .cyberpunkred .atrnskill-grid {
   display: grid;
   grid-row-gap: 5px;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 5px;
   grid-template-columns: 200px 50px 50px 50px 50px;
   align-items: center;
   justify-items: left;
   font-size: var(--cpr-default-text-size);
+
+  --aug-border-left: 1px;
+  --aug-br-inset1: 0%;
+
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-tl: 5px;
 }
 .cyberpunkred .atrnskill-grid input {
   text-align: center;
@@ -1027,13 +1036,18 @@ header.sheet-header {
   background: none;
 }
 
-.sheet header.sheet-header .profile-img-container {
+.sheet header.sheet-header .profile-img-container, .profile-img-container { 
   --aug-border-all: 1px;
   --aug-border-bg: var(--cpr-red-color);
   --aug-inlay-bg: var(--cpr-accent-bak-color);
   padding: 6px 1px 4px 4px;
   flex: none;
+  display: inline-block;
   --aug-br: 10px;
+}
+
+img.profile-img {
+  border: none;
 }
 
 .sheet nav.sheet-tabs {

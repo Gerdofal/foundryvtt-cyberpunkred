@@ -21,29 +21,30 @@
     </div>
     {{!-- Navigation Sidebar --}}
     <div class="cpr-nav sheet-tabs cprgraphics" data-group="primary">
-      <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="rollsetup">{{localize "CPRED.rollsetup"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="rollsetup">{{localize "CPRED.rollsetup"}}</a></div>
       <br>
-      <div class="cpr-nav-item"><a class="item" data-tab="rollbuttons">{{localize "CPRED.rollbuttons"}}</a></div>
+      <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="rollbuttons">{{localize "CPRED.rollbuttons"}}</a></div>
     </div>
     <div class="cpr-content cprgraphics">
       
       
       
       {{!-- Biography Tab --}}
-      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="biography"> 
-        {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} 
-      </div>
+      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
       
       
       
       {{!-- Appearance Tab --}}
-      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} </div>
-
-      
+      <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="appearance"> 
+        <div class="profile-img-container" data-augmented-ui="br-clip both">
+          <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>  
+        </div>
+        {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}}
+      </div>
       
       {{!-- Rolls Setup Tab --}}
       <div class="tab rolls cprgraphics" data-group="primary" data-tab="rollsetup">
