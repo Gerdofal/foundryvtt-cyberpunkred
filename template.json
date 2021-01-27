@@ -913,7 +913,11 @@
     }
   },
   "Item": {
+<<<<<<< HEAD
     "types": ["cyberware", "weapons", "gear"],
+=======
+    "types": ["cyberware", "weapons", "gear","skill"],
+>>>>>>> First Commit
     "templates": {
       "general": {
         "price": {
@@ -965,6 +969,14 @@
         "rof": {
           "value": 1
         }
+      },
+      "skill": {
+        "value":0,
+        "mod":0,
+        "itemmod":0,
+        "roll":0,
+        "description":"Skill description...",
+        "flags": []
       },
       "modlist": {
         "modlist": {
@@ -1039,6 +1051,9 @@
     },
     "gear": {
       "templates": ["general", "modlist"]
+    },
+    "skill": {
+      "templates": ["skill"]
     }
   }
 }

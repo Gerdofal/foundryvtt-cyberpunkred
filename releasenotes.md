@@ -11,6 +11,7 @@ Live: None
 
 - 0.43
   - Back end changes
+  - Added skills as an item
 
 ### Future Plans
 
