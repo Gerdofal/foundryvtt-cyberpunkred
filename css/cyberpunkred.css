@@ -45,6 +45,18 @@
   --cpr-green-color: #18520b; 
 }
 
+#combat li.combatant {
+  background-color: var(--cpr-accent-bak-color);
+  color: var(--cpr-text-color);
+}
+
+
+#combat li.combatant.active {
+  background-color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
+}
+
+
 /* General UI styling */
 form .notes, form .hint {
   color: var(--cpr-text-dark-color);
@@ -180,6 +192,9 @@ h2 {
   box-shadow: none;
 }
 
+.setcurrenthealth {
+  color: var(--cpr-red-color);
+}
 
 /* Roll Template */
 
