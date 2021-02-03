@@ -1088,15 +1088,9 @@ img.profile-img {
 }
 
 .sheet nav.sheet-tabs .item {
-  font-family: 'Russo One', sans-serif;
   color: var(--cpr-text-color);
-  font-size: 0.8em;
-  text-align: left;
-  text-transform: uppercase;
   margin-left: 5px;
   margin-right: 5px;
-  padding-left: 21px;
-  padding-top: 3px;
   --aug-border-bg: var(--cpr-red-color);
   --aug-border-y: 1px;
   --aug-border-right: 1px;
