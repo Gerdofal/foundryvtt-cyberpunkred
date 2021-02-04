@@ -22,39 +22,39 @@
   </div>
   {{!-- Navigation Sidebar --}}
   <div class="cpr-nav sheet-tabs cprgraphics" data-group="primary">
-    <div class="cpr-nav-item"><a class="item" data-tab="welcome">Welcome</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="humanityarray">{{localize "CPRED.humanitytrack"}}</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="modlog">{{localize "CPRED.modlog"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="welcome">Welcome</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="settings">{{localize "CPRED.settings"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="combat">{{localize "CPRED.combat"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="biography">{{localize "CPRED.bio"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="appearance">{{localize "CPRED.appearance"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="attrnskills">{{localize "CPRED.attrnskills"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="combatsetup">{{localize "CPRED.combatsetup"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="humanityarray">{{localize "CPRED.humanitytrack"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="modlog">{{localize "CPRED.modlog"}}</a></div>
     {{#if data.settings.showtabs.netrunner}}
-    <div class="cpr-nav-item"><a class="item" data-tab="hacking">{{localize "CPRED.netrunner"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="hacking">{{localize "CPRED.netrunner"}}</a></div>
     {{/if}}
-    <div class="cpr-nav-item"><a class="item" data-tab="textinventory">{{localize "CPRED.textinventory"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="textinventory">{{localize "CPRED.textinventory"}}</a></div>
     {{#if data.settings.prefs.showInventory}}
-    <div class="cpr-nav-item"><a class="item" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
-    <div class="cpr-nav-item"><a class="item" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="cyberware">{{localize "CPRED.cyberware"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="weapons">{{localize "CPRED.weapons"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="gear">{{localize "CPRED.gear"}}</a></div>
     {{/if}}
-    <div class="cpr-nav-item"><a class="item" data-tab="playernotes">{{localize "CPRED.playernotes"}}</a></div>
+    <div class="cpr-nav-item"><a class="item" data-augmented-ui="br-clip both" data-tab="playernotes">{{localize "CPRED.playernotes"}}</a></div>
   </div>
   {{!-- Start Content --}}
   <div class="cpr-content cprgraphics"> {{!-- Welcome Tab --}}
-    <div class="tab cprgraphics" data-group="primary" data-tab="welcome"> {{localize "CPRED.notlocalized"}}
+    <div class="tab cprgraphics" data-group="primary" data-tab="welcome"> 
+      <div class="disclaimer">
+        {{localize "CPRED.notlocalized"}}
+      </div>
       <hr>
       <h3>Welcome to the release of the CyberpunkRED Core Rulebook!</h3>
-      <br>
-      This FVTT System was originally written for the Jumpstart Kit. It's now being updated to the core rules. Please pardon our dust. <br>
+      This FVTT System was originally written for the Jumpstart Kit. It's now being updated to the core rules. Please pardon our dust. 
       This temporary tab tracks the migration of the existing system (Based on the Jumpstart Kit or "jsk") to the new system (Based on the release Core Rulebook or "core").  While playable, please note that some sections are pending completion.
       <hr>
-      <br>
       <h3>The GM has activated the following game system: {{data.gameSystem}}</h3>
-      <br>
-      If this is in error, the GM can change it via: 'Game Settings' -&gt; 'Configure Settings' -&gt; 'System Settings' on the right. You will need to press F5 to reload once they change the setting. <br>
+      If this is in error, the GM can change it via: 'Game Settings' -&gt; 'Configure Settings' -&gt; 'System Settings' on the right. You will need to press F5 to reload once they change the setting. 
       <hr>
       <h3>Conversion Status</h3>
       <hr>
@@ -178,7 +178,8 @@
       </div>
     </div>
     {{!-- Humanity Tab --}}
-    <div class="tab cprgraphics" data-group="primary" data-tab="humanityarray"> {{localize "CPRED.underconstruction"}}
+    <div class="tab cprgraphics" data-group="primary" data-tab="humanityarray">
+      <div class="disclaimer">{{localize "CPRED.underconstruction"}}</div> 
       <div class="grid grid-3col">
         <div class="grid">Total Humanity: {{data.backend.humanityTotal}}</div>
         <div class="grid">Total Positive: {{data.backend.humanityPositive}}</div>
@@ -200,11 +201,16 @@
     {{!-- Biography Tab --}}
     <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="biography"> {{editor content=data.description.biography target="data.description.biography" button=true owner=owner editable=editable}} </div>
     {{!-- Appearance Tab --}}
-    <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="appearance"> <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} </div>
+    <div class="tab roomtoedit cprgraphics" data-group="primary" data-tab="appearance"> 
+      <div class="profile-img-container" data-augmented-ui="br-clip both">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/> 
+      </div>
+      {{editor content=data.description.appearance target="data.description.appearance" button=true owner=owner editable=editable}} 
+    </div>
     {{!-- Attributes and Skills Tab --}}
     <div class="tab cprgraphics" data-group="primary" data-tab="attrnskills">
       <h3>{{localize "CPRED.roleskills"}}</h3>
-      <div class="atrnskill-grid cprgraphics">
+      <div class="atrnskill-grid cprgraphics" data-augmented-ui="tl-clip br-clip both"> 
         <label>{{localize "CPRED.attribute"}}</label>
         <label>{{localize "CPRED.base"}}</label>
         <label>{{localize "CPRED.mod"}}</label>
@@ -335,7 +341,7 @@
         <input type="text" value="-" readonly/>
         {{/if}} </div>
       <h3>{{localize "CPRED.specialattributes"}}</h3>
-      <div class="atrnskill-grid cprgraphics">
+      <div class="atrnskill-grid cprgraphics" data-augmented-ui="tl-clip br-clip both">
         <label>{{localize "CPRED.attribute"}}</label>
         <label>{{localize "CPRED.base"}}</label>
         <label>{{localize "CPRED.mod"}}</label>
@@ -358,7 +364,7 @@
         <input type="number" name="data.combatstats.reputation.value" value="{{data.combatstats.reputation.value}}"/>
       </div>
       <h3>{{localize "CPRED.attributes"}}</h3>
-      <div class="atrnskill-grid cprgraphics">
+      <div class="atrnskill-grid cprgraphics" data-augmented-ui="tl-clip br-clip both">
         <label>{{localize "CPRED.attribute"}}</label>
         <label>{{localize "CPRED.base"}}</label>
         <label>{{localize "CPRED.mod"}}</label>
@@ -374,7 +380,7 @@
       <h3>{{localize "CPRED.skills"}}</h3>
       {{#each data.backend.skillcategories as |item thiscategory|}}
       <h5>{{localize (concat "CPRED." thiscategory)}}</h5>
-      <div class="atrnskill-grid cprgraphics">
+      <div class="atrnskill-grid cprgraphics" data-augmented-ui="tl-clip br-clip both">
         <label>{{localize "CPRED.attribute"}}</label>
         <label>{{localize "CPRED.base"}}</label>
         <label>{{localize "CPRED.mod"}}</label>
@@ -393,7 +399,9 @@
         {{/each}} </div>
       {{/each}} </div>
     {{!-- Combat Setup Tab --}}
-    <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup"> {{localize "CPRED.underconstruction"}}
+    <div class="tab cprgraphics" data-group="primary" data-tab="combatsetup">
+      <div class="disclaimer">{{localize "CPRED.underconstruction"}}</div> 
+      
       <h3>{{localize "CPRED.armorheading"}}</h3>
       <li class="flexrow">
         <div>{{localize "CPRED.name"}}</div>
@@ -498,7 +506,7 @@
     {{!-- Bullet List Indicators for Current HP and Luck --}}
     <ol class="grid grid-2col">
         {{!-- HEALTH POOL START --}}
-        <div class="cprgraphics">
+        <div class="cprgraphics" data-augmented-ui="tl-clip both">
           <h3>{{localize "CPRED.healthpool"}} ({{data.combatstats.healthpool.value}} / {{data.combatstats.healthpool.max}})</h3>
           {{{buildDamageTrack data.combatstats.healthpool.value data.combatstats.healthpool.max}}}<br>
           <ol class="grid grid-8col">
@@ -508,7 +516,7 @@
         {{!-- HEALTH POOL END --}}
         
         {{!-- LUCK POOL START --}}
-        <div class="cprgraphics">
+        <div class="cprgraphics" data-augmented-ui="tr-clip both">
           <h3>{{localize "CPRED.luckpool"}} ({{data.combatstats.luckpool.value}} / {{data.combatstats.luckpool.max}})</h3>
           {{{buildLuckTrack data.combatstats.luckpool.value data.combatstats.luckpool.max}}}<br>
           <ol class="grid grid-4col">
@@ -519,7 +527,7 @@
         
         {{!-- ROLL MODIFIERS START --}}
         {{!-- TODO: To make internal tabs need to override the _onChangeTab(event, tabs, active) method in your sheet class. Check out module/actor/sheet/base.js in the starfinder system. --}}
-        <div class="cprgraphics">
+        <div class="cprgraphics" data-augmented-ui="both">
           <h3>{{localize "CPRED.modsectiontitle"}}</h3>
           {{localize "CPRED.modfinalmod"}} {{data.modifiers.modfinalmod.totalpenalty}}
           <ol class="modlist-grid cpr-center">
@@ -540,7 +548,7 @@
         {{!-- ROLL MODIFIERS END  --}}
         
         {{!-- SPECIAL ROLLS START --}}
-        <div class="cprgraphics">
+        <div class="cprgraphics" data-augmented-ui="br-clip both">
           <h3>{{localize "CPRED.specialrolls"}}</h3>
           <ol class="specialroll-grid">
             <ol class="specialroll-item">
@@ -635,7 +643,7 @@
     {{#if data.settings.showtabs.netrunner}}
     {{!-- Hacking Tab --}}
     <div class="tab cprgraphics" data-group="primary" data-tab="hacking"> <br>
-      {{localize "CPRED.underconstruction"}} <br>
+      <div class="disclaimer">{{localize "CPRED.underconstruction"}}</div> 
       <hr>
       <h3>{{localize "CPRED.actions"}}</h3>
       <label for="Initiative" data-label='{{localize "CPRED.initiative"}}' data-roll="{{rollInitiative}}" class="rollable">{{localize "CPRED.initiative"}}</label>

@@ -1,14 +1,199 @@
-@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+@font-face {
+  /* Downloaded from https://www.futurafree.com/fonts/futura-medium-font-free-download/ */
+  font-family: 'Futura';
+  src: url('/systems/cyberpunkred/fonts/Futura Std Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  /* Downloaded from https://www.futurafree.com/fonts/futura-heavy-font-free-download/ */
+  font-family: 'Futura';
+  src: url('/systems/cyberpunkred/fonts/Futura Std Heavy.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 /* Primary Color Variables: */
 
 :root {
-  --cpr-red-color: #700000; /* var(--cpr-red-color) */
-  --cpr-light-bak-color: #FFFFFF; /* var(--cpr-light-bak-color) */
-  --cpr-app-bak-color: rgba(200,200,200,1.00); /* var(--cpr-app-bak-color) */
-  --cpr-green-color: #18520b; /* var(--cpr-green-color) */
-  --cpr-default-text-size: .90em;
-  --cpr-default-small-text-size: .80em;
+  /****** Save for dark theme later ******
+  --cpr-red-color: #b00; 
+  --cpr-red-accent-color: #f00;
+  --cpr-red-dark-color: #700;
+  --cpr-text-color: #00d8d8;
+  --cpr-white-color: #ddd;
+  --cpr-light-bak-color: #242424; 
+  --cpr-app-bak-color: #181818;
+  --cpr-green-color: #18520b;  
+  */
+  --cpr-default-text-size: 1em;
+  --cpr-default-small-text-size: 0.9em;
+
+  --cpr-red-color: #d5230c; 
+  --cpr-red-accent-color: #f00;
+  --cpr-red-dark-color: #700;
+  --cpr-text-color: #222;
+  --cpr-text-dark-color: #4b4b4b;
+  --cpr-white-color: #000;
+  --cpr-light-bak-color: #e6e7e7; 
+  --cpr-accent-bak-color: #f0c7b8;
+  --cpr-app-bak-color: #f0f0f0;
+  --cpr-green-color: #18520b; 
+}
+
+#combat li.combatant {
+  background-color: var(--cpr-accent-bak-color);
+  color: var(--cpr-text-color);
+}
+
+
+#combat li.combatant.active {
+  background-color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
+}
+
+
+/* General UI styling */
+form .notes, form .hint {
+  color: var(--cpr-text-dark-color);
+}
+
+button, form button, .dialog .dialog-buttons button {
+  background-color: var(--cpr-light-bak-color);
+  border-color: var(--cpr-red-color);
+  color: var(--cpr-text-color);
+}
+
+button:hover, button:focus {
+  box-shadow: 0 0 3px var(--cpr-red-color);
+}
+
+.dialog .dialog-buttons button.default {
+  background-color: var(--cpr-accent-bak-color);
+  border-color: var(--cpr-red-color);
+  color: var(--cpr-text-color);
+}
+
+select, input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"] {
+  background-color: var(--cpr-light-bak-color);
+  border-color: var(--cpr-red-color);
+  color: var(--cpr-text-color);
+}
+
+select:focus, 
+input[type="text"]:focus, 
+input[type="number"]:focus, 
+input[type="password"]:focus,
+input[type="date"]:focus, 
+input[type="time"]:focus {
+  /* TODO: make shadow settings a variable */
+  box-shadow: 0 0 3px var(--cpr-red-color);
+}
+ 
+h2 {
+  font-family: 'Russo One';
+  font-size: 20pt;
+}
+
+#sidebar {
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+#sidebar-tabs {
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+#sidebar-tabs a {
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-border-y: 2px;
+  --aug-border-x: 1px;
+  --aug-tl: 5px;
+  --aug-tr: 5px;
+}
+
+#sidebar.collapsed #sidebar-tabs > .item.active {
+  border-bottom: none;
+  border-radius: none;
+}
+
+#sidebar.collapsed #sidebar-tabs {
+  flex-direction: column;
+}
+
+#sidebar.collapsed #sidebar-tabs a {
+  --aug-tl: 0px;
+  --aug-tr: 0px;
+}
+
+#sidebar.collapsed #sidebar-tabs a:first-child {
+  --aug-tl: 5px;
+  --aug-tr: 5px;
+}
+
+#sidebar-tabs a.item {
+  background-color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
+  border-radius: 0;
+  flex: 1;
+}
+
+#sidebar-tabs a.item:hover, #sidebar-tabs >.collapse:hover {
+  color: var(--cpr-accent-bak-color);
+}
+
+#sidebar-tabs a.item:first-child {
+  --aug-tl: 0px;
+  --aug-border-left: 2px;
+}
+
+#sidebar-tabs > .item.active {
+  border: none;
+  box-shadow: none;
+}
+
+#sidebar-tabs > .collapse {
+  background-color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-border-all: 1px;
+  --aug-tr: 0px;
+  --aug-border-right: 2px;
+}
+
+#sidebar .sidebar-tab {
+  background: var(--cpr-app-bak-color);
+  border: 3px solid;
+  border-top: 1px;
+  border-color: var(--cpr-red-color);
+}
+
+#chat-controls select.roll-type-select {
+  background: var(--cpr-light-bak-color);
+  color: var(--cpr-text-color);
+}
+
+#chat-form > textarea:focus {
+  outline: none;
+  box-shadow: 0 0 3px var(--cpr-red-color) !important;
+}
+
+#chat-form #chat-message {
+  background: var(--cpr-light-bak-color);
+  border-color: var(--cpr-red-color);
+  box-shadow: none;
+}
+
+.setcurrenthealth {
+  color: var(--cpr-red-color);
 }
 
 /* Roll Template */
@@ -26,7 +211,6 @@ span.part-formula {
   font-size: 1.5em;
   border-bottom: 2px solid var(--cpr-red-color);
 }
-
 
 .cpr-roll-flavor {
   font-size: .8em;
@@ -55,7 +239,8 @@ span.part-formula {
 }
 
 .cpr-roll-showtagslink {
-  font-size: .5em;
+  font-size: 0.8em;
+  text-decoration: underline;
 }
 
 .cpr-roll-crit-success {
@@ -121,24 +306,111 @@ span.part-formula {
 
 /* Set default font */
 .window-app {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Futura', sans-serif;
+  font-size: var(--cpr-default-text-size);
+}
+
+.window-app .window-header {
+  border: none;
+  background-color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
+  border-radius: 5px 5px 0 0;
+}
+
+.window-app .window-resizable-handle {
+  background-color: var(--cpr-red-color);
+  border-color: var(--cpr-red-accent-color);
+  color: var(--cpr-app-bak-color);
+}
+
+.window-app .window-resizable-handle:hover {
+  color: var(--cpr-accent-bak-color); 
+} 
+
+.window-app .window-content {
+  background: none;
+  background-color: var(--cpr-app-bak-color);
+  color: var(--cpr-text-color); 
+}
+
+.window-app .disclaimer {
+  font-size: 0.8em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
 }
 
 /* Add graphical border around this block */
-.cyberpunkred .cprgraphics, #chat-log .message {
-  border: 10px ridge #FF1010;
-	border-image-source: url("crredborder.jpg?ver1"); /* source url */
-	border-image-source: url("crredborder.jpg?ver1"); /* source url */
-	border-image-slice: 17 0 17 9;
-	border-image-width: 17px 0px 17px 9px;
-	border-image-outset: 0px;
-	border-image-repeat: stretch;
-  background: white;
-  color: var(--cpr-red-color);
-  padding-top: 5px !important;
-  padding-bottom: 3px !important; 
-  box-sizing: border-box;
-  image-rendering: crisp-edges;
+.cyberpunkred .cprgraphics {
+  font-family: "Futura";
+  border: none;
+  background: var(--cpr-app-bak-color);
+  color: var(--cpr-text-color);
+  padding: 5px 10px 10px 10px;
+
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-border-y: 1px;
+  --aug-border-x: 1px;
+
+  --aug-inlay: initial;
+  --aug-inlay-bg: var(--cpr-light-bak-color);
+
+  --aug-tl: 5px;
+  --aug-tr: 5px;
+  --aug-bl: 5px;
+  --aug-br: 5px;
+}
+
+#chat-log .message, #chat-log .message .whisper {
+  font-family: "Futura";
+  border: none;
+  background: var(--cpr-app-bak-color);
+  color: var(--cpr-text-color);
+  padding: 5px 10px 10px 10px;
+
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-border-y: 1px;
+  --aug-border-left: 0px;
+  --aug-border-right: 1px;
+
+  --aug-inlay: initial;
+  --aug-inlay-bg: var(--cpr-light-bak-color);
+
+  --aug-br: 5px;
+  --aug-br-inset1: 8%;
+}
+
+#chat-log .chat-message {
+  padding-left: 3px;
+  padding-right: 4px;
+  padding-top: 3px;
+}
+
+#chat-log .whisper {
+  --aug-inlay-bg: var(--cpr-accent-bak-color);
+}
+
+#chat-log .message-header {
+  background-color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#chat-log .message-sender, #chat-log .message-metadata {
+  font-family: "Futura";
+  font-weight: bold;
+}
+
+#chat-log .message-content {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+#chat-log i.fas.fa-trash::before {
+  color: var(--cpr-red-accent-color);
+  background: var(--cpr-light-bak-color);
 }
 
 /* Redefine look of screen elements */
@@ -152,14 +424,23 @@ span.part-formula {
 }
 
 .app {
-  background: var(--cpr-app-bak-color);
+  background: none;
+  background-color: var(--cpr-app-bak-color);
   color: var(--cpr-red-color);
+  box-shadow: 0 0 10px var(--cpr-red-color);
+  padding: 0 !important;
 }
 
-#sidebar-tabs > .item.active, #sidebar-tabs > .item, #players {
+#sidebar-tabs > .item, #players {
   color: var(--cpr-red-color);
   border: 1px solid var(--cpr-red-color);
   background: var(--cpr-app-bak-color);
+}
+
+#sidebar-tabs > .item.active {
+  color: var(--cpr-red-accent-color);
+  border-color: var(--cpr-red-accent-color);
+  background-color: var(--cpr-light-bak-color);
 }
 
 .button {
@@ -167,12 +448,41 @@ span.part-formula {
   color: var(--cpr-red-color);
 }
 
+.sidebar-tab .directory-list .directory-item {
+  color: var(--cpr-app-bak-color);
+  background: var(--cpr-red-color);
+}
+
 .sidebar-tab .directory-list .entity {
+  border-color: var(--cpr-accent-bak-color);
+}
+
+li.folder.collapsed > .folder-header {
+  color:  var(--cpr-text-color);
+}
+
+li.folder > .folder-header h3 {
+  color:  var(--cpr-text-color);
+}
+
+li.folder > .folder-header .create-folder {
+  color: var(--cpr-text-color);
+}
+
+li.folder > .folder-header .create-entity {
+  color: var(--cpr-text-color);
+}
+
+.directory-list .entity {
   background: var(--cpr-app-bak-color);
 }
 
+.subdirectory {
+  border-color: var(--cpr-app-bak-color);
+}
+
 #playlists li.playlist .sound-control {
-  color: var(--cpr-red-color);
+  color: var(--cpr-app-bak-color);
 }
 
 /* Make sure this block has room to edit */
@@ -200,33 +510,33 @@ span.part-formula {
 /* General Style Elements */
 
 .cyberpunkred h1 {
+  font-family: 'Russo One', sans-serif;
   display: block;
   font-size: 2.15em;
   margin-block-start: 5px;
   margin-block-end: 0px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
 }
 
 .cyberpunkred h2 {
+  font-family: 'Russo One', sans-serif;
   display: block;
   font-size: 1.75em;
-  margin-block-start: 5px;
-  margin-block-end: 0px;
+  margin-block-start: 1px;
+  margin-block-end: 4px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
 }
 
 .cyberpunkred h3 {
+  font-family: 'Russo One', sans-serif;
   display: block;
   font-size: 1.15em;
-  margin-block-start: 5px;
-  margin-block-end: 0px;
+  margin-block-start: 2px;
+  margin-block-end: 3px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold;
 }
 
 .cyberpunkred h4 {
@@ -260,7 +570,6 @@ span.part-formula {
   grid-column: 1 / span 2;
   grid-row: 1;
   border: none;
-  border-bottom: 1px solid #AAA;
   padding: 3px;
 }
 .cyberpunkred .cpr-nav {
@@ -271,7 +580,6 @@ span.part-formula {
   grid-template-columns: auto;
   grid-template-rows: auto;
   align-content: start;
-  border-right: 1px solid #AAA;
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
 }
@@ -286,44 +594,32 @@ span.part-formula {
 
 /* Navigation grid styles */
 .cyberpunkred .cpr-nav .cpr-nav-item {
-  justify-self: start;
-  display: block;
-  height: 25px;
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-  overflow: visible;
-  white-space: nowrap;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
 }
+
 .cyberpunkred .cpr-nav .cpr-nav-item .item {
-  font-weight: normal;
-  display: block;
-  width: 100%;
-  padding: 5px 5px 5px 5px;
-  margin: 0px;
-  height: 25px;
-  background: var(--cpr-light-bak-color);
-  border-left: 1px solid var(--cpr-red-color);
-  border-top: 1px solid var(--cpr-red-color);
-  border-bottom: 1px solid var(--cpr-red-color);
-  border-radius: 10px 0px 0px 0px;
-  font-size: var(--cpr-default-text-size);
-  white-space: nowrap;
+  color: var(--cpr-text-color);
+  font-size: 0.9em;
+  padding: 4px 4px 4px 8px;
+  margin: 0 0 2px 0;
+  flex: 1;
+
+  --aug-br: 5px;
+  --aug-border-y: 1px;
+  --aug-border-left: 3px;
+  --aug-border-right: 1px;
+  --aug-border-bg: var(--cpr-red-color);
+
+  --aug-inlay-bg: var(--cpr-light-bak-color);
 }
-.cyberpunkred .cpr-nav .cpr-nav-item .item.active {
-  text-decoration: underline;
+
+.cyberpunkred .cpr-nav .cpr-nav-item .item.active, .cyberpunkred .cpr-nav .cpr-nav-item .item:hover {
+  color: var(--cpr-red-color);
   text-shadow: none;
-  font-weight: bold;
-  padding: 5px 5px 5px 5px;
-  margin: 0px;
-  height: 25px;
-  background: linear-gradient(#D0D0D0,#E0E0E0);
-  border-left: 1px solid var(--cpr-red-color);
-  border-top: 1px solid var(--cpr-red-color);
-  border-bottom: 1px solid var(--cpr-red-color);
-  border-radius: 10px 0px 0px 0px;
-  font-size: var(--cpr-default-text-size);
+  --aug-inlay-bg: var(--cpr-accent-bak-color);
 }
 
 /* General code for hover indications of rollable and clickable */
@@ -349,16 +645,6 @@ span.part-formula {
 .cyberpunkred .npcrollable:hover, .cyberpunkred .npcrollable:focus, .cyberpunkred .rollable:hover, .cyberpunkred .rollable:focus, .cyberpunkred .clickable:focus, .cyberpunkred .clickable:hover, .cyberpunkred .cpr-nav .cpr-nav-item .item:hover, .cpr-roll-showtagslink:hover {
   color: var(--cpr-red-color);
   cursor: pointer;
-  text-shadow:
-    0 0 1px #fff,
-    0 0 2px #fff,
-    0 0 3px #fff,
-    0 0 4px #f00,
-    0 0 5px #f00,
-    0 0 6px #f00,
-    0 0 70px #f00,
-    0 0 8px #f00;
-
 }
 
 /* Welcome and Conversion Status Grid */
@@ -425,12 +711,18 @@ span.part-formula {
 .cyberpunkred .atrnskill-grid {
   display: grid;
   grid-row-gap: 5px;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 5px;
   grid-template-columns: 200px 50px 50px 50px 50px;
   align-items: center;
   justify-items: left;
   font-size: var(--cpr-default-text-size);
+
+  --aug-border-left: 1px;
+  --aug-br-inset1: 0%;
+
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-tl: 5px;
 }
 .cyberpunkred .atrnskill-grid input {
   text-align: center;
@@ -738,7 +1030,108 @@ span.part-formula {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
+/* Redefine general sheet styling with Augmented-UI */
+/* TODO: move this new stuff to more logical areas of the CSS */
 
+.window-title {
+  font-family: 'Futura', sans-serif;
+  font-weight: bold;
+}
+
+header.window-header {
+  color: var(--cpr-white-color);
+}
+
+header.sheet-header {
+  color: var(--cpr-red-accent-color);
+}
+
+.sheet header.sheet-header img {
+  border: none;
+  background: none;
+}
+
+.sheet header.sheet-header .profile-img-container, .profile-img-container { 
+  --aug-border-all: 1px;
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-inlay-bg: var(--cpr-accent-bak-color);
+  padding: 6px 1px 4px 4px;
+  flex: none;
+  display: inline-block;
+  --aug-br: 10px;
+}
+
+img.profile-img {
+  border: none;
+}
+
+.sheet nav.sheet-tabs {
+  border-top: none;
+  border-bottom: none;
+}
+
+.sheet input, .sheet select {
+  font-family: 'Futura', sans-serif;
+  color: var(--cpr-text-color);
+  background-color: var(--cpr-light-bak-color);
+  border-color: var(--cpr-red-color);
+  outline-color: var(--cpr-red-color);
+}
+
+.sheet header.sheet-header h1 input {
+  font-family: 'Russo One', sans-serif;
+  background-color: var(--cpr-app-bak-color);
+  border-color: var(--cpr-app-bak-color);
+  margin-left: 3px;
+}
+
+.sheet header.sheet-header h1 input:hover {
+  border: 1px solid var(--cpr-red-color)
+}
+
+.editor-edit {
+  background: var(--cpr-light-bak-color);
+  border-color: var(--cpr-red-accent-color);
+}
+
+.sheet input:focus {
+  background-color: var(--cpr-app-bak-color);
+}
+
+.sheet header {
+  padding-bottom: 1em;
+}
+
+.sheet nav.sheet-tabs .item {
+  color: var(--cpr-text-color);
+  margin-left: 5px;
+  margin-right: 5px;
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-border-y: 1px;
+  --aug-border-right: 1px;
+  --aug-border-left: 5px;
+  --aug-border: initial;
+  --aug-inlay-bg: var(--cpr-light-bak-color);
+  --aug-inlay-all: 2px;
+  --aug-br1: 6px;
+  --aug-tr: 3px;
+  --aug-tr-inset2: 80%;
+}
+
+.sheet nav.sheet-tabs .item:hover, .sheet nav.sheet-tabs .item.active {
+  --aug-border-bg: var(--cpr-red-color);
+  --aug-inlay-bg: var(--cpr-accent-bak-color);
+  text-shadow: none;
+  color: var(--cpr-red-color);
+}
+
+.sheet nav.sheet-tabs .item:first-child {
+  margin-left: 0px;
+}
+
+.sheet nav.sheet-tabs .item:last-child {
+  margin-right: 0px;
+}
 
 /* NPC Sheet*/
 .cyberpunkred .npc-buttonlabel {
@@ -811,9 +1204,11 @@ span.part-formula {
 
 /* Legacy CSS left over from Boilerplate */
 .cyberpunkred .tox .tox-editor-container {
-  background: #fff;
+  background: var(--cpr-app-bak-color);
 }
+
 .cyberpunkred .tox .tox-edit-area {
+  color: var(--cpr-text-color);
   padding: 0 8px;
 }
 

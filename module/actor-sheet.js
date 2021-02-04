@@ -18,7 +18,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["cyberpunkred", "sheet", "actor"],
-      template: "systems/cyberpunkred/templates/actor/actor-sheet.html",
+      template: "systems/cyberpunkred/templates/actor/actor-sheet.hbs",
       width: 600,
       height: 600,
       tabs: [{
@@ -33,7 +33,7 @@ export class cyberpunkredActorSheet extends ActorSheet {
   get template() {
     const path = "systems/cyberpunkred/templates/actor";
     // Unique actor sheet by type, like `character-sheet.html`.
-    return `${path}/actor-${this.actor.data.type}-sheet.html`;
+    return `${path}/actor-${this.actor.data.type}-sheet.hbs`;
   }
   /* -------------------------------------------- */
 
